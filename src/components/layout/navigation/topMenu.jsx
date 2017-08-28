@@ -18,17 +18,16 @@ class TopMenu extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <Navbar className="navbar-expand-lg" color="faded" light toggleable>
         <NavbarToggler right onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav navbar>
             <NavItem className='custom-nav-link'>
-              <NavLink href="/components/">Главная</NavLink>
+              <NavLink href="/">Главная</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/components/">Технологии</NavLink>
+              <NavLink href="/2-page">Технологии</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/components/">Стоимость</NavLink>
