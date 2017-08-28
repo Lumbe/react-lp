@@ -1,6 +1,7 @@
 import React from 'react'
 import {Navbar, NavbarToggler, NavbarBrand, Collapse, Nav, NavItem, NavLink} from 'reactstrap'
 import './topMenu.css'
+import {Link} from 'react-router-dom'
 
 class TopMenu extends React.Component {
   constructor(props) {
@@ -20,27 +21,27 @@ class TopMenu extends React.Component {
   render() {
     return (
       <Navbar className="navbar-expand-lg" color="faded" light toggleable>
-        <NavbarToggler right onClick={this.toggle} />
+        <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav navbar>
             <NavItem className='custom-nav-link'>
-              <NavLink href="/">Главная</NavLink>
+              <NavLink tag={Link} to="/" active>Главная</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/2-page">Технологии</NavLink>
+              <NavLink tag={Link} to="/2-page" >Технологии</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/components/">Стоимость</NavLink>
+              <NavLink tag={Link} to="/components/">Стоимость</NavLink>
             </NavItem>
-            <NavbarBrand href="/">Сервус Винница</NavbarBrand>
+            <NavbarBrand tag={Link} to="/">Сервус Винница</NavbarBrand>
             <NavItem>
-              <NavLink href="/components/">Проекты</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/components/">Портфолио</NavLink>
+              <NavLink tag={Link} to="/components/">Проекты</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/components/">Контакты</NavLink>
+              <NavLink tag={Link} to="/components/">Портфолио</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={Link} to="/components/">Контакты</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
