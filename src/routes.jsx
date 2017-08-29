@@ -1,12 +1,12 @@
 import React from 'react'
 import {Switch, BrowserRouter} from 'react-router-dom'
-import asyncComponent from "./components/asyncComponent";
+// import asyncComponent from "./components/asyncComponent";
+import MyLoadable from './components/common/myLoadable';
 import LandingLayout from './components/layout/landingLayout'
 
-const AsyncFirstPage = asyncComponent(() => import('./components/firstPage/firstPage'));
-const AsyncSecondPage = asyncComponent(() => import('./components/secondPage/secondPage'));
-const AsyncNotFound = asyncComponent(() => import('./components/error/notFound'));
-
+const AsyncFirstPage = MyLoadable({ loader: () => import('./components/firstPage/firstPage') });
+const AsyncSecondPage = MyLoadable({ loader: () => import('./components/secondPage/secondPage') });
+const AsyncNotFound = MyLoadable({ loader: () => import('./components/error/notFound') });
 
 class Routes extends React.Component {
   render() {
