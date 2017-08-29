@@ -1,7 +1,7 @@
 import React from 'react'
-import {Navbar, NavbarToggler, NavbarBrand, Collapse, Nav, NavItem, NavLink} from 'reactstrap'
 import './topMenu.css'
-import {Link} from 'react-router-dom'
+import {Navbar, Nav, NavItem} from 'react-bootstrap'
+import {IndexLinkContainer, LinkContainer} from "react-router-bootstrap";
 
 class TopMenu extends React.Component {
   constructor(props) {
@@ -20,32 +20,31 @@ class TopMenu extends React.Component {
 
   render() {
     return (
-      <Navbar className="navbar-expand-lg" color="faded" light toggleable>
-        <NavbarToggler onClick={this.toggle} />
-        <Collapse isOpen={this.state.isOpen} navbar>
-          <Nav navbar>
-            <NavItem className='custom-nav-link'>
-              <NavLink tag={Link} to="/" active>Главная</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} to="/2-page" >Технологии</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} to="/components/">Стоимость</NavLink>
-            </NavItem>
-            <NavbarBrand tag={Link} to="/">Сервус Винница</NavbarBrand>
-            <NavItem>
-              <NavLink tag={Link} to="/components/">Проекты</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} to="/components/">Портфолио</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} to="/components/">Контакты</NavLink>
-            </NavItem>
+        <Navbar>
+          <Nav>
+            <IndexLinkContainer className="custom-nav-link" to="/">
+              <NavItem eventKey={1}>Главная</NavItem>
+            </IndexLinkContainer>
+            <LinkContainer to="/2-page">
+              <NavItem eventKey={2}>Технологии</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/components">
+              <NavItem eventKey={3}>Стоимость</NavItem>
+            </LinkContainer>
+            <Navbar.Brand>
+              <a>React-Bootstrap</a>
+            </Navbar.Brand>
+            <LinkContainer to="/components">
+              <NavItem eventKey={4}>Проекты</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/components">
+              <NavItem eventKey={5}>Портфолио</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/components">
+              <NavItem eventKey={6}>Контакты</NavItem>
+            </LinkContainer>
           </Nav>
-        </Collapse>
-      </Navbar>
+        </Navbar>
     )
   }
 }

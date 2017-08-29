@@ -1,13 +1,14 @@
 import React from 'react'
-import {Container} from 'reactstrap'
+// import {Container} from 'reactstrap'
+import {Grid} from 'react-bootstrap';
 
 class Page extends React.Component {
 
   render() {
     return (
-      <Container className='page'>
+      <Grid className='page'>
         {this.props.children}
-      </Container>
+      </Grid>
     )
   }
 }
