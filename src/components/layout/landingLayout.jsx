@@ -4,6 +4,7 @@ import {Route} from 'react-router-dom'
 import Header from './header/header'
 import Page from './page'
 // import Footer from './footer'
+import VerticalMenu from './navigation/verticalMenu'
 
 class LandingLayout extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class LandingLayout extends React.Component {
       <div>
         <Header/>
         <Page/>
+          <VerticalMenu/>
           <Component {...matchProps} />
         <Page/>
       </div>

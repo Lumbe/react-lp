@@ -28,19 +28,19 @@ class TopMenu extends React.Component {
             <LinkContainer to="/2-page">
               <NavItem eventKey={2}>Технологии</NavItem>
             </LinkContainer>
-            <LinkContainer to="/components">
+            <LinkContainer to="/3-page">
               <NavItem eventKey={3}>Стоимость</NavItem>
             </LinkContainer>
             <Navbar.Brand>
               <a>React-Bootstrap</a>
             </Navbar.Brand>
-            <LinkContainer to="/components">
+            <LinkContainer to="/4-page">
               <NavItem eventKey={4}>Проекты</NavItem>
             </LinkContainer>
-            <LinkContainer to="/components">
+            <LinkContainer to="/5-page">
               <NavItem eventKey={5}>Портфолио</NavItem>
             </LinkContainer>
-            <LinkContainer to="/components">
+            <LinkContainer to="/6-page">
               <NavItem eventKey={6}>Контакты</NavItem>
             </LinkContainer>
           </Nav>
