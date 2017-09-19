@@ -13,7 +13,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <header className='d-md-flex justify-content-center'>
+      <header>
         <TopMenu/>
       </header>
     )

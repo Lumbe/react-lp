@@ -20,8 +20,11 @@ class TopMenu extends React.Component {
 
   render() {
     return (
-        <Navbar>
+        <Navbar className='flex-navbar'>
           <Nav>
+            <Navbar.Brand>
+              <a>React-Bootstrap</a>
+            </Navbar.Brand>
             <IndexLinkContainer className="custom-nav-link" to="/">
               <NavItem eventKey={1}>Главная</NavItem>
             </IndexLinkContainer>
@@ -31,9 +34,6 @@ class TopMenu extends React.Component {
             <LinkContainer to="/3-page">
               <NavItem eventKey={3}>Стоимость</NavItem>
             </LinkContainer>
-            <Navbar.Brand>
-              <a>React-Bootstrap</a>
-            </Navbar.Brand>
             <LinkContainer to="/4-page">
               <NavItem eventKey={4}>Проекты</NavItem>
             </LinkContainer>
