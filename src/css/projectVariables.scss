@@ -28,23 +28,75 @@ $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !def
 $font-family-base:        $font-family-sans-serif;
 
 $font-size-base:          16px;
-$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+$font-size-large:         ceil(($font-size-base * 1.25)); // ~20px
+$font-size-small:         ceil(($font-size-base * 0.85)); // ~14px
 
-$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
-$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
-$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
-$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-h5:            $font-size-base !default;
-$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
-
-//** Unit-less `line-height` for use in components like buttons.
-$line-height-base:        1.428571429 !default; // 20/14
-//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+$font-size-h1:            floor(($font-size-base * 2.65)); // ~42px
+$font-size-h2:            floor(($font-size-base * 2.15)); // ~34px
+$font-size-h3:            ceil(($font-size-base * 1.7)); // ~28px
+$font-size-h4:            ceil(($font-size-base * 1.25)); // ~20px
+$font-size-h5:            $font-size-base; //16px
+$font-size-h6:            ceil(($font-size-base * 0.85)); // ~14px
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    "Proxima Nova", sans-serif;
 $headings-font-weight:    500;
 $headings-line-height:    1.1;
-$headings-color:          inherit;
+$headings-color:          #333333;
+
+//** Global color for active items (e.g., navs or dropdowns).
+$component-active-color:   #5aa14f;
+//** Global background color for active items (e.g., navs or dropdowns).
+$component-active-bg:      #333333;
+
+
+//== Navbar
+//
+//##
+
+// Basics of a navbar
+$navbar-height:                    100px;
+$navbar-margin-bottom:             $line-height-computed !default;
+$navbar-border-radius:             $border-radius-base !default;
+$navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
+$navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2);
+$navbar-collapse-max-height:       340px !default;
+
+$navbar-default-color:             #cecece;
+$navbar-default-bg:                transparent;
+$navbar-default-border:            transparent;
+
+// Navbar links
+$navbar-default-link-color:                #333333;
+$navbar-default-link-hover-color:          #5aa14f;
+$navbar-default-link-hover-bg:             transparent;
+$navbar-default-link-active-color:         #5aa14f;
+$navbar-default-link-active-bg:            transparent;
+$navbar-default-link-disabled-color:       #ccc !default;
+$navbar-default-link-disabled-bg:          transparent !default;
+
+// Navbar brand label
+$navbar-default-brand-color:               $navbar-default-link-color !default;
+$navbar-default-brand-hover-color:         darken($navbar-default-brand-color, 10%) !default;
+$navbar-default-brand-hover-bg:            transparent !default;
+
+// Navbar toggle
+$navbar-default-toggle-hover-bg:           #ddd !default;
+$navbar-default-toggle-icon-bar-bg:        #888 !default;
+$navbar-default-toggle-border-color:       #ddd !default;
+
+
+//=== Inverted navbar
+// Reset inverted navbar basics
+$navbar-inverse-color:                      #cecece;
+$navbar-inverse-bg:                         transparent;
+$navbar-inverse-border:                     transparent;
+
+// Inverted navbar links
+$navbar-inverse-link-color:                 #cecece;
+$navbar-inverse-link-hover-color:           #5aa14f;
+$navbar-inverse-link-hover-bg:              transparent;
+$navbar-inverse-link-active-color:          #5aa14f;
+$navbar-inverse-link-active-bg:             transparent;
+$navbar-inverse-link-disabled-color:        #444 !default;
+$navbar-inverse-link-disabled-bg:           transparent !default;
