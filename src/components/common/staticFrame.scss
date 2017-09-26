@@ -46,15 +46,25 @@
   left: 3.7%;
   top: 50%;
   width: 50px;
+  color: #737a88;
+}
+
+body.bg-dark .social-media {
   color: #47993a;
 }
 
 .social-media .social-item {
-  background: rgba(38, 46, 61, 0.72);
+  background: rgb(230, 232, 238);
   width: 40px;
   height: 40px;
+  border: 1px solid rgb(212, 217, 228);
   border-radius: 50%;
   margin-bottom: 10px;
+}
+
+body.bg-dark .social-media .social-item {
+  background: rgba(38, 46, 61, 0.72);
+  border: none;
 }
 
 .social-media > .social-item.facebook > i {
@@ -68,20 +78,34 @@
 }
 
 .social-media > .social-item.youtube > i {
+  padding-top: 12px;
+  padding-left: 9px;
+}
+
+body.bg-dark .social-media > .social-item.youtube > i {
   padding-top: 13px;
   padding-left: 10px;
 }
 
-// Callback bottom button
+// Phone number
 
 .phone-number {
   position: absolute;
   left: 23%;
   bottom: 5.5%;
-  background: rgba(35, 43, 56, 0.59);
-  border: 1px solid rgb(37, 45, 57);
+  background-color: rgb(230,232,238);
+  border: 1px solid rgb(212,217,228);
   border-radius: 30px;
   padding: 5px 20px;
+}
+
+.phone-number h4 {
+  color: #737a88;
+}
+
+body.bg-dark .phone-number {
+  background: rgba(35, 43, 56, 0.59);
+  border: 1px solid rgb(37, 45, 57);
 }
 
 .phone-number h4 {
@@ -89,7 +113,16 @@
 }
 
 .phone-number h4 span {
+  color: #9ba4b5;
+}
+
+body.bg-dark .phone-number h4 span {
   color: #8d98ae;
+}
+
+// Callback bottom button
+.btn.callback-button:focus {
+  outline: none;
 }
 
 .callback-button {
@@ -97,9 +130,14 @@
   right: 23%;
   bottom: 5.5%;
   padding: 15px 20px 15px 55px;
+  background-color: #e6e8ee;
+  border: 1px solid #d4d9e4;
+  border-radius: 30px;
+}
+
+body.bg-dark .callback-button {
   background: rgba(80, 170, 67, 0.59);
   border: 1px solid rgb(83, 175, 69);
-  border-radius: 30px;
 }
 
 .callback-button .bg-phone {
@@ -113,9 +151,13 @@
   text-align: left;
 }
 
-.callback-button > .callback-text {
+.callback-button .callback-text {
   position: relative;
   z-index: 10;
+  color: #737a88;
+}
+
+body.bg-dark .callback-button .callback-text {
   color: #fefefe;
 }
 
@@ -129,9 +171,15 @@
 .callback-button:hover .bg-phone,
 .callback-button:focus .bg-phone,
 .callback-button:active .bg-phone {
-  //color: #fefefe;
   width: 94%;
   border-radius: 20px;
+}
+
+.callback-button:hover .callback-text,
+.callback-button:focus .callback-text,
+.callback-button:active .callback-text {
+  color: #fefefe;
+
 }
 
 // next page pointer
@@ -143,9 +191,13 @@
   width: 50px;
   height: 50px;
   border: 1px solid rgb(83, 175, 69);
-  opacity: 0.7;
+  opacity: 0.55;
   border-radius: 50%;
   background-color: rgba(80, 170, 67, 0.2);
+}
+
+body.bg-dark .next-page {
+  opacity: 0.7;
 }
 
 .next-page i {
@@ -155,6 +207,11 @@
 }
 
 .next-page:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+body.bg-dark .next-page:hover {
   cursor: pointer;
   opacity: 1;
 }
