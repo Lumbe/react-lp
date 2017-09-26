@@ -13,9 +13,9 @@ class Routes extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <LandingLayout exact path="/" component={AsyncFirstPage}/>
-          <LandingLayout exact path="/2-page" component={AsyncSecondPage}/>
-          <LandingLayout component={AsyncNotFound}/>
+          <LandingLayout exact path="/" inverse={true} component={AsyncFirstPage}/>
+          <LandingLayout exact path="/2-page" inverse={false} component={AsyncSecondPage}/>
+          <LandingLayout inverse={false} component={AsyncNotFound}/>
         </Switch>
       </BrowserRouter>
     )

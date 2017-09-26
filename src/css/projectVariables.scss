@@ -1,6 +1,8 @@
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/_variables';
-@import '/fonts/museoSans/stylesheet.css';
-@import '/fonts/proximaNova/stylesheet.css';
+//@import 'font-awesome/scss/font-awesome.scss';
+@import 'fonts/museoSans/stylesheet.css';
+@import 'fonts/proximaNova/stylesheet.css';
+
 
 //== Colors
 //
@@ -42,7 +44,7 @@ $font-size-h6:            ceil(($font-size-base * 0.85)); // ~14px
 $headings-font-family:    "Proxima Nova", sans-serif;
 $headings-font-weight:    500;
 $headings-line-height:    1.1;
-$headings-color:          #333333;
+//$headings-color:          #333333;
 
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color:   #5aa14f;
@@ -88,15 +90,52 @@ $navbar-default-toggle-border-color:       #ddd !default;
 
 //=== Inverted navbar
 // Reset inverted navbar basics
-$navbar-inverse-color:                      #cecece;
+$navbar-inverse-color:                      #d2d7e0;
 $navbar-inverse-bg:                         transparent;
 $navbar-inverse-border:                     transparent;
 
 // Inverted navbar links
-$navbar-inverse-link-color:                 #cecece;
+$navbar-inverse-link-color:                 #d2d7e0;
 $navbar-inverse-link-hover-color:           #5aa14f;
 $navbar-inverse-link-hover-bg:              transparent;
 $navbar-inverse-link-active-color:          #5aa14f;
 $navbar-inverse-link-active-bg:             transparent;
 $navbar-inverse-link-disabled-color:        #444 !default;
 $navbar-inverse-link-disabled-bg:           transparent !default;
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-font-weight:                normal !default;
+
+$btn-default-color:              #333 !default;
+$btn-default-bg:                 #fff !default;
+$btn-default-border:             #ccc !default;
+
+$btn-primary-color:              #fff !default;
+$btn-primary-bg:                 $brand-primary !default;
+$btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+
+$btn-success-color:              #fff !default;
+$btn-success-bg:                 $brand-success !default;
+$btn-success-border:             darken($btn-success-bg, 5%) !default;
+
+$btn-info-color:                 #fff !default;
+$btn-info-bg:                    $brand-info !default;
+$btn-info-border:                darken($btn-info-bg, 5%) !default;
+
+$btn-warning-color:              #fff !default;
+$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-border:             darken($btn-warning-bg, 5%) !default;
+
+$btn-danger-color:               #fff !default;
+$btn-danger-bg:                  $brand-danger !default;
+$btn-danger-border:              darken($btn-danger-bg, 5%) !default;
+
+$btn-link-disabled-color:        $gray-light !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius-base:         $border-radius-base !default;
+$btn-border-radius-large:        $border-radius-large !default;
+$btn-border-radius-small:        $border-radius-small !default;

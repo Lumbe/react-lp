@@ -1,0 +1,130 @@
+.top-frame {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  height: 10%;
+  border: 2px solid #8b8e95;
+  border-bottom: none;
+  opacity: 0.2;
+}
+
+.frame-title {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+}
+
+.bottom-left-frame {
+  position: absolute;
+  left: 5%;
+  bottom: 8%;
+  width: 15%;
+  height: 10%;
+  border: 2px solid #8b8e95;
+  border-top: none;
+  border-right: none;
+  opacity: 0.2;
+}
+
+.bottom-right-frame {
+  position: absolute;
+  right: 5%;
+  bottom: 8%;
+  width: 15%;
+  height: 10%;
+  border: 2px solid #8b8e95;
+  border-top: none;
+  border-left: none;
+  opacity: 0.2;
+}
+
+.social-media {
+  position: absolute;
+  left: 3.7%;
+  top: 50%;
+  width: 50px;
+  color: #47993a;
+}
+
+.social-media .social-item {
+  background: rgba(38, 46, 61, 0.72);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.social-media > .social-item.facebook > i {
+  padding-top: 13px;
+  padding-left: 13px;
+}
+
+.social-media > .social-item.instagram > i {
+  padding-top: 12px;
+  padding-left: 11px;
+}
+
+.social-media > .social-item.youtube > i {
+  padding-top: 13px;
+  padding-left: 10px;
+}
+
+.phone-number {
+  position: absolute;
+  left: 23%;
+  bottom: 5.5%;
+  background: rgba(35, 43, 56, 0.59);
+  border: 1px solid rgb(37, 45, 57);
+  border-radius: 30px;
+  padding: 5px 20px;
+}
+
+.phone-number h4 {
+  font-weight: 700;
+}
+
+.phone-number h4 span {
+  color: #8d98ae;
+}
+
+.callback-button {
+  position: absolute;
+  right: 23%;
+  bottom: 5.5%;
+  padding: 15px 20px 15px 55px;
+  background: rgba(80, 170, 67, 0.59);
+  border: 1px solid rgb(83, 175, 69);
+  border-radius: 30px;
+}
+
+.callback-button .bg-phone {
+  top: 12%;
+  left: 3%;
+  position:absolute;
+  width: 40px;
+  height: 40px;
+  background-image: linear-gradient(-90deg, rgb(89,186,74) 0%, rgb(69,150,56) 100%);
+  border-radius: 50%;
+  text-align: left;
+}
+
+.callback-button > .callback-text {
+  position: relative;
+  z-index: 10;
+  color: #fefefe;
+}
+
+.callback-button .bg-phone i {
+  position: relative;
+  padding-top: 13px;
+  padding-left: 12px;
+  color: #fefefe;
+}
+
+.callback-button:hover .bg-phone,
+.callback-button:focus .bg-phone,
+.callback-button:active .bg-phone {
+  //color: #fefefe;
+  width: 94%;
+  border-radius: 20px;
+}

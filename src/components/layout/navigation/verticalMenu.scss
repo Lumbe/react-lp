@@ -1,6 +1,9 @@
 .vertical-menu {
-  max-width: 100px;
-  margin-right: 50px;
+  position: absolute;
+  top: 25%;
+  right: 4.6%;
+  //max-width: 100px;
+  //margin-right: 50px;
 }
 
 .nav.vertical-menu > .active > a {

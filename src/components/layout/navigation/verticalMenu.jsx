@@ -32,19 +32,19 @@ class VerticalMenu extends React.Component {
               </IndexLinkContainer>
             </OverlayTrigger>
             <LinkContainer to="/2-page">
-              <NavItem eventKey={2}></NavItem>
+              <NavItem eventKey={2}/>
             </LinkContainer>
             <LinkContainer to="/3-page">
-              <NavItem eventKey={3}></NavItem>
+              <NavItem eventKey={3}/>
             </LinkContainer>
             <LinkContainer to="/4-page">
-              <NavItem eventKey={4}></NavItem>
+              <NavItem eventKey={4}/>
             </LinkContainer>
             <LinkContainer to="/5-page">
-              <NavItem eventKey={5}></NavItem>
+              <NavItem eventKey={5}/>
             </LinkContainer>
             <LinkContainer to="/6-page">
-              <NavItem eventKey={6}></NavItem>
+              <NavItem eventKey={6}/>
             </LinkContainer>
           </Nav>
     )

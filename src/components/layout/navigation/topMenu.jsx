@@ -9,9 +9,11 @@ class TopMenu extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      inverse: false
     };
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -20,7 +22,7 @@ class TopMenu extends React.Component {
 
   render() {
     return (
-        <Navbar className='flex-navbar' collapseOnSelect>
+        <Navbar className='flex-navbar' collapseOnSelect inverse={this.props.inverse}>
           <Navbar.Header>
             <Navbar.Brand>
               <Image src="/images/logo.png" />
@@ -49,9 +51,11 @@ class TopMenu extends React.Component {
               </LinkContainer>
             </Nav>
           </Navbar.Collapse>
+          {/*asaasdasds*/}
           <ButtonToolbar>
-            <Button bsStyle="callback-header">Заказать просчет</Button>
+              <Button bsStyle="callback-header">Заказать просчет</Button>
           </ButtonToolbar>
+          {/*<div className="btn-callback-header">Скачать</div>*/}
         </Navbar>
     )
   }
