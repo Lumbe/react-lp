@@ -1,5 +1,6 @@
 .top-frame {
   position: absolute;
+  top: 102px;
   left: 5%;
   right: 5%;
   height: 10%;
@@ -8,11 +9,11 @@
   opacity: 0.2;
 }
 
-.frame-title {
-  position: absolute;
-  left: 5%;
-  right: 5%;
-}
+//.frame-title {
+//  position: absolute;
+//  left: 5%;
+//  right: 5%;
+//}
 
 .bottom-left-frame {
   position: absolute;
@@ -37,6 +38,8 @@
   border-left: none;
   opacity: 0.2;
 }
+
+// Social media sidebar
 
 .social-media {
   position: absolute;
@@ -68,6 +71,8 @@
   padding-top: 13px;
   padding-left: 10px;
 }
+
+// Callback bottom button
 
 .phone-number {
   position: absolute;
@@ -127,4 +132,29 @@
   //color: #fefefe;
   width: 94%;
   border-radius: 20px;
+}
+
+// next page pointer
+
+.next-page {
+  position: absolute;
+  left: 50%;
+  bottom: 5.5%;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgb(83, 175, 69);
+  opacity: 0.7;
+  border-radius: 50%;
+  background-color: rgba(80, 170, 67, 0.2);
+}
+
+.next-page i {
+  color: #53af45;
+  padding-top: 9px;
+  padding-left: 14px;
+}
+
+.next-page:hover {
+  cursor: pointer;
+  opacity: 1;
 }

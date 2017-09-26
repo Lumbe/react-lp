@@ -27,7 +27,9 @@ class StaticFrame extends React.Component {
           <span className="callback-text">Заказать звонок</span>
           <div className="bg-phone"><i className="fa fa-phone fa-lg" aria-hidden="true"/></div>
         </Button>
-        <div className="next-page"/>
+        <div className="next-page">
+          <i className="fa fa-angle-down fa-2x" aria-hidden="true"/>
+        </div>
       </div>
     )
 

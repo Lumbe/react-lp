@@ -41,7 +41,7 @@ class SecondPage extends React.Component {
       <p style={{fontWeight: 300}}>Нрмальный текст</p>
       <p style={{fontWeight: 500}}>Жирный текст</p>
       <p style={{fontWeight: 700}}>Совсем жирный текст</p>
-      <p style={{fontWeight: 900}}>Омг какой жирный текст</p>
+        <p style={{fontWeight: 900}}><span className="text-highlight">Омг какой</span> жирный текст</p>
       <ButtonToolbar>
         {/* Standard button */}
 

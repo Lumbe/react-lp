@@ -3,7 +3,8 @@ import {Route} from 'react-router-dom'
 import Header from './header/header'
 import Page from './page'
 import VerticalMenu from './navigation/verticalMenu'
-import StaticFrame from "../common/staticFrame";
+import StaticFrame from "../common/staticFrame"
+import {Grid} from 'react-bootstrap'
 
 class LandingLayout extends React.Component {
   // constructor(props) {
@@ -33,7 +34,9 @@ class LandingLayout extends React.Component {
         <Page>
           <StaticFrame/>
           <VerticalMenu/>
-          <Component {...matchProps} />
+          <Grid>
+            <Component {...matchProps} />
+          </Grid>
         </Page>
       </div>
     )} />

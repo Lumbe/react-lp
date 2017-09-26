@@ -12,6 +12,52 @@ div.navbar-header > img.navbar-brand {
   padding: 15px;
 }
 
+nav.flex-navbar ul li a {
+  text-transform: uppercase;
+}
+
+nav.flex-navbar ul li:after {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: #fff101;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 47%;
+}
+
+nav.flex-navbar ul li:last-child:after {
+  display: none;
+}
+
+nav.flex-navbar ul li a::after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #5aa14f;
+  content: '';
+  opacity: 0;
+  -webkit-transition: height 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+  -moz-transition: height 0.3s, opacity 0.3s, -moz-transform 0.3s;
+  transition: height 0.3s, opacity 0.3s, transform 0.3s;
+  -webkit-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+  transform: translateY(-10px);
+}
+
+nav.flex-navbar ul li a:hover::after {
+  height: 3px;
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  transform: translateY(0px);
+}
+
+
 .btn-callback-header {
   color: #f6f9f5;
   position: relative;
