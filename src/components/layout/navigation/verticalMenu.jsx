@@ -28,23 +28,35 @@ class VerticalMenu extends React.Component {
           <Nav className="vertical-menu pull-right">
             <OverlayTrigger trigger={['hover', 'focus']} placement="left" overlay={popoverHoverFocus}>
               <IndexLinkContainer to="/">
-                <NavItem eventKey={1}/>
+                <NavItem eventKey={1}>
+                  <div className="inner-dot"/>
+                </NavItem>
               </IndexLinkContainer>
             </OverlayTrigger>
             <LinkContainer to="/2-page">
-              <NavItem eventKey={2}/>
+              <NavItem eventKey={2}>
+                <div className="inner-dot"/>
+              </NavItem>
             </LinkContainer>
             <LinkContainer to="/3-page">
-              <NavItem eventKey={3}/>
+              <NavItem eventKey={3}>
+                <div className="inner-dot"/>
+              </NavItem>
             </LinkContainer>
             <LinkContainer to="/4-page">
-              <NavItem eventKey={4}/>
+              <NavItem eventKey={4}>
+                <div className="inner-dot"/>
+              </NavItem>
             </LinkContainer>
             <LinkContainer to="/5-page">
-              <NavItem eventKey={5}/>
+              <NavItem eventKey={5}>
+                <div className="inner-dot"/>
+              </NavItem>
             </LinkContainer>
             <LinkContainer to="/6-page">
-              <NavItem eventKey={6}/>
+              <NavItem eventKey={6}>
+                <div className="inner-dot"/>
+              </NavItem>
             </LinkContainer>
           </Nav>
     )
