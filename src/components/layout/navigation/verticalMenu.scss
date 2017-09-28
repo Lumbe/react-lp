@@ -1,7 +1,10 @@
+@import '../../../css/mediaQueriesVars.scss';
+
 .vertical-menu {
   position: absolute;
   top: 25%;
   right: 4.6%;
+  z-index: -1;
 }
 
 .nav.vertical-menu > li > a > div.inner-dot {
@@ -50,4 +53,22 @@ ul.vertical-menu li::before {
   color: #b3bac0;
   left: -20px;
   font-size: 12px;
+}
+
+// responsive behavior
+
+@media (max-width: $screen-xs-max) {
+
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+
+}
+
+@media (min-width: $screen-lg-min) {
+
 }

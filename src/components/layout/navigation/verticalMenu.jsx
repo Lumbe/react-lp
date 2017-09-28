@@ -25,7 +25,7 @@ class VerticalMenu extends React.Component {
         </Popover>
     );
     return (
-          <Nav className="vertical-menu pull-right">
+          <Nav className="vertical-menu pull-right  hidden-xs hidden-sm">
             <OverlayTrigger trigger={['hover', 'focus']} placement="left" overlay={popoverHoverFocus}>
               <IndexLinkContainer to="/">
                 <NavItem eventKey={1}>

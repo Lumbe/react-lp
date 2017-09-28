@@ -5,7 +5,7 @@ import {Button} from 'react-bootstrap'
 class StaticFrame extends React.Component {
   render() {
     return (
-      <div>
+      <div className="hidden-xs hidden-sm">
         <div className="top-frame"/>
         <div className="bottom-left-frame"/>
         <div className="bottom-right-frame"/>

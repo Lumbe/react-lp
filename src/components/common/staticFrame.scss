@@ -19,7 +19,7 @@
   position: absolute;
   left: 5%;
   bottom: 8%;
-  width: 15%;
+  width: 13.5%;
   height: 10%;
   border: 2px solid #8b8e95;
   border-top: none;
@@ -47,6 +47,7 @@
   top: 50%;
   width: 50px;
   color: #737a88;
+  z-index: -1;
 }
 
 body.bg-dark .social-media {
@@ -91,7 +92,7 @@ body.bg-dark .social-media > .social-item.youtube > i {
 
 .phone-number {
   position: absolute;
-  left: 23%;
+  left: 21.5%;
   bottom: 5.5%;
   background-color: rgb(230,232,238);
   border: 1px solid rgb(212,217,228);
@@ -186,7 +187,7 @@ body.bg-dark .callback-button .callback-text {
 
 .next-page {
   position: absolute;
-  left: 50%;
+  left: 48.5%;
   bottom: 5.5%;
   width: 50px;
   height: 50px;

@@ -1,5 +1,4 @@
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/_variables';
-//@import 'font-awesome/scss/font-awesome.scss';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import 'fonts/museoSans/stylesheet.css';
 @import 'fonts/proximaNova/stylesheet.css';
 
@@ -103,6 +102,16 @@ $navbar-inverse-link-active-bg:             transparent;
 $navbar-inverse-link-disabled-color:        #444 !default;
 $navbar-inverse-link-disabled-bg:           transparent !default;
 
+// Inverted navbar brand label
+$navbar-inverse-brand-color:                $navbar-inverse-link-color !default;
+$navbar-inverse-brand-hover-color:          #fff !default;
+$navbar-inverse-brand-hover-bg:             transparent !default;
+
+// Inverted navbar toggle
+$navbar-inverse-toggle-hover-bg:            #58b749;
+$navbar-inverse-toggle-icon-bar-bg:         #fff !default;
+$navbar-inverse-toggle-border-color:        #58b749;
+
 //== Buttons
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
@@ -139,3 +148,18 @@ $btn-link-disabled-color:        $gray-light !default;
 $btn-border-radius-base:         $border-radius-base !default;
 $btn-border-radius-large:        $border-radius-large !default;
 $btn-border-radius-small:        $border-radius-small !default;
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+$grid-columns:              12 !default;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         30px !default;
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+$grid-float-breakpoint:     $screen-lg-min;
+//** Point at which the navbar begins collapsing.
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1);
+
