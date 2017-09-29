@@ -39,7 +39,7 @@ class FirstPage extends React.Component {
           </div>
           <div className=" heading-text">
             <h3 className="hidden-xs"><span className="text-highlight">Строим по Европейским стандартам</span></h3>
-            <h1>Энергоэфективные <br/>каркасные дома и коттеджи</h1>
+            <h1><span className="energy-header">Энергоэфективные</span> <br/>каркасные дома и коттеджи</h1>
             <h3>в Виннице и Винницкой области</h3>
           </div>
         </div>
@@ -52,7 +52,7 @@ class FirstPage extends React.Component {
                 <NavItem eventKey={0.2}>Подробнее</NavItem>
               </LinkContainer>
               <LinkContainer className="btn-simple" to="/6-page">
-                <NavItem eventKey={0.3}>Подобрать проект</NavItem>
+                <NavItem eventKey={0.3}>Проекты домов</NavItem>
               </LinkContainer>
             </Nav>
           </div>

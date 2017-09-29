@@ -28,9 +28,6 @@ class TopMenu extends React.Component {
               <Image src="/images/logo.png" />
             </Navbar.Brand>
             <Navbar.Toggle />
-            <ButtonToolbar className="hidden-xs pull-right">
-              <Button bsStyle="callback-header">Заказать просчет</Button>
-            </ButtonToolbar>
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
@@ -52,10 +49,10 @@ class TopMenu extends React.Component {
               <LinkContainer to="/6-page">
                 <NavItem eventKey={6}>Контакты</NavItem>
               </LinkContainer>
-              {/*<LinkContainer to="/7-page" className="callback-item">*/}
-                {/*<NavItem eventKey={7}>Заказать просчет</NavItem>*/}
-              {/*</LinkContainer>*/}
             </Nav>
+            <ButtonToolbar className="pull-right-lg">
+              <Button bsStyle="callback-header">Заказать просчет</Button>
+            </ButtonToolbar>
           </Navbar.Collapse>
 
         </Navbar>
