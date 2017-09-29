@@ -6,6 +6,7 @@ import LandingLayout from './components/layout/landingLayout'
 
 const AsyncFirstPage = MyLoadable({ loader: () => import('./components/firstPage/firstPage') });
 const AsyncSecondPage = MyLoadable({ loader: () => import('./components/secondPage/secondPage') });
+const AsyncTypography = MyLoadable({ loader: () => import('./components/common/typography') });
 const AsyncNotFound = MyLoadable({ loader: () => import('./components/error/notFound') });
 
 class Routes extends React.Component {
@@ -15,6 +16,7 @@ class Routes extends React.Component {
         <Switch>
           <LandingLayout exact path="/" inverse={true} component={AsyncFirstPage}/>
           <LandingLayout exact path="/2-page" inverse={false} component={AsyncSecondPage}/>
+          <LandingLayout exact path="/typography" inverse={false} component={AsyncTypography}/>
           <LandingLayout inverse={false} component={AsyncNotFound}/>
         </Switch>
       </BrowserRouter>
