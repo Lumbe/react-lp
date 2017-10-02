@@ -50,7 +50,7 @@ class SecondPage extends React.Component {
     };
     return (<div className="second-section">
       <Row>
-        <Col md={4}>
+        <Col md={4} className="text-center">
           <div className="yt-cover"  onClick={this.open.bind(this)}>
             <div className="cover-frame"/>
             <Image src={videoImage} responsive/>
@@ -68,31 +68,31 @@ class SecondPage extends React.Component {
         </Col>
       </Row>
         <Row className="advantages">
-          <Col md={2} mdOffset={1}>
+          <Col md={2} xs={12}>
             <div className="adv-block">
               <span className="adv-number">12</span> <span className="adv-text">лет</span>
             </div>
             <p>на рынке энергосберегающего жилья</p>
           </Col>
-          <Col md={2}>
+          <Col md={2} xs={12}>
             <div className="adv-block">
               <span className="adv-number">1248</span>
             </div>
             <p>энергоэффективных зданий построено в Украине и ЕС</p>
           </Col>
-          <Col md={2}>
+          <Col md={2} xs={12}>
             <div className="adv-block">
               <span className="adv-number">150</span> <span className="adv-text">тыс</span>
             </div>
             <p>кв.м. недвижимости введено в эксплуатацию</p>
           </Col>
-          <Col md={2}>
+          <Col md={2} xs={12}>
             <div className="adv-block">
               <span className="adv-number">10</span> <span className="adv-text">лет</span>
             </div>
             <p>гарантийного обслуживания</p>
           </Col>
-          <Col md={2}>
+          <Col md={2} xs={12}>
             <div className="adv-block">
               <span className="adv-number">300</span>
             </div>

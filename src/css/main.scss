@@ -20,3 +20,45 @@ p.p-highlight {
   border-left: 2px solid #58b749;
   padding-left: 10px;
 }
+
+// modal styles for youtube player
+.yt-modal .modal-content {
+  box-shadow: none;
+  background-color: transparent;
+  border: none;
+}
+
+.yt-modal.modal-dialog {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+}
+
+// Youtube image link
+
+.yt-cover {
+  position: relative;
+  display: inline-block;
+}
+
+.yt-cover .cover-frame {
+  position: absolute;
+  border: 2px solid rgba(162, 166, 173, 0.3);
+  top: 5%;
+  left: 5%;
+  height: 90%;
+  width: 90%;
+}
+
+.yt-cover .play-icon {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.8);
+  top: 34%;
+  left: 43%;
+}
+
+.yt-cover:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
