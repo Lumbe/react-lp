@@ -16,7 +16,7 @@ $brand-primary: #58b749;
 $text-color: lighten($gray-base, 36%); // #5c5c5c
 $link-color: $brand-primary;
 $link-hover-color: lighten( saturate( $brand-primary, 21 ), 13 );
-$link-hover-decoration: none !default;
+$link-hover-decoration: none;
 
 //== Typography
 //
@@ -168,7 +168,7 @@ $grid-float-breakpoint-max: ($grid-float-breakpoint - 1);
 //##
 
 $panel-bg:                    #fff !default;
-$panel-body-padding:          20px 40px 30px 40px;
+$panel-body-padding:          20px 45px 30px;
 $panel-heading-padding:       10px 15px !default;
 $panel-footer-padding:        $panel-heading-padding !default;
 $panel-border-radius:         0;

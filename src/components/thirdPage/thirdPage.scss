@@ -1,2 +1,62 @@
 @import '../../css/mediaQueriesVars.scss';
 
+.card .panel-header {
+  position: relative;
+  border-bottom: 1px solid #eaeaeb;
+}
+
+.card .panel-header:after {
+  content: '';
+  display: block;
+  width: 10%;
+  height: 2px;
+  background-color: #58b749;
+}
+
+.card .square:before {
+  content: '';
+  position: absolute;
+  background-color: #eaeaeb;
+  width: 2px;
+  height: 65%;
+  top: 22%;
+  left: 0;
+}
+
+.card p.caption {
+  font-size: 13px;
+}
+
+.card .title p.caption {
+  color: #58b749;
+}
+
+.card .square  p.caption {
+  color: #c7c7c7;
+  text-align: left;
+  margin-top: -10px;
+}
+
+.card .square {
+  text-align: right;
+}
+
+.card .square-block {
+  display: inline-block;
+  text-align: right;
+}
+
+.card .square h2 {
+  color: #58b749;
+  font-weight:700;
+  text-align: right;
+}
+
+.card h2 span {
+  font-size:20px;
+}
+
+.card p.description {
+  margin-top:10px;
+  min-height: 90px;
+}

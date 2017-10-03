@@ -1,7 +1,7 @@
 import React from 'react'
 import './thirdPage.css'
 import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage} from "../common/main";
-import {Row, Col, Image, Modal, Panel} from 'react-bootstrap'
+import {Row, Col, Image, Modal, Panel, Button} from 'react-bootstrap'
 import backgroundImage from './bg-screen3.jpg'
 import videoImage1 from './morshyn.jpg'
 import videoImage2 from './school.jpg'
@@ -16,20 +16,22 @@ class ThirdPage extends React.Component {
 
   defaultProps() {
     return {
-      showModal: false
+      showModal: false,
+      modalId: null
     }
   }
 
-  open() {
-    this.setState({showModal: true})
+  openModal(modalId) {
+    this.setState({showModal: true, modalId: modalId})
   }
 
   close() {
-    this.setState({showModal: false})
+    this.setState({showModal: false, modalId: null})
 
   }
 
   componentWillMount() {
+    console.log(this.state)
     setWindowHeight();
     window.onresize = setWindowHeight;
     setBackgroundImage(backgroundImage);
@@ -49,6 +51,8 @@ class ThirdPage extends React.Component {
         autoplay: 1
       }
     };
+    const youtubeId1= "05KLAEKYG-c";
+    const youtubeId2= "9drtluSlOw4";
     return (<div className="third-section">
         <Row>
           <Col md={12} className="text-center">
@@ -58,16 +62,30 @@ class ThirdPage extends React.Component {
         </Row>
         <Row>
           <Col md={6}>
-            <Panel>
+            <Panel className="card">
               <div className="panel-header">
-                <h2>Гостиница</h2>
-                г.Моршин, Львовская обл.
-                4000кв.м.
+                <Row>
+                  <Col md={7} className="title">
+                    <h3>Гостиница</h3>
+                    <p className="caption">
+                      <FontAwesome name="map-marker"/>&nbsp;
+                      г.Моршин, Львовская обл.
+                    </p>
+                  </Col>
+                  <Col md={5} className="square">
+                    <div className="square-block">
+                      <h2>4000 <span>кв.м.</span></h2>
+                      <p className="caption">
+                        площадь объекта
+                      </p>
+                    </div>
+                  </Col>
+                </Row>
               </div>
-              <p>Индивидуальный проект с развитой инфраструктурой, который
+              <p className="description">Индивидуальный проект с развитой инфраструктурой, который
                 включает в себя 47 номеров, SPA-салон, рестораны, бары,
                 большое лобби, спортзал и бани</p>
-              <div className="yt-cover"  onClick={this.open.bind(this)}>
+              <div className="yt-cover" onClick={this.openModal.bind(this, youtubeId1)}>
                 <div className="cover-frame"/>
                 <Image src={videoImage1} responsive/>
                 <FontAwesome className="play-icon" name="play-circle" size="4x"/>
@@ -75,16 +93,30 @@ class ThirdPage extends React.Component {
             </Panel>
           </Col>
           <Col md={6}>
-            <Panel>
+            <Panel className="card">
               <div className="panel-header">
-                <h2>Общеобразовательная школа и садик</h2>
-                г.Киев
-                2400кв.м.
+                <Row>
+                  <Col md={7} className="title">
+                    <h3>Школа и садик</h3>
+                    <p className="caption">
+                      <FontAwesome name="map-marker"/>&nbsp;
+                      г.Киев
+                    </p>
+                  </Col>
+                  <Col md={5} className="square">
+                    <div className="square-block">
+                      <h2>2400 <span>кв.м.</span></h2>
+                      <p className="caption">
+                        площадь объекта
+                      </p>
+                    </div>
+                  </Col>
+                </Row>
               </div>
-              <p>Строительство велось в 10км от Киева.Так как в окрестностях не было
+              <p className="description">Строительство велось в 10км от Киева.Так как в окрестностях не было
                 других школ и садиков, этот объект был спроектирован и построен в
               кратчайшие сроки - всего за полгода, что бы успеть к 1 сентября</p>
-              <div className="yt-cover"  onClick={this.open.bind(this)}>
+              <div className="yt-cover"  onClick={this.openModal.bind(this, youtubeId2)}>
                 <div className="cover-frame"/>
                 <Image src={videoImage2} responsive/>
                 <FontAwesome className="play-icon" name="play-circle" size="4x"/>
@@ -92,62 +124,26 @@ class ThirdPage extends React.Component {
             </Panel>
           </Col>
         </Row>
-      {/*<Row>*/}
-        {/*<Col md={4} className="text-center">*/}
-          {/*<div className="yt-cover"  onClick={this.open.bind(this)}>*/}
-            {/*<div className="cover-frame"/>*/}
-            {/*<Image src={videoImage} responsive/>*/}
-            {/*<FontAwesome className="play-icon" name="play-circle" size="4x"/>*/}
-          {/*</div>*/}
-        {/*</Col>*/}
-        {/*<Col md={8}>*/}
-          {/*<div className="company-info"><h1>Производственно строительная компания <span className="text-highlight">Сервус</span></h1>*/}
-          {/*<h4>Национальный производитель энергоэффективных домов</h4>*/}
-          {/*<p className="p-highlight">Строим энергосберегающие дома и коттеджи из СИП-панелей в Виннице и Винницкой области.*/}
-            {/*Компания Сервус первая в Украине представила канадскую технологию строительства и адаптировала*/}
-            {/*для строительства в нашей климатической зоне.<br/> Мы осуществляем полный цикл строительных работ -*/}
-            {/*от разработки проекта дома до сдачи объекта "под ключ". Проектируем, производим и строим в самые короткие сроки -*/}
-            {/*дом "под ключ" на 120кв.м. строится за 3 месяца. </p></div>*/}
-        {/*</Col>*/}
-      {/*</Row>*/}
-        {/*<Row className="advantages">*/}
-          {/*<Col md={2} xs={12}>*/}
-            {/*<div className="adv-block">*/}
-              {/*<span className="adv-number">12</span> <span className="adv-text">лет</span>*/}
-            {/*</div>*/}
-            {/*<p>на рынке энергосберегающего жилья</p>*/}
-          {/*</Col>*/}
-          {/*<Col md={2} xs={12}>*/}
-            {/*<div className="adv-block">*/}
-              {/*<span className="adv-number">1248</span>*/}
-            {/*</div>*/}
-            {/*<p>энергоэффективных зданий построено в Украине и ЕС</p>*/}
-          {/*</Col>*/}
-          {/*<Col md={2} xs={12}>*/}
-            {/*<div className="adv-block">*/}
-              {/*<span className="adv-number">150</span> <span className="adv-text">тыс</span>*/}
-            {/*</div>*/}
-            {/*<p>кв.м. недвижимости введено в эксплуатацию</p>*/}
-          {/*</Col>*/}
-          {/*<Col md={2} xs={12}>*/}
-            {/*<div className="adv-block">*/}
-              {/*<span className="adv-number">10</span> <span className="adv-text">лет</span>*/}
-            {/*</div>*/}
-            {/*<p>гарантийного обслуживания</p>*/}
-          {/*</Col>*/}
-          {/*<Col md={2} xs={12}>*/}
-            {/*<div className="adv-block">*/}
-              {/*<span className="adv-number">300</span>*/}
-            {/*</div>*/}
-            {/*<p>работников компании трудятся для вас</p>*/}
-          {/*</Col>*/}
-        {/*</Row>*/}
+        <Row>
+          <Col md={12} className="text-center">
+            <Button bsStyle="link" className="lp-link">
+              Посмотреть все проекты&nbsp;&nbsp;
+              <FontAwesome name="angle-right"/>
+            </Button>
+          </Col>
+        </Row>
         <Modal dialogClassName="yt-modal" keyboard={this.onHide} show={this.state.showModal} onHide={this.close.bind(this)}>
             <YouTube
-              videoId="SDfBkztAchs"
+              videoId={this.state.modalId}
               opts={opts}
             />
         </Modal>
+        {/*<Modal dialogClassName="yt-modal" keyboard={this.onHide} show={this.state.showModal} onHide={this.close.bind(this)}>*/}
+            {/*<YouTube*/}
+              {/*videoId="9drtluSlOw4"*/}
+              {/*opts={opts}*/}
+            {/*/>*/}
+        {/*</Modal>*/}
     </div>
     )
   }

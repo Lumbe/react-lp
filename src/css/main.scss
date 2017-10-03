@@ -62,3 +62,15 @@ p.p-highlight {
   cursor: pointer;
   opacity: 0.9;
 }
+
+// Landing Page link
+
+.lp-link {
+  text-transform: uppercase;
+  text-decoration: underline dotted;
+  font-size: 22px;
+}
+
+.lp-link:hover {
+  text-decoration: underline dotted;
+}
