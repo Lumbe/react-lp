@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import 'font-awesome/css/font-awesome.css';
 import './css/main.css'
 import Routes from './routes'
+// import 'jquery/dist/jquery.min.js'
 
 class App extends Component {
   render() {

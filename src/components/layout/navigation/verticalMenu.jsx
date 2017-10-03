@@ -21,7 +21,7 @@ class VerticalMenu extends React.Component {
   render() {
     const popoverHoverFocus = (
         <Popover id="popover-trigger-hover-focus" title="Дом под ключ за 3 месяца">
-          <strong>Энергосберегающий</strong> маза фака!
+          <strong>Энергосберегающий</strong> очень!
         </Popover>
     );
     return (
