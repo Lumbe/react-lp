@@ -4,8 +4,10 @@ import backgroundImage from './bg-screen4.jpg'
 import certificate1 from './euro_certificate_1.jpg'
 import certificate2 from './euro_certificate_2.jpg'
 import './fourthPage.css'
+import './owl.theme.servus.css'
 import {Row, Col, Image} from 'react-bootstrap'
-import OwlCarousel from 'react-owl-carousel';
+import OwlCarousel from 'react-owl-carousel'
+import FontAwesome from 'react-fontawesome'
 // import {LinkContainer} from "react-router-bootstrap";
 
 class FourthPage extends React.Component {
@@ -34,6 +36,9 @@ class FourthPage extends React.Component {
     removeDarkColorScheme();
   }
   render() {
+    // const iconLeft = <FontAwesome name="angle-left"/>;
+    const iconLeft = "<span class='fa fa-angle-left fa-2x'/>";
+    const iconRight = "<span class='fa fa-angle-right fa-2x'/>";
     return (
       <Row>
         <Col md={6}>
@@ -54,17 +59,19 @@ class FourthPage extends React.Component {
             а контроль качества в компании соответствует высоким требованиям международного стандарта ISO 9001:2015.
           </p>
         </Col>
-        <Col md={6}>
+        <Col md={4}>
           <OwlCarousel
-            className="owl-theme"
+            className="owl-theme-servus"
             items={1}
+            margin={10}
             loop nav={true}
+            navText={[iconLeft, iconRight]}
           >
-            <div class="item">
-              <Image src={certificate1} responsive/>
+            <div className="img-responsive">
+              <Image src={certificate1}/>
             </div>
-            <div class="item">
-              <Image src={certificate2} responsive/>
+            <div className="img-responsive">
+              <Image src={certificate2}/>
             </div>
           </OwlCarousel>
         </Col>
