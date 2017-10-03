@@ -43,7 +43,6 @@
 
 .card .square-block {
   display: inline-block;
-  text-align: right;
 }
 
 .card .square h2 {
@@ -59,4 +58,100 @@
 .card p.description {
   margin-top:10px;
   min-height: 90px;
+}
+
+// responsive behavior
+
+// up to 767px width
+@media (max-width: $screen-xs-max) {
+  .third-section .lp-link {
+    margin: 20px 0 40px;
+  }
+
+  .card .square:before {
+    display: none;
+  }
+  
+  .card .square {
+    text-align: left;
+  }
+
+  .third-section .lp-link {
+    font-size:17px;
+  }
+
+  .third-section .yt-cover .play-icon {
+    font-size: 35px;
+  }
+}
+// width 768px to 991px
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  .third-section .lp-link {
+    margin: 20px 0 40px;
+  }
+}
+// width 992px to 1199px
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  .hidden-medium {
+    display: none;
+  }
+  .third-section {
+    margin: 0 50px 0 30px;
+  }
+  .third-section h1 {
+    margin-top: 0;
+    font-size: 36px;
+  }
+
+  .card .panel-header {
+    margin-top:-20px;
+  }
+
+  .card h3 {
+    font-size:20px;
+    margin-bottom:5px;
+  }
+  .card h2 {
+    font-size:26px;
+  }
+
+  .third-section .lp-link {
+    margin-top: -10px;
+  }
+}
+// width 1200px to 1439px
+@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+  .hidden-medium {
+    display: none;
+  }
+  .third-section {
+    margin:0 30px 0 20px;
+  }
+  .third-section h1 {
+    margin-top: 0;
+    font-size: 36px;
+  }
+
+  .card .panel-header {
+    margin-top:-20px;
+  }
+
+  .card h3 {
+    font-size:20px;
+    margin-bottom:5px;
+  }
+  .card h2 {
+    font-size:26px;
+  }
+
+  .third-section .lp-link {
+    margin-top: -10px;
+  }
+
+}
+// width 1440px and over
+@media (min-width: $screen-xlg-min) {
+  .third-section {
+    margin-top:2%;
+  }
 }

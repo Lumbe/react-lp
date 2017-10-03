@@ -1,5 +1,6 @@
 export function setWindowHeight() {
   return document.body.style.height = window.innerHeight.toString() + "px"
+  // return document.body.style.height = document.documentElement.scrollHeight.toString() + "px"
 }
 
 export function resetWindowHeight() {

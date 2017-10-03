@@ -28,7 +28,7 @@ class SecondPage extends React.Component {
 
   }
 
-  componentWillMount() {
+  componentDidMount() {
     setWindowHeight();
     window.onresize = setWindowHeight;
     setBackgroundImage(backgroundImage);
