@@ -7,7 +7,6 @@ import './fourthPage.css'
 import './owl.theme.servus.css'
 import {Row, Col, Image} from 'react-bootstrap'
 import OwlCarousel from 'react-owl-carousel'
-import FontAwesome from 'react-fontawesome'
 // import {LinkContainer} from "react-router-bootstrap";
 
 class FourthPage extends React.Component {
@@ -36,7 +35,6 @@ class FourthPage extends React.Component {
     removeDarkColorScheme();
   }
   render() {
-    // const iconLeft = <FontAwesome name="angle-left"/>;
     const iconLeft = "<span class='fa fa-angle-left fa-2x'/>";
     const iconRight = "<span class='fa fa-angle-right fa-2x'/>";
     return (
