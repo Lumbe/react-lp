@@ -11,7 +11,7 @@ export function resetWindowHeight() {
 
 export function setBackgroundImage(imageUrl) {
   document.body.style.backgroundImage = "url('" + imageUrl + "')";
-  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundRepeat = "repeat-y";
   document.body.style.backgroundSize = "cover";
 }
 
