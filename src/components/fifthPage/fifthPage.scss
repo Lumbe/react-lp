@@ -1,0 +1,88 @@
+@import '../../css/mediaQueriesVars.scss';
+
+#build-tech .nav > li > a {
+  color: #fff;
+  text-align: center;
+  background-color: #59AD4B;
+  padding: 20px 15px;
+}
+
+#build-tech .nav > li.active > a,
+#build-tech .nav > li:hover > a {
+  color: #333;
+  background-color: #fff;
+  border-left: 3px solid #59AD4B;
+  box-shadow: 12.287px 8.604px 20px 0px rgba(0, 0, 0, 0.03);
+}
+
+#build-tech .nav > li > a:focus {
+  outline: none;
+}
+
+//#build-tech .nav > li.active:after {
+//  content: '';
+//  position: absolute;
+//  width: 0;
+//  height: 0;
+//  left: 100%;
+//  top: 0;
+//  border: 25px solid;
+//  border-color: #333 transparent transparent #333;
+//  transform: rotate(135deg);
+//  //background-color: #333;
+//}
+
+// responsive behavior
+
+// up to 767px width
+@media (max-width: $screen-xs-max) {
+  #build-tech .tab-pane {
+    padding: 20px 0;
+  }
+}
+// width 768px to 991px
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  #build-tech .tab-pane {
+    padding: 20px 0;
+  }
+}
+// width 992px to 1199px
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  .fifth-section {
+    margin: -20px 55px 0 35px;
+  }
+  .fifth-section h1 {
+    font-size:34px;
+  }
+  #build-tech .nav > li > a {
+    color: #fff;
+    text-align: center;
+    background-color: #59AD4B;
+    padding: 18px 8px;
+  }
+}
+// width 1200px to 1439px
+@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+  .fifth-section {
+    margin: -20px 25px 0 5px;
+  }
+  .fifth-section h1 {
+    font-size:34px;
+  }
+  #build-tech .nav > li > a {
+    color: #fff;
+    text-align: center;
+    background-color: #59AD4B;
+    padding: 18px 15px;
+  }
+}
+// width 1440px and over
+@media (min-width: $screen-xlg-min) {
+  .fifth-section {
+    margin-top:5%;
+  }
+
+  .fifth-section p.section-description {
+    margin: 3% 0 5%;
+  }
+}

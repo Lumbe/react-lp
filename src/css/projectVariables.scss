@@ -12,7 +12,7 @@ $brand-primary: #58b749;
 //== Scaffolding
 //
 //## Settings for some of the most global styles.
-
+$body-bg:               #f7f7f7;
 $text-color: lighten($gray-base, 36%); // #5c5c5c
 $link-color: $brand-primary;
 $link-hover-color: lighten( saturate( $brand-primary, 21 ), 13 );
