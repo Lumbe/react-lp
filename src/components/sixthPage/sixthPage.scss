@@ -1,65 +1,82 @@
 @import '../../css/mediaQueriesVars.scss';
 
-.certificate-item {
-  background-color: rgba(39, 54, 79, 0.6);
-  padding: 25px;
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
+.icon-wrapper {
+  position: relative;
+  background-color: rgba(0,0,0,0.45);
+  height: 300px;
+  color: #fff;
 }
 
-// responsive behavior
+.icon-block {
+  position: relative;
+  top: 30%;
+}
 
-// up to 767px width
-@media (max-width: $screen-xs-max) {
+.description-wrapper {
+  position: relative;
+  height: 184px;
+  overflow: hidden;
+}
 
+.description-block {
+  position: absolute;
+  top: 99%;
+  padding: 10px;
 }
-// width 768px to 991px
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
 
+.description-block:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 35%;
+  background-color: #58b749;
+  height: 2px;
+  width: 30%;
 }
-// width 992px to 1199px
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-  .hidden-medium {
-    display: none;
-  }
-  .col-md-6.euro-description {
-    padding: 0;
-    margin-left: 40px;
-  }
-  .fourth-section h1 {
-    font-size:28px;
-  }
-  .owl-theme-servus .owl-nav {
-    width: 80%;
-  }
-  .owl-theme-servus .owl-dots {
-    width: 80%;
-  }
-  .certificate-item {
-    width: 80%;
-  }
+
+// hover
+
+.icon-wrapper:hover {
+  margin-top: -20px;
+  background-color: #58b749;
 }
-// width 1200px to 1439px
-@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
-  .col-md-6.euro-description {
-    padding: 0;
-    margin-left: 20px;
-  }
-  .fourth-section h1 {
-    font-size:32px;
-  }
-  .owl-theme-servus .owl-nav {
-    width: 80%;
-  }
-  .owl-theme-servus .owl-dots {
-    width: 80%;
-  }
-  .certificate-item {
-    width: 80%;
-  }
+
+.icon-wrapper:hover .icon-block {
+  top: -15%;
 }
-// width 1440px and over
-@media (min-width: $screen-xlg-min) {
-  .fourth-section {
-    margin-top: 5%;
-  }
+
+.icon-wrapper:hover .icon-block .icon-bg {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-color: #8c8c8c; // rgb(239, 239, 239)
+  border-radius: 50%;
+}
+
+.icon-wrapper:hover .icon-block .inner-border {
+  display: inline-block;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: rgb(89, 174, 76);
+  box-shadow: 0 15px 20px 0 rgba(20, 69, 13, 0.2);
+}
+
+.icon-wrapper:hover .icon-block .outer-border {
+  display: inline-block;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: rgba(89, 174, 76, 0.3);
+}
+
+.icon-wrapper:hover .description-wrapper {
+  top: -45px;
+  height: 223px;
+}
+
+.icon-wrapper:hover .description-block {
+  top: 0;
+}
+
+.icon-wrapper:hover .description-block:before {
+  background-color: #fff;
 }
