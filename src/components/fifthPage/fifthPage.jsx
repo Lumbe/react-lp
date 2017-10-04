@@ -25,12 +25,12 @@ class FifthPage extends React.Component {
     return images;
   }
   render() {
-    const iconLeft = "<span class='fa fa-angle-left fa-2x'/>";
-    const iconRight = "<span class='fa fa-angle-right fa-2x'/>";
     const certificates = this.importImages(require.context('./certificates', false, /\.(png|jpe?g|svg)$/));
     let certificateUrls = [];
     for (let src in certificates) {
-      certificateUrls.push(certificates[src]);
+      if (certificates.hasOwnProperty(src)) {
+        certificateUrls.push(certificates[src])
+      }
     }
     return (
       <div className="fifth-section">
@@ -117,7 +117,6 @@ class FifthPage extends React.Component {
                             items={4}
                             margin={10}
                             loop nav={true}
-                            navText={[iconLeft, iconRight]}
                             responsiveClass={true}
                             responsive={{
                               0:{
