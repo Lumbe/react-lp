@@ -1,15 +1,5 @@
 @import '../../css/mediaQueriesVars.scss';
 
-.img-icon {
-  width: 46px;
-  height: 46px;
-  background: url(iconChi.png);
-}
-
-.icon-wrapper:hover .img-icon {
-  background: url(iconMi.png);
-}
-
 .sixth-section .steps {
   margin-top: 5%;
 }
@@ -25,6 +15,44 @@
   position: relative;
   top: 40%;
   padding: 0 10px;
+}
+
+.img-icon {
+  display: inline-block;
+  width: 46px;
+  height: 46px;
+}
+
+.steps .icon-1 {
+  background: url(icons/icon1.png);
+}
+.steps .icon-2 {
+  background: url(icons/icon2.png);
+}
+.steps .icon-3 {
+  background: url(icons/icon3.png);
+}
+.steps .icon-4 {
+  background: url(icons/icon4.png);
+}
+.steps .icon-5 {
+  background: url(icons/icon5.png);
+}
+
+.icon-wrapper:hover .icon-1 {
+  background: url(icons/icon1h.png);
+}
+.icon-wrapper:hover .icon-2 {
+  background: url(icons/icon2h.png);
+}
+.icon-wrapper:hover .icon-3 {
+  background: url(icons/icon3h.png);
+}
+.icon-wrapper:hover .icon-4 {
+  background: url(icons/icon4h.png);
+}
+.icon-wrapper:hover .icon-5 {
+  background: url(icons/icon5h.png);
 }
 
 .description-wrapper {
@@ -63,10 +91,11 @@
 
 .icon-wrapper:hover .icon-block .icon-bg {
   display: inline-block;
-  width: 60px;
-  height: 60px;
-  background-color: #8c8c8c; // rgb(239, 239, 239)
+  width: 70px;
+  height: 70px;
+  background-color: #efefef;
   border-radius: 50%;
+  padding: 10px;
 }
 
 .icon-wrapper:hover .icon-block .inner-border {
@@ -85,7 +114,7 @@
 }
 
 .icon-wrapper:hover .description-wrapper {
-  top: 30%;
+  top: 33%;
 }
 
 .icon-wrapper:hover .description-block {
@@ -131,11 +160,13 @@
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
   .sixth-section .col-md-2 {
     width: 20%;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   .sixth-section .steps {
     margin: 0 auto;
-    width: 94%;
+    width: 95%;
   }
 
   .icon-wrapper:hover {
@@ -152,11 +183,23 @@
   .sixth-section .col-md-2 {
     width: 20%;
   }
+  .sixth-section .section-header {
+    margin-top: -20px;
+  }
+  .steps {
+    margin-right:10px;
+  }
+  .icon-wrapper {
+    height: 320px;
+  }
+  .icon-wrapper:hover .description-wrapper {
+    top: 40%;
+  }
   .sixth-section .steps {
-    margin-top: 4%;
+    margin-top: 1%;
   }
   .icon-wrapper:hover {
-    margin-top: -20px;
+    margin-top: -10px;
     background-color: #58b749;
   }
 
