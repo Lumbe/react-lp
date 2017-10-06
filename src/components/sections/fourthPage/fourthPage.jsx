@@ -1,9 +1,9 @@
 import React from 'react'
-import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDarkColorScheme} from "../common/main";
+import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDarkColorScheme} from "../../common/main";
 import backgroundImage from './bg-screen4.jpg'
 import certificate1 from './euro_certificate_1.jpg'
 import certificate2 from './euro_certificate_2.jpg'
-import '../../css/owl.theme.servus.css'
+import '../../../css/owl.theme.servus.css'
 import './fourthPage.css'
 import {Row, Col, Image} from 'react-bootstrap'
 import OwlCarousel from 'react-owl-carousel'

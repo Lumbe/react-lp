@@ -1,6 +1,6 @@
 import React from 'react'
 import './thirdPage.css'
-import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage} from "../common/main";
+import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage} from "../../common/main";
 import {Row, Col, Image, Modal, Panel, Button} from 'react-bootstrap'
 import backgroundImage from './bg-screen3.jpg'
 import videoImage1 from './morshyn.jpg'

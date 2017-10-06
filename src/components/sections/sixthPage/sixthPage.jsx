@@ -1,5 +1,5 @@
 import React from 'react'
-import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDarkColorScheme} from "../common/main";
+import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDarkColorScheme} from "../../common/main";
 import backgroundImage from './bg-screen6.jpg'
 import './sixthPage.css'
 import {Row, Col} from 'react-bootstrap'

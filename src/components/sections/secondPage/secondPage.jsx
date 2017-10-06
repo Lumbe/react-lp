@@ -1,6 +1,6 @@
 import React from 'react'
 import './secondPage.css'
-import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage} from "../common/main";
+import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage} from "../../common/main";
 import {Row, Col, Image, Modal} from 'react-bootstrap'
 import backgroundImage from './bg-screen2.jpg'
 import videoImage from './video.jpg'

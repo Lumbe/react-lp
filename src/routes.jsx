@@ -4,13 +4,13 @@ import {Switch, BrowserRouter} from 'react-router-dom'
 import MyLoadable from './components/common/myLoadable';
 import LandingLayout from './components/layout/landingLayout'
 
-const AsyncFirstPage = MyLoadable({ loader: () => import('./components/firstPage/firstPage') });
-const AsyncSecondPage = MyLoadable({ loader: () => import('./components/secondPage/secondPage') });
-const AsyncThirdPage = MyLoadable({ loader: () => import('./components/thirdPage/thirdPage') });
-const AsyncFourthPage = MyLoadable({ loader: () => import('./components/fourthPage/fourthPage') });
-const AsyncFifthPage = MyLoadable({ loader: () => import('./components/fifthPage/fifthPage') });
-const AsyncSixthPage = MyLoadable({ loader: () => import('./components/sixthPage/sixthPage') });
-const AsyncSeventhPage = MyLoadable({ loader: () => import('./components/seventhPage/seventhPage') });
+const AsyncFirstPage = MyLoadable({ loader: () => import('./components/sections/firstPage/firstPage') });
+const AsyncSecondPage = MyLoadable({ loader: () => import('./components/sections/secondPage/secondPage') });
+const AsyncThirdPage = MyLoadable({ loader: () => import('./components/sections/thirdPage/thirdPage') });
+const AsyncFourthPage = MyLoadable({ loader: () => import('./components/sections/fourthPage/fourthPage') });
+const AsyncFifthPage = MyLoadable({ loader: () => import('./components/sections/fifthPage/fifthPage') });
+const AsyncSixthPage = MyLoadable({ loader: () => import('./components/sections/sixthPage/sixthPage') });
+const AsyncSeventhPage = MyLoadable({ loader: () => import('./components/sections/seventhPage/seventhPage') });
 
 const AsyncTypography = MyLoadable({ loader: () => import('./components/common/typography') });
 const AsyncNotFound = MyLoadable({ loader: () => import('./components/error/notFound') });
