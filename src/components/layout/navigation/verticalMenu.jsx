@@ -58,6 +58,42 @@ class VerticalMenu extends React.Component {
                 <div className="inner-dot"/>
               </NavItem>
             </LinkContainer>
+            <LinkContainer to="/7-page">
+              <NavItem eventKey={6}>
+                <div className="inner-dot"/>
+              </NavItem>
+            </LinkContainer>
+            <LinkContainer to="/8-page">
+              <NavItem eventKey={6}>
+                <div className="inner-dot"/>
+              </NavItem>
+            </LinkContainer>
+            <LinkContainer to="/9-page">
+              <NavItem eventKey={6}>
+                <div className="inner-dot"/>
+              </NavItem>
+            </LinkContainer>
+            <LinkContainer to="/10-page">
+              <NavItem eventKey={6}>
+                <div className="inner-dot"/>
+              </NavItem>
+            </LinkContainer>
+            <LinkContainer to="/11-page">
+              <NavItem eventKey={6}>
+                <div className="inner-dot"/>
+              </NavItem>
+            </LinkContainer>
+            <LinkContainer to="/12-page">
+              <NavItem eventKey={6}>
+                <div className="inner-dot"/>
+              </NavItem>
+            </LinkContainer>
+            <LinkContainer to="/13-page">
+              <NavItem eventKey={6}>
+                <div className="inner-dot"/>
+              </NavItem>
+            </LinkContainer>
+
           </Nav>
     )
   }
