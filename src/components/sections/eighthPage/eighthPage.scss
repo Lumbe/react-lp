@@ -101,20 +101,78 @@
 
 // up to 767px width
 @media (max-width: $screen-xs-max) {
-
+  .popular-projects {
+    margin-top: 5%;
+  }
+  .eighth-section h1 {
+    font-size: 28px;
+  }
+  .eighth-section .project-item {
+    padding-bottom: 120%;
+  }
 }
 // width 768px to 991px
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-
+  .popular-projects {
+    margin-top: 5%;
+  }
+  .catalogue.btn-green {
+    width: 70%;
+  }
 }
 // width 992px to 1199px
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-
+  .eighth-section {
+    margin-left: 20px;
+  }
+  .eighth-section h1 {
+    font-size: 24px;
+  }
+  .popular-projects {
+    width: 80%;
+  }
+  .eighth-section .project-item {
+    padding-bottom: 95px;
+    padding-right: 40px;
+  }
+  .eighth-section .project-description .panel-default > .panel-heading {
+    padding: 12px 25px 10px;
+  }
+  .eighth-section .project-description .panel-title {
+    font-size: 20px;
+  }
+  .eighth-section .project-description .panel-default > .panel-body {
+    padding: 5px 10px 15px;
+  }
+  .eighth-section .project-description .panel-default > .panel-footer {
+    padding: 5px 10px 10px;
+  }
 }
 // width 1200px to 1439px
 @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+  .popular-projects {
+    width: 80%;
+  }
+  .eighth-section .project-item {
+    padding-bottom: 125px;
+    padding-right: 40px;
+  }
+  .eighth-section .project-description .panel-default > .panel-heading {
+    padding: 12px 25px 10px;
+  }
+  .eighth-section .project-description .panel-title {
+    font-size: 20px;
+  }
+  .eighth-section .project-description .panel-default > .panel-body {
+    padding: 5px 10px 15px;
+  }
+  .eighth-section .project-description .panel-default > .panel-footer {
+    padding: 5px 10px 10px;
+  }
 }
 // width 1440px and over
 @media (min-width: $screen-xlg-min) {
-
+  .popular-projects {
+    margin-top: 5%;
+  }
 }

@@ -7,6 +7,8 @@
 //  width: auto;
 //  max-width: 100%;
 //}
+@import '../../../css/mediaQueriesVars.scss';
+
 .owl-carousel.owl-theme-servus {
   text-align: left;
 }
@@ -48,11 +50,8 @@
 
 .owl-theme-servus .owl-dots {
   position: absolute;
-  //margin-top: 8%;
-  //margin-right: 8%;
   right: 7%;
   bottom: 80px;
-  //text-align: right;
   -webkit-tap-highlight-color: transparent; }
 .owl-theme-servus .owl-dots .owl-dot {
   display: inline-block;
@@ -69,3 +68,42 @@
   border-radius: 30px; }
 .owl-theme-servus .owl-dots .owl-dot.active span, .owl-theme-servus .owl-dots .owl-dot:hover span {
   background: #869791; }
+
+// responsive behavior
+
+// up to 767px width
+@media (max-width: $screen-xs-max) {
+
+}
+// width 768px to 991px
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+
+}
+// width 992px to 1199px
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  .owl-theme-servus .owl-dots {
+    display: none;
+  }
+  .owl-theme-servus .owl-nav [class*='owl-'] {
+    bottom: 25px;
+  }
+  .owl-theme-servus .owl-nav .owl-prev {
+    left: 70%;
+    font-size: 24px;
+  }
+  .owl-theme-servus .owl-nav .owl-next {
+    right: -5%;
+    font-size: 24px;
+  }
+
+}
+// width 1200px to 1439px
+@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+  .owl-theme-servus .owl-dots .owl-dot span {
+    margin: 5px 5px;
+  }
+}
+// width 1440px and over
+@media (min-width: $screen-xlg-min) {
+
+}
