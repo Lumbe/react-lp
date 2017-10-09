@@ -6,7 +6,7 @@ import sipImage from './sip.jpg'
 import mitekImage from './mitek.jpg'
 import neoporImage from './neopor.jpg'
 import OwlCarousel from 'react-owl-carousel'
-import '../../../css/owl.theme.servus.css'
+import '../fourthPage/owl.theme.certificates.css'
 
 class FifthPage extends React.Component {
   componentDidMount() {

@@ -3,7 +3,7 @@ import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundI
 import backgroundImage from './bg-screen4.jpg'
 import certificate1 from './euro_certificate_1.jpg'
 import certificate2 from './euro_certificate_2.jpg'
-import '../../../css/owl.theme.servus.css'
+import './owl.theme.certificates.css'
 import './fourthPage.css'
 import {Row, Col, Image} from 'react-bootstrap'
 import OwlCarousel from 'react-owl-carousel'

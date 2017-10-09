@@ -1,0 +1,120 @@
+@import '../../../css/mediaQueriesVars.scss';
+
+.eighth-section h1 {
+  position: relative;
+  color: #fff;
+}
+
+.eighth-section h1:after {
+  content: '';
+  position: absolute;
+  top: 101%;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background: rgba(199,199,199,0.3);
+}
+.catalogue.btn-green:before {
+  width: 102%;
+  left: -1%;
+}
+
+.eighth-section .project-item {
+  position: relative;
+  padding-left: 20px;
+  padding-bottom: 155px;
+}
+
+.eighth-section .projects-label {
+  position: absolute;
+  color: #fff101;
+  background: #181C25;
+  padding: 10px 15px;
+  z-index: 10;
+}
+
+.eighth-section .project-item .project-description{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.eighth-section .project-description .panel {
+  border: none;
+}
+
+.eighth-section .project-description .panel-title {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.eighth-section .project-description .panel-default {
+  color: #fff;
+}
+
+.eighth-section .project-description .panel-default > .panel-heading {
+  padding: 20px 25px 15px;
+  color: #fff;
+  background-color: #50A643;
+  border: none;
+}
+.eighth-section .project-description .panel-default > .panel-footer {
+  padding: 15px;
+  color: #fff;
+  background-color: #50A643;
+  text-align: center;
+  border: none;
+}
+
+.eighth-section .project-description .panel-default > .panel-body {
+  color: #fff;
+  background-color: #6FC75F;
+  padding: 5px 30px 15px;
+}
+
+.eighth-section .project-description .table {
+  margin-bottom: -16px;
+}
+
+.eighth-section .project-description .table > tbody > tr > td {
+  padding: 8px 2px 8px 5px;
+  border-top: none;
+  border-bottom: 1px solid #fff;
+}
+
+.eighth-section .project-description .btn-yellow {
+  color: #fff101;
+  //text-decoration: underline dotted;
+  border-bottom: 1px dotted;
+  padding:2px 0;
+}
+.eighth-section .project-description .btn-yellow:hover {
+  opacity: 0.7;
+}
+.eighth-section .project-description .btn-yellow:focus {
+  outline: none;
+}
+
+
+// responsive behavior
+
+// up to 767px width
+@media (max-width: $screen-xs-max) {
+
+}
+// width 768px to 991px
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+
+}
+// width 992px to 1199px
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+
+}
+// width 1200px to 1439px
+@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+}
+// width 1440px and over
+@media (min-width: $screen-xlg-min) {
+
+}
