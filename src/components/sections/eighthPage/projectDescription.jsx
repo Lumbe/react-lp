@@ -1,12 +1,13 @@
 import React from 'react'
+import {Row, Col, Image, Panel} from 'react-bootstrap'
 
 class ProjectDescription extends React.Component {
   render() {
     return (
       <div className="project-item">
-        <Image src={projectImage}/>
+        <Image src={this.props.projectImage}/>
         <div className="project-description">
-          <Panel header={header} footer={footer}>
+          <Panel header={this.props.header} footer={this.props.footer}>
             <div className="project-details"><Row className="table-row">
               <Col md={1} xs={1}>
                 <svg
