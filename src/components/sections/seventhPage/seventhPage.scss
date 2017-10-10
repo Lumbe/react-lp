@@ -37,7 +37,7 @@
 }
 // width 1200px to 1439px
 @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
-  .vertical-align {
+  .seventh-section .vertical-align {
     display: flex;
     align-items: center;
   }
@@ -47,7 +47,7 @@
 }
 // width 1440px and over
 @media (min-width: $screen-xlg-min) {
-  .vertical-align {
+  .seventh-section .vertical-align {
     display: flex;
     align-items: center;
   }

@@ -1,0 +1,206 @@
+@import '../../../css/mediaQueriesVars.scss';
+.ninth-section .advantages {
+  margin-top:30px;
+}
+.ninth-section h4 {
+  margin-top: 0;
+}
+
+.ninth-section .icon-wrapper {
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.05);
+  height: 210px;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.ninth-section .icon-block {
+  position: relative;
+  top: 25%;
+  padding: 0 10px;
+}
+
+.ninth-section .img-icon {
+  display: inline-block;
+  width: 46px;
+  height: 46px;
+}
+
+.ninth-section .advantages .icon-1 {
+  background: url(icons/icon1.svg);
+}
+.ninth-section .advantages .icon-2 {
+  background: url(icons/icon2.svg);
+}
+.ninth-section .advantages .icon-3 {
+  background: url(icons/icon3.svg);
+}
+.ninth-section .advantages .icon-4 {
+  background: url(icons/icon4.svg);
+}
+.ninth-section .advantages .icon-5 {
+  background: url(icons/icon5.svg);
+}
+.ninth-section .advantages .icon-6 {
+  background: url(icons/icon6.svg);
+}
+.ninth-section .advantages .icon-7 {
+  background: url(icons/icon7.svg);
+}
+.ninth-section .advantages .icon-8 {
+  background: url(icons/icon8.svg);
+}
+.ninth-section .description-wrapper {
+  position: absolute;
+  bottom: 0;
+  height: 130px;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ninth-section .description-wrapper.one-lined {
+  height: 150px;
+}
+
+.ninth-section .description-block {
+  position: absolute;
+  top: 99%;
+  padding: 10px 25px;
+}
+
+.ninth-section .description-block:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 40%;
+  background-color: #58b749;
+  height: 2px;
+  width: 20%;
+}
+
+.ninth-section .advantages [class*='col-'] {
+  margin-top: 5px;
+  padding-left: 5px;
+  padding-right: 0;
+}
+
+// hover
+
+.ninth-section .icon-wrapper:hover {
+  color: #fff;
+  background-color: #58b749;
+  //height: 260px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ninth-section .icon-wrapper:hover .icon-block {
+  top: -17%;
+  z-index: 1;
+}
+
+.ninth-section .icon-wrapper:hover .icon-block .icon-bg {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  background-color: #efefef;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.ninth-section .icon-wrapper:hover .icon-block .inner-border {
+  display: inline-block;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: rgb(89, 174, 76);
+  box-shadow: 0 15px 20px 0 rgba(20, 69, 13, 0.2);
+}
+
+.ninth-section .icon-wrapper:hover .icon-block .outer-border {
+  display: inline-block;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: rgba(89, 174, 76, 0.3);
+}
+
+.ninth-section .icon-wrapper:hover .description-wrapper {
+  top: 130px;
+  background-color: #58b749;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ninth-section .icon-wrapper:hover .description-wrapper.one-lined {
+  top: 110px;
+  background-color: #58b749;
+}
+
+.ninth-section .icon-wrapper:hover .description-block {
+  top: 0;
+}
+
+.ninth-section .icon-wrapper:hover .description-block:before {
+  background-color: #fff;
+}
+
+// responsive behavior
+
+// up to 767px width
+@media (max-width: $screen-xs-max) {
+  .ninth-section h1 {
+    font-size:28px;
+  }
+
+
+}
+// width 768px to 991px
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  .ninth-section h1 {
+    font-size:36px;
+  }
+  .ninth-section .description-wrapper {
+    height: 100px;
+  }
+  .ninth-section .description-wrapper.one-lined {
+    height: 100px;
+  }
+}
+// width 992px to 1199px
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  .ninth-section .advantages {
+    width: 90%;
+    margin: 10px auto 0;
+  }
+  .ninth-section h1 {
+    font-size:30px;
+    margin-top:0;
+  }
+  .ninth-section .icon-wrapper {
+    height: 180px;
+  }
+  .ninth-section .description-wrapper {
+    height: 170px;
+  }
+}
+// width 1200px to 1439px
+@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+  .ninth-section h1 {
+    font-size:34px;
+    margin-top:0;
+  }
+  .ninth-section .advantages {
+    width: 90%;
+    margin: 10px auto 0;
+  }
+  .ninth-section .icon-wrapper {
+    height: 180px;
+  }
+  .ninth-section .description-wrapper {
+    height: 140px;
+  }
+}
+// width 1440px and over
+@media (min-width: $screen-xlg-min) {
+
+}

@@ -2,8 +2,9 @@
 
 .vertical-menu {
   position: absolute;
-  top: 25%;
+  top: 30%;
   right: 4.6%;
+  z-index: 1;
 }
 
 .nav.vertical-menu > li > a > div.inner-dot {

@@ -84,23 +84,13 @@
   margin-left: 15px;
   margin-right: 15px;
 }
-//
-//.eighth-section .project-description .table > tbody > tr > td {
-//  padding: 8px 2px 8px 5px;
-//  border-top: none;
-//  border-bottom: 1px solid #fff;
-//}
 
-//.eighth-section .project-description .row.table-row {
-//  display: table-row;
-//}
-
-.project-description [class*='col-'] {
+.eighth-section .project-description [class*='col-'] {
   padding: 8px 2px 8px 5px;
   border-bottom: 1px solid #fff;
 }
 
-.project-description [class*='col-'].icon-caption {
+.eighth-section .project-description [class*='col-'].icon-caption {
   padding: 8px 2px 12px 5px;
 }
 
@@ -122,7 +112,7 @@
 
 // up to 767px width
 @media (max-width: $screen-xs-max) {
-  .popular-projects {
+  .eighth-section .popular-projects {
     margin-top: 10%;
   }
   .eighth-section h1 {
@@ -139,16 +129,16 @@
     padding-left: 4%;
     padding-right: 4%;
   }
-  .project-description [class*='col-'].icon-caption {
+  .eighth-section .project-description [class*='col-'].icon-caption {
     padding: 8px 2px 12px 15px;
   }
 }
 // width 768px to 991px
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-  .popular-projects {
+  .eighth-section .popular-projects {
     margin-top: 5%;
   }
-  .catalogue.btn-green {
+  .eighth-section .catalogue.btn-green {
     width: 70%;
   }
   .eighth-section .project-item {
@@ -163,7 +153,7 @@
   .eighth-section h1 {
     font-size: 24px;
   }
-  .popular-projects {
+  .eighth-section .popular-projects {
     width: 80%;
   }
   .eighth-section .project-item {
@@ -186,16 +176,16 @@
   .eighth-section .project-description .panel-default > .panel-footer {
     padding: 5px 10px 10px;
   }
-  .project-description [class*='col-'].icon-caption {
+  .eighth-section .project-description [class*='col-'].icon-caption {
     padding: 8px 2px 12px 15px;
   }
 }
 // width 1200px to 1439px
 @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
-  .eighth-section {
+  .eighth-section .eighth-section {
     margin-left:15px;
   }
-  .popular-projects {
+  .eighth-section .popular-projects {
     width: 80%;
   }
   .eighth-section .project-item {
@@ -217,7 +207,7 @@
 }
 // width 1440px and over
 @media (min-width: $screen-xlg-min) {
-  .popular-projects {
+  .eighth-section .popular-projects {
     margin-top: 5%;
   }
 }
