@@ -73,7 +73,22 @@
 
 // up to 767px width
 @media (max-width: $screen-xs-max) {
-
+  .owl-theme-servus .owl-dots {
+    display: none;
+  }
+  .owl-theme-servus .owl-nav {
+    width: 100%;
+    bottom: 330px;
+  }
+  .owl-theme-servus .owl-nav [class*='owl-'] {
+    font-size: 28px;
+  }
+  .owl-theme-servus .owl-nav .owl-prev {
+    left: -9%;
+  }
+  .owl-theme-servus .owl-nav .owl-next {
+    right: -9%;
+  }
 }
 // width 768px to 991px
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
@@ -88,11 +103,11 @@
     bottom: 25px;
   }
   .owl-theme-servus .owl-nav .owl-prev {
-    left: 70%;
+    left: 50%;
     font-size: 24px;
   }
   .owl-theme-servus .owl-nav .owl-next {
-    right: -5%;
+    right: 15%;
     font-size: 24px;
   }
 

@@ -3,7 +3,7 @@ import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundI
 import backgroundImage from './bg-screen8.jpg'
 import './eighthPage.css'
 import './owl.theme.projects.css'
-import {Row, Col, Button, Image, Panel, Table} from 'react-bootstrap'
+import {Row, Col, Button, Image, Panel} from 'react-bootstrap'
 import projectImage from './tallin.jpg'
 import OwlCarousel from 'react-owl-carousel'
 
@@ -41,7 +41,7 @@ class EighthPage extends React.Component {
     </Button>;
     return (
       <div className="eighth-section">
-        <Row>
+        <Row className="table-row">
           <Col md={5}>
             <h1><span className="text-highlight">Проекты</span> энергосберегающих домов и коттеджей</h1>
             <p className="section-description">Большой выбор оригинальных проектов от наших архитекторов</p>
@@ -50,7 +50,7 @@ class EighthPage extends React.Component {
               проектов современных энергоэффективных домов и коммерческих объектов. 3D-визуализацию, планировку и фото реализованных проектов смотрите
               в нашем каталоге.
             </p>
-            <p className="hidden-medium">
+            <p className="hidden-medium hidden-semimedium">
               Любой проект в каталоге можно изменить как архитектурно так и визуально. Например, отразить зеркально, добавить/убрать террасу, крыльцо, или гараж для автомобиля, изменить планировку помещений
               или размещение и форму окон и дверей. Фасад дома так же может быть выполнен в любом другом стиле. Для наших клиентов все изменения в проект вносятся бесплатно.
             </p>
@@ -70,7 +70,8 @@ class EighthPage extends React.Component {
                   <Image src={projectImage}/>
                   <div className="project-description">
                     <Panel header={header} footer={footer}>
-                        <Col md={2} xs={2}>
+                      <div className="project-details"><Row className="table-row">
+                        <Col md={1} xs={1}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -79,10 +80,11 @@ class EighthPage extends React.Component {
                                   d="M18.709,5.126 L18.709,16.775 L19.787,16.775 C19.867,16.775 19.939,16.823 19.969,16.897 C20.000,16.971 19.983,17.057 19.926,17.114 L18.186,18.861 C18.109,18.938 17.984,18.938 17.907,18.861 L16.167,17.114 C16.111,17.057 16.094,16.971 16.125,16.897 C16.155,16.823 16.227,16.775 16.306,16.775 L17.384,16.775 L17.384,5.126 L16.306,5.126 C16.227,5.126 16.155,5.078 16.125,5.003 C16.094,4.929 16.111,4.845 16.167,4.788 L17.907,3.040 C17.984,2.962 18.109,2.962 18.186,3.040 L19.926,4.788 C19.983,4.845 20.000,4.929 19.969,5.003 C19.939,5.078 19.867,5.126 19.787,5.126 L18.709,5.126 ZM15.145,3.817 C15.088,3.873 15.004,3.890 14.930,3.859 C14.856,3.828 14.809,3.756 14.809,3.676 L14.809,2.593 L3.210,2.593 L3.210,3.676 C3.210,3.756 3.162,3.828 3.088,3.859 C3.014,3.890 2.930,3.873 2.873,3.817 L1.133,2.068 C1.056,1.990 1.056,1.866 1.133,1.788 L2.873,0.041 C2.930,-0.016 3.014,-0.034 3.088,-0.002 C3.162,0.028 3.210,0.100 3.210,0.180 L3.210,1.262 L14.809,1.262 L14.809,0.180 C14.809,0.100 14.856,0.028 14.930,-0.002 C15.004,-0.034 15.088,-0.016 15.145,0.041 L16.885,1.788 C16.962,1.866 16.962,1.990 16.885,2.068 L15.145,3.817 ZM15.239,5.692 L15.239,19.001 C15.239,19.552 14.794,19.999 14.245,19.999 L0.994,19.999 C0.445,19.999 -0.000,19.552 -0.000,19.001 L-0.000,5.692 C-0.000,5.140 0.445,4.693 0.994,4.693 L14.245,4.693 C14.794,4.693 15.239,5.140 15.239,5.692 ZM13.251,6.690 L1.988,6.690 L1.988,18.003 L13.251,18.003 L13.251,6.690 Z"/>
                           </svg>
                         </Col>
-                        <Col md={4} xs={10}>
+                        <Col md={5} xs={11} className="icon-caption">
                           Площадь: <b>125м<sup>2</sup></b>
                         </Col>
-                        <Col md={2} xs={2}>
+                        <div className="clearfix visible-sm-block visible-xs-block"/>
+                        <Col md={1} xs={1}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -103,11 +105,12 @@ class EighthPage extends React.Component {
                                 c0.382,0,0.768-0.345,0.768-0.768C15.745,11.716,15.4,11.371,14.978,11.371z"/>
                           </svg>
                         </Col>
-                        <Col md={4} xs={10}>
+                        <Col md={5} xs={11} className="icon-caption">
                           Гараж: <b>на 1 авто</b>
                         </Col>
-                      <Row>
-                        <Col md={2} xs={2}>
+                      </Row>
+                      <Row className="table-row">
+                        <Col md={1} xs={1}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -139,10 +142,11 @@ class EighthPage extends React.Component {
                           </g>
                           </svg>
                         </Col>
-                        <Col md={4} xs={10}>
+                        <Col md={5} xs={11} className="icon-caption">
                           Этажность: <b>2</b>
                         </Col>
-                        <Col md={2} xs={2}>
+                        <div className="clearfix visible-sm-block visible-xs-block"/>
+                        <Col md={1} xs={1} className="hidden-semimedium">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -191,12 +195,12 @@ class EighthPage extends React.Component {
                             </g>
                           </svg>
                         </Col>
-                        <Col md={4} xs={10}>
+                        <Col md={5} xs={11} className="icon-caption hidden-semimedium">
                           С террасой
                         </Col>
                       </Row>
-                      <Row>
-                        <Col md={2} xs={2}>
+                      <Row className="table-row hidden-semimedium">
+                        <Col md={1} xs={1}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -212,10 +216,10 @@ class EighthPage extends React.Component {
                               c0,0.346,0.28,0.627,0.627,0.627h2.825C18.72,19,19,18.719,19,18.373V1.627C19,1.281,18.72,1,18.373,1z"/>
                           </svg>
                         </Col>
-                        <Col md={4} xs={10}>
+                        <Col md={5} xs={11} className="icon-caption">
                           Комнат: <b>3</b>
                         </Col>
-                      </Row>
+                      </Row></div>
                     </Panel>
                   </div>
                 </div>

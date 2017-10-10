@@ -242,6 +242,9 @@ p.p-highlight {
 }
 // width 992px to 1199px
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  .hidden-semimedium {
+    display: none;
+  }
   .hidden-medium {
     display: none;
   }
