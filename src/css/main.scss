@@ -144,12 +144,13 @@ p.p-highlight {
 
 .lp-link {
   text-transform: uppercase;
-  text-decoration: underline dotted;
+  border-bottom: 1px dotted #58b749;
   font-size: 22px;
+  padding:0;
 }
 
 .lp-link:hover {
-  text-decoration: underline dotted;
+  border-bottom-color: #75de65;
 }
 
 // card Panel
