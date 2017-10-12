@@ -96,6 +96,38 @@
   box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.15);
 }
 
+span.input-icon.input-group-addon {
+  background: transparent;
+  color: #41af2f;
+  border: 1px solid #ebebeb;
+  border-radius: 25px 0 0 25px;
+  padding: 15px 15px 15px 25px;
+  border-right: none;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+}
+.form-control::-moz-placeholder {
+  color: #d2d7e0;
+}
+.form-control:-ms-input-placeholder {
+  color: #d2d7e0;
+}
+.form-control::-webkit-input-placeholder {
+  color: #d2d7e0;
+}
+input.input-textfield.form-control {
+  background: transparent;
+  padding: 25px;
+  border-radius: 0 25px 25px 0;
+  border-left: none;
+  color: #d2d7e0;
+}
+
+input.input-textfield.form-control:focus {
+  border-color: #52ad44;
+  //box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(65, 175, 47, 0.6);
+  box-shadow: none;
+}
+
 // responsive behavior
 
 // up to 767px width

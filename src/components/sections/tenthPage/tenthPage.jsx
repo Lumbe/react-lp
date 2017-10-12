@@ -2,7 +2,7 @@ import React from 'react'
 import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDarkColorScheme} from "../../common/main";
 import backgroundImage from './bg-screen10.jpg'
 import './tenthPage.css'
-import {Row, Col, Button, FormGroup, Radio} from 'react-bootstrap'
+import {Row, Col, Button, FormGroup, Radio, InputGroup, FormControl} from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import {Link} from "react-router-dom";
 
@@ -39,6 +39,16 @@ class TenthPage extends React.Component {
     this.props.actions.createLead(this.state.lead).then(response => {
       this.props.history.push(response.data.lead.id.toString());
     });
+  }
+
+  handleFocus(e) {
+    let sibling = e.target.previousElementSibling;
+    return sibling.style.borderColor = '#52ad44';
+  }
+
+  handleBlur(e) {
+    let sibling = e.target.previousElementSibling;
+    return sibling.style.borderColor = '#ebebeb';
   }
 
   componentDidMount() {
@@ -152,6 +162,19 @@ class TenthPage extends React.Component {
                     </Radio>
                   </Col>
                 </Row>
+              </FormGroup>
+              <FormGroup>
+                <InputGroup>
+                  <InputGroup.Addon className="input-icon">
+                    <FontAwesome name="phone"/>
+                  </InputGroup.Addon>
+                  <FormControl
+                    type="text" className="input-textfield"
+                    placeholder="Ваше имя"
+                    onFocus={this.handleFocus.bind(this)}
+                    onBlur={this.handleBlur.bind(this)}
+                  />
+                </InputGroup>
               </FormGroup>
             </form>
           </div>
