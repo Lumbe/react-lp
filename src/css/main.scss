@@ -27,6 +27,22 @@ p.p-highlight {
   padding-left: 10px;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  //border:none !important;
+  -webkit-text-fill-color: #d2d7e0 !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 // green button {
 // Callback button in header
 .btn.btn-green:focus {
@@ -37,7 +53,6 @@ p.p-highlight {
   color: #f6f9f5;
   position: relative;
   display: inline-block;
-  margin-top: 32px;
   padding: 5px 15px;
   background: -moz-linear-gradient( -90deg, rgb(89,186,74) 0%, rgb(69,150,56) 100%);
   background: -webkit-linear-gradient( -90deg, rgb(89,186,74) 0%, rgb(69,150,56) 100%);

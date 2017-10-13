@@ -59,7 +59,7 @@ class EighthPage extends React.Component {
               Любой проект в каталоге можно изменить как архитектурно так и визуально. Например, отразить зеркально, добавить/убрать террасу, крыльцо, или гараж для автомобиля, изменить планировку помещений
               или размещение и форму окон и дверей. Фасад дома так же может быть выполнен в любом другом стиле. Для наших клиентов все изменения в проект вносятся бесплатно.
             </p>
-            <Button bsSize="large" bsStyle="green" className="catalogue" block>Смотреть все прокты</Button>
+            <Button bsSize="large" bsStyle="green" className="catalogue" block>Смотреть все проекты</Button>
           </Col>
           <Col md={7}>
             <div className="popular-projects">
