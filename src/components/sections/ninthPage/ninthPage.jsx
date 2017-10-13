@@ -5,18 +5,6 @@ import {Row, Col} from 'react-bootstrap'
 import backgroundImage from './bg-screen9.jpg'
 
 class NinthPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = this.defaultProps();
-  }
-
-  defaultProps() {
-    return {
-      showModal: false,
-      modalId: null,
-      description: null
-    }
-  }
 
   componentDidMount() {
     setWindowHeight();
