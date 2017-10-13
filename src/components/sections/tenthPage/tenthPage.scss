@@ -32,7 +32,7 @@
   padding-left: 0;
   padding-right: 0;
 }
-.form-wrapper {
+.tenth-section .form-wrapper {
   position: relative;
   margin:30px auto;
   background-color: rgba(0, 0, 0, 0.302);
@@ -40,7 +40,7 @@
   padding: 0 50px;
   text-align: center;
 }
-.form-wrapper .form-badge {
+.tenth-section .form-wrapper .form-badge {
   display: inline-block;
   color: #898300;
   background-color: #fff101;
@@ -51,11 +51,11 @@
   border-radius: 0 0 5px 5px;
 }
 
-.form-wrapper h4 {
+.tenth-section .form-wrapper h4 {
   margin-top:20px;
 }
 
-.form-wrapper h4:after {
+.tenth-section .form-wrapper h4:after {
   content: '';
   display: block;
   margin: 15px auto;
@@ -79,7 +79,7 @@
   width: 100%;
 }
 
-.price-form .btn-radio {
+.tenth-section .price-form .btn-radio {
   border: 1px solid #ebebeb;
   display: block;
   margin: 10px;
@@ -87,17 +87,17 @@
   border-radius: 30px;
 }
 
-.price-form .btn-radio:hover {
+.tenth-section .price-form .btn-radio:hover {
   border-color: #52ad44;
 }
 
-.price-form .btn-radio.checked {
+.tenth-section .price-form .btn-radio.checked {
   background-color: #469839;
   border-color: #469839;
   box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.15);
 }
 
-span.input-icon.input-group-addon {
+.tenth-section span.input-icon.input-group-addon {
   position: relative;
   background: transparent;
   color: #41af2f;
@@ -108,7 +108,7 @@ span.input-icon.input-group-addon {
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
 }
 
-span.input-icon.input-group-addon:after {
+.tenth-section span.input-icon.input-group-addon:after {
   content: '';
   position: absolute;
   top: 20%;
@@ -119,7 +119,7 @@ span.input-icon.input-group-addon:after {
   opacity: 0.7;
 }
 
-input.input-textfield.form-control {
+.tenth-section input.input-textfield.form-control {
   background: transparent;
   padding: 25px;
   border-radius: 0 25px 25px 0;
@@ -127,17 +127,17 @@ input.input-textfield.form-control {
   color: #d2d7e0;
 }
 
-input.input-textfield.form-control:focus {
+.tenth-section input.input-textfield.form-control:focus {
   border-color: #52ad44;
   box-shadow: none;
 }
-.form-control::-moz-placeholder {
+.tenth-section .form-control::-moz-placeholder {
   color: #d2d7e0;
 }
-.form-control:-ms-input-placeholder {
+.tenth-section .form-control:-ms-input-placeholder {
   color: #d2d7e0;
 }
-.form-control::-webkit-input-placeholder {
+.tenth-section .form-control::-webkit-input-placeholder {
   color: #d2d7e0;
 }
 
@@ -181,18 +181,18 @@ input.input-textfield.form-control:focus {
   .tenth-section .form-wrapper h4 {
     margin-top:0;
   }
-  .form-wrapper h4:after {
+  .tenth-section .form-wrapper h4:after {
     margin:12px auto 10px;
   }
-  .price-form .btn-radio {
+  .tenth-section .price-form .btn-radio {
     padding: 7px 0;
     margin:0 5px;
   }
 
-  input.input-textfield.form-control {
+  .tenth-section input.input-textfield.form-control {
     padding: 12px 25px;
   }
-  span.input-icon.input-group-addon {
+  .tenth-section span.input-icon.input-group-addon {
     padding: 7px 10px 7px 15px;
   }
   .tenth-section .btn.btn-green {
@@ -220,15 +220,15 @@ input.input-textfield.form-control:focus {
   .form-wrapper h4:after {
     margin:12px auto 10px;
   }
-  .price-form .btn-radio {
+  .tenth-section .price-form .btn-radio {
     padding: 7px 0;
     margin:0 10px;
   }
 
-  input.input-textfield.form-control {
+  .tenth-section input.input-textfield.form-control {
     padding: 12px 25px;
   }
-  span.input-icon.input-group-addon {
+  .tenth-section span.input-icon.input-group-addon {
     padding: 7px 10px 7px 15px;
   }
   .tenth-section .btn.btn-green {
