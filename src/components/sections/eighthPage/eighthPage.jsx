@@ -65,7 +65,7 @@ class EighthPage extends React.Component {
             <div className="popular-projects">
               <div className="projects-label">Популярные проекты</div>
               <OwlCarousel
-                className="owl-theme-servus"
+                className="owl-theme-projects"
                 items={1}
                 margin={20}
                 loop nav={true}

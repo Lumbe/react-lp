@@ -117,6 +117,7 @@ select:-webkit-autofill:focus {
 .yt-cover {
   position: relative;
   display: inline-block;
+  transition: 0.2s ease-in-out;
 }
 
 .yt-cover .cover-frame {
@@ -126,6 +127,7 @@ select:-webkit-autofill:focus {
   left: 5%;
   height: 90%;
   width: 90%;
+  z-index: 1;
 }
 
 .yt-cover .play-icon {
