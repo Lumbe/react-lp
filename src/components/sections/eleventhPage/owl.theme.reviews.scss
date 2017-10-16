@@ -7,13 +7,11 @@
   width: 95%;
   text-align: center;
 }
-//.owl-theme-reviews .owl-item.active {
-// width: 70%;
-//}
-//
-//.owl-theme-reviews .owl-item.active.center {
-//  width: 100%;
-//}
+
+.owl-theme-reviews .owl-item {
+  position: relative;
+  z-index: 300;
+}
 
 .owl-theme-reviews .owl-item span.fa.play-icon {
   opacity: 0;
@@ -28,7 +26,8 @@
 }
 .owl-theme-reviews .owl-item {
   filter: grayscale(1);
-  transition: 0.2s ease-in-out;
+  transition: 0.2s ease all;
+  transform:scale(.85);
 }
 
 .owl-theme-reviews .owl-item.active:hover {
@@ -37,6 +36,7 @@
 
 .owl-theme-reviews .owl-item.active.center {
   filter: none;
+  transform:scale(1);
 }
 
 .owl-theme-reviews .owl-nav {
