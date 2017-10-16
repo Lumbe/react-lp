@@ -243,6 +243,10 @@ select:-webkit-autofill:focus {
   .hidden-small {
     display: none;
   }
+  .yt-modal.modal-dialog {
+    width: 90%;
+    margin: 0;
+  }
   .card .square:before {
     display: none;
   }

@@ -1,11 +1,9 @@
 import React from 'react'
 import './eleventhPage.css'
 import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage} from "../../common/main";
-import {Row, Col, Image, Modal} from 'react-bootstrap'
+import {Image, Modal} from 'react-bootstrap'
 import backgroundImage from './bg-screen11.jpg'
-import './owl.theme.reviews.css'
 import YouTube from 'react-youtube'
-import OwlCarousel from 'react-owl-carousel'
 import FontAwesome from 'react-fontawesome'
 import review1 from './images/review1.jpg'
 import review2 from './images/review2.jpg'
@@ -13,6 +11,7 @@ import review3 from './images/review3.jpg'
 import review4 from './images/review4.jpg'
 import review5 from './images/review5.jpg'
 import Slider from 'react-slick'
+import './slick-theme-reviews.css'
 
 class EleventhPage extends React.Component {
   constructor(props) {
@@ -27,8 +26,8 @@ class EleventhPage extends React.Component {
     }
   }
 
-  openModal(modalId, position) {
-    console.log('position', position);
+  openModal(modalId) {
+    console.log('open modal');
     this.setState({showModal: true, modalId: modalId})
   }
 
@@ -41,8 +40,6 @@ class EleventhPage extends React.Component {
     setWindowHeight();
     window.onresize = setWindowHeight;
     setBackgroundImage(backgroundImage);
-    // setDataAttributes();
-    // clickHandler();
   }
 
 
@@ -66,37 +63,29 @@ class EleventhPage extends React.Component {
         autoplay: 1
       }
     };
+    const options = {
+      className: "slick-theme-reviews",
+      centerMode: true,
+      centerPadding: 0,
+      slidesToShow: 3,
+      arrows: true,
+      draggable: false,
+      swipe: true,
+      // prevArrow: <SamplePrevArrow />,
+      // nextArrow: <SampleNextArrow />,
+      responsive: [
+        { breakpoint: 992,
+          settings: { slidesToShow: 1 } },
+        { breakpoint: 5000, settings: { slidesToShow: 3 } }
+      ]
+    };
     return (<div className="eleventh-section">
         <h1 className="text-center"><span className="text-highlight"> Отзывы</span> о домах из СИП-панелей</h1>
         <p className="section-description text-center">Душа моя озарена неземной радостью...</p>
         <div className="client-reviews">
-          <OwlCarousel
-            className="owl-theme-reviews"
-            items={3}
-            // margin={5}
-            center={true}
-            loop nav={true}
-            navText={[iconLeft, iconRight]}
-            responsiveClass={true}
-            responsive={{
-              0:{
-                items: 1
-              },
-              768: {
-                items: 1
-              },
-              // breakpoint from 768 up
-              962: {
-                items: 3
-              },
-              // breakpoint from 768 up
-              1200: {
-                items: 3
-              }
-            }}
-          >
-            <div className="review-item" onClick={this.openModal.bind(this, youtubeId1)}>
-              <div className="yt-cover">
+          <Slider {...options}>
+            <div className="review-item">
+              <div className="yt-cover" onClick={this.openModal.bind(this, youtubeId1)}>
                 <div className="cover-frame"/>
                 <Image src={review1} responsive/>
                 <FontAwesome className="play-icon" name="play-circle" size="4x"/>
@@ -165,7 +154,7 @@ class EleventhPage extends React.Component {
                 </div>
               </div>
             </div>
-          </OwlCarousel>
+          </Slider>
         </div>
         <Modal dialogClassName="yt-modal" keyboard={this.onHide} show={this.state.showModal} onHide={this.close.bind(this)}>
           <YouTube
@@ -178,21 +167,11 @@ class EleventhPage extends React.Component {
   }
 }
 
-// function setDataAttributes() {
-//   let items = Array.from(document.getElementsByClassName('owl-stage')[0].children);
-//   console.log(items);
-//   items.forEach( (item, index) => {
-//     item.setAttribute('data-position', index);
-//   })
-// }
-//
-// function clickHandler() {
-//   document.addEventListener('click', (event) => {
-//     if (event.target.classList.contains('cover-frame')) {
-//      // event.target.dispatchEvent('to.owl.carousel', event.target.data('position'));
-//      console.log('to.owl.carousel', event.target);
-//     }
-//   }, false);
-// }
+function SamplePrevArrow(props) {
+  return <span {...props} className='fa fa-angle-left fa-2x'/>
+}
+function SampleNextArrow(props) {
+  return <span {...props} className='fa fa-angle-right fa-2x'/>
+}
 
 export default EleventhPage

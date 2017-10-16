@@ -4,10 +4,9 @@
   display: flex;
   flex-direction:column;
   justify-content: center;
-  margin: 10% 0;
 }
 
-.eleventh-section .owl-item .review-item .review-desc {
+.eleventh-section .slick-slide.review-item .review-desc {
   opacity: 0;
   font-family:"Proxima Nova", sans-serif;
   font-size:25px;
@@ -16,15 +15,15 @@
   transition: opacity 0.2s ease-in-out;
 }
 
-.eleventh-section .owl-item.active.center .review-item .review-desc {
+.eleventh-section .slick-slide.slick-center.review-item .review-desc {
   opacity: 1;
 }
 
-.eleventh-section .owl-item.active:hover .review-item .review-desc {
+.eleventh-section .slick-slide.slick-active.review-item:hover .review-desc {
   opacity: 1;
 }
 
-.eleventh-section .owl-item .review-item .review-desc div {
+.eleventh-section .slick-slide.review-item .review-desc div {
   color: #58b749;
   font-size:16px;
   font-weight:500;
@@ -41,13 +40,24 @@
 }
 // width 992px to 1199px
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-
+  .eleventh-section .slick-theme-reviews {
+    width: 85%;
+    margin: 0 auto;
+  }
 }
 // width 1200px to 1439px
 @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
-
+  .eleventh-section .slick-theme-reviews {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 // width 1440px and over
 @media (min-width: $screen-xlg-min) {
-
+  .eleventh-section {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    margin: 8% 0;
+  }
 }
