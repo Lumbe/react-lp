@@ -42,7 +42,7 @@
   display: block;
 
   width: 20px;
-  height: 20px;
+  height: 50px;
   padding: 0;
   -webkit-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
@@ -83,7 +83,9 @@
   font-family: 'slick';
   font-size: 20px;
   line-height: 1;
-
+  display: block;
+  width: 17px;
+  height: 50px;
   opacity: .75;
   color: #58b749;
 
@@ -97,7 +99,12 @@
 }
 .slick-prev:before
 {
-  content: '←';
+  content: '';
+  background-image: url(./images/arrow-left.png);
+  transition: background-image 0.2s ease;
+}
+.slick-prev:hover:before {
+  background-image: url(./images/arrow-green-left.png);
 }
 .slick-next
 {
@@ -105,5 +112,9 @@
 }
 .slick-next:before
 {
-  content: '→';
+  content: '';
+  background-image: url(./images/arrow-right.png);
+}
+.slick-next:hover:before {
+  background-image: url(./images/arrow-green-right.png);
 }

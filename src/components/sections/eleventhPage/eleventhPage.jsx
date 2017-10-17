@@ -55,15 +55,13 @@ class EleventhPage extends React.Component {
     const youtubeId3 = 'VMBcaU6A6uo';
     const youtubeId4 = '6JCILbYgowc';
     const youtubeId5 = 'lJt6uVAuGDo';
-    const iconLeft = "<span class='fa fa-angle-left fa-2x'/>";
-    const iconRight = "<span class='fa fa-angle-right fa-2x'/>";
-    const opts = {
+    const youtubeOpts = {
       width: '100%',
       playerVars: {
         autoplay: 1
       }
     };
-    const options = {
+    const sliderOpts = {
       className: "slick-theme-reviews",
       centerMode: true,
       centerPadding: 0,
@@ -71,8 +69,6 @@ class EleventhPage extends React.Component {
       arrows: true,
       draggable: false,
       swipe: true,
-      // prevArrow: <SamplePrevArrow />,
-      // nextArrow: <SampleNextArrow />,
       responsive: [
         { breakpoint: 992,
           settings: { slidesToShow: 1 } },
@@ -83,7 +79,7 @@ class EleventhPage extends React.Component {
         <h1 className="text-center"><span className="text-highlight"> Отзывы</span> о домах из СИП-панелей</h1>
         <p className="section-description text-center">Душа моя озарена неземной радостью...</p>
         <div className="client-reviews">
-          <Slider {...options}>
+          <Slider {...sliderOpts}>
             <div className="review-item">
               <div className="yt-cover" onClick={this.openModal.bind(this, youtubeId1)}>
                 <div className="cover-frame"/>
@@ -159,19 +155,12 @@ class EleventhPage extends React.Component {
         <Modal dialogClassName="yt-modal" keyboard={this.onHide} show={this.state.showModal} onHide={this.close.bind(this)}>
           <YouTube
             videoId={this.state.modalId}
-            opts={opts}
+            opts={youtubeOpts}
           />
         </Modal>
       </div>
     )
   }
-}
-
-function SamplePrevArrow(props) {
-  return <span {...props} className='fa fa-angle-left fa-2x'/>
-}
-function SampleNextArrow(props) {
-  return <span {...props} className='fa fa-angle-right fa-2x'/>
 }
 
 export default EleventhPage
