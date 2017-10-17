@@ -15,6 +15,7 @@ const AsyncEighthPage = MyLoadable({ loader: () => import('./components/sections
 const AsyncNinthPage = MyLoadable({ loader: () => import('./components/sections/ninthPage/ninthPage') });
 const AsyncTenthPage = MyLoadable({ loader: () => import('./components/sections/tenthPage/tenthPage') });
 const AsyncEleventhPage = MyLoadable({ loader: () => import('./components/sections/eleventhPage/eleventhPage') });
+const AsyncTwelfthPage = MyLoadable({ loader: () => import('./components/sections/twelfthPage/twelfthPage') });
 
 const AsyncTypography = MyLoadable({ loader: () => import('./components/common/typography') });
 const AsyncNotFound = MyLoadable({ loader: () => import('./components/error/notFound') });
@@ -35,6 +36,7 @@ class Routes extends React.Component {
           <LandingLayout exact path="/9-page" inverse={false} component={AsyncNinthPage}/>
           <LandingLayout exact path="/10-page" inverse={true} component={AsyncTenthPage}/>
           <LandingLayout exact path="/11-page" inverse={false} component={AsyncEleventhPage}/>
+          <LandingLayout exact path="/12-page" inverse={true} component={AsyncTwelfthPage}/>
           <LandingLayout exact path="/typography" inverse={false} component={AsyncTypography}/>
           <LandingLayout inverse={false} component={AsyncNotFound}/>
         </Switch>
