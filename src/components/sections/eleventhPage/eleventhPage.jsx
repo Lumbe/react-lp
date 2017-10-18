@@ -2,7 +2,6 @@ import React from 'react'
 import './eleventhPage.css'
 import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage} from "../../common/main";
 import {Image, Modal, Button} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
 import backgroundImage from './bg-screen11.jpg'
 import YouTube from 'react-youtube'
 import FontAwesome from 'react-fontawesome'
@@ -152,7 +151,7 @@ class EleventhPage extends React.Component {
               </div>
             </div>
           </Slider>
-          <div className="text-center yt-reviews-link"><a href="https://www.youtube.com/playlist?list=PL1rM7N4FMIUCrw1QFGnkXOYqpjLgz1QUI" target="_blank">
+          <div className="text-center yt-reviews-link"><a rel="noopener noreferrer" href="https://www.youtube.com/playlist?list=PL1rM7N4FMIUCrw1QFGnkXOYqpjLgz1QUI" target="_blank">
             <Button bsStyle="green">Посмотреть все отзывы</Button>
           </a></div>
         </div>

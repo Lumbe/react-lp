@@ -61,6 +61,7 @@ select:-webkit-autofill:focus {
   background: linear-gradient( -90deg, rgb(89,186,74) 0%, rgb(69,150,56) 100%);
   box-shadow: 0 10px 27.9px 2.1px rgba(88, 183, 73, 0.3);
   border-radius: 40px;
+  transition: all 0.1s ease-in;
 }
 
 .btn-green:before {

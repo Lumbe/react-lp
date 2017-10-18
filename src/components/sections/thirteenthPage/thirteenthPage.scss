@@ -1,0 +1,131 @@
+@import '../../../css/mediaQueriesVars.scss';
+
+.thirteenth-section .map-wrapper {
+  margin: 40px auto;
+}
+
+.thirteenth-section h1 {
+  font-size:32px;
+}
+
+.thirteenth-section h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.thirteenth-section h2:after {
+  content: '';
+  display: block;
+  margin: 15px auto;
+  height: 2px;
+  width: 15%;
+  background-color: #ffd801;
+}
+.thirteenth-section .panel-item {
+  display: flex;
+  align-items: center;
+  overflow: auto;
+  margin-bottom:10px;
+  padding: 10px;
+  border: 1px solid rgb(235, 235, 235);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.05);
+}
+
+.thirteenth-section .panel-item .panel-icon {
+  width: 65px;
+  height: 65px;
+  border: 1px solid #d9dee3;
+  border-radius: 50%;
+  padding: 14px;
+}
+
+.thirteenth-section .btn-green {
+  width: 97%;
+  margin: 10px 1.5%;
+  padding: 10px 15px;
+}
+
+.thirteenth-section .btn-green:before {
+  width: 103%;
+  left: -1.5%;
+}
+
+.thirteenth-section .email-item {
+  word-break: break-word;
+}
+
+// responsive behavior
+
+// up to 767px width
+@media (max-width: $screen-xs-max) {
+
+}
+// width 768px to 991px
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+
+}
+// width 992px to 1199px
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  .thirteenth-section {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .thirteenth-section h1 {
+    margin-top:-10px;
+  }
+  .thirteenth-section h2 {
+    margin-top: -10px;
+  }
+  .thirteenth-section .map-wrapper {
+    margin: 10px auto;
+  }
+  .thirteenth-section h2:after {
+    display: none;
+  }
+  .thirteenth-section .panel-item {
+    padding: 5px 10px;
+  }
+  .thirteenth-section .btn-green {
+    margin-top: 0;
+    width: 97%;
+    padding: 5px 15px;
+  }
+  .thirteenth-section .panel-item .panel-icon {
+    width:55px;
+    height: 55px;
+    padding: 9px;
+  }
+}
+// width 1200px to 1439px
+@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+  .thirteenth-section {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .thirteenth-section h1 {
+    margin-top:-10px;
+  }
+  .thirteenth-section h2 {
+    margin-top: -10px;
+  }
+  .thirteenth-section .map-wrapper {
+    margin: 10px auto;
+  }
+  .thirteenth-section h2:after {
+    display: none;
+  }
+  .thirteenth-section .panel-item {
+    padding: 5px 10px;
+  }
+  .thirteenth-section .btn-green {
+    width: 97%;
+    margin: 10px 1.5%;
+    padding: 5px 15px;
+  }
+}
+// width 1440px and over
+@media (min-width: $screen-xlg-min) {
+
+
+}
