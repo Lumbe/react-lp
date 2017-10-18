@@ -9,12 +9,14 @@
   background-color: rgba(0,0,0,0.45);
   height: 360px;
   color: #fff;
+  transition: all 0.5s ease;
 }
 
 .sixth-section .icon-block {
   position: relative;
   top: 40%;
   padding: 0 10px;
+  transition: all 0.6s ease-in-out;
 }
 
 .sixth-section .img-icon {
@@ -67,6 +69,7 @@
   position: absolute;
   top: 99%;
   padding: 10px;
+  transition: all 0.6s ease-in-out;
 }
 
 .sixth-section .description-block:before {
@@ -82,6 +85,7 @@
 // hover
 
 .sixth-section .icon-wrapper:hover {
+  cursor: default;
   background-color: #58b749;
 }
 

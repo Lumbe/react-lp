@@ -70,6 +70,9 @@ class EighthPage extends React.Component {
                 margin={20}
                 loop nav={true}
                 navText={[iconLeft, iconRight]}
+                autoplay={true}
+                autoplayHoverPause={true}
+                smartSpeed={600}
               >
                 {projects}
               </OwlCarousel>

@@ -25,7 +25,7 @@ class TopMenu extends React.Component {
         <Navbar className='flex-navbar' collapseOnSelect inverse={this.props.inverse}>
           <Navbar.Header>
             <Navbar.Brand>
-              <Image src="/images/logo.png" />
+              <Image src="/images/logo.png" draggable="false" />
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
@@ -51,7 +51,7 @@ class TopMenu extends React.Component {
               </LinkContainer>
             </Nav>
             <ButtonToolbar className="pull-right-lg">
-              <Button bsStyle="callback-header">Заказать просчет</Button>
+              <Button bsStyle="green" className="btn-header">Заказать просчет</Button>
             </ButtonToolbar>
           </Navbar.Collapse>
 

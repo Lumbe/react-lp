@@ -24,7 +24,7 @@ body.bg-dark .nav.vertical-menu > li > a > div.inner-dot {
   border: 1px solid #5ed152;
   border-radius: 50%;
   margin-bottom:60%;
-
+  transition: all 0.3s ease;
 }
 
 .nav.vertical-menu > li > a:hover,

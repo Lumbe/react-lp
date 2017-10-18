@@ -52,24 +52,6 @@
   margin: 20px auto;
   overflow: hidden;
 }
-
-// first page buttons
-
-.heading-buttons.btn-toolbar {
-  margin-left: 5%;
-  margin-top: 15vh;
-  text-align: center;
-}
-
-.heading-buttons.btn-toolbar .btn {
-  float: none;
-  margin-right: 10%;
-}
-
-.heading-buttons.btn-toolbar .btn:last-child {
-  margin-right: 0;
-}
-
 // first page buttons
 
 .heading-buttons {
@@ -79,6 +61,10 @@
 
 .heading-buttons .nav-justified > li {
   padding: 0 4%;
+}
+
+.heading-buttons .nav-justified > li > a {
+  transition: all 0.1s ease-in;
 }
 
 .heading-buttons .nav-justified > li:after {
@@ -106,7 +92,6 @@
   border: 2px solid rgb(255, 255, 255);
   border-radius: 40px;
 }
-
 .heading-buttons .nav-justified > li.btn-simple > a:hover,
 .heading-buttons .nav-justified > li.btn-simple > a:focus,
 .heading-buttons .nav-justified > li.btn-simple > a:active {

@@ -47,20 +47,26 @@
   top: 50%;
   width: 50px;
   color: #737a88;
-  z-index: -1;
+  z-index: 0;
 }
 
 body.bg-dark .social-media {
   color: #47993a;
 }
 
-.social-media .social-item {
+.social-media a.social-item {
+  display: block;
   background: rgb(230, 232, 238);
   width: 40px;
   height: 40px;
   border: 1px solid rgb(212, 217, 228);
   border-radius: 50%;
   margin-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+.social-media a.social-item:hover {
+  transform: scale(1.2);
 }
 
 body.bg-dark .social-media .social-item {
@@ -75,7 +81,7 @@ body.bg-dark .social-media .social-item {
 
 .social-media > .social-item.instagram > i {
   padding-top: 12px;
-  padding-left: 11px;
+  padding-left: 10px;
 }
 
 .social-media > .social-item.youtube > i {
@@ -135,6 +141,7 @@ body.bg-dark .phone-number h4 span {
   border: 1px solid #d4d9e4;
   border-radius: 30px;
   z-index: 0;
+  transition: all 0.2s ease;
 }
 
 body.bg-dark .callback-button {
@@ -149,8 +156,9 @@ body.bg-dark .callback-button {
   width: 40px;
   height: 40px;
   background-image: linear-gradient(-90deg, rgb(89,186,74) 0%, rgb(69,150,56) 100%);
-  border-radius: 50%;
+  border-radius: 20px;
   text-align: left;
+  transition: width 0.3s ease;
 }
 
 .callback-button .callback-text {
@@ -174,7 +182,6 @@ body.bg-dark .callback-button .callback-text {
 .callback-button:focus .bg-phone,
 .callback-button:active .bg-phone {
   width: 94%;
-  border-radius: 20px;
 }
 
 .callback-button:hover .callback-text,
@@ -196,6 +203,7 @@ body.bg-dark .callback-button .callback-text {
   opacity: 0.55;
   border-radius: 50%;
   background-color: rgba(80, 170, 67, 0.2);
+  transition: all 0.2s ease;
 }
 
 body.bg-dark .next-page {
