@@ -28,11 +28,24 @@
   font-size:16px;
   font-weight:500;
 }
+
+.eleventh-section .yt-reviews-link {
+  margin: 20px auto;
+}
+
+.eleventh-section .yt-reviews-link .btn-green {
+  padding: 10px 70px;
+}
 // responsive behavior
 
 // up to 767px width
 @media (max-width: $screen-xs-max) {
-
+  .eleventh-section h1 {
+    font-size:28px;
+  }
+  .eleventh-section .yt-reviews-link .btn-green {
+    padding: 10px 40px;
+  }
 }
 // width 768px to 991px
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
@@ -47,6 +60,9 @@
 }
 // width 1200px to 1439px
 @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+  .eleventh-section h1 {
+    margin-top:0;
+  }
   .eleventh-section .slick-theme-reviews {
     width: 90%;
     margin: 0 auto;
@@ -60,4 +76,8 @@
     justify-content: center;
     margin: 8% 0;
   }
+  .eleventh-section .yt-reviews-link {
+    margin: 40px auto;
+  }
+
 }
