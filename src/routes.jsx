@@ -3,6 +3,7 @@ import {Switch, BrowserRouter} from 'react-router-dom'
 // import asyncComponent from "./components/asyncComponent";
 import MyLoadable from './components/common/myLoadable';
 import LandingLayout from './components/layout/landingLayout'
+import ProjectLayout from './components/layout/projectLayout'
 
 const AsyncFirstPage = MyLoadable({ loader: () => import('./components/sections/firstPage/firstPage') });
 const AsyncSecondPage = MyLoadable({ loader: () => import('./components/sections/secondPage/secondPage') });
@@ -17,6 +18,8 @@ const AsyncTenthPage = MyLoadable({ loader: () => import('./components/sections/
 const AsyncEleventhPage = MyLoadable({ loader: () => import('./components/sections/eleventhPage/eleventhPage') });
 const AsyncTwelfthPage = MyLoadable({ loader: () => import('./components/sections/twelfthPage/twelfthPage') });
 const AsyncThirteenthPage = MyLoadable({ loader: () => import('./components/sections/thirteenthPage/thirteenthPage') });
+const AsyncProjectIndex = MyLoadable({ loader: () => import('./components/project/projectIndex') });
+const AsyncProjectPage = MyLoadable({ loader: () => import('./components/project/projectPage') });
 
 const AsyncTypography = MyLoadable({ loader: () => import('./components/common/typography') });
 const AsyncNotFound = MyLoadable({ loader: () => import('./components/error/notFound') });
@@ -39,6 +42,8 @@ class Routes extends React.Component {
           <LandingLayout exact path="/11-page" inverse={false} component={AsyncEleventhPage}/>
           <LandingLayout exact path="/12-page" inverse={true} component={AsyncTwelfthPage}/>
           <LandingLayout exact path="/13-page" inverse={false} component={AsyncThirteenthPage}/>
+          <ProjectLayout exact path="/projects/:slug" inverse={false} component={AsyncProjectPage}/>
+          <ProjectLayout exact path="/projects" inverse={true} component={AsyncProjectIndex}/>
           <LandingLayout exact path="/typography" inverse={false} component={AsyncTypography}/>
           <LandingLayout inverse={false} component={AsyncNotFound}/>
         </Switch>

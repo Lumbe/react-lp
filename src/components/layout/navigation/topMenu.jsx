@@ -40,7 +40,7 @@ class TopMenu extends React.Component {
               <LinkContainer to="/3-page">
                 <NavItem eventKey={3}>Стоимость</NavItem>
               </LinkContainer>
-              <LinkContainer to="/4-page">
+              <LinkContainer to="/projects">
                 <NavItem eventKey={4}>Проекты</NavItem>
               </LinkContainer>
               <LinkContainer to="/5-page">

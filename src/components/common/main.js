@@ -9,10 +9,14 @@ export function resetWindowHeight() {
 
 
 
-export function setBackgroundImage(imageUrl) {
+export function setBackgroundImage(imageUrl, norepeat) {
   document.body.style.backgroundImage = "url('" + imageUrl + "')";
-  document.body.style.backgroundRepeat = "repeat-y";
   document.body.style.backgroundSize = "cover";
+  if (norepeat) {
+    document.body.style.backgroundRepeat = "no-repeat";
+  } else {
+    document.body.style.backgroundRepeat = "repeat-y";
+  }
 }
 
 export function removeBackgroundImage() {
