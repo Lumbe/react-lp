@@ -2,7 +2,6 @@ import React from 'react'
 import {Route} from 'react-router-dom'
 import Header from './header/header'
 import Page from './page'
-import {Grid} from 'react-bootstrap'
 
 class ProjectLayout extends React.Component {
   // constructor(props) {
@@ -30,9 +29,7 @@ class ProjectLayout extends React.Component {
       <div>
         <Header inverse={this.props.inverse}/>
         <Page>
-          <Grid>
-            <Component {...matchProps} />
-          </Grid>
+          <Component {...matchProps} />
         </Page>
       </div>
     )} />

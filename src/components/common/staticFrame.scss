@@ -96,7 +96,7 @@ body.bg-dark .social-media > .social-item.youtube > i {
 
 // Phone number
 
-.phone-number {
+.landing-section .phone-number {
   position: absolute;
   left: 21.5%;
   bottom: 5.5%;
@@ -106,33 +106,33 @@ body.bg-dark .social-media > .social-item.youtube > i {
   padding: 5px 20px;
 }
 
-.phone-number h4 {
+.landing-section .phone-number h4 {
   color: #737a88;
 }
 
-body.bg-dark .phone-number {
+body.bg-dark.landing-section .phone-number {
   background: rgba(35, 43, 56, 0.59);
   border: 1px solid rgb(37, 45, 57);
 }
 
-.phone-number h4 {
+.landing-section .phone-number h4 {
   font-weight: 700;
 }
 
-.phone-number h4 span {
+.landing-section .phone-number h4 span {
   color: #9ba4b5;
 }
 
-body.bg-dark .phone-number h4 span {
+body.bg-dark.landing-section .phone-number h4 span {
   color: #8d98ae;
 }
 
 // Callback bottom button
-.btn.callback-button:focus {
+.landing-section .btn.callback-button:focus {
   outline: none;
 }
 
-.callback-button {
+.landing-section .callback-button {
   position: absolute;
   right: 23%;
   bottom: 5.5%;
@@ -144,12 +144,12 @@ body.bg-dark .phone-number h4 span {
   transition: all 0.2s ease;
 }
 
-body.bg-dark .callback-button {
+body.bg-dark.landing-section .callback-button {
   background: rgba(80, 170, 67, 0.59);
   border: 1px solid rgb(83, 175, 69);
 }
 
-.callback-button .bg-phone {
+.landing-section .callback-button .bg-phone {
   top: 12%;
   left: 3%;
   position:absolute;
@@ -161,32 +161,32 @@ body.bg-dark .callback-button {
   transition: width 0.3s ease;
 }
 
-.callback-button .callback-text {
+.landing-section .callback-button .callback-text {
   position: relative;
   z-index: 10;
   color: #737a88;
 }
 
-body.bg-dark .callback-button .callback-text {
+body.bg-dark.landing-section .callback-button .callback-text {
   color: #fefefe;
 }
 
-.callback-button .bg-phone i {
+.landing-section .callback-button .bg-phone i {
   position: relative;
   padding-top: 13px;
   padding-left: 12px;
   color: #fefefe;
 }
 
-.callback-button:hover .bg-phone,
-.callback-button:focus .bg-phone,
-.callback-button:active .bg-phone {
+.landing-section .callback-button:hover .bg-phone,
+.landing-section .callback-button:focus .bg-phone,
+.landing-section .callback-button:active .bg-phone {
   width: 94%;
 }
 
-.callback-button:hover .callback-text,
-.callback-button:focus .callback-text,
-.callback-button:active .callback-text {
+.landing-section .callback-button:hover .callback-text,
+.landing-section .callback-button:focus .callback-text,
+.landing-section .callback-button:active .callback-text {
   color: #fefefe;
 
 }

@@ -151,6 +151,227 @@
   border-color: #6ec860;
 }
 
+// cta section
+.project-index .cta-section {
+  background-image: url(./form-bg.jpg);
+}
+.project-index .container-fluid.cta-section {
+  padding: 50px 0;
+}
+.project-index .cta-section h2 {
+  color: #f2f2f2;
+  margin-bottom: 30px;
+}
+.project-index .cta-section p.section-description {
+  color: #d2d7e0;
+}
+
+.project-index .cta-section .cta-row {
+  display: flex;
+  align-items: center;
+}
+// form
+
+.project-index .form-wrapper [class*='col-'] {
+  padding-left: 0;
+  padding-right: 0;
+}
+.project-index .form-wrapper {
+  position: relative;
+  margin:30px auto;
+  background-color: rgba(0, 0, 0, 0.302);
+  box-shadow: 0 15px 80px 0 rgba(108, 117, 131, 0.2);
+  padding: 0 50px;
+  text-align: center;
+}
+.project-index .form-wrapper .form-badge {
+  display: inline-block;
+  color: #898300;
+  background-color: #fff101;
+  text-transform: uppercase;
+  font-family: "Proxima Nova", sans-serif;
+  font-size: 12px;
+  padding: 6px 35px;
+  border-radius: 0 0 5px 5px;
+}
+
+.project-index .form-wrapper h4 {
+  margin-top:20px;
+  color: #f2f2f2;
+}
+
+.project-index .form-wrapper h4:after {
+  content: '';
+  display: block;
+  margin: 15px auto;
+  height: 2px;
+  width: 15%;
+  background-color: #41af2f;
+}
+
+.p-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.p-line:after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  margin-left: 30px;
+  height: 1px;
+  background-color: rgba(255,255,255,0.1);
+  width: 100%;
+}
+
+.project-index span.input-icon.input-group-addon {
+  position: relative;
+  background: transparent;
+  color: #41af2f;
+  border: 1px solid #ebebeb;
+  border-radius: 25px 0 0 25px;
+  padding: 15px 15px 15px 25px;
+  border-right: none;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+}
+
+.project-index span.input-icon.input-group-addon:after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 100%;
+  height: 60%;
+  width: 1px;
+  background-color: #ebebeb;
+  opacity: 0.7;
+}
+
+.project-index input.input-textfield.form-control,
+.project-index textarea.input-textfield.form-control{
+  background: transparent;
+  padding: 25px;
+  border-radius: 0 25px 25px 0;
+  border-left: none;
+  color: #d2d7e0;
+}
+
+.project-index textarea.input-textfield.form-control {
+  resize: none;
+}
+
+.project-index input.input-textfield.form-control:focus,
+.project-index textarea.input-textfield.form-control:focus {
+  border-color: #52ad44;
+  box-shadow: none;
+}
+.project-index .form-control::-moz-placeholder {
+  color: #d2d7e0;
+}
+.project-index .form-control:-ms-input-placeholder {
+  color: #d2d7e0;
+}
+.project-index .form-control::-webkit-input-placeholder {
+  color: #d2d7e0;
+}
+
+.project-index .btn.btn-green {
+  margin-bottom:40px;
+}
+
+.project-index .btn.btn-green:before {
+  width: 102%;
+  left: -1%;
+  top: -15%;
+}
+
+// footer
+// Phone number
+
+.project-index .phone-number {
+  position: relative;
+  display: inline-block;
+  background-color: rgb(230,232,238);
+  border: 1px solid rgb(212,217,228);
+  border-radius: 30px;
+  padding: 5px 20px;
+}
+
+.project-index .phone-number h4 {
+  color: #737a88;
+}
+
+.project-index .phone-number h4 {
+  font-weight: 700;
+}
+
+.project-index .phone-number h4 span {
+  color: #9ba4b5;
+}
+
+// Callback bottom button
+.project-index .btn.callback-button:focus {
+  outline: none;
+}
+
+.project-index .callback-button {
+  position: relative;
+  display: inline-block;
+  //position: inherit;
+  //right: 23%;
+  //bottom: 5.5%;
+  padding: 15px 20px 15px 55px;
+  background-color: #e6e8ee;
+  border: 1px solid #d4d9e4;
+  border-radius: 30px;
+  z-index: 0;
+  transition: all 0.2s ease;
+}
+
+.project-index .callback-button .bg-phone {
+  top: 12%;
+  left: 3%;
+  position:absolute;
+  width: 40px;
+  height: 40px;
+  background-image: linear-gradient(-90deg, rgb(89,186,74) 0%, rgb(69,150,56) 100%);
+  border-radius: 20px;
+  text-align: left;
+  transition: width 0.3s ease;
+}
+
+.project-index .callback-button .callback-text {
+  position: relative;
+  z-index: 10;
+  color: #737a88;
+}
+
+.project-index .callback-button .bg-phone i {
+  position: relative;
+  padding-top: 13px;
+  padding-left: 12px;
+  color: #fefefe;
+}
+
+.project-index .callback-button:hover .bg-phone,
+.project-index .callback-button:focus .bg-phone,
+.project-index .callback-button:active .bg-phone {
+  width: 94%;
+}
+
+.project-index .callback-button:hover .callback-text,
+.project-index .callback-button:focus .callback-text,
+.project-index .callback-button:active .callback-text {
+  color: #fefefe;
+}
+
+.project-index .footer {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.callback-wrapper {
+  text-align: right;
+}
 // responsive behavior
 
 // up to 767px width
