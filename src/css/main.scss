@@ -237,6 +237,141 @@ select:-webkit-autofill:focus {
   min-height: 90px;
 }
 
+// footer
+// Phone number
+
+footer.default-footer {
+  position: relative;
+  margin: 50px -15px;
+}
+footer.default-footer .phone-number {
+  display: inline-block;
+  background-color: rgb(230,232,238);
+  border: 1px solid rgb(212,217,228);
+  border-radius: 30px;
+  padding: 5px 20px;
+}
+
+footer.default-footer .phone-number h4 {
+  color: #737a88;
+}
+
+footer.default-footer .phone-number h4 {
+  font-weight: 700;
+}
+
+footer.default-footer .phone-number h4 span {
+  color: #9ba4b5;
+}
+
+// Callback bottom button
+footer.default-footer .btn.callback-button:focus {
+  outline: none;
+}
+
+footer.default-footer .callback-button {
+  position: relative;
+  display: inline-block;
+  //position: inherit;
+  //right: 23%;
+  //bottom: 5.5%;
+  padding: 15px 20px 15px 55px;
+  background-color: #e6e8ee;
+  border: 1px solid #d4d9e4;
+  border-radius: 30px;
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+
+footer.default-footer .callback-button .bg-phone {
+  top: 12%;
+  left: 3%;
+  position:absolute;
+  width: 40px;
+  height: 40px;
+  background-image: linear-gradient(-90deg, rgb(89,186,74) 0%, rgb(69,150,56) 100%);
+  border-radius: 20px;
+  text-align: left;
+  transition: width 0.3s ease;
+}
+
+footer.default-footer .callback-button .callback-text {
+  position: relative;
+  z-index: 10;
+  color: #737a88;
+}
+
+footer.default-footer .callback-button .bg-phone i {
+  position: relative;
+  padding-top: 13px;
+  padding-left: 12px;
+  color: #fefefe;
+}
+
+footer.default-footer .callback-button:hover .bg-phone,
+footer.default-footer .callback-button:focus .bg-phone,
+footer.default-footer .callback-button:active .bg-phone {
+  width: 94%;
+}
+
+footer.default-footer .callback-button:hover .callback-text,
+footer.default-footer .callback-button:focus .callback-text,
+footer.default-footer .callback-button:active .callback-text {
+  color: #fefefe;
+}
+
+footer.default-footer footer {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+footer.default-footer .callback-wrapper {
+  text-align: right;
+}
+
+// Social media footer
+
+footer.default-footer .social-media-footer {
+  text-align: center;
+}
+
+footer.default-footer body.bg-dark .social-media-footer {
+  color: #47993a;
+}
+
+footer.default-footer .social-media-footer a.social-item {
+  display: inline-block;
+  color: #737987;
+  background: rgb(230, 232, 238);
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgb(212, 217, 228);
+  border-radius: 50%;
+  margin-left: 10px;
+  transition: all 0.2s ease;
+}
+
+footer.default-footer .social-media-footer a.social-item:hover {
+  transform: scale(1.2);
+}
+
+footer.default-footer body.bg-dark .social-media-footer .social-item {
+  background: rgba(38, 46, 61, 0.72);
+  border: none;
+}
+
+footer.default-footer .social-media-footer > .social-item.facebook > i {
+  padding-top: 13px;
+}
+
+footer.default-footer .social-media-footer > .social-item.instagram > i {
+  padding-top: 12px;
+}
+
+footer.default-footer .social-media-footer > .social-item.youtube > i {
+  padding-top: 12px;
+}
+
 // responsive behavior
 
 // up to 767px width
@@ -259,10 +394,26 @@ select:-webkit-autofill:focus {
   .yt-cover .play-icon {
     font-size: 35px;
   }
+
+  footer.default-footer .phone-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  footer.default-footer .callback-wrapper {
+    text-align: center;
+    margin:20px 0;
+  }
 }
 // width 768px to 991px
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-
+  footer.default-footer .phone-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  footer.default-footer .callback-wrapper {
+    text-align: center;
+    margin:20px 0;
+  }
 }
 // width 992px to 1199px
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
@@ -282,6 +433,10 @@ select:-webkit-autofill:focus {
   }
   .card h2 {
     font-size:26px;
+  }
+  footer.default-footer .phone-wrapper.col-md-3 {
+    padding-left:0;
+    padding-right:0;
   }
 }
 // width 1200px to 1439px
