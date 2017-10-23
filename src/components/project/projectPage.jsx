@@ -1,9 +1,9 @@
 import React from 'react'
 import './projectPage.css'
-import {Grid, Row, Col, Image} from 'react-bootstrap'
+import {Grid, Row, Col} from 'react-bootstrap'
 import DefaultFooter from "./defaultFooter"
-import projectImage from './images/3d_gnap_new.jpg'
-import Slider from 'react-slick'
+import ImageGallery from 'react-image-gallery'
+import "./imageGalleryTheme.css"
 
 class ProjectPage extends React.Component {
   importImages(r) {
@@ -17,32 +17,9 @@ class ProjectPage extends React.Component {
     let imagesUrls = [];
     for (let src in images) {
       if (images.hasOwnProperty(src)) {
-        imagesUrls.push(images[src])
+        imagesUrls.push({original: images[src], thumbnail: images[src]})
       }
     }
-    let one_settings = {
-      className: 'slick-one-img',
-      asNavFor: '.slick-theme-project',
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      fade: true
-    };
-    let multiple_settings = {
-      className: "slick-theme-project",
-      slidesToShow: 4,
-      arrows: true,
-      draggable: false,
-      asNavFor: '.slick-one-img',
-      swipe: true,
-      responsive: [
-        { breakpoint: 992,
-          settings: { slidesToShow: 1 } },
-        { breakpoint: 5000, settings: { slidesToShow: 4 } }
-      ],
-      // speed: 500,
-      // slidesToScroll: 1
-    };
     return (
       <div className="project-page">
         <Grid>
@@ -59,18 +36,13 @@ class ProjectPage extends React.Component {
               <Row>
                 <Col md={12}>
                   <div className="card">
-                    <Slider {...one_settings}>
-                      <Image src={projectImage} responsive/>
-                    </Slider>
-                    <Slider {...multiple_settings}>
-                      {imagesUrls.map((src, index) => {
-                        return (
-                          <div key={index} className="img-container">
-                            <Image src={src} responsive/>
-                          </div>
-                        )
-                      })}
-                    </Slider>
+                    <ImageGallery
+                      items={imagesUrls}
+                      slideInterval={2000}
+                      showFullscreenButton={false}
+                      showPlayButton={false}
+                      showNav={false}
+                      onImageLoad={this.handleImageLoad}/>
                   </div>
                 </Col>
               </Row>
