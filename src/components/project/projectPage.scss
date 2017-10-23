@@ -1,32 +1,259 @@
 @import '../../css/mediaQueriesVars.scss';
+.project-page .menu-divider {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 102px;
+  height: 2px;
+  border-top: 2px solid #8b8e95;
+  opacity: 0.2;
+}
 
+.project-page h1 {
+  position: relative;
+  font-size:30px;
+  font-weight:700;
+  color: #333;
+  margin-bottom:30px;
+  border-bottom: 1px solid #eaeaeb;
+  padding-bottom:15px;
+}
+
+.project-page h1:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 5%;
+  height: 2px;
+  background-color: #52ad44;
+}
+
+.project-page h3 {
+  position: relative;
+  font-weight:700;
+  margin-bottom:30px;
+  border-bottom: 1px solid #eaeaeb;
+  padding-bottom:15px;
+}
+
+.project-page h3:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 5%;
+  height: 2px;
+  background-color: #52ad44;
+}
 .project-page .card {
   margin-bottom: 30px;
-  padding: 20px;
+  padding: 20px 20px 0;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.06);
   transition: 0.3s ease-out;
 }
 
+.project-page .project-options {
+  background-color: #6ec860;
+  cursor: default;
+  margin:20px -20px 0;
+  text-align: center;
+  z-index: 0;
+}
+
+.project-page .project-options .col-md-4,
+.project-page .project-options .col-md-3 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.project-page .project-options .option-item {
+  padding:25px 0 15px;
+  background-color: #6ec860;
+  color: #f2f2f2;
+  font-size:13px;
+}
+
+.project-page .project-options .option-item .info {
+  display: none;
+}
+
+.project-page .project-options .option-item.inactive {
+  position: relative;
+  background-color: #c4c4c4;
+  color: #858585;
+  z-index:1;
+}
+
+.project-page .project-options .option-item.inactive .info {
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #c4c4c4;
+  background-color: #fff101;
+  padding: 0px 6px;
+}
+
+.project-page .project-options .option-item:after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 0;
+  width: 1px;
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 0;
+}
+
+.project-page .project-options .option-item:after:last-child {
+  display: none;
+}
+
+.project-page .project-options .option-item .img-wrap {
+  height:26px;
+}
+
+.project-page .area {
+  margin-top:-9px;
+  margin-bottom: -10px;
+  font-family:"Proxima Nova", sans-serif;
+  font-size:32px;
+  font-weight:700;
+  color: #2a761e;
+}
+
+.project-page .area .units {
+  font-size: 18px;
+  font-weight:700;
+}
+
+.project-page .area-description {
+  margin-top:-5px;
+  font-size:13px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 1px;
+}
+
+// house plans
+.project-page .house-plans {
+  position: relative;
+  margin: 40px 0 20px;
+}
+
+.project-page .house-plans h3 {
+  position: absolute;
+  top: -20px;
+  width: 60%;
+  font-weight:700;
+  border-bottom: 1px solid #eaeaeb;
+  padding-bottom:10px;
+}
+
+.project-page .house-plans3:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 5%;
+  height: 2px;
+  background-color: #52ad44;
+}
+.project-page .house-plans .nav > li {
+  float: right;
+}
+
+.project-page .house-plans .nav-tabs {
+  border: none;
+}
+
+.project-page .house-plans .tab-content > .tab-pane {
+  padding: 40px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.06);
+}
+
+.project-page .house-plans .nav-tabs > li > a {
+  border-radius: 0;
+  padding:15px 40px;
+  color: #fff;
+  background-color: #58b749;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.project-page .house-plans .nav-tabs > li.active > a,
+.project-page .house-plans .nav-tabs > li.active > a:hover,
+.project-page .house-plans .nav-tabs > li.active > a:focus {
+  border-top: 2px solid #41af2f;
+  color: #555555;
+  background-color: #fff;
+}
+
+.project-page .house-plans .nav-tabs > li > a:hover {
+  opacity: 0.85;
+}
+
+.project-page .img-plan {
+  margin: 0 auto;
+}
+
+
 // responsive behavior
 
 // up to 767px width
 @media (max-width: $screen-xs-max) {
-
+  .project-page .house-plans {
+    margin-top: 80px;
+  }
+  .project-page .house-plans h3 {
+    top: -25%;
+    width: 100%;
+  }
+  .project-page .house-plans .nav-tabs > li > a {
+    padding:15px 30px;
+  }
 }
 // width 768px to 991px
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-
+  .project-page .project-options .col-sm-3 {
+    width: 22%;
+  }
+  .project-page .project-options .col-sm-4 {
+    width: 34%;
+  }
+  .project-page .house-plans h3 {
+    width: 55%;
+  }
 }
 // width 992px to 1199px
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-
+  .project-page .project-options .col-md-3 {
+    width: 22%;
+  }
+  .project-page .project-options .col-md-4 {
+    width: 34%;
+  }
+  .project-page .house-plans h3 {
+    width: 55%;
+  }
 }
 // width 1200px to 1439px
 @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
-
+  .project-page .project-options .col-md-3 {
+    width: 22%;
+  }
+  .project-page .project-options .col-md-4 {
+    width: 34%;
+  }
 }
 // width 1440px and over
 @media (min-width: $screen-xlg-min) {
-
+  .project-page .project-options .col-md-3 {
+    width: 22%;
+  }
+  .project-page .project-options .col-md-4 {
+    width: 34%;
+  }
 }
