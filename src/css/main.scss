@@ -96,6 +96,27 @@ select:-webkit-autofill:focus {
   background: linear-gradient( -90deg, rgba(255,241,1, 0.4) 0%, rgba(255,221,3, 0.4) 100%);
 }
 
+// btn grey
+.btn.btn-grey:focus {
+  outline: none;
+}
+.btn-grey {
+  position: relative;
+  display: inline-block;
+  padding: 12px 32px;
+  background: transparent;
+  color: #bdbcbc;
+  font-weight:500;
+  border: 2px solid #d2d2d2;
+  border-radius: 40px;
+  transition: all 0.2s ease-in-out;
+}
+.btn-grey:hover,
+.btn-grey:focus,
+.btn-grey:active {
+  color: #58b749;
+  border-color: #6ec860;
+}
 // modal styles for youtube player
 .yt-modal .modal-content {
   box-shadow: none;

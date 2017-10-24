@@ -199,7 +199,64 @@
   margin: 0 auto;
 }
 
+.project-page .plans-divider {
+  height: 2px;
+  background-color: #eaeaeb;
+  margin:40px 0;
+}
 
+// plans list
+.project-page ol.plans-list {
+  list-style-type: none;
+  column-count: 3;
+  line-height: 1.9;
+  counter-reset: item;
+}
+
+.project-page ol.plans-list li {
+  position: relative;
+  margin:10px 0;
+  padding-left:40px;
+}
+
+.project-page ol.plans-list li:first-child {
+  margin-top: 0;
+}
+
+.project-page ol.plans-list li:before {
+  content: counter(item);
+  counter-increment: item;
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  color: #41af2f;
+  background-color: rgb(236, 235, 235);
+  border: 1px solid rgb(222, 222, 222);
+  border-radius: 50%;
+  text-align: center;
+  font-weight:900;
+  width: 30px;
+  height: 30px;
+}
+
+// info
+.project-page .plans-info [class*="col-md"],
+.project-page .plans-info [class*="col-sm"] {
+  padding-left: 0;
+  padding-right:0;
+}
+.project-page .plans-info {
+  margin:30px 0;
+}
+
+.project-page .plans-info img {
+  padding:20px;
+  border: 2px solid rgba(149, 149, 149, 0.2);
+  border-right-color: #58b749;
+}
+.project-page .plans-info p {
+  margin-top:5px;
+}
 // responsive behavior
 
 // up to 767px width
@@ -214,6 +271,10 @@
   .project-page .house-plans .nav-tabs > li > a {
     padding:15px 30px;
   }
+  .project-page ol.plans-list {
+    column-count: 1;
+    padding-left:20px;
+  }
 }
 // width 768px to 991px
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
@@ -225,6 +286,9 @@
   }
   .project-page .house-plans h3 {
     width: 55%;
+  }
+  .project-page ol.plans-list {
+    column-count: 2;
   }
 }
 // width 992px to 1199px

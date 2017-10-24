@@ -144,32 +144,8 @@
 }
 
 // grey button
-.project-index .project-item  .btn.btn-grey:focus {
-  outline: none;
-}
-
 .project-index .project-item .btn-wrapper {
   text-align: right;
-}
-
-.project-index .project-item  .btn-grey {
-  position: relative;
-  display: inline-block;
-  padding: 12px 32px;
-  background: transparent;
-  color: #bdbcbc;
-  font-weight:500;
-  border: 2px solid #d2d2d2;
-  border-radius: 40px;
-  transition: all 0.2s ease-in-out;
-}
-
-
-.project-index .project-item .btn-grey:hover,
-.project-index .project-item .btn-grey:focus,
-.project-index .project-item .btn-grey:active {
-  color: #58b749;
-  border-color: #6ec860;
 }
 
 // cta section

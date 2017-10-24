@@ -1,0 +1,215 @@
+.light-form-wrapper [class*='col-'] {
+  padding-left: 0;
+  padding-right: 0;
+}
+.light-form-wrapper {
+  position: relative;
+  margin:0 auto;
+  padding: 0 20px 20px;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease-out;
+}
+.light-form-wrapper .form-badge {
+  display: inline-block;
+  color: #898300;
+  background-color: #fff101;
+  text-transform: uppercase;
+  font-family: "Proxima Nova", sans-serif;
+  font-size: 12px;
+  padding: 6px 35px;
+  border-radius: 0 0 5px 5px;
+}
+
+.light-form-wrapper h4.title {
+  margin-top:20px;
+}
+
+.light-form-wrapper h4.title:after {
+  content: '';
+  display: block;
+  margin: 15px auto;
+  height: 2px;
+  width: 15%;
+  background-color: #41af2f;
+}
+
+.p-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.p-line:after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  margin-left: 30px;
+  height: 1px;
+  background-color: rgba(255,255,255,0.1);
+  width: 100%;
+}
+
+.light-form-wrapper .input-group {
+  margin: 5px 10px;
+}
+.light-form-wrapper .price-form .btn-radio {
+  border: 1px solid #ebebeb;
+  display: block;
+  margin: 10px;
+  padding: 15px 0;
+  border-radius: 30px;
+}
+
+.light-form-wrapper .price-form .btn-radio:hover {
+  border-color: #52ad44;
+}
+
+.light-form-wrapper .price-form .btn-radio.checked {
+  background-color: #469839;
+  border-color: #469839;
+  box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.15);
+}
+
+.light-form-wrapper span.input-icon.input-group-addon {
+  position: relative;
+  background: transparent;
+  color: #41af2f;
+  border-radius: 25px 0 0 25px;
+  padding: 15px 15px 15px 25px;
+  border-right: none;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+}
+
+.light-form-wrapper span.right-icon.input-group-addon {
+  position: relative;
+  background: transparent;
+  color: #41af2f;
+  //border: 1px solid #ebebeb;
+  border-radius: 0 25px 25px 0;
+  padding: 15px 25px 15px 15px;
+  border-left: none;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+}
+
+.light-form-wrapper span.input-icon.input-group-addon:after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 100%;
+  height: 60%;
+  width: 1px;
+  background-color: #ebebeb;
+  opacity: 0.7;
+}
+
+.light-form-wrapper input::-webkit-input-placeholder,
+.light-form-wrapper input::-moz-placeholder,
+.light-form-wrapper input:-ms-input-placeholder,
+.light-form-wrapper input:-moz-placeholder,
+.light-form-wrapper textarea::-webkit-input-placeholder,
+.light-form-wrapper textarea::-moz-placeholder,
+.light-form-wrapper textarea:-ms-input-placeholder,
+.light-form-wrapper textarea:-moz-placeholder {
+  color: #555555;
+}
+
+
+.light-form-wrapper input.input-textfield.form-control,
+.light-form-wrapper textarea.input-textfield.form-control {
+  background: transparent;
+  padding: 25px;
+  border-radius: 0 25px 25px 0;
+  border-left: none;
+  color: #555555;
+}
+
+.light-form-wrapper .file-upload {
+  cursor: pointer;
+  background: transparent;
+  padding: 25px 5px 25px 5px;
+  line-height:0;
+  border-radius: 25px 0 0 25px;
+  border-right: none;
+  color: #d2d7e0;
+}
+
+//.light-form-wrapper .input-group .form-control .label-text {
+//  display: inline-block;
+//  white-space: nowrap;
+//  overflow: hidden;
+//}
+
+.light-form-wrapper span.right-icon.input-group-addon {
+  cursor: pointer;
+  position: relative;
+  background: transparent;
+  color: #41af2f;
+  border: 1px solid #ebebeb;
+  border-radius: 0 25px 25px 0;
+  padding: 15px 25px 15px 15px;
+  border-left: none;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+}
+
+.light-form-wrapper span.input-icon.input-group-addon:after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 100%;
+  height: 60%;
+  width: 1px;
+  background-color: #ebebeb;
+  opacity: 0.7;
+}
+.light-form-wrapper textarea.input-textfield.form-control {
+  resize: none;
+}
+
+.light-form-wrapper input.left-textfield.form-control {
+  color: #555555;
+  padding: 25px;
+  background: transparent;
+  border-radius: 25px 0 0 25px;
+  border-right: none;
+}
+
+.light-form-wrapper span.right-icon.input-group-addon:before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 0;
+  height: 60%;
+  width: 1px;
+  background-color: #ebebeb;
+  opacity: 0.7;
+}
+
+.light-form-wrapper input.input-textfield.form-control:focus,
+.light-form-wrapper textarea.input-textfield.form-control:focus,
+.light-form-wrapper input.left-textfield.form-control:focus {
+  border-color: #52ad44;
+  box-shadow: none;
+}
+
+.light-form-wrapper .btn.btn-green {
+  margin-bottom:40px;
+}
+
+.light-form-wrapper .btn.btn-green:before {
+  width: 102%;
+  left: -1%;
+  top: -15%;
+}
+
+.light-form-wrapper .phone-number h4 {
+  color: #737a88;
+}
+
+.light-form-wrapper .phone-number h4 {
+  font-weight: 700;
+}
+
+.light-form-wrapper .phone-number h4 span {
+  color: #8d98ae;
+}
