@@ -3,7 +3,7 @@ import './topMenu.css'
 import {Navbar, Nav, NavItem, Image, ButtonToolbar, Button} from 'react-bootstrap'
 import {IndexLinkContainer, LinkContainer} from "react-router-bootstrap";
 import DefaultModal from '../../common/defaultModal'
-import PriceForm from '../../common/priceForm'
+import PriceForm from '../../common/forms/priceForm'
 
 class TopMenu extends React.Component {
   constructor(props) {

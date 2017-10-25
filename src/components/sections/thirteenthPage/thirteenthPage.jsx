@@ -4,6 +4,8 @@ import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundI
 import {Row, Col, Button} from 'react-bootstrap'
 import backgroundImage from './bg-screen13.jpg'
 import ServusMap from './servusMap'
+import DefaultModal from '../../common/defaultModal'
+import AskForm from '../../common/forms/askForm'
 
 class ThirteenthPage extends React.Component {
   constructor(props) {
@@ -29,6 +31,14 @@ class ThirteenthPage extends React.Component {
     resetWindowHeight();
     removeBackgroundImage();
     window.onresize = null;
+  }
+
+  openModal() {
+    this.setState({showModal: true});
+  }
+
+  closeModal() {
+    this.setState({showModal: false})
   }
 
   render() {
@@ -159,13 +169,20 @@ class ThirteenthPage extends React.Component {
                 <span className="email-item">office@servus.vn.ua</span>
               </Col>
             </div>
-            <Button bsStyle="green" bsSize="lg" className="btn-block">Задать вопрос</Button>
+            <Button onClick={this.openModal.bind(this)} bsStyle="green" bsSize="lg" className="btn-block">Задать вопрос</Button>
           </Col>
           <Col md={8} mdPull={4} sm={12} xs={12}>
             <div className="map-wrapper">
               <ServusMap/>
             </div>
           </Col>
+        <DefaultModal
+          show={this.state.showModal}
+          onHide={this.closeModal.bind(this)}
+          title="Задайте вопрос"
+        >
+          <AskForm/>
+        </DefaultModal>
         </Row>
       </div>
     )

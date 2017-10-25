@@ -1,16 +1,16 @@
-@import '../../css/mediaQueriesVars.scss';
+@import '../../../css/mediaQueriesVars.scss';
 
 // form
-.price-form {
+.ask-form {
   padding: 0 30px;
 }
 
-.price-form [class*='col-'] {
+.ask-form [class*='col-'] {
   padding-left: 0;
   padding-right: 0;
   text-align: center;
 }
-.price-form .form-wrapper {
+.ask-form .form-wrapper {
   position: relative;
   margin:30px auto;
   background-color: rgba(0, 0, 0, 0.302);
@@ -19,12 +19,12 @@
   text-align: center;
 }
 
-.price-form .p-line {
+.ask-form .p-line {
   position: relative;
   overflow: hidden;
 }
 
-.price-form .p-line:after {
+.ask-form .p-line:after {
   content: '';
   position: absolute;
   top: 10px;
@@ -34,7 +34,7 @@
   width: 100%;
 }
 
-.price-form .btn-radio {
+.ask-form .btn-radio {
   border: 1px solid #cccccc;
   display: block;
   margin: 10px;
@@ -42,18 +42,18 @@
   border-radius: 30px;
 }
 
-.price-form .btn-radio:hover {
+.ask-form .btn-radio:hover {
   border-color: #52ad44;
 }
 
-.price-form .btn-radio.checked {
+.ask-form .btn-radio.checked {
   color: #f2f2f2;
   background-color: #469839;
   border-color: #469839;
   box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.15);
 }
 
-.price-form span.input-icon.input-group-addon {
+.ask-form span.input-icon.input-group-addon {
   position: relative;
   background: transparent;
   color: #41af2f;
@@ -64,7 +64,7 @@
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
 }
 
-.price-form span.input-icon.input-group-addon:after {
+.ask-form span.input-icon.input-group-addon:after {
   content: '';
   position: absolute;
   top: 20%;
@@ -75,31 +75,35 @@
   opacity: 0.7;
 }
 
-.price-form input.input-textfield.form-control {
+.ask-form input.input-textfield.form-control,
+.ask-form textarea.input-textfield.form-control {
   background: transparent;
   padding: 25px;
   border-radius: 0 25px 25px 0;
   border-left: none;
   color: #555;
 }
+.ask-form textarea.input-textfield.form-control {
+  resize: none;
+}
 
-.price-form input.input-textfield.form-control:focus,
-.price-form textarea.input-textfield.form-control:focus,
-.price-form input.left-textfield.form-control:focus {
+.ask-form input.input-textfield.form-control:focus,
+.ask-form textarea.input-textfield.form-control:focus,
+.ask-form input.left-textfield.form-control:focus {
   border-color: #52ad44;
   box-shadow: none;
 }
 
-.price-form input.input-textfield.form-control:focus {
+.ask-form input.input-textfield.form-control:focus {
   border-color: #52ad44;
   box-shadow: none;
 }
 
-.price-form .btn.btn-green {
+.ask-form .btn.btn-green {
   margin-bottom:40px;
 }
 
-.price-form .btn.btn-green:before {
+.ask-form .btn.btn-green:before {
   width: 102%;
   left: -1%;
   top: -15%;
@@ -107,85 +111,89 @@
 
 // up to 767px width
 @media (max-width: $screen-xs-max) {
-  .price-form {
+  .ask-form {
     margin-top:-30px;
   }
-  .price-form .btn-radio {
+  .ask-form .btn-radio {
     padding: 10px 0;
     margin:5px;
   }
 
-  .price-form input.input-textfield.form-control {
+  .ask-form input.input-textfield.form-control {
     padding: 15px 25px;
   }
-  .price-form span.input-icon.input-group-addon {
-    padding: 7px 10px 7px 15px;
+  .ask-form span.input-icon.input-group-addon {
+    padding: 7px 5px 7px 10px;
   }
-  .price-form span.right-icon.input-group-addon {
+  .ask-form span.right-icon.input-group-addon {
     padding: 7px 15px 7px 10px;
   }
-  .price-form .btn.btn-green {
+  .ask-form .btn.btn-green {
     margin-bottom:15px;
+  }
+  .ask-form input.input-textfield.form-control,
+  .ask-form textarea.input-textfield.form-control {
+    padding: 15px 10px;
   }
 }
 // width 768px to 991px
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-  .price-form .btn-radio {
+  .ask-form .btn-radio {
     padding: 10px 0;
     margin:5px;
   }
 
-  .price-form input.input-textfield.form-control {
+  .ask-form input.input-textfield.form-control {
     padding: 15px 25px;
   }
-  .price-form span.input-icon.input-group-addon {
+  .ask-form span.input-icon.input-group-addon {
     padding: 7px 10px 7px 15px;
   }
-  .price-form span.right-icon.input-group-addon {
+  .ask-form span.right-icon.input-group-addon {
     padding: 7px 15px 7px 10px;
   }
-  .price-form .btn.btn-green {
+  .ask-form .btn.btn-green {
     margin-bottom:15px;
   }
 }
 // width 992px to 1199px
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-  .price-form .btn-radio {
+  .ask-form .btn-radio {
     padding: 7px 0;
     margin:0 5px;
   }
 
-  .price-form input.input-textfield.form-control {
+  .ask-form input.input-textfield.form-control {
     padding: 12px 25px;
   }
-  .price-form span.input-icon.input-group-addon {
+  .ask-form span.input-icon.input-group-addon {
     padding: 7px 10px 7px 15px;
   }
-  .price-form span.right-icon.input-group-addon {
+  .ask-form span.right-icon.input-group-addon {
     padding: 7px 15px 7px 10px;
   }
 
-  .price-form .btn.btn-green {
+  .ask-form .btn.btn-green {
     margin-bottom:15px;
   }
 }
 // width 1200px to 1439px
 @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
-  .price-form .btn-radio {
+  .ask-form .btn-radio {
     padding: 10px 0;
     margin:0 10px;
   }
 
-  .price-form input.input-textfield.form-control {
+  .ask-form input.input-textfield.form-control {
     padding: 20px 25px;
   }
-  .price-form span.input-icon.input-group-addon {
+  .ask-form span.input-icon.input-group-addon {
     padding: 7px 10px 7px 15px;
   }
-  .price-form span.right-icon.input-group-addon {
+  .ask-form span.right-icon.input-group-addon {
     padding: 7px 15px 7px 10px;
   }
-  .price-form .btn.btn-green {
+  .ask-form .btn.btn-green {
     margin-bottom:15px;
   }
 }

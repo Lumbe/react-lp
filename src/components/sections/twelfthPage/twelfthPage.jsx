@@ -53,12 +53,12 @@ class TwelfthPage extends React.Component {
   }
 
   handleChange = (e, results) => {
-    results.forEach(result => {
-      const [e, file] = result;
-      // this.props.dispatch(uploadFile(e.target.result));
-      console.log(`Successfully uploaded ${file.name}!`);
-      this.setState({fileLabel: file.name});
-    });
+    // results.forEach(result => {
+    //   const [e, file] = result;
+    //   this.props.dispatch(uploadFile(e.target.result));
+    //   console.log(`Successfully uploaded ${file.name}!`);
+    //   this.setState({fileLabel: file.name});
+    // });
   }
 
   componentDidMount() {

@@ -2,7 +2,7 @@ import React from 'react'
 import './staticFrame.css'
 import {Button} from 'react-bootstrap'
 import DefaultModal from './defaultModal'
-import CallbackForm from './callbackForm'
+import CallbackForm from './forms/callbackForm'
 
 class StaticFrame extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class StaticFrame extends React.Component {
           <a href="https://www.facebook.com/servuspodillya" rel="noopener noreferrer" target="_blank" className="facebook social-item">
             <i className="fa fa-facebook fa-lg"/>
           </a>
-          <a href="#" className="instagram social-item">
+          <a className="instagram social-item">
             <i className="fa fa-instagram fa-lg"/>
           </a>
           <a href="https://www.youtube.com/channel/UCCOcPBZcf7h8Mz0bYR3lg5Q" rel="noopener noreferrer" target="_blank" className="youtube social-item">

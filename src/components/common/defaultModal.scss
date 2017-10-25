@@ -58,6 +58,7 @@
 @media (max-width: $screen-xs-max) {
   .default-modal.modal-dialog {
     top: 50%;
+    width: 80%;
   }
   .default-modal .modal-title {
     margin-top: 5px;
