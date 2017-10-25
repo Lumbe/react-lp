@@ -28,19 +28,34 @@ p.p-highlight {
   padding-left: 10px;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus
-input:-webkit-autofill,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
+.form-light input:-webkit-autofill,
+.form-light input:-webkit-autofill:hover,
+.form-light input:-webkit-autofill:focus,
+.form-light input:-webkit-autofill,
+.form-light textarea:-webkit-autofill,
+.form-light textarea:-webkit-autofill:hover,
+.form-light textarea:-webkit-autofill:focus,
+.form-light select:-webkit-autofill,
+.form-light select:-webkit-autofill:hover,
+.form-light select:-webkit-autofill:focus {
   //border:none !important;
+  -webkit-text-fill-color: #555 !important;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.form-dark input:-webkit-autofill,
+.form-dark input:-webkit-autofill:hover,
+.form-dark input:-webkit-autofill:focus,
+.form-dark input:-webkit-autofill,
+.form-dark textarea:-webkit-autofill,
+.form-dark textarea:-webkit-autofill:hover,
+.form-dark textarea:-webkit-autofill:focus,
+.form-dark select:-webkit-autofill,
+.form-dark select:-webkit-autofill:hover,
+.form-dark select:-webkit-autofill:focus {
   -webkit-text-fill-color: #d2d7e0 !important;
-  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 

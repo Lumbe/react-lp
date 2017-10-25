@@ -1,0 +1,114 @@
+// form
+.price-form {
+  padding: 0 30px;
+}
+
+.price-form [class*='col-'] {
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+.price-form .form-wrapper {
+  position: relative;
+  margin:30px auto;
+  background-color: rgba(0, 0, 0, 0.302);
+  box-shadow: 0 15px 80px 0 rgba(108, 117, 131, 0.2);
+  padding: 0 50px;
+  text-align: center;
+}
+
+.price-form .p-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.price-form .p-line:after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  margin-left: 30px;
+  height: 1px;
+  background-color: #cccccc;
+  width: 100%;
+}
+
+.price-form .btn-radio {
+  border: 1px solid #cccccc;
+  display: block;
+  margin: 10px;
+  padding: 15px 0;
+  border-radius: 30px;
+}
+
+.price-form .btn-radio:hover {
+  border-color: #52ad44;
+}
+
+.price-form .btn-radio.checked {
+  color: #f2f2f2;
+  background-color: #469839;
+  border-color: #469839;
+  box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.15);
+}
+
+.price-form span.input-icon.input-group-addon {
+  position: relative;
+  background: transparent;
+  color: #41af2f;
+  border: 1px solid #cccccc;
+  border-radius: 25px 0 0 25px;
+  padding: 15px 15px 15px 25px;
+  border-right: none;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+}
+
+.price-form span.input-icon.input-group-addon:after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 100%;
+  height: 60%;
+  width: 1px;
+  background-color: #ebebeb;
+  opacity: 0.7;
+}
+
+.price-form input.input-textfield.form-control {
+  background: transparent;
+  padding: 25px;
+  border-radius: 0 25px 25px 0;
+  border-left: none;
+  color: #d2d7e0;
+}
+
+.price-form input.input-textfield.form-control:focus,
+.price-form textarea.input-textfield.form-control:focus,
+.price-form input.left-textfield.form-control:focus {
+  border-color: #52ad44;
+  box-shadow: none;
+}
+
+.price-form input.input-textfield.form-control:focus {
+  border-color: #52ad44;
+  box-shadow: none;
+}
+.light-form-wrapper input::-webkit-input-placeholder,
+.light-form-wrapper input::-moz-placeholder,
+.light-form-wrapper input:-ms-input-placeholder,
+.light-form-wrapper input:-moz-placeholder,
+.light-form-wrapper textarea::-webkit-input-placeholder,
+.light-form-wrapper textarea::-moz-placeholder,
+.light-form-wrapper textarea:-ms-input-placeholder,
+.light-form-wrapper textarea:-moz-placeholder {
+  color: #555555;
+}
+
+.price-form .btn.btn-green {
+  margin-bottom:40px;
+}
+
+.price-form .btn.btn-green:before {
+  width: 102%;
+  left: -1%;
+  top: -15%;
+}

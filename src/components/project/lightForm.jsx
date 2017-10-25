@@ -14,8 +14,7 @@ class LightFrom extends React.Component {
       form: {
         firstName: '',
         phone: '',
-        email: '',
-        file: ''
+        email: ''
         // comment: ''
       }
     }
@@ -43,7 +42,7 @@ class LightFrom extends React.Component {
   handleBlur(e) {
     let addon = e.target.previousElementSibling || e.target.nextSibling;
     if (addon) {
-      return addon.style.borderColor = '#d2d7e0';
+      return addon.style.borderColor = '#cccccc';
     }
   }
 
@@ -54,7 +53,7 @@ class LightFrom extends React.Component {
         <h4 className="text-center title">
           {this.props.title || this.state.title}
         </h4>
-        <form className="price-form">
+        <form className="form-light">
           <FormGroup>
             <Row>
               <Col md={12}>

@@ -93,7 +93,7 @@ class TenthPage extends React.Component {
             <div className="form-wrapper">
               <div className="form-badge">Бесплатно</div>
               <h4 className="text-center">Узнать предварительную стоимость строительства <span className="hidden-medium">энергоэффективного</span> дома</h4>
-              <form className="price-form">
+              <form className="price-form form-dark">
                 <FormGroup>
                   <Row>
                     <p className="text-left p-line">Этажность</p>

@@ -53,23 +53,6 @@
 .light-form-wrapper .input-group {
   margin: 5px 10px;
 }
-.light-form-wrapper .price-form .btn-radio {
-  border: 1px solid #ebebeb;
-  display: block;
-  margin: 10px;
-  padding: 15px 0;
-  border-radius: 30px;
-}
-
-.light-form-wrapper .price-form .btn-radio:hover {
-  border-color: #52ad44;
-}
-
-.light-form-wrapper .price-form .btn-radio.checked {
-  background-color: #469839;
-  border-color: #469839;
-  box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.15);
-}
 
 .light-form-wrapper span.input-icon.input-group-addon {
   position: relative;
@@ -145,7 +128,7 @@
   position: relative;
   background: transparent;
   color: #41af2f;
-  border: 1px solid #ebebeb;
+  border: 1px solid #cccccc;
   border-radius: 0 25px 25px 0;
   padding: 15px 25px 15px 15px;
   border-left: none;

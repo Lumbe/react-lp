@@ -3,6 +3,7 @@ import './topMenu.css'
 import {Navbar, Nav, NavItem, Image, ButtonToolbar, Button} from 'react-bootstrap'
 import {IndexLinkContainer, LinkContainer} from "react-router-bootstrap";
 import DefaultModal from '../../common/defaultModal'
+import PriceForm from '../../common/priceForm'
 
 class TopMenu extends React.Component {
   constructor(props) {
@@ -76,7 +77,7 @@ class TopMenu extends React.Component {
             onHide={this.closeModal.bind(this)}
             title="Узнать стоимость строительства дома Сервус"
           >
-            Форма "Узнать стоимость
+            <PriceForm/>
           </DefaultModal>
         </Navbar>
     )
