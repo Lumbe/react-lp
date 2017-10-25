@@ -37,12 +37,12 @@
   background-color: #41af2f;
 }
 
-.p-line {
+.light-form-wrapper .p-line {
   position: relative;
   overflow: hidden;
 }
 
-.p-line:after {
+.light-form-wrapper .p-line:after {
   content: '';
   position: absolute;
   top: 10px;
@@ -66,17 +66,6 @@
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
 }
 
-.light-form-wrapper span.right-icon.input-group-addon {
-  position: relative;
-  background: transparent;
-  color: #41af2f;
-  //border: 1px solid #ebebeb;
-  border-radius: 0 25px 25px 0;
-  padding: 15px 25px 15px 15px;
-  border-left: none;
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
-}
-
 .light-form-wrapper span.input-icon.input-group-addon:after {
   content: '';
   position: absolute;
@@ -87,18 +76,6 @@
   background-color: #ebebeb;
   opacity: 0.7;
 }
-
-.light-form-wrapper input::-webkit-input-placeholder,
-.light-form-wrapper input::-moz-placeholder,
-.light-form-wrapper input:-ms-input-placeholder,
-.light-form-wrapper input:-moz-placeholder,
-.light-form-wrapper textarea::-webkit-input-placeholder,
-.light-form-wrapper textarea::-moz-placeholder,
-.light-form-wrapper textarea:-ms-input-placeholder,
-.light-form-wrapper textarea:-moz-placeholder {
-  color: #555555;
-}
-
 
 .light-form-wrapper input.input-textfield.form-control,
 .light-form-wrapper textarea.input-textfield.form-control {
@@ -157,17 +134,6 @@
   background: transparent;
   border-radius: 25px 0 0 25px;
   border-right: none;
-}
-
-.light-form-wrapper span.right-icon.input-group-addon:before {
-  content: '';
-  position: absolute;
-  top: 20%;
-  left: 0;
-  height: 60%;
-  width: 1px;
-  background-color: #ebebeb;
-  opacity: 0.7;
 }
 
 .light-form-wrapper input.input-textfield.form-control:focus,

@@ -59,6 +59,23 @@ p.p-highlight {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+.form-light input::-webkit-input-placeholder,
+.form-light input::-moz-placeholder,
+.form-light input:-ms-input-placeholder,
+.form-light input:-moz-placeholder,
+.form-light textarea::-webkit-input-placeholder,
+.form-light textarea::-moz-placeholder,
+.form-light textarea:-ms-input-placeholder,
+.form-light textarea:-moz-placeholder {
+  color: #555555;
+}
+
+.form-dark .form-control::-moz-placeholder,
+.form-dark .form-control:-ms-input-placeholder,
+.form-dark .form-control::-webkit-input-placeholder {
+  color: #d2d7e0;
+}
+
 // green button {
 // Callback button in header
 .btn.btn-green:focus {

@@ -29,7 +29,7 @@ class DefaultModal extends React.Component {
   render() {
     const title = this.props.title || this.state.title;
     const footer = this.props.footer || this.state.footer;
-    const isShown = this.props.show || this.state.show;
+    const isShown = this.props.show || false;
     return (
         <Modal dialogClassName="default-modal" keyboard={this.onHide} show={isShown} onHide={this.props.onHide.bind(this)}>
           <Modal.Header>
