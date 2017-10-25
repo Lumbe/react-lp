@@ -1,3 +1,5 @@
+@import '../../css/mediaQueriesVars.scss';
+
 // form
 .price-form {
   padding: 0 30px;
@@ -78,7 +80,7 @@
   padding: 25px;
   border-radius: 0 25px 25px 0;
   border-left: none;
-  color: #d2d7e0;
+  color: #555;
 }
 
 .price-form input.input-textfield.form-control:focus,
@@ -111,4 +113,93 @@
   width: 102%;
   left: -1%;
   top: -15%;
+}
+
+// up to 767px width
+@media (max-width: $screen-xs-max) {
+  .price-form {
+    margin-top:-30px;
+  }
+  .price-form .btn-radio {
+    padding: 10px 0;
+    margin:5px;
+  }
+
+  .price-form input.input-textfield.form-control {
+    padding: 15px 25px;
+  }
+  .price-form span.input-icon.input-group-addon {
+    padding: 7px 10px 7px 15px;
+  }
+  .price-form span.right-icon.input-group-addon {
+    padding: 7px 15px 7px 10px;
+  }
+  .price-form .btn.btn-green {
+    margin-bottom:15px;
+  }
+}
+// width 768px to 991px
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  .price-form .btn-radio {
+    padding: 10px 0;
+    margin:5px;
+  }
+
+  .price-form input.input-textfield.form-control {
+    padding: 15px 25px;
+  }
+  .price-form span.input-icon.input-group-addon {
+    padding: 7px 10px 7px 15px;
+  }
+  .price-form span.right-icon.input-group-addon {
+    padding: 7px 15px 7px 10px;
+  }
+  .price-form .btn.btn-green {
+    margin-bottom:15px;
+  }
+}
+// width 992px to 1199px
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  .price-form .btn-radio {
+    padding: 7px 0;
+    margin:0 5px;
+  }
+
+  .price-form input.input-textfield.form-control {
+    padding: 12px 25px;
+  }
+  .price-form span.input-icon.input-group-addon {
+    padding: 7px 10px 7px 15px;
+  }
+  .price-form span.right-icon.input-group-addon {
+    padding: 7px 15px 7px 10px;
+  }
+
+  .price-form .btn.btn-green {
+    margin-bottom:15px;
+  }
+}
+// width 1200px to 1439px
+@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+  .price-form .btn-radio {
+    padding: 10px 0;
+    margin:0 10px;
+  }
+
+  .price-form input.input-textfield.form-control {
+    padding: 20px 25px;
+  }
+  .price-form span.input-icon.input-group-addon {
+    padding: 7px 10px 7px 15px;
+  }
+  .price-form span.right-icon.input-group-addon {
+    padding: 7px 15px 7px 10px;
+  }
+  .price-form .btn.btn-green {
+    margin-bottom:15px;
+  }
+}
+// width 1440px and over
+@media (min-width: $screen-xlg-min) {
+
 }

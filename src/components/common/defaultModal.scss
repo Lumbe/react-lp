@@ -1,3 +1,5 @@
+@import '../../css/mediaQueriesVars.scss';
+
 .default-modal .close-button {
   position: absolute;
   right: 15px;
@@ -50,4 +52,33 @@
 .default-modal .modal-footer {
   border-top:none;
   text-align: center;
+}
+
+// up to 767px width
+@media (max-width: $screen-xs-max) {
+  .default-modal.modal-dialog {
+    top: 50%;
+  }
+  .default-modal .modal-title {
+    margin-top: 5px;
+  }
+  .default-modal .modal-title:after {
+    margin:5px auto;
+  }
+}
+// width 768px to 991px
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+
+}
+// width 992px to 1199px
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+
+}
+// width 1200px to 1439px
+@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+
+}
+// width 1440px and over
+@media (min-width: $screen-xlg-min) {
+
 }

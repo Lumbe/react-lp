@@ -92,7 +92,7 @@ class TwelfthPage extends React.Component {
             <div className="form-wrapper">
               <div className="form-badge">Бесплатно</div>
               <h4 className="text-center">Присылайте свой проект для расчета стоимости строительства</h4>
-              <form className="price-form form-dark">
+              <form className="form-dark">
                 <FormGroup>
                   <Row>
                     <Col md={6} sm={12} xs={12}>
