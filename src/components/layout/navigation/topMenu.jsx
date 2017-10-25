@@ -2,6 +2,7 @@ import React from 'react'
 import './topMenu.css'
 import {Navbar, Nav, NavItem, Image, ButtonToolbar, Button} from 'react-bootstrap'
 import {IndexLinkContainer, LinkContainer} from "react-router-bootstrap";
+import DefaultModal from '../../common/defaultModal'
 
 class TopMenu extends React.Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class TopMenu extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
-      inverse: false
+      inverse: false,
+      showModal: false
     };
   }
 
@@ -19,6 +21,15 @@ class TopMenu extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
+  openModal() {
+    this.setState({showModal: true});
+  }
+
+  closeModal() {
+    this.setState({showModal: false})
+  }
+
 
   render() {
     return (
@@ -51,10 +62,22 @@ class TopMenu extends React.Component {
               </LinkContainer>
             </Nav>
             <ButtonToolbar className="pull-right-lg">
-              <Button bsStyle="green" className="btn-header">Заказать просчет</Button>
+              <Button
+                bsStyle="green"
+                className="btn-header"
+                onClick={this.openModal.bind(this)}
+              >
+                Заказать просчет
+              </Button>
             </ButtonToolbar>
           </Navbar.Collapse>
-
+          <DefaultModal
+            show={this.state.showModal}
+            onHide={this.closeModal.bind(this)}
+            title="Узнать стоимость строительства дома Сервус"
+          >
+            Форма "Узнать стоимость
+          </DefaultModal>
         </Navbar>
     )
   }
