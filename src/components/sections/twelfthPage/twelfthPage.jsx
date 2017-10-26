@@ -1,5 +1,5 @@
 import React from 'react'
-import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDarkColorScheme} from "../../common/main";
+import {setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDarkColorScheme} from "../../common/main";
 import backgroundImage from './bg-screen12.jpg'
 import './twelfthPage.css'
 import {Row, Col, Button, FormGroup, InputGroup, FormControl, ControlLabel} from 'react-bootstrap'
@@ -62,15 +62,11 @@ class TwelfthPage extends React.Component {
   }
 
   componentDidMount() {
-    setWindowHeight();
-    window.onresize = setWindowHeight;
     setBackgroundImage(backgroundImage);
     setDarkColorScheme();
   }
 
   componentWillUnmount() {
-    resetWindowHeight();
-    window.onresize = null;
     removeBackgroundImage();
     removeDarkColorScheme();
   }
@@ -84,7 +80,7 @@ class TwelfthPage extends React.Component {
             <p>Вы уже решили какой дом хотите построить и даже купили проект?</p>
             <p>
               Тогда приходите к нам со своим проектом
-              и мы бесплатно адаптируем его под технологию строительства Сервус, еще и дадим индивидуальную скидку,
+              и мы бесплатно адаптируем его под технологию строительства Сервус, еще и <span className="text-highlight">дадим индивидуальную скидку</span>,
               что компенсирует вам затраты на покупку проекта
             </p>
           </Col>

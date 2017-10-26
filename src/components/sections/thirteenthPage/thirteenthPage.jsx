@@ -1,6 +1,6 @@
 import React from 'react'
 import './thirteenthPage.css'
-import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage} from "../../common/main";
+import {setBackgroundImage, removeBackgroundImage} from "../../common/main";
 import {Row, Col, Button} from 'react-bootstrap'
 import backgroundImage from './bg-screen13.jpg'
 import ServusMap from './servusMap'
@@ -21,16 +21,12 @@ class ThirteenthPage extends React.Component {
   }
 
   componentDidMount() {
-    setWindowHeight();
-    window.onresize = setWindowHeight;
     setBackgroundImage(backgroundImage);
   }
 
 
   componentWillUnmount() {
-    resetWindowHeight();
     removeBackgroundImage();
-    window.onresize = null;
   }
 
   openModal() {

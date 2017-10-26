@@ -1,5 +1,5 @@
 import React from 'react'
-import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDarkColorScheme} from "../../common/main";
+import {setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDarkColorScheme} from "../../common/main";
 import backgroundImage from './bg-screen8.jpg'
 import './eighthPage.css'
 import './owl.theme.projects.css'
@@ -21,15 +21,11 @@ class EighthPage extends React.Component {
   }
 
   componentDidMount() {
-    setWindowHeight();
-    window.onresize = setWindowHeight;
     setBackgroundImage(backgroundImage);
     setDarkColorScheme();
   }
 
   componentWillUnmount() {
-    resetWindowHeight();
-    window.onresize = null;
     removeBackgroundImage();
     removeDarkColorScheme();
   }

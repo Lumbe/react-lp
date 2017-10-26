@@ -1,22 +1,18 @@
 import React from 'react'
 import './ninthPage.css'
-import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage} from "../../common/main";
+import {setBackgroundImage, removeBackgroundImage} from "../../common/main";
 import {Row, Col} from 'react-bootstrap'
 import backgroundImage from './bg-screen9.jpg'
 
 class NinthPage extends React.Component {
 
   componentDidMount() {
-    setWindowHeight();
-    window.onresize = setWindowHeight;
     setBackgroundImage(backgroundImage);
   }
 
 
   componentWillUnmount() {
-    resetWindowHeight();
     removeBackgroundImage();
-    window.onresize = null;
   }
 
   render() {

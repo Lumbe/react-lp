@@ -1,6 +1,6 @@
 import React from 'react'
 import './eleventhPage.css'
-import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage} from "../../common/main";
+import {setBackgroundImage, removeBackgroundImage} from "../../common/main";
 import {Image, Modal, Button} from 'react-bootstrap'
 import backgroundImage from './bg-screen11.jpg'
 import YouTube from 'react-youtube'
@@ -37,16 +37,12 @@ class EleventhPage extends React.Component {
   }
 
   componentDidMount() {
-    setWindowHeight();
-    window.onresize = setWindowHeight;
     setBackgroundImage(backgroundImage);
   }
 
 
   componentWillUnmount() {
-    resetWindowHeight();
     removeBackgroundImage();
-    window.onresize = null;
   }
 
   render() {

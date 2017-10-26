@@ -1,6 +1,6 @@
 import React from 'react'
 import './thirdPage.css'
-import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage} from "../../common/main";
+import {setBackgroundImage, removeBackgroundImage} from "../../common/main";
 import {Row, Col, Image, Modal, Panel, Button} from 'react-bootstrap'
 import backgroundImage from './bg-screen3.jpg'
 import videoImage1 from './morshyn.jpg'
@@ -32,16 +32,12 @@ class ThirdPage extends React.Component {
   }
 
   componentDidMount() {
-    setWindowHeight();
-    window.onresize = setWindowHeight;
     setBackgroundImage(backgroundImage);
   }
 
 
   componentWillUnmount() {
-    resetWindowHeight();
     removeBackgroundImage();
-    window.onresize = null;
   }
 
   render() {

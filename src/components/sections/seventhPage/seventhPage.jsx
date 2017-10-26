@@ -1,6 +1,6 @@
 import React from 'react'
 import './seventhPage.css'
-import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage} from "../../common/main";
+import {setBackgroundImage, removeBackgroundImage} from "../../common/main";
 import {Row, Col, Image, Modal, Panel, Button} from 'react-bootstrap'
 import backgroundImage from './bg-screen7.jpg'
 import videoImage from './video.jpg'
@@ -31,16 +31,12 @@ class SeventhPage extends React.Component {
   }
 
   componentDidMount() {
-    setWindowHeight();
-    window.onresize = setWindowHeight;
     setBackgroundImage(backgroundImage);
   }
 
 
   componentWillUnmount() {
-    resetWindowHeight();
     removeBackgroundImage();
-    window.onresize = null;
   }
 
   render() {

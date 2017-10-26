@@ -1,6 +1,5 @@
 import React from 'react'
 import './fifthPage.css'
-import {setWindowHeight,resetWindowHeight} from "../../common/main";
 import {Row, Col, Image, Tab, Nav, NavItem} from 'react-bootstrap'
 import sipImage from './sip.jpg'
 import mitekImage from './mitek.jpg'
@@ -9,16 +8,6 @@ import OwlCarousel from 'react-owl-carousel'
 import '../fourthPage/owl.theme.certificates.css'
 
 class FifthPage extends React.Component {
-  componentDidMount() {
-    setWindowHeight();
-    window.onresize = setWindowHeight;
-  }
-
-  componentWillUnmount() {
-    resetWindowHeight();
-    window.onresize = null;
-  }
-
   importImages(r) {
     let images = {};
     r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });

@@ -1,4 +1,5 @@
 import React from 'react'
+import './preloader.css'
 
 export default function Preloader(props) {
     if (props.isLoading) {
@@ -8,7 +9,7 @@ export default function Preloader(props) {
             return <div>Loader timed out!</div>;
         } else if (props.pastDelay) {
             // Display a loading screen after a set delay.
-            return <div>Loading...</div>;
+            return <div className="preloader"/>;
         } else {
             // Don't flash "Loading..." when we don't need to.
             return null;

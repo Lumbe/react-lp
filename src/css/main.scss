@@ -6,6 +6,10 @@
 //  overflow: hidden;
 //}
 
+body {
+  transition: background 0.5s ease-in-out;
+}
+
 body.bg-dark {
   color: #d2d7e0;
 }

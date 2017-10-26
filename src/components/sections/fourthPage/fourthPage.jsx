@@ -1,5 +1,5 @@
 import React from 'react'
-import {setWindowHeight,resetWindowHeight, setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDarkColorScheme} from "../../common/main";
+import {setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDarkColorScheme} from "../../common/main";
 import backgroundImage from './bg-screen4.jpg'
 import certificate1 from './euro_certificate_1.jpg'
 import certificate2 from './euro_certificate_2.jpg'
@@ -21,15 +21,11 @@ class FourthPage extends React.Component {
   }
 
   componentDidMount() {
-    setWindowHeight();
-    window.onresize = setWindowHeight;
     setBackgroundImage(backgroundImage);
     setDarkColorScheme();
   }
 
   componentWillUnmount() {
-    resetWindowHeight();
-    window.onresize = null;
     removeBackgroundImage();
     removeDarkColorScheme();
   }
