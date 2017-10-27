@@ -14,6 +14,7 @@ import LightForm from './lightForm'
 import './lightForm.css'
 import Page from '../layout/page'
 import FadeTransition from '../common/fade'
+import ScrollToTopOnMount from "../common/scrollToTopOnMount";
 
 class ProjectPage extends React.Component {
   constructor(props) {
@@ -51,6 +52,7 @@ class ProjectPage extends React.Component {
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
         <Page>
+          <ScrollToTopOnMount/>
           <div className="project-page">
             <Grid>
               <div className="menu-divider"/>
