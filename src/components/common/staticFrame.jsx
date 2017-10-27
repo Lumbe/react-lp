@@ -13,6 +13,7 @@ class StaticFrame extends React.Component {
     };
   }
 
+
   openModal() {
     this.setState({showModal: true});
   }

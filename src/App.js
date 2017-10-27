@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {BrowserRouter} from 'react-router-dom'
 // import logo from './logo.svg';
 // import './css/customBootstrap.css'
 // import 'bootstrap/dist/css/bootstrap.css';
@@ -10,7 +11,9 @@ import Routes from './routes'
 class App extends Component {
   render() {
     return (
-      <Routes/>
+      <BrowserRouter>
+        <Routes/>
+      </BrowserRouter>
     );
   }
 }

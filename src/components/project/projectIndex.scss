@@ -329,43 +329,9 @@
 }
 // width 1200px to 1439px
 @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
-  .project-index footer .footer:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 35%;
-    height: 2px;
-    width: 18%;
-    background-color: #d4d9e4;
-  }
-  .project-index footer .footer:after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 35%;
-    height: 2px;
-    width: 18%;
-    background-color: #d4d9e4;
-  }
+
 }
 // width 1440px and over
 @media (min-width: $screen-xlg-min) {
-  .project-index footer .footer:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 35%;
-    height: 2px;
-    width: 18%;
-    background-color: #d4d9e4;
-  }
-  .project-index footer .footer:after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 35%;
-    height: 2px;
-    width: 18%;
-    background-color: #d4d9e4;
-  }
+
 }

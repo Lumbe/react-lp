@@ -62,7 +62,7 @@ body.bg-dark .social-media {
   border: 1px solid rgb(212, 217, 228);
   border-radius: 50%;
   margin-bottom: 10px;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-in-out;
 }
 
 .social-media a.social-item:hover {
@@ -72,6 +72,7 @@ body.bg-dark .social-media {
 body.bg-dark .social-media .social-item {
   background: rgba(38, 46, 61, 0.72);
   border: none;
+  transition: all 0.2s ease-in-out;
 }
 
 .social-media > .social-item.facebook > i {
@@ -96,43 +97,46 @@ body.bg-dark .social-media > .social-item.youtube > i {
 
 // Phone number
 
-.landing-section .phone-number {
-  position: absolute;
-  left: 21.5%;
-  bottom: 5.5%;
+#landing-section .phone-number {
   background-color: rgb(230,232,238);
   border: 1px solid rgb(212,217,228);
   border-radius: 30px;
   padding: 5px 20px;
 }
 
-.landing-section .phone-number h4 {
+#landing-section .phone-number {
+  position: absolute;
+  left: 21.5%;
+  bottom: 5.5%;
+}
+
+#landing-section .phone-number h4 {
   color: #737a88;
 }
 
-body.bg-dark.landing-section .phone-number {
+body.bg-dark #landing-section .phone-number {
   background: rgba(35, 43, 56, 0.59);
   border: 1px solid rgb(37, 45, 57);
 }
 
-.landing-section .phone-number h4 {
+#landing-section .phone-number h4 {
   font-weight: 700;
 }
 
-.landing-section .phone-number h4 span {
+#landing-section .phone-number h4 span {
   color: #9ba4b5;
 }
 
-body.bg-dark.landing-section .phone-number h4 span {
+body.bg-dark #landing-section .phone-number h4 span {
   color: #8d98ae;
 }
 
 // Callback bottom button
-.landing-section .btn.callback-button:focus {
+.btn.callback-button:focus {
   outline: none;
 }
 
-.landing-section .callback-button {
+.callback-button {
   position: absolute;
   right: 23%;
   bottom: 5.5%;
@@ -144,12 +148,12 @@ body.bg-dark.landing-section .phone-number h4 span {
   transition: all 0.2s ease;
 }
 
-body.bg-dark.landing-section .callback-button {
+body.bg-dark .callback-button {
   background: rgba(80, 170, 67, 0.59);
   border: 1px solid rgb(83, 175, 69);
 }
 
-.landing-section .callback-button .bg-phone {
+.callback-button .bg-phone {
   top: 12%;
   left: 3%;
   position:absolute;
@@ -161,32 +165,32 @@ body.bg-dark.landing-section .callback-button {
   transition: width 0.3s ease;
 }
 
-.landing-section .callback-button .callback-text {
+.callback-button .callback-text {
   position: relative;
   z-index: 10;
   color: #737a88;
 }
 
-body.bg-dark.landing-section .callback-button .callback-text {
+body.bg-dark .callback-button .callback-text {
   color: #fefefe;
 }
 
-.landing-section .callback-button .bg-phone i {
+.callback-button .bg-phone i {
   position: relative;
   padding-top: 13px;
   padding-left: 12px;
   color: #fefefe;
 }
 
-.landing-section .callback-button:hover .bg-phone,
-.landing-section .callback-button:focus .bg-phone,
-.landing-section .callback-button:active .bg-phone {
+.callback-button:hover .bg-phone,
+.callback-button:focus .bg-phone,
+.callback-button:active .bg-phone {
   width: 94%;
 }
 
-.landing-section .callback-button:hover .callback-text,
-.landing-section .callback-button:focus .callback-text,
-.landing-section .callback-button:active .callback-text {
+.callback-button:hover .callback-text,
+.callback-button:focus .callback-text,
+.callback-button:active .callback-text {
   color: #fefefe;
 
 }

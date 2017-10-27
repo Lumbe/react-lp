@@ -1,5 +1,6 @@
 import React from 'react'
 import {Grid, Row, Col, Button} from 'react-bootstrap'
+import './defaultFooter.css'
 
 export default class DefaultFooter extends React.Component {
   render() {
