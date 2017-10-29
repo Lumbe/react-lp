@@ -10,11 +10,24 @@ import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import StaticFrame from '../../common/staticFrame'
 import VerticalMenu from '../../layout/navigation/verticalMenu'
+import _ from 'lodash'
 
 class FifthPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {animateIn: true};
+    this.state = {animateIn: true, pageId: 5};
+  }
+
+  componentWillMount() {
+    window.onwheel = _.debounce((e) => {
+      if (e.wheelDelta > 0) {
+        let scrollToId = this.state.pageId - 1;
+        this.props.goToPage(scrollToId);
+      } else {
+        let scrollToId = this.state.pageId + 1;
+        this.props.goToPage(scrollToId);
+      }
+    }, 30);
   }
 
   componentWillUnmount() {
@@ -26,6 +39,11 @@ class FifthPage extends React.Component {
     r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
     return images;
   }
+
+  handleNextPage() {
+    let scrollToId = this.state.pageId + 1;
+    return this.props.goToPage(scrollToId);
+  }
   render() {
     const certificates = this.importImages(require.context('./certificates', false, /\.(png|jpe?g|svg)$/));
     let certificateUrls = [];
@@ -35,7 +53,7 @@ class FifthPage extends React.Component {
       }
     }
     return (
-      <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
+      <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <StaticFrame/>
           <VerticalMenu/>
@@ -161,7 +179,7 @@ class FifthPage extends React.Component {
               </Row>
           </div>
           </Grid>
-        </Page>
+        <div onClick={this.handleNextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
       </FadeTransition>
     )
   }

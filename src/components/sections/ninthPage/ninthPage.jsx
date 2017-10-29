@@ -7,14 +7,24 @@ import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import StaticFrame from '../../common/staticFrame'
 import VerticalMenu from '../../layout/navigation/verticalMenu'
+import _ from 'lodash'
 
 class NinthPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {animateIn: true};
+    this.state = {animateIn: true, pageId: 9};
   }
 
   componentWillMount() {
+    window.onwheel = _.debounce((e) => {
+      if (e.wheelDelta > 0) {
+        let scrollToId = this.state.pageId - 1;
+        this.props.goToPage(scrollToId);
+      } else {
+        let scrollToId = this.state.pageId + 1;
+        this.props.goToPage(scrollToId);
+      }
+    }, 30);
     setBackgroundImage(backgroundImage);
   }
 
@@ -24,9 +34,14 @@ class NinthPage extends React.Component {
     removeBackgroundImage();
   }
 
+  handleNextPage() {
+    let scrollToId = this.state.pageId + 1;
+    return this.props.goToPage(scrollToId);
+  }
+
   render() {
     return (
-      <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
+      <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <StaticFrame/>
           <VerticalMenu/>
@@ -193,7 +208,7 @@ class NinthPage extends React.Component {
               </div>
             </div>
           </Grid>
-        </Page>
+        <div onClick={this.handleNextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
       </FadeTransition>
     )
   }

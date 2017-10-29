@@ -10,6 +10,7 @@ import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import StaticFrame from '../../common/staticFrame'
 import VerticalMenu from '../../layout/navigation/verticalMenu'
+import _ from 'lodash'
 
 class SeventhPage extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class SeventhPage extends React.Component {
 
   defaultProps() {
     return {
+      pageId: 7,
       showModal: false,
       modalId: null,
       description: null,
@@ -36,6 +38,15 @@ class SeventhPage extends React.Component {
   }
 
   componentWillMount() {
+    window.onwheel = _.debounce((e) => {
+      if (e.wheelDelta > 0) {
+        let scrollToId = this.state.pageId - 1;
+        this.props.goToPage(scrollToId);
+      } else {
+        let scrollToId = this.state.pageId + 1;
+        this.props.goToPage(scrollToId);
+      }
+    }, 30);
     setBackgroundImage(backgroundImage);
   }
 
@@ -45,6 +56,10 @@ class SeventhPage extends React.Component {
     removeBackgroundImage();
   }
 
+  handleNextPage() {
+    let scrollToId = this.state.pageId + 1;
+    return this.props.goToPage(scrollToId);
+  }
   render() {
     const opts = {
       width: '100%',
@@ -59,7 +74,7 @@ class SeventhPage extends React.Component {
       "монтаж каркаса дома и кровельного материала, фасадные работы и разведение коммуникаций, а так же все внутренние работы." +
       "В итоге этот дом был построен очень быстро(г.Жешув, Польша) и уже через 4 месяца после начала работ заказчики праздновали новоселье.";
     return (
-      <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
+      <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <StaticFrame/>
           <VerticalMenu/>
@@ -115,7 +130,7 @@ class SeventhPage extends React.Component {
               </Modal>
             </div>
           </Grid>
-        </Page>
+        <div onClick={this.handleNextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
       </FadeTransition>
     )
   }

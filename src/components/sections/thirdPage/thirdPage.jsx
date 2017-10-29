@@ -11,6 +11,7 @@ import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import StaticFrame from '../../common/staticFrame'
 import VerticalMenu from '../../layout/navigation/verticalMenu'
+import _ from 'lodash'
 
 class ThirdPage extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class ThirdPage extends React.Component {
 
   defaultProps() {
     return {
+      pageId: 3,
       showModal: false,
       modalId: null,
       description: null,
@@ -38,11 +40,24 @@ class ThirdPage extends React.Component {
 
   componentWillMount() {
     setBackgroundImage(backgroundImage);
+    window.onwheel = _.debounce((e) => {
+      if (e.wheelDelta > 0) {
+        let scrollToId = this.state.pageId - 1;
+        this.props.goToPage(scrollToId);
+      } else {
+        let scrollToId = this.state.pageId + 1;
+        this.props.goToPage(scrollToId);
+      }
+    }, 30);
   }
-
 
   componentWillUnmount() {
     removeBackgroundImage();
+  }
+
+  handleNextPage() {
+    let scrollToId = this.state.pageId + 1;
+    return this.props.goToPage(scrollToId);
   }
 
   render() {
@@ -59,7 +74,7 @@ class ThirdPage extends React.Component {
     const description2 = "Строительство велось в 10км от Киева. Так как в окрестностях не было других школ и садиков," +
       " этот объект был спроектирован и построен в кратчайшие сроки - всего за полгода, что бы успеть к 1 сентября";
     return (
-      <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
+      <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <StaticFrame/>
           <VerticalMenu/>
@@ -150,7 +165,7 @@ class ThirdPage extends React.Component {
               </Modal>
             </div>
           </Grid>
-        </Page>
+        <div onClick={this.handleNextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
       </FadeTransition>
     )
   }

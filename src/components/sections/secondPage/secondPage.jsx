@@ -10,6 +10,7 @@ import FadeTransition from '../../common/fade'
 import StaticFrame from '../../common/staticFrame'
 import VerticalMenu from '../../layout/navigation/verticalMenu'
 import Page from '../../layout/page'
+import _ from 'lodash'
 
 class SecondPage extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class SecondPage extends React.Component {
 
   defaultProps() {
     return {
+      pageId: 2,
       showModal: false,
       showComponent: false,
       animateIn: true
@@ -36,12 +38,26 @@ class SecondPage extends React.Component {
 
   componentWillMount() {
     setBackgroundImage(backgroundImage);
+    window.onwheel = _.debounce((e) => {
+      if (e.wheelDelta > 0) {
+        let scrollToId = this.state.pageId - 1;
+        this.props.goToPage(scrollToId);
+      } else {
+        let scrollToId = this.state.pageId + 1;
+        this.props.goToPage(scrollToId);
+      }
+    }, 30);
   }
 
 
   componentWillUnmount() {
     this.setState({animateIn: false});
     removeBackgroundImage();
+  }
+
+  handleNextPage() {
+    let scrollToId = this.state.pageId + 1;
+    return this.props.goToPage(scrollToId);
   }
 
   render() {
@@ -52,7 +68,7 @@ class SecondPage extends React.Component {
       }
     };
     return (
-      <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
+      <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <StaticFrame/>
           <VerticalMenu/>
@@ -116,7 +132,7 @@ class SecondPage extends React.Component {
               </Modal>
             </div>
           </Grid>
-        </Page>
+        <div onClick={this.handleNextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
       </FadeTransition>
 
     )

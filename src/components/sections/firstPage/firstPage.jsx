@@ -8,6 +8,7 @@ import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import StaticFrame from '../../common/staticFrame'
 import VerticalMenu from '../../layout/navigation/verticalMenu'
+import _ from 'lodash'
 
 class FirstPage extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class FirstPage extends React.Component {
 
   defaultProps() {
     return {
+      pageId: 1,
       colorScheme: "dark",
       animateIn: true
     }
@@ -25,6 +27,15 @@ class FirstPage extends React.Component {
   componentWillMount() {
     setBackgroundImage(backgroundImage);
     setDarkColorScheme();
+    window.onwheel = _.debounce((e) => {
+      if (e.wheelDelta > 0) {
+        let scrollToId = this.state.pageId - 1;
+        this.props.goToPage(scrollToId);
+      } else {
+        let scrollToId = this.state.pageId + 1;
+        this.props.goToPage(scrollToId);
+      }
+    }, 30);
   }
 
   componentWillUnmount() {
@@ -32,9 +43,15 @@ class FirstPage extends React.Component {
     removeBackgroundImage();
     removeDarkColorScheme();
   }
+
+  handleNextPage() {
+    let scrollToId = this.state.pageId + 1;
+    return this.props.goToPage(scrollToId);
+  }
+  
   render() {
     return (
-      <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
+      <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <StaticFrame/>
           <VerticalMenu/>
@@ -65,7 +82,10 @@ class FirstPage extends React.Component {
               </div>
             </Col>
           </Grid>
-        </Page>
+          <div onClick={this.handleNextPage.bind(this)} className="next-page">
+            <i className="fa fa-angle-down fa-2x"/>
+          </div>
+        <div onClick={this.handleNextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
       </FadeTransition>
     )
   }

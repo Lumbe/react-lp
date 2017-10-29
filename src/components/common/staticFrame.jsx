@@ -45,9 +45,9 @@ class StaticFrame extends React.Component {
           <span className="callback-text">Заказать звонок</span>
           <div className="bg-phone"><i className="fa fa-phone fa-lg"/></div>
         </Button>
-        <div className="next-page">
-          <i className="fa fa-angle-down fa-2x"/>
-        </div>
+        {/*<div className="next-page">*/}
+          {/*<i className="fa fa-angle-down fa-2x"/>*/}
+        {/*</div>*/}
         <DefaultModal
           show={this.state.showModal}
           onHide={this.closeModal.bind(this)}

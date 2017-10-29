@@ -10,6 +10,7 @@ import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import StaticFrame from '../../common/staticFrame'
 import VerticalMenu from '../../layout/navigation/verticalMenu'
+import _ from 'lodash'
 
 class ThirteenthPage extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class ThirteenthPage extends React.Component {
 
   defaultProps() {
     return {
+      pageId: 13,
       showModal: false,
       modalId: null,
       animateIn: true
@@ -26,6 +28,15 @@ class ThirteenthPage extends React.Component {
   }
 
   componentWillMount() {
+    window.onwheel = _.debounce((e) => {
+      if (e.wheelDelta > 0) {
+        let scrollToId = this.state.pageId - 1;
+        this.props.goToPage(scrollToId);
+      } else {
+        let scrollToId = this.state.pageId + 1;
+        this.props.goToPage(scrollToId);
+      }
+    }, 30);
     setBackgroundImage(backgroundImage);
   }
 
@@ -42,10 +53,14 @@ class ThirteenthPage extends React.Component {
   closeModal() {
     this.setState({showModal: false})
   }
+  handleNextPage() {
+    let scrollToId = this.state.pageId + 1;
+    return this.props.goToPage(scrollToId);
+  }
 
   render() {
     return (
-      <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
+      <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <StaticFrame/>
           <VerticalMenu/>
