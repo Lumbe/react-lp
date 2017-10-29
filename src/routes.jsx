@@ -34,18 +34,18 @@ class Routes extends React.Component {
       <TransitionGroup>
         <Switch>
           <LandingLayout exact path="/" inverse={true} component={AsyncFirstPage}/>
-          <LandingLayout exact path="/2-page" inverse={false} component={AsyncSecondPage}/>
-          <LandingLayout exact path="/3-page" inverse={false} component={AsyncThirdPage}/>
-          <LandingLayout exact path="/4-page" inverse={true} component={AsyncFourthPage}/>
-          <LandingLayout exact path="/5-page" inverse={false} component={AsyncFifthPage}/>
-          <LandingLayout exact path="/6-page" inverse={true} component={AsyncSixthPage}/>
-          <LandingLayout exact path="/7-page" inverse={false} component={AsyncSeventhPage}/>
-          <LandingLayout exact path="/8-page" inverse={true} component={AsyncEighthPage}/>
-          <LandingLayout exact path="/9-page" inverse={false} component={AsyncNinthPage}/>
-          <LandingLayout exact path="/10-page" inverse={true} component={AsyncTenthPage}/>
-          <LandingLayout exact path="/11-page" inverse={false} component={AsyncEleventhPage}/>
-          <LandingLayout exact path="/12-page" inverse={true} component={AsyncTwelfthPage}/>
-          <LandingLayout exact path="/13-page" inverse={false} component={AsyncThirteenthPage}/>
+          <LandingLayout exact path="/about" inverse={false} component={AsyncSecondPage}/>
+          <LandingLayout exact path="/commercial-buildings" inverse={false} component={AsyncThirdPage}/>
+          <LandingLayout exact path="/eu-certificates" inverse={true} component={AsyncFourthPage}/>
+          <LandingLayout exact path="/building-technology" inverse={false} component={AsyncFifthPage}/>
+          <LandingLayout exact path="/build-stages" inverse={true} component={AsyncSixthPage}/>
+          <LandingLayout exact path="/rapid-building" inverse={false} component={AsyncSeventhPage}/>
+          <LandingLayout exact path="/house-projects" inverse={true} component={AsyncEighthPage}/>
+          <LandingLayout exact path="/advantages" inverse={false} component={AsyncNinthPage}/>
+          <LandingLayout exact path="/price" inverse={true} component={AsyncTenthPage}/>
+          <LandingLayout exact path="/reviews" inverse={false} component={AsyncEleventhPage}/>
+          <LandingLayout exact path="/own-project" inverse={true} component={AsyncTwelfthPage}/>
+          <LandingLayout exact path="/contacts" inverse={false} component={AsyncThirteenthPage}/>
           <ProjectLayout exact path="/projects/:slug" inverse={false} component={AsyncProjectPage}/>
           <ProjectLayout exact path="/projects" inverse={true} component={AsyncProjectIndex}/>
           <LandingLayout exact path="/typography" inverse={false} component={AsyncTypography}/>

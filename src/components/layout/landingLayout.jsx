@@ -16,18 +16,18 @@ class LandingLayout extends React.Component {
       landing: true,
       pages: {
         1: '',
-        2: '2-page',
-        3: '3-page',
-        4: '4-page',
-        5: '5-page',
-        6: '6-page',
-        7: '7-page',
-        8: '8-page',
-        9: '9-page',
-        10: '10-page',
-        11: '11-page',
-        12: '12-page',
-        13: '13-page'
+        2: 'about',
+        3: 'commercial-buildings',
+        4: 'eu-certificates',
+        5: 'building-technology',
+        6: 'build-stages',
+        7: 'rapid-building',
+        8: 'house-projects',
+        9: 'advantages',
+        10: 'price',
+        11: 'reviews',
+        12: 'own-project',
+        13: 'contacts'
       }
 
     }

@@ -92,7 +92,7 @@ class TenthPage extends React.Component {
                   </p>
                     <ul>
                       <li>
-                        <Link className="simple-link" to="12-page">
+                        <Link className="simple-link" to="own-project">
                           Если у Вас уже есть проект дома
                         </Link>
                         &nbsp;- присылайте его нам для расчета стоимости строительства

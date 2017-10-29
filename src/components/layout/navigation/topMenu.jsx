@@ -4,6 +4,7 @@ import {Navbar, Nav, NavItem, Image, ButtonToolbar, Button} from 'react-bootstra
 import {IndexLinkContainer, LinkContainer} from "react-router-bootstrap";
 import DefaultModal from '../../common/defaultModal'
 import PriceForm from '../../common/forms/priceForm'
+import logoImage from './logo.png'
 
 class TopMenu extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class TopMenu extends React.Component {
         <Navbar className='flex-navbar' collapseOnSelect inverse={this.props.inverse}>
           <Navbar.Header>
             <Navbar.Brand>
-              <Image src="/images/logo.png" draggable="false" />
+              <Image src={logoImage} draggable="false" />
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
@@ -46,19 +47,19 @@ class TopMenu extends React.Component {
               <IndexLinkContainer to="/">
                 <NavItem eventKey={1}>Главная</NavItem>
               </IndexLinkContainer>
-              <LinkContainer to="/2-page">
+              <LinkContainer to="/building-technology">
                 <NavItem eventKey={2}>Технологии</NavItem>
               </LinkContainer>
-              <LinkContainer to="/3-page">
+              <LinkContainer to="/price">
                 <NavItem eventKey={3}>Стоимость</NavItem>
               </LinkContainer>
               <LinkContainer to="/projects">
                 <NavItem eventKey={4}>Проекты</NavItem>
               </LinkContainer>
-              <LinkContainer to="/5-page">
-                <NavItem eventKey={5}>Портфолио</NavItem>
+              <LinkContainer to="/reviews">
+                <NavItem eventKey={5}>Отзывы</NavItem>
               </LinkContainer>
-              <LinkContainer to="/6-page">
+              <LinkContainer to="/contacts">
                 <NavItem eventKey={6}>Контакты</NavItem>
               </LinkContainer>
             </Nav>

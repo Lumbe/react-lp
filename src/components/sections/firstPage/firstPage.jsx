@@ -67,13 +67,13 @@ class FirstPage extends React.Component {
               </div>
               <div className="heading-buttons">
                 <Nav bsStyle="pills" justified>
-                  <LinkContainer className="btn-simple" to="/10-page">
+                  <LinkContainer className="btn-simple" to="/price">
                     <NavItem eventKey={0.1}>Стоимость</NavItem>
                   </LinkContainer>
-                  <LinkContainer to="/2-page" className="btn-details">
+                  <LinkContainer to="/about" className="btn-details">
                     <NavItem eventKey={0.2}>Подробнее</NavItem>
                   </LinkContainer>
-                  <LinkContainer className="btn-simple" to="/8-page">
+                  <LinkContainer className="btn-simple" to="/house-projects">
                     <NavItem eventKey={0.3}>Проекты домов</NavItem>
                   </LinkContainer>
                 </Nav>

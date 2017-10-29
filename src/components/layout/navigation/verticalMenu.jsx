@@ -33,62 +33,62 @@ class VerticalMenu extends React.Component {
                 </NavItem>
               </IndexLinkContainer>
             {/*</OverlayTrigger>*/}
-            <LinkContainer to="/2-page">
+            <LinkContainer to="/about">
               <NavItem eventKey={2}>
                 <div className="inner-dot"/>
               </NavItem>
             </LinkContainer>
-            <LinkContainer to="/3-page">
+            <LinkContainer to="/commercial-buildings">
               <NavItem eventKey={3}>
                 <div className="inner-dot"/>
               </NavItem>
             </LinkContainer>
-            <LinkContainer to="/4-page">
+            <LinkContainer to="/eu-certificates">
               <NavItem eventKey={4}>
                 <div className="inner-dot"/>
               </NavItem>
             </LinkContainer>
-            <LinkContainer to="/5-page">
+            <LinkContainer to="/building-technology">
               <NavItem eventKey={5}>
                 <div className="inner-dot"/>
               </NavItem>
             </LinkContainer>
-            <LinkContainer to="/6-page">
+            <LinkContainer to="/build-stages">
               <NavItem eventKey={6}>
                 <div className="inner-dot"/>
               </NavItem>
             </LinkContainer>
-            <LinkContainer to="/7-page">
+            <LinkContainer to="/rapid-building">
               <NavItem eventKey={6}>
                 <div className="inner-dot"/>
               </NavItem>
             </LinkContainer>
-            <LinkContainer to="/8-page">
+            <LinkContainer to="/house-projects">
               <NavItem eventKey={6}>
                 <div className="inner-dot"/>
               </NavItem>
             </LinkContainer>
-            <LinkContainer to="/9-page">
+            <LinkContainer to="/advantages">
               <NavItem eventKey={6}>
                 <div className="inner-dot"/>
               </NavItem>
             </LinkContainer>
-            <LinkContainer to="/10-page">
+            <LinkContainer to="/price">
               <NavItem eventKey={6}>
                 <div className="inner-dot"/>
               </NavItem>
             </LinkContainer>
-            <LinkContainer to="/11-page">
+            <LinkContainer to="/reviews">
               <NavItem eventKey={6}>
                 <div className="inner-dot"/>
               </NavItem>
             </LinkContainer>
-            <LinkContainer to="/12-page">
+            <LinkContainer to="/own-project">
               <NavItem eventKey={6}>
                 <div className="inner-dot"/>
               </NavItem>
             </LinkContainer>
-            <LinkContainer to="/13-page">
+            <LinkContainer to="/contacts">
               <NavItem eventKey={6}>
                 <div className="inner-dot"/>
               </NavItem>
