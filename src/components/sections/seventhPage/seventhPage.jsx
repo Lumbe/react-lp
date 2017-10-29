@@ -79,7 +79,7 @@ class SeventhPage extends React.Component {
       "монтаж каркаса дома и кровельного материала, фасадные работы и разведение коммуникаций, а так же все внутренние работы." +
       "В итоге этот дом был построен очень быстро(г.Жешув, Польша) и уже через 4 месяца после начала работ заказчики праздновали новоселье.";
     return (
-      <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
+      <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
           <Grid>

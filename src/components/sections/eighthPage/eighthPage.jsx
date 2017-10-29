@@ -61,7 +61,7 @@ class EighthPage extends React.Component {
       projects.push(<ProjectDescription header={header} footer={footer} projectImage={projectImage}/>);
     }
     return (
-      <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
+      <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <Grid>
             <div className="eighth-section">

@@ -92,7 +92,7 @@ class TwelfthPage extends React.Component {
   }
   render() {
     return (
-      <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
+      <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
           <Grid>

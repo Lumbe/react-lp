@@ -54,7 +54,7 @@ class FourthPage extends React.Component {
     const iconLeft = "<span class='fa fa-angle-left fa-2x'/>";
     const iconRight = "<span class='fa fa-angle-right fa-2x'/>";
     return (
-      <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
+      <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
           <Grid>

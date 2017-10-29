@@ -74,7 +74,7 @@ class ThirdPage extends React.Component {
     const description2 = "Строительство велось в 10км от Киева. Так как в окрестностях не было других школ и садиков," +
       " этот объект был спроектирован и построен в кратчайшие сроки - всего за полгода, что бы успеть к 1 сентября";
     return (
-      <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
+      <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
           <Grid>
