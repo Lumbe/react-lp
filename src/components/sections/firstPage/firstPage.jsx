@@ -6,8 +6,6 @@ import {Grid, Nav, NavItem, Col} from 'react-bootstrap'
 import {LinkContainer} from "react-router-bootstrap";
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-import StaticFrame from '../../common/staticFrame'
-import VerticalMenu from '../../layout/navigation/verticalMenu'
 import _ from 'lodash'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 
@@ -55,8 +53,8 @@ class FirstPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
-          <StaticFrame/>
-          <VerticalMenu/>
+          {/*<StaticFrame/>*/}
+          {/*<VerticalMenu/>*/}
           <Grid>
             <Col md={12}>
               <div className="text-center heading-block">

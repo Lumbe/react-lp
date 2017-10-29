@@ -2,6 +2,8 @@ import React from 'react'
 import {Route, withRouter} from 'react-router-dom'
 import Header from './header/header'
 import {setWindowHeight,resetWindowHeight} from "../common/main";
+import StaticFrame from "../common/staticFrame";
+import VerticalMenu from "./navigation/verticalMenu";
 
 class LandingLayout extends React.Component {
   constructor(props) {
@@ -58,6 +60,8 @@ class LandingLayout extends React.Component {
       <Route {...rest} render={matchProps => (
         <div id="landing-section">
           <Header inverse={this.props.inverse}/>
+          <StaticFrame/>
+          <VerticalMenu/>
           <Component goToPage={this.goToPage.bind(this)} {...matchProps} />
         </div>
       )} />

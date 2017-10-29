@@ -8,8 +8,6 @@ import DefaultModal from '../../common/defaultModal'
 import AskForm from '../../common/forms/askForm'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-import StaticFrame from '../../common/staticFrame'
-import VerticalMenu from '../../layout/navigation/verticalMenu'
 import _ from 'lodash'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 
@@ -64,8 +62,8 @@ class ThirteenthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
-          <StaticFrame/>
-          <VerticalMenu/>
+          {/*<StaticFrame/>*/}
+          {/*<VerticalMenu/>*/}
           <Grid>
             <div className="thirteenth-section">
               <h1 className="text-center">Сервус<span className="text-highlight"> Винница</span></h1>

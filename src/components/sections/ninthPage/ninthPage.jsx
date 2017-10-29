@@ -5,8 +5,6 @@ import {Grid, Row, Col} from 'react-bootstrap'
 import backgroundImage from './bg-screen9.jpg'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-import StaticFrame from '../../common/staticFrame'
-import VerticalMenu from '../../layout/navigation/verticalMenu'
 import _ from 'lodash'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 
@@ -45,8 +43,8 @@ class NinthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
-          <StaticFrame/>
-          <VerticalMenu/>
+          {/*<StaticFrame/>*/}
+          {/*<VerticalMenu/>*/}
           <Grid>
             <div className="ninth-section vertical-align">
               <h1 className="text-center">Почему стоит выбрать<span className="text-highlight"> <span className="hidden-semimedium hidden-medium"><br/>энергосберегающие</span> дома Сервус</span></h1>

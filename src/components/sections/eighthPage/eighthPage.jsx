@@ -9,8 +9,6 @@ import OwlCarousel from 'react-owl-carousel'
 import ProjectDescription from './projectDescription'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-import StaticFrame from '../../common/staticFrame'
-import VerticalMenu from '../../layout/navigation/verticalMenu'
 import _ from 'lodash'
 
 class EighthPage extends React.Component {
@@ -64,8 +62,8 @@ class EighthPage extends React.Component {
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
-          <StaticFrame/>
-          <VerticalMenu/>
+          {/*<StaticFrame/>*/}
+          {/*<VerticalMenu/>*/}
           <Grid>
             <div className="eighth-section">
               <Row className="table-row">

@@ -64,7 +64,7 @@ body.bg-dark .social-media {
   border: 1px solid rgb(212, 217, 228);
   border-radius: 50%;
   margin-bottom: 10px;
-  transition: all 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 .social-media a.social-item:hover {
@@ -74,7 +74,7 @@ body.bg-dark .social-media {
 body.bg-dark .social-media .social-item {
   background: rgba(38, 46, 61, 0.72);
   border: none;
-  transition: all 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 .social-media > .social-item.facebook > i {

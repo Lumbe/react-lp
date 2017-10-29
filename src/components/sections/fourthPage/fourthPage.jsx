@@ -9,8 +9,6 @@ import {Grid, Row, Col, Image} from 'react-bootstrap'
 import OwlCarousel from 'react-owl-carousel'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-import StaticFrame from '../../common/staticFrame'
-import VerticalMenu from '../../layout/navigation/verticalMenu'
 import _ from 'lodash'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 
@@ -59,8 +57,8 @@ class FourthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
-          <StaticFrame/>
-          <VerticalMenu/>
+          {/*<StaticFrame/>*/}
+          {/*<VerticalMenu/>*/}
           <Grid>
             <div className="fourth-section"><Row>
               <Col md={6} className="euro-description">
