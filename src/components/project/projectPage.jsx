@@ -61,6 +61,8 @@ class ProjectPage extends React.Component {
                 <Col md={3} mdPush={9}>
                   <LightForm
                     title={formTitle}
+                    projectTitle={this.state.title}
+                    projectArea={this.state.area}
                   />
                 </Col>
                 <Col md={9} mdPull={3}>
@@ -168,9 +170,9 @@ class ProjectPage extends React.Component {
                     </Media>
                   </div>
                 </Col>
-                <Col md={12}>
-                  similar projects similar projectssimilar projectssimilar projectssimilar projectssimilar projectssimilar projectssimilar projectssimilar projectssimilar projects
-                </Col>
+                {/*<Col md={12}>*/}
+                  {/*similar projects similar projectssimilar projectssimilar projectssimilar projectssimilar projectssimilar projectssimilar projectssimilar projectssimilar projects*/}
+                {/*</Col>*/}
               </Row>
             </Grid>
             <DefaultFooter/>

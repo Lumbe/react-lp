@@ -1,8 +1,29 @@
 import React from 'react'
 import {Grid, Row, Col, Button} from 'react-bootstrap'
 import './defaultFooter.css'
+import DefaultModal from "../common/defaultModal";
+import CallbackForm from "../common/forms/callbackForm";
 
 export default class DefaultFooter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = this.defaultProps();
+  }
+
+  defaultProps() {
+    return {
+      showModal: false
+    }
+  }
+
+  openModal() {
+    this.setState({showModal: true});
+  }
+
+  closeModal() {
+    this.setState({showModal: false})
+  }
+
   render() {
     return (
       <footer className="default-footer">
@@ -27,7 +48,7 @@ export default class DefaultFooter extends React.Component {
               </div>
             </Col>
             <Col md={3} className="callback-wrapper">
-              <Button bsStyle="phone" className="callback-button">
+              <Button bsStyle="phone" className="callback-button" onClick={this.openModal.bind(this)}>
                 <span className="callback-text">Заказать звонок</span>
                 <div className="bg-phone"><i className="fa fa-phone fa-lg"/></div>
               </Button>
@@ -37,6 +58,13 @@ export default class DefaultFooter extends React.Component {
             <Col md={12} className="text-center">Сервус Винница 2017</Col>
           </Row>
         </Grid>
+        <DefaultModal
+          show={this.state.showModal}
+          onHide={this.closeModal.bind(this)}
+          title="Получить консультацию"
+        >
+          <CallbackForm/>
+        </DefaultModal>
       </footer>
     )
   }

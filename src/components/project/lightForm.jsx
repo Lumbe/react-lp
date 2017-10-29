@@ -1,6 +1,8 @@
 import React from 'react'
 import {FormGroup, Row, Col, InputGroup, FormControl, Button} from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
+import CallbackForm from "../common/forms/callbackForm";
+import DefaultModal from "../common/defaultModal";
 
 class LightFrom extends React.Component {
   constructor(props) {
@@ -10,14 +12,30 @@ class LightFrom extends React.Component {
 
   defaultProps() {
     return {
+      showModal: false,
       title: 'Форма',
       form: {
         firstName: '',
         phone: '',
-        email: ''
-        // comment: ''
+        email: '',
+        projectTitle: '',
+        projectArea: ''
       }
     }
+  }
+
+  componentDidMount() {
+    console.log(this.props);
+    this.setState({form: {projectTitle: this.props.projectTitle, projectArea: this.props.projectArea}});
+    console.log(this.state);
+  }
+
+  openModal() {
+    this.setState({showModal: true});
+  }
+
+  closeModal() {
+    this.setState({showModal: false})
   }
 
   updateFormState(event) {
@@ -114,29 +132,30 @@ class LightFrom extends React.Component {
               </Col>
             </Row>
           </FormGroup>
-          {/*<FormGroup>*/}
-            {/*<Row>*/}
-              {/*<InputGroup>*/}
-                {/*<InputGroup.Addon className="input-icon">*/}
-                  {/*<FontAwesome name="commenting-o" fixedWidth/>*/}
-                {/*</InputGroup.Addon>*/}
-                {/*<FormControl*/}
-                  {/*name="comment"*/}
-                  {/*componentClass="textarea"*/}
-                  {/*className="input-textfield"*/}
-                  {/*placeholder="Доп. информация"*/}
-                  {/*onFocus={this.handleFocus.bind(this)}*/}
-                  {/*onBlur={this.handleBlur.bind(this)}*/}
-                  {/*onChange={this.updateFormState.bind(this)}*/}
-                {/*/>*/}
-              {/*</InputGroup>*/}
-            {/*</Row>*/}
-          {/*</FormGroup>*/}
+          <FormControl
+            name="projectTitle"
+            type="hidden"
+            onInput={this.updateFormState.bind(this)}
+            value={this.props.projectTitle}
+          />
+          <FormControl
+            name="projectArea"
+            type="hidden"
+            onInput={this.updateFormState.bind(this)}
+            value={this.props.projectArea}
+          />
           <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Отправить</Button>
         </form>
         или звоните
         <div className="phone-number"><h4><span>+38 (096)</span> 888 50 50</h4></div>
-        <Button bsStyle="grey">Обратный звонок</Button>
+        <Button bsStyle="grey" onClick={this.openModal.bind(this)}>Обратный звонок</Button>
+        <DefaultModal
+          show={this.state.showModal}
+          onHide={this.closeModal.bind(this)}
+          title="Получить консультацию"
+        >
+          <CallbackForm/>
+        </DefaultModal>
       </div>
     )
   }
