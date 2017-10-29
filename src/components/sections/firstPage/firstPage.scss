@@ -57,6 +57,7 @@
 .heading-buttons {
   width: 80%;
   margin: 8% auto 0;
+  text-align: right;
 }
 
 .heading-buttons .nav-justified > li {
@@ -143,6 +144,18 @@
   background: -webkit-linear-gradient( -90deg, rgba(255,241,1, 0.4) 0%, rgba(255,221,3, 0.4) 100%);
   background: -ms-linear-gradient( -90deg, rgba(255,241,1, 0.4) 0%, rgba(255,221,3, 0.4) 100%);
   background: linear-gradient( -90deg, rgba(255,241,1, 0.4) 0%, rgba(255,221,3, 0.4) 100%);
+}
+
+.heading-buttons a.own-project {
+  color: #f2dede;
+  border-bottom: 1px dotted #f2dede;
+  margin-right: 6%;
+  transition: color 0.2s ease-in-out, border-bottom 0.2s ease-in-out;
+}
+
+.heading-buttons a.own-project:hover {
+  color: #58b749;
+  border-bottom-color: #58b749;
 }
 
 // responsive behavior

@@ -8,6 +8,7 @@ import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import _ from 'lodash'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
+import {Link} from 'react-router-dom'
 
 class FirstPage extends React.Component {
   constructor(props) {
@@ -76,6 +77,7 @@ class FirstPage extends React.Component {
                   <LinkContainer className="btn-simple" to="/house-projects">
                     <NavItem eventKey={0.3}>Проекты домов</NavItem>
                   </LinkContainer>
+                  <Link to="/own-project" className="own-project">Уже есть проект дома?</Link>
                 </Nav>
               </div>
             </Col>
