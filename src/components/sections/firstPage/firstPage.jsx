@@ -85,7 +85,7 @@ class FirstPage extends React.Component {
           <div onClick={this.handleNextPage.bind(this)} className="next-page">
             <i className="fa fa-angle-down fa-2x"/>
           </div>
-        <div onClick={this.handleNextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
+        </Page>
       </FadeTransition>
     )
   }
