@@ -10,6 +10,7 @@ import DefaultFooter from "./defaultFooter";
 import Page from '../layout/page'
 import FadeTransition from '../common/fade'
 import {Link} from 'react-router-dom'
+import ScrollToTopOnMount from "../common/scrollToTopOnMount";
 
 class ProjectIndex extends React.Component {
   constructor(props) {
@@ -64,6 +65,7 @@ class ProjectIndex extends React.Component {
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
         <Page>
+          <ScrollToTopOnMount/>
           <div className="project-index">
             <Grid>
               <Row>

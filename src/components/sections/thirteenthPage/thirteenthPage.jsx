@@ -11,6 +11,7 @@ import Page from '../../layout/page'
 import StaticFrame from '../../common/staticFrame'
 import VerticalMenu from '../../layout/navigation/verticalMenu'
 import _ from 'lodash'
+import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 
 class ThirteenthPage extends React.Component {
   constructor(props) {
@@ -62,6 +63,7 @@ class ThirteenthPage extends React.Component {
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
+          <ScrollToTopOnMount/>
           <StaticFrame/>
           <VerticalMenu/>
           <Grid>
