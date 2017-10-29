@@ -11,6 +11,7 @@ import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import _ from 'lodash'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
+import {Link} from 'react-router-dom'
 
 class ThirdPage extends React.Component {
   constructor(props) {
@@ -76,8 +77,6 @@ class ThirdPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
-          {/*<StaticFrame/>*/}
-          {/*<VerticalMenu/>*/}
           <Grid>
             <div className="third-section">
               <Row>
@@ -148,10 +147,12 @@ class ThirdPage extends React.Component {
               </Row>
               <Row>
                 <Col md={12} className="text-center">
-                  <Button bsStyle="link" className="lp-link">
-                    Посмотреть все проекты&nbsp;&nbsp;
-                    <FontAwesome name="angle-right"/>
-                  </Button>
+                  <Link to="/projects">
+                    <Button bsStyle="link" className="lp-link">
+                      Посмотреть все проекты&nbsp;&nbsp;
+                      <FontAwesome name="angle-right"/>
+                    </Button>
+                  </Link>
                 </Col>
               </Row>
               <Modal dialogClassName="yt-modal" keyboard={this.onHide} show={this.state.showModal} onHide={this.close.bind(this)}>

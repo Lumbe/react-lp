@@ -5,7 +5,7 @@ import sipImage from './sip.jpg'
 import mitekImage from './mitek.jpg'
 import neoporImage from './neopor.jpg'
 import OwlCarousel from 'react-owl-carousel'
-import '../fourthPage/owl.theme.certificates.css'
+import './owl.theme.certificates.css'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import _ from 'lodash'
@@ -55,8 +55,6 @@ class FifthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
-          {/*<StaticFrame/>*/}
-          {/*<VerticalMenu/>*/}
           <Grid>
             <div className="fifth-section">
               <Row>
@@ -138,7 +136,7 @@ class FifthPage extends React.Component {
                             <Row>
                               <Col md={12}>
                                 <OwlCarousel
-                                  className="owl-theme-servus"
+                                  className="owl-theme-certificates"
                                   items={4}
                                   margin={10}
                                   loop nav={true}
@@ -162,7 +160,7 @@ class FifthPage extends React.Component {
                                 >
                                   {certificateUrls.map((src, index) => {
                                     return (
-                                      <div key={index} className="certificate-item">
+                                      <div key={index}>
                                         <Image src={src} responsive/>
                                       </div>
                                     )

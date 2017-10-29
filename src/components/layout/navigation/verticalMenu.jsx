@@ -26,13 +26,13 @@ class VerticalMenu extends React.Component {
     );
     return (
           <Nav className="vertical-menu pull-right  hidden-xs hidden-sm">
-            <OverlayTrigger trigger={['hover', 'focus']} placement="left" overlay={popoverHoverFocus}>
+            {/*<OverlayTrigger trigger={['hover', 'focus']} placement="left" overlay={popoverHoverFocus}>*/}
               <IndexLinkContainer to="/">
                 <NavItem eventKey={1}>
                   <div className="inner-dot"/>
                 </NavItem>
               </IndexLinkContainer>
-            </OverlayTrigger>
+            {/*</OverlayTrigger>*/}
             <LinkContainer to="/2-page">
               <NavItem eventKey={2}>
                 <div className="inner-dot"/>

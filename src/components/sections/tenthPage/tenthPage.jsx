@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import _ from 'lodash'
-import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
+import ScrollToTopOnMount from "../../common/scrollToTopOnMount"
 
 class TenthPage extends React.Component {
   constructor(props) {
@@ -80,8 +80,6 @@ class TenthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
-          {/*<StaticFrame/>*/}
-          {/*<VerticalMenu/>*/}
           <Grid>
             <div className="tenth-section">
               <Row>
@@ -106,10 +104,12 @@ class TenthPage extends React.Component {
                   <p>
                     Уже представляете каким должен быть ваш дом? Выберите проект из нашего каталога и оставьте заявку на расчет (это бесплатно)
                   </p>
-                  <Button bsStyle="link" className="lp-link">
-                    Проекты домов и коттеджей&nbsp;&nbsp;
-                    <FontAwesome name="angle-right"/>
-                  </Button>
+                  <Link to="/projects">
+                    <Button bsStyle="link" className="lp-link">
+                      Проекты домов и коттеджей&nbsp;&nbsp;
+                      <FontAwesome name="angle-right"/>
+                    </Button>
+                  </Link>
                 </Col>
                 <Col md={6} sm={12} xs={12}>
                   <div className="form-wrapper">
@@ -213,7 +213,7 @@ class TenthPage extends React.Component {
                           />
                         </InputGroup>
                       </FormGroup>
-                      <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Отправить</Button>
+                      <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Узнать стоимость</Button>
                     </form>
                   </div>
                 </Col>

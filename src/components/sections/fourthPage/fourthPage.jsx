@@ -3,7 +3,7 @@ import {setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDar
 import backgroundImage from './bg-screen4.jpg'
 import certificate1 from './euro_certificate_1.jpg'
 import certificate2 from './euro_certificate_2.jpg'
-import './owl.theme.certificates.css'
+import './owl.theme.servus.css'
 import './fourthPage.css'
 import {Grid, Row, Col, Image} from 'react-bootstrap'
 import OwlCarousel from 'react-owl-carousel'
@@ -57,8 +57,6 @@ class FourthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
-          {/*<StaticFrame/>*/}
-          {/*<VerticalMenu/>*/}
           <Grid>
             <div className="fourth-section"><Row>
               <Col md={6} className="euro-description">

@@ -50,8 +50,6 @@ class SixthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
-          {/*<StaticFrame/>*/}
-          {/*<VerticalMenu/>*/}
           <Grid>
             <div className="sixth-section">
               <Row className="section-header">

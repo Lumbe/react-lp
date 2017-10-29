@@ -267,6 +267,9 @@
 }
 // width 1200px to 1439px
 @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+  .twelfth-section .own-project-desc {
+    margin-top:4%;
+  }
   .twelfth-section {
     width: 90%;
     margin: 0 auto;

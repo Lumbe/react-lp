@@ -62,8 +62,6 @@ class ThirteenthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
-          {/*<StaticFrame/>*/}
-          {/*<VerticalMenu/>*/}
           <Grid>
             <div className="thirteenth-section">
               <h1 className="text-center">Сервус<span className="text-highlight"> Винница</span></h1>

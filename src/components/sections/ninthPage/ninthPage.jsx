@@ -43,8 +43,6 @@ class NinthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
-          {/*<StaticFrame/>*/}
-          {/*<VerticalMenu/>*/}
           <Grid>
             <div className="ninth-section vertical-align">
               <h1 className="text-center">Почему стоит выбрать<span className="text-highlight"> <span className="hidden-semimedium hidden-medium"><br/>энергосберегающие</span> дома Сервус</span></h1>

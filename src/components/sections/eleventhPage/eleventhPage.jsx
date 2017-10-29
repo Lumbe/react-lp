@@ -93,8 +93,6 @@ class EleventhPage extends React.Component {
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
-          {/*<StaticFrame/>*/}
-          {/*<VerticalMenu/>*/}
           <Grid>
             <div className="eleventh-section">
               <h1 className="text-center"><span className="text-highlight"> Отзывы</span> о домах из СИП-панелей</h1>
@@ -115,8 +113,8 @@ class EleventhPage extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <div className="review-item" onClick={this.openModal.bind(this, youtubeId2)}>
-                    <div className="yt-cover">
+                  <div className="review-item">
+                    <div className="yt-cover" onClick={this.openModal.bind(this, youtubeId2)}>
                       <div className="cover-frame"/>
                       <Image src={review2} responsive/>
                       <FontAwesome className="play-icon" name="play-circle" size="4x"/>
@@ -129,8 +127,8 @@ class EleventhPage extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <div className="review-item" onClick={this.openModal.bind(this, youtubeId3)}>
-                    <div className="yt-cover">
+                  <div className="review-item">
+                    <div className="yt-cover" onClick={this.openModal.bind(this, youtubeId3)}>
                       <div className="cover-frame"/>
                       <Image src={review3} responsive/>
                       <FontAwesome className="play-icon" name="play-circle" size="4x"/>
@@ -143,8 +141,8 @@ class EleventhPage extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <div className="review-item" onClick={this.openModal.bind(this, youtubeId4)}>
-                    <div className="yt-cover">
+                  <div className="review-item">
+                    <div className="yt-cover" onClick={this.openModal.bind(this, youtubeId4)}>
                       <div className="cover-frame"/>
                       <Image src={review4} responsive/>
                       <FontAwesome className="play-icon" name="play-circle" size="4x"/>
@@ -157,8 +155,8 @@ class EleventhPage extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <div className="review-item" onClick={this.openModal.bind(this, youtubeId5)}>
-                    <div className="yt-cover">
+                  <div className="review-item">
+                    <div className="yt-cover" onClick={this.openModal.bind(this, youtubeId5)}>
                       <div className="cover-frame"/>
                       <Image src={review5} responsive/>
                       <FontAwesome className="play-icon" name="play-circle" size="4x"/>

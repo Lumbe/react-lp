@@ -10,6 +10,8 @@ import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import _ from 'lodash'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
+import DefaultModal from "../../common/defaultModal";
+import PriceForm from "../../common/forms/priceForm";
 
 class SeventhPage extends React.Component {
   constructor(props) {
@@ -21,18 +23,22 @@ class SeventhPage extends React.Component {
     return {
       pageId: 7,
       showModal: false,
-      modalId: null,
+      videoId: null,
+      showPriceModal: false,
       description: null,
       animateIn: true
     }
   }
 
-  openModal(modalId, desc) {
-    this.setState({showModal: true, modalId: modalId, description: desc})
+  openModal(videoId, desc) {
+    this.setState({showModal: true, videoId: videoId, description: desc})
+  }
+  openPriceModal() {
+    this.setState({showPriceModal: true})
   }
 
   close() {
-    this.setState({showModal: false, modalId: null})
+    this.setState({showModal: false, showPriceModal: false})
 
   }
 
@@ -76,8 +82,6 @@ class SeventhPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
-          {/*<StaticFrame/>*/}
-          {/*<VerticalMenu/>*/}
           <Grid>
             <div className="seventh-section">
               <Row className="vertical-align">
@@ -87,7 +91,7 @@ class SeventhPage extends React.Component {
                   <p className="p-highlight">Комплект материалов для строительства дома изготавливается с высокой точностью на заводе, а монтаж конструкции осуществляется
                     на вашем участке. Это дает возможность построить дом в кратчайшие сроки - заселиться можно уже через 3-4 месяца(зависит от
                     площади дома и сложности конструкции)</p>
-                  <Button bsStyle="green">Узнать стоимость дома</Button>
+                  <Button onClick={this.openPriceModal.bind(this)} bsStyle="green">Узнать стоимость дома</Button>
                 </Col>
                 <Col md={6}>
                   <Panel className="card">
@@ -121,13 +125,20 @@ class SeventhPage extends React.Component {
               </Row>
               <Modal dialogClassName="yt-modal" keyboard={this.onHide} show={this.state.showModal} onHide={this.close.bind(this)}>
                 <YouTube
-                  videoId={this.state.modalId}
+                  videoId={this.state.videoId}
                   opts={opts}
                 />
                 <Panel className="card">
                   <p className="p-highlight">{this.state.description}</p>
                 </Panel>
               </Modal>
+              <DefaultModal
+                show={this.state.showPriceModal}
+                onHide={this.close.bind(this)}
+                title="Узнать стоимость строительства дома Сервус"
+              >
+                <PriceForm/>
+              </DefaultModal>
             </div>
           </Grid>
         <div onClick={this.handleNextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>

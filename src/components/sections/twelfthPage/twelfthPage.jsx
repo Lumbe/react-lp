@@ -95,12 +95,10 @@ class TwelfthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={500} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
-          {/*<StaticFrame/>*/}
-          {/*<VerticalMenu/>*/}
           <Grid>
             <div className="twelfth-section">
               <Row>
-                <Col md={5} mdPush={7} sm={12} xs={12}>
+                <Col md={5} mdPush={7} sm={12} xs={12} className="own-project-desc">
                   <h1><span className="text-highlight">У вас уже есть</span> проект дома?</h1>
                   <span className="line"/>
                   <p>Вы уже решили какой дом хотите построить и даже купили проект?</p>
