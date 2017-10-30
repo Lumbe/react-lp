@@ -35,7 +35,7 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "predeploy": "react-scripts build",
+    "predeploy": "yarn build",
     "deploy": "aws s3 sync build/ s3://$S3_BUCKET",
     "postdeploy": "aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths '/*' && aws cloudfront create-invalidation --distribution-id $WWW_CLOUDFRONT_ID --paths '/*'",
     "eject": "react-scripts eject"
