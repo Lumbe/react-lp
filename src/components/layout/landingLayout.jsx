@@ -4,6 +4,7 @@ import Header from './header/header'
 import {setWindowHeight,resetWindowHeight} from "../common/main";
 import StaticFrame from "../common/staticFrame";
 import VerticalMenu from "./navigation/verticalMenu";
+import _ from 'lodash'
 
 class LandingLayout extends React.Component {
   constructor(props) {
@@ -37,7 +38,16 @@ class LandingLayout extends React.Component {
     document.body.classList.add('landing-section');
     setWindowHeight();
     window.onresize = setWindowHeight;
-
+    window.onwheel = _.throttle((e) => {
+      const pageId = Object.values(this.state.pages).findIndex((path) => '/' + path === this.props.path) + 1;
+      if (e.wheelDelta > 0) {
+        let scrollToId = pageId - 1;
+        this.goToPage(scrollToId);
+      } else {
+        let scrollToId = pageId + 1;
+        this.goToPage(scrollToId);
+      }
+    }, 1000, { 'trailing': false });
   }
 
   componentWillUnmount() {
@@ -54,6 +64,11 @@ class LandingLayout extends React.Component {
     }
   }
 
+  nextPage() {
+    const pageId = Object.values(this.state.pages).findIndex((path) => '/' + path === this.props.path) + 2;
+    this.goToPage(pageId);
+  }
+
   render() {
     const { component: Component, ...rest } = this.props;
     return (
@@ -62,7 +77,7 @@ class LandingLayout extends React.Component {
           <Header inverse={this.props.inverse}/>
           <StaticFrame/>
           <VerticalMenu/>
-          <Component goToPage={this.goToPage.bind(this)} {...matchProps} />
+          <Component goToPage={this.goToPage.bind(this)} nextPage={this.nextPage.bind(this)} {...matchProps} />
         </div>
       )} />
     )

@@ -8,25 +8,13 @@ import OwlCarousel from 'react-owl-carousel'
 import './owl.theme.certificates.css'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-import _ from 'lodash'
+
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 
 class FifthPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {animateIn: true, pageId: 5};
-  }
-
-  componentWillMount() {
-    window.onwheel = _.debounce((e) => {
-      if (e.wheelDelta > 0) {
-        let scrollToId = this.state.pageId - 1;
-        this.props.goToPage(scrollToId);
-      } else {
-        let scrollToId = this.state.pageId + 1;
-        this.props.goToPage(scrollToId);
-      }
-    }, 30);
   }
 
   componentWillUnmount() {
@@ -37,11 +25,6 @@ class FifthPage extends React.Component {
     let images = {};
     r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
     return images;
-  }
-
-  handleNextPage() {
-    let scrollToId = this.state.pageId + 1;
-    return this.props.goToPage(scrollToId);
   }
   render() {
     const certificates = this.importImages(require.context('./certificates', false, /\.(png|jpe?g|svg)$/));
@@ -177,7 +160,7 @@ class FifthPage extends React.Component {
               </Row>
           </div>
           </Grid>
-        <div onClick={this.handleNextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
+        <div onClick={this.props.nextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
       </FadeTransition>
     )
   }

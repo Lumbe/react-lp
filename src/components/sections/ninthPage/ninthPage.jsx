@@ -5,7 +5,7 @@ import {Grid, Row, Col} from 'react-bootstrap'
 import backgroundImage from './bg-screen9.jpg'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-import _ from 'lodash'
+
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 
 class NinthPage extends React.Component {
@@ -15,15 +15,6 @@ class NinthPage extends React.Component {
   }
 
   componentWillMount() {
-    window.onwheel = _.debounce((e) => {
-      if (e.wheelDelta > 0) {
-        let scrollToId = this.state.pageId - 1;
-        this.props.goToPage(scrollToId);
-      } else {
-        let scrollToId = this.state.pageId + 1;
-        this.props.goToPage(scrollToId);
-      }
-    }, 30);
     setBackgroundImage(backgroundImage);
   }
 
@@ -31,11 +22,6 @@ class NinthPage extends React.Component {
   componentWillUnmount() {
     this.setState({animateIn: false});
     removeBackgroundImage();
-  }
-
-  handleNextPage() {
-    let scrollToId = this.state.pageId + 1;
-    return this.props.goToPage(scrollToId);
   }
 
   render() {
@@ -206,7 +192,7 @@ class NinthPage extends React.Component {
               </div>
             </div>
           </Grid>
-        <div onClick={this.handleNextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
+        <div onClick={this.props.nextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
       </FadeTransition>
     )
   }

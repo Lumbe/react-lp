@@ -8,7 +8,7 @@ import DefaultModal from '../../common/defaultModal'
 import AskForm from '../../common/forms/askForm'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-import _ from 'lodash'
+
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 
 class ThirteenthPage extends React.Component {
@@ -27,15 +27,6 @@ class ThirteenthPage extends React.Component {
   }
 
   componentWillMount() {
-    window.onwheel = _.debounce((e) => {
-      if (e.wheelDelta > 0) {
-        let scrollToId = this.state.pageId - 1;
-        this.props.goToPage(scrollToId);
-      } else {
-        let scrollToId = this.state.pageId + 1;
-        this.props.goToPage(scrollToId);
-      }
-    }, 30);
     setBackgroundImage(backgroundImage);
   }
 
@@ -51,10 +42,6 @@ class ThirteenthPage extends React.Component {
 
   closeModal() {
     this.setState({showModal: false})
-  }
-  handleNextPage() {
-    let scrollToId = this.state.pageId + 1;
-    return this.props.goToPage(scrollToId);
   }
 
   render() {

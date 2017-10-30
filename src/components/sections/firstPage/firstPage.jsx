@@ -6,7 +6,7 @@ import {Grid, Nav, NavItem, Col} from 'react-bootstrap'
 import {LinkContainer} from "react-router-bootstrap";
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-import _ from 'lodash'
+
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import {Link} from 'react-router-dom'
 
@@ -27,15 +27,6 @@ class FirstPage extends React.Component {
   componentWillMount() {
     setBackgroundImage(backgroundImage);
     setDarkColorScheme();
-    window.onwheel = _.debounce((e) => {
-      if (e.wheelDelta > 0) {
-        let scrollToId = this.state.pageId - 1;
-        this.props.goToPage(scrollToId);
-      } else {
-        let scrollToId = this.state.pageId + 1;
-        this.props.goToPage(scrollToId);
-      }
-    }, 30);
   }
 
   componentWillUnmount() {
@@ -44,11 +35,6 @@ class FirstPage extends React.Component {
     removeDarkColorScheme();
   }
 
-  handleNextPage() {
-    let scrollToId = this.state.pageId + 1;
-    return this.props.goToPage(scrollToId);
-  }
-  
   render() {
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
@@ -82,7 +68,7 @@ class FirstPage extends React.Component {
               </div>
             </Col>
           </Grid>
-          <div onClick={this.handleNextPage.bind(this)} className="next-page">
+          <div onClick={this.props.nextPage.bind(this)} className="next-page">
             <i className="fa fa-angle-down fa-2x"/>
           </div>
         </Page>

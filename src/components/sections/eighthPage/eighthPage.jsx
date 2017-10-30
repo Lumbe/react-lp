@@ -9,7 +9,7 @@ import OwlCarousel from 'react-owl-carousel'
 import ProjectDescription from './projectDescription'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-import _ from 'lodash'
+
 import {Link} from 'react-router-dom'
 
 class EighthPage extends React.Component {
@@ -27,15 +27,6 @@ class EighthPage extends React.Component {
   }
 
   componentWillMount() {
-    window.onwheel = _.debounce((e) => {
-      if (e.wheelDelta > 0) {
-        let scrollToId = this.state.pageId - 1;
-        this.props.goToPage(scrollToId);
-      } else {
-        let scrollToId = this.state.pageId + 1;
-        this.props.goToPage(scrollToId);
-      }
-    }, 30);
     setBackgroundImage(backgroundImage);
     setDarkColorScheme();
   }
@@ -45,10 +36,7 @@ class EighthPage extends React.Component {
     removeBackgroundImage();
     removeDarkColorScheme();
   }
-  handleNextPage() {
-    let scrollToId = this.state.pageId + 1;
-    return this.props.goToPage(scrollToId);
-  }
+
   render() {
     const iconLeft = "<span class='fa fa-angle-left fa-2x'/>";
     const iconRight = "<span class='fa fa-angle-right fa-2x'/>";
@@ -100,7 +88,7 @@ class EighthPage extends React.Component {
               </Row>
             </div>
           </Grid>
-        <div onClick={this.handleNextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
+        <div onClick={this.props.nextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
       </FadeTransition>
     )
   }

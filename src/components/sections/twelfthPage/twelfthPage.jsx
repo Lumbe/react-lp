@@ -7,7 +7,7 @@ import FontAwesome from 'react-fontawesome'
 import FileReaderInput from 'react-file-reader-input'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-import _ from 'lodash'
+
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 
 class TwelfthPage extends React.Component {
@@ -68,15 +68,6 @@ class TwelfthPage extends React.Component {
   }
 
   componentWillMount() {
-    window.onwheel = _.debounce((e) => {
-      if (e.wheelDelta > 0) {
-        let scrollToId = this.state.pageId - 1;
-        this.props.goToPage(scrollToId);
-      } else {
-        let scrollToId = this.state.pageId + 1;
-        this.props.goToPage(scrollToId);
-      }
-    }, 30);
     setBackgroundImage(backgroundImage);
     setDarkColorScheme();
   }
@@ -86,10 +77,7 @@ class TwelfthPage extends React.Component {
     removeBackgroundImage();
     removeDarkColorScheme();
   }
-  handleNextPage() {
-    let scrollToId = this.state.pageId + 1;
-    return this.props.goToPage(scrollToId);
-  }
+
   render() {
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
@@ -212,7 +200,7 @@ class TwelfthPage extends React.Component {
               </Row>
             </div>
           </Grid>
-        <div onClick={this.handleNextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
+        <div onClick={this.props.nextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
       </FadeTransition>
     )
   }

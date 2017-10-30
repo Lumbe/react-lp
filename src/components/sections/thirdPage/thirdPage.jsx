@@ -9,7 +9,7 @@ import YouTube from 'react-youtube'
 import FontAwesome from 'react-fontawesome'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-import _ from 'lodash'
+
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import {Link} from 'react-router-dom'
 
@@ -40,24 +40,10 @@ class ThirdPage extends React.Component {
 
   componentWillMount() {
     setBackgroundImage(backgroundImage);
-    window.onwheel = _.debounce((e) => {
-      if (e.wheelDelta > 0) {
-        let scrollToId = this.state.pageId - 1;
-        this.props.goToPage(scrollToId);
-      } else {
-        let scrollToId = this.state.pageId + 1;
-        this.props.goToPage(scrollToId);
-      }
-    }, 30);
   }
 
   componentWillUnmount() {
     removeBackgroundImage();
-  }
-
-  handleNextPage() {
-    let scrollToId = this.state.pageId + 1;
-    return this.props.goToPage(scrollToId);
   }
 
   render() {
@@ -166,7 +152,7 @@ class ThirdPage extends React.Component {
               </Modal>
             </div>
           </Grid>
-        <div onClick={this.handleNextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
+        <div onClick={this.props.nextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
       </FadeTransition>
     )
   }

@@ -8,7 +8,7 @@ import YouTube from 'react-youtube'
 import FontAwesome from 'react-fontawesome'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-import _ from 'lodash'
+
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import DefaultModal from "../../common/defaultModal";
 import PriceForm from "../../common/forms/priceForm";
@@ -43,15 +43,6 @@ class SeventhPage extends React.Component {
   }
 
   componentWillMount() {
-    window.onwheel = _.debounce((e) => {
-      if (e.wheelDelta > 0) {
-        let scrollToId = this.state.pageId - 1;
-        this.props.goToPage(scrollToId);
-      } else {
-        let scrollToId = this.state.pageId + 1;
-        this.props.goToPage(scrollToId);
-      }
-    }, 30);
     setBackgroundImage(backgroundImage);
   }
 
@@ -61,10 +52,6 @@ class SeventhPage extends React.Component {
     removeBackgroundImage();
   }
 
-  handleNextPage() {
-    let scrollToId = this.state.pageId + 1;
-    return this.props.goToPage(scrollToId);
-  }
   render() {
     const opts = {
       width: '100%',
@@ -141,7 +128,7 @@ class SeventhPage extends React.Component {
               </DefaultModal>
             </div>
           </Grid>
-        <div onClick={this.handleNextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
+        <div onClick={this.props.nextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
       </FadeTransition>
     )
   }
