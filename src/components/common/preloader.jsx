@@ -16,7 +16,7 @@ export default function Preloader(props) {
         }
     } else if (props.error) {
         // If we aren't loading, maybe
-        return <div>Error! Component failed to load</div>;
+        return <div>Ошибка загрузки.</div>;
     } else {
         // This case shouldn't happen... but we'll return null anyways.
         return null;
