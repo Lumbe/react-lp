@@ -21,7 +21,7 @@ const AsyncTenthPage = MyLoadable({ loader: () => import('./components/sections/
 const AsyncEleventhPage = MyLoadable({ loader: () => import('./components/sections/eleventhPage/eleventhPage') });
 const AsyncTwelfthPage = MyLoadable({ loader: () => import('./components/sections/twelfthPage/twelfthPage') });
 const AsyncThirteenthPage = MyLoadable({ loader: () => import('./components/sections/thirteenthPage/thirteenthPage') });
-const AsyncProjectIndex = MyLoadable({ loader: () => import('./components/project/projectIndex') });
+const AsyncProjects = MyLoadable({ loader: () => import('./components/project/projects') });
 const AsyncProjectPage = MyLoadable({ loader: () => import('./components/project/projectPage') });
 
 const AsyncTypography = MyLoadable({ loader: () => import('./components/common/typography') });
@@ -47,7 +47,7 @@ class Routes extends React.Component {
           <LandingLayout exact path="/own-project" inverse={true} component={AsyncTwelfthPage}/>
           <LandingLayout exact path="/contacts" inverse={false} component={AsyncThirteenthPage}/>
           <ProjectLayout exact path="/projects/:slug" inverse={false} component={AsyncProjectPage}/>
-          <ProjectLayout exact path="/projects" inverse={true} component={AsyncProjectIndex}/>
+          <ProjectLayout exact path="/projects" inverse={true} component={AsyncProjects}/>
           <LandingLayout exact path="/typography" inverse={false} component={AsyncTypography}/>
           <LandingLayout inverse={false} component={AsyncNotFound}/>
         </Switch>
