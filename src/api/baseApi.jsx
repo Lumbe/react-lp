@@ -13,7 +13,7 @@ class BaseApi {
     return this.apiPath() + pluralize(this.modelName()) + path;
   }
   static getAll(params = null){
-    return axios.get(this.path() + '/public', {params: params})
+    return axios.get(this.path(), {params: params})
   }
   // static create(model){
   //   var data = {};

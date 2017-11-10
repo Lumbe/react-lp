@@ -15,6 +15,7 @@ import './lightForm.css'
 import Page from '../layout/page'
 import FadeTransition from '../common/fade'
 import ScrollToTopOnMount from "../common/scrollToTopOnMount";
+import ProjectApi from '../../api/projectApi'
 
 class ProjectPage extends React.Component {
   constructor(props) {
@@ -25,10 +26,20 @@ class ProjectPage extends React.Component {
   defaultProps() {
     return {
       animateIn: true,
-      title: 'Гнап',
-      area: '125.47'
+      slug: this.props.match.params.slug,
+      project: {}
     }
   }
+  componentDidMount() {
+    ProjectApi.getOne(this.state.slug).then(
+      (response) => {
+        this.setState({project: response.data.project})
+      },
+      (error) => {
+        console.log('error: ', error)
+      })
+  }
+
   importImages(r) {
     let images = {};
     r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
@@ -40,6 +51,7 @@ class ProjectPage extends React.Component {
   }
 
   render() {
+    const project = this.state.project;
     const images = this.importImages(require.context('./testImages', false, /\.(png|jpe?g|svg)$/));
     let imagesUrls = [];
     for (let src in images) {
@@ -48,7 +60,7 @@ class ProjectPage extends React.Component {
       }
     }
     const formTitle = <span><span className="text-highlight">Рассчитать стоимость</span> строительства
-      дома по проекту "{this.state.title}" {this.state.area}кв.м.</span>;
+      дома по проекту "{project.title}" {project.area}кв.м.</span>;
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
         <Page>
@@ -56,13 +68,13 @@ class ProjectPage extends React.Component {
           <div className="project-page">
             <Grid>
               <div className="menu-divider"/>
-              <h1>Проект "{this.state.title}"</h1>
+              <h1>Проект "{project.title}"</h1>
               <Row>
                 <Col md={3} mdPush={9}>
                   <LightForm
                     title={formTitle}
-                    projectTitle={this.state.title}
-                    projectArea={this.state.area}
+                    projectTitle={project.title}
+                    projectArea={project.area}
                   />
                 </Col>
                 <Col md={9} mdPull={3}>
@@ -115,7 +127,7 @@ class ProjectPage extends React.Component {
                   </Row>
                   <Row>
                     <Col md={12}>
-                      <Tabs className="house-plans" defaultActiveKey={1}>
+                      <Tabs className="house-plans" defaultActiveKey={1} id="project-floors">
                         <h3>Планировка</h3>
                         <Tab eventKey={2} title="2-й этаж">
                           <Image className="img-plan" src={store2} responsive />

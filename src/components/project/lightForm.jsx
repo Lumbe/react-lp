@@ -24,10 +24,11 @@ class LightFrom extends React.Component {
     }
   }
 
-  componentDidMount() {
-    console.log(this.props);
-    this.setState({form: {projectTitle: this.props.projectTitle, projectArea: this.props.projectArea}});
-    console.log(this.state);
+  componentWillReceiveProps(nextProps) {
+    console.log('nextProps', nextProps);
+    if (nextProps.projectTitle && nextProps.projectArea) {
+      this.setState({form: {projectTitle: nextProps.projectTitle, projectArea: nextProps.projectArea}});
+    }
   }
 
   openModal() {
@@ -132,18 +133,6 @@ class LightFrom extends React.Component {
               </Col>
             </Row>
           </FormGroup>
-          <FormControl
-            name="projectTitle"
-            type="hidden"
-            onInput={this.updateFormState.bind(this)}
-            value={this.props.projectTitle}
-          />
-          <FormControl
-            name="projectArea"
-            type="hidden"
-            onInput={this.updateFormState.bind(this)}
-            value={this.props.projectArea}
-          />
           <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Отправить</Button>
         </form>
         или звоните
