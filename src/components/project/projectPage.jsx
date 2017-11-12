@@ -8,14 +8,14 @@ import mansardIcon from './images/mansard-icon.png'
 import terraceIcon from './images/terrace-icon.png'
 import garageIcon from './images/garage-icon.png'
 import planIcon from './images/plan-icon.png'
-import store1 from './images/1store.jpg'
-import store2 from './images/2store.jpg'
 import LightForm from './lightForm'
 import './lightForm.css'
 import Page from '../layout/page'
 import FadeTransition from '../common/fade'
 import ScrollToTopOnMount from "../common/scrollToTopOnMount";
 import ProjectApi from '../../api/projectApi'
+import FontAwesome from'react-fontawesome'
+import IconTooltip from '../common/iconTooltip'
 
 class ProjectPage extends React.Component {
   constructor(props) {
@@ -40,24 +40,25 @@ class ProjectPage extends React.Component {
       })
   }
 
-  importImages(r) {
-    let images = {};
-    r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
-    return images;
-  }
-
   componentWillUnmount() {
     this.setState({animateIn: false});
   }
 
   render() {
     const project = this.state.project;
-    const images = this.importImages(require.context('./testImages', false, /\.(png|jpe?g|svg)$/));
     let imagesUrls = [];
-    for (let src in images) {
-      if (images.hasOwnProperty(src)) {
-        imagesUrls.push({original: images[src], thumbnail: images[src]})
-      }
+    if (project.model) {
+      imagesUrls.push({original: project.model.original, thumbnail: project.model.thumb})
+    }
+    if (project.facades && project.facades.length) {
+      project.facades.forEach(function(facade) {
+        imagesUrls.push({original: facade.original, thumbnail: facade.thumb})
+      })
+    }
+    if (project.photos && project.photos.length) {
+      project.photos.forEach((photo) => {
+        imagesUrls.push({original: photo.original, thumbnail: photo.thumb})
+      })
     }
     const formTitle = <span><span className="text-highlight">Рассчитать стоимость</span> строительства
       дома по проекту "{project.title}" {project.area}кв.м.</span>;
@@ -90,25 +91,50 @@ class ProjectPage extends React.Component {
                         />
                         <div className="project-options">
                           <Col md={3} sm={3} xs={4}>
-                            <div className="option-item">
+                            <div className={project.mansard ? "option-item" : 'option-item inactive'}>
+                              {!project.mansard && <IconTooltip
+                                id="info-tooltip"
+                                tooltip="В этот проект можно добавить мансарду"
+                              >
+                                <div className="info">
+                                  <FontAwesome name="info"/>
+                                </div>
+                              </IconTooltip>}
                               <div className="img-wrap"><Image src={mansardIcon}/></div>
-                              с мансардой</div>
-                          </Col>
-                          <Col md={3} sm={3} xs={4}>
-                            <div className="option-item">
-                              <div className="img-wrap"><Image src={terraceIcon}/></div>
-                              с террасой
+                              {project.mansard ? 'с мансардой' : 'без мансарды'}
                             </div>
                           </Col>
                           <Col md={3} sm={3} xs={4}>
-                            <div className="option-item">
+                            <div className={project.terrace ? "option-item" : 'option-item inactive'}>
+                              {!project.terrace && <IconTooltip
+                                id="info-tooltip"
+                                tooltip="В этот проект можно добавить террасу"
+                              >
+                                <div className="info">
+                                  <FontAwesome name="info"/>
+                                </div>
+                              </IconTooltip>}
+                              <div className="img-wrap"><Image src={terraceIcon}/></div>
+                              {project.terrace ? 'с террасой' : 'без террасы'}
+                            </div>
+                          </Col>
+                          <Col md={3} sm={3} xs={4}>
+                            <div className={project.garage ? "option-item" : 'option-item inactive'}>
+                              {!project.garage && <IconTooltip
+                                id="info-tooltip"
+                                tooltip="В этот проект можно добавить гараж"
+                              >
+                                <div className="info">
+                                  <FontAwesome name="info"/>
+                                </div>
+                              </IconTooltip>}
                               <div className="img-wrap"><Image src={garageIcon}/></div>
-                              с гаражом
+                              {project.garage ? 'с гаражом' : 'без гаража'}
                             </div>
                           </Col>
                           <Col md={4} sm={4} xs={12}>
                             <div className="option-item">
-                              <div className="area">125,42 <span className="units">кв.м.</span></div>
+                              <div className="area">{project.area} <span className="units">кв.м.</span></div>
                               <span className="area-description">площадь объекта</span>
                             </div>
                           </Col>
@@ -121,51 +147,35 @@ class ProjectPage extends React.Component {
                     <Col md={12}>
                       <h3>Описание</h3>
                       <p>
-                        Уютный двухэтажный дом с балконом и крыльцом. Просторные комнаты, много света
+                        {project.description}
                       </p>
                     </Col>
                   </Row>
-                  <Row>
+                  {(project.first_floor_plan || project.second_floor_plan) && <Row>
                     <Col md={12}>
                       <Tabs className="house-plans" defaultActiveKey={1} id="project-floors">
                         <h3>Планировка</h3>
-                        <Tab eventKey={2} title="2-й этаж">
-                          <Image className="img-plan" src={store2} responsive />
+                        {project.second_floor_plan && <Tab eventKey={2} title="2-й этаж">
+                          <Image className="img-plan" src={project.second_floor_plan.original} responsive/>
                           <div className="plans-divider"/>
                           <ol className="plans-list">
-                            <li>Спальня 12,17м2</li>
-                            <li>Спальня 12,17м2</li>
-                            <li>Спальня 12,17м2</li>
-                            <li>Спальня 12,17м2</li>
-                            <li>Спальня 12,17м2</li>
-                            <li>Спальня 12,17м2</li>
-                            <li>Спальня 12,17м2</li>
-                            <li>Спальня 12,17м2</li>
-                            <li>Спальня 12,17м2</li>
-                            <li>Спальня 12,17м2</li>
-                            <li>Спальня 12,17м2</li>
-                            <li>Спальня 12,17м2</li>
-                            <li>Спальня 12,17м2</li>
+                            {project.second_floor_desc.split(/[\r\n]+/).map((item) => {
+                              return <li>{item}</li>
+                            })}
                           </ol>
-                        </Tab>
-                        <Tab eventKey={1} title="1-й этаж">
-                          <Image className="img-plan" src={store1} responsive />
+                        </Tab>}
+                        {project.first_floor_plan && <Tab eventKey={1} title="1-й этаж">
+                          <Image className="img-plan" src={project.first_floor_plan.original} responsive/>
                           <div className="plans-divider"/>
                           <ol className="plans-list">
-                            <li>Крыльцо 4,47м2</li>
-                            <li>Крыльцо 4,47м2</li>
-                            <li>Крыльцо 4,47м2</li>
-                            <li>Крыльцо 4,47м2</li>
-                            <li>Крыльцо 4,47м2</li>
-                            <li>Крыльцо 4,47м2</li>
-                            <li>Крыльцо 4,47м2</li>
-                            <li>Крыльцо 4,47м2</li>
-                            <li>Крыльцо 4,47м2</li>
+                            {project.first_floor_desc.split(/[\r\n]+/).map((item) => {
+                              return <li>{item}</li>
+                            })}
                           </ol>
-                        </Tab>
+                        </Tab>}
                       </Tabs>
                     </Col>
-                  </Row>
+                  </Row>}
                   <div className="plans-info">
                     <Media>
                       <Col md={2} sm={2} xs={12}><Media.Left align="middle">

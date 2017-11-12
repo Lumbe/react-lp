@@ -25,7 +25,6 @@ class LightFrom extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('nextProps', nextProps);
     if (nextProps.projectTitle && nextProps.projectArea) {
       this.setState({form: {projectTitle: nextProps.projectTitle, projectArea: nextProps.projectArea}});
     }
