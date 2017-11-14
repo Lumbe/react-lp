@@ -2,7 +2,7 @@ import React from 'react'
 import {setBackgroundImage, removeBackgroundImage} from "../common/main";
 import backgroundImage from './catalog-header.jpg'
 import './projectIndex.css'
-import {Grid, Row, Col, Image, Clearfix, Button, FormGroup, FormControl, InputGroup} from 'react-bootstrap'
+import {Grid, Row, Col, Image, Clearfix, Button, FormGroup, FormControl, InputGroup, Pagination} from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import IconTooltip from '../common/iconTooltip'
 import DefaultFooter from "./defaultFooter";
@@ -50,6 +50,10 @@ class ProjectIndex extends React.Component {
     return sibling.style.borderColor = '#ebebeb';
   }
 
+  loadPage(event) {
+    this.props.load({page: event});
+  }
+
   componentWillMount() {
     setBackgroundImage(backgroundImage, 'no-repeat', 'inherit');
   }
@@ -61,6 +65,7 @@ class ProjectIndex extends React.Component {
 
   render() {
     const projects = this.props.projects || null;
+    const meta = this.props.meta;
     return (
         <Page>
           <ScrollToTopOnMount/>
@@ -162,6 +167,13 @@ class ProjectIndex extends React.Component {
                           </div>
                         </Col>
                       })}
+                      <Clearfix/>
+                      <div className="text-center">
+                        <Pagination
+                        items={meta.total_pages}
+                        activePage={meta.current_page}
+                        onSelect={this.loadPage.bind(this)} />
+                      </div>
                     </Col>
                   </Row>
                 </div>

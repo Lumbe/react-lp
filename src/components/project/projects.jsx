@@ -16,8 +16,9 @@ class Projects extends React.Component {
       meta: {}
     }
   }
-  componentWillMount() {
-    ProjectApi.getAll().then(
+
+  loadProjects(params) {
+    ProjectApi.getAll(params).then(
       (response) => {
         this.setState({projects: response.data.projects, meta: response.data.meta})
       },
@@ -27,10 +28,24 @@ class Projects extends React.Component {
     )
   }
 
+  componentWillMount() {
+    this.loadProjects()
+  }
+  //   ProjectApi.getAll().then(
+  //     (response) => {
+  //       this.setState({projects: response.data.projects, meta: response.data.meta})
+  //     },
+  //     (error) => {
+  //       console.log('error: ', error)
+  //     }
+  //   )
+  // }
+
+
   render() {
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
-        <ProjectIndex meta={this.state.meta} projects={this.state.projects}/>
+        <ProjectIndex meta={this.state.meta} projects={this.state.projects} load={this.loadProjects.bind(this)}/>
       </FadeTransition>
     )
   }
