@@ -170,6 +170,11 @@ class ProjectIndex extends React.Component {
                       <Clearfix/>
                       <div className="text-center">
                         <Pagination
+                        prev
+                        next
+                        ellipsis
+                        boundaryLinks
+                        maxButtons={3}
                         items={meta.total_pages}
                         activePage={meta.current_page}
                         onSelect={this.loadPage.bind(this)} />

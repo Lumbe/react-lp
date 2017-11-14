@@ -100,7 +100,9 @@ class ProjectPage extends React.Component {
                                   <FontAwesome name="info"/>
                                 </div>
                               </IconTooltip>}
-                              <div className="img-wrap"><Image src={mansardIcon}/></div>
+                              <div className="img-wrap">
+                                <Image src={mansardIcon}/>
+                              </div>
                               {project.mansard ? 'с мансардой' : 'без мансарды'}
                             </div>
                           </Col>
@@ -159,8 +161,8 @@ class ProjectPage extends React.Component {
                           <Image className="img-plan" src={project.second_floor_plan.original} responsive/>
                           <div className="plans-divider"/>
                           <ol className="plans-list">
-                            {project.second_floor_desc.split(/[\r\n]+/).map((item) => {
-                              return <li>{item}</li>
+                            {project.second_floor_desc.split(/[\r\n]+/).map((item, index) => {
+                              return <li key={index}>{item}</li>
                             })}
                           </ol>
                         </Tab>}
@@ -168,8 +170,8 @@ class ProjectPage extends React.Component {
                           <Image className="img-plan" src={project.first_floor_plan.original} responsive/>
                           <div className="plans-divider"/>
                           <ol className="plans-list">
-                            {project.first_floor_desc.split(/[\r\n]+/).map((item) => {
-                              return <li>{item}</li>
+                            {project.first_floor_desc.split(/[\r\n]+/).map((item, index) => {
+                              return <li key={index}>{item}</li>
                             })}
                           </ol>
                         </Tab>}
