@@ -1,6 +1,6 @@
 import axios from 'axios';
 import pluralize from 'pluralize';
-axios.defaults.baseURL = 'http://crm-prod.ztrr4s9yri.eu-west-1.elasticbeanstalk.com';
+axios.defaults.baseURL = 'https://api.servus.vn.ua';
 
 class BaseApi {
   static apiPath(){
