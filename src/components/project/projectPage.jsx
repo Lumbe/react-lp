@@ -48,7 +48,7 @@ class ProjectPage extends React.Component {
     const project = this.state.project;
     let imagesUrls = [];
     if (project.model) {
-      imagesUrls.push({original: project.model.original, thumbnail: project.model.thumb})
+      imagesUrls.push({original: project.model.big, thumbnail: project.model.thumb})
     }
     if (project.facades && project.facades.length) {
       project.facades.forEach(function(facade) {
