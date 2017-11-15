@@ -2,6 +2,7 @@ import React from 'react'
 import {FormGroup, InputGroup, FormControl, Button} from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import './askForm.css'
+import ContactFormApi from '../../../api/contactFormApi'
 
 class AskForm extends React.Component {
   constructor(props) {
@@ -13,10 +14,10 @@ class AskForm extends React.Component {
     return {
       title: 'Форма',
       form: {
-        firstName: '',
+        name: '',
         phone: '',
         email: '',
-        comment: ''
+        message: ''
       }
     }
   }
@@ -30,7 +31,15 @@ class AskForm extends React.Component {
 
   submitForm(event) {
     (event).preventDefault();
-    console.log('submit form data from state: ', this.state.form)
+    console.log('submit form data from state: ', this.state.form);
+    ContactFormApi.create(this.state.form).then(
+      (response) => {
+        console.log('response: ', response)
+      },
+      (error) => {
+        console.log('error: ', error)
+      }
+    )
   }
 
   handleFocus(e) {
@@ -56,7 +65,7 @@ class AskForm extends React.Component {
               <FontAwesome name="user" fixedWidth/>
             </InputGroup.Addon>
             <FormControl
-              name="firstName"
+              name="name"
               type="text"
               className="input-textfield"
               placeholder="Ваше имя"
@@ -104,7 +113,7 @@ class AskForm extends React.Component {
               <FontAwesome name="commenting-o" fixedWidth/>
             </InputGroup.Addon>
             <FormControl
-              name="comment"
+              name="message"
               componentClass="textarea"
               className="input-textfield"
               placeholder="Доп. информация"
