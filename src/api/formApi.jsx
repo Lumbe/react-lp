@@ -14,9 +14,7 @@ class FormApi {
   // static getAll(params = null){
   //   return axios.get(this.path(), {params: params})
   // }
-  static create(params){
-    let data = {};
-    data = {data: params};
+  static create(data){
     return axios.post(this.path(), data)
   }
   // static getOne(id){

@@ -34,10 +34,10 @@ class AskForm extends React.Component {
     console.log('submit form data from state: ', this.state.form);
     ContactFormApi.create(this.state.form).then(
       (response) => {
-        console.log('response: ', response)
+        console.log('response: ', response.data)
       },
       (error) => {
-        console.log('error: ', error)
+        console.log('error: ', error.data)
       }
     )
   }
