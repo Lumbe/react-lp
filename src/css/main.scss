@@ -465,6 +465,24 @@ body.bg-dark .next-page:hover {
   opacity: 1;
 }
 
+// submit form success message
+
+.success-msg-block {
+  margin-bottom: 10px;
+}
+
+.success-msg {
+  margin: 30px 0 20px;
+  font-size:20px;
+  font-weight:500;
+}
+
+// field form error
+.form-error {
+  color: #cc0000;
+  margin-left:20px;
+}
+
 // responsive behavior
 
 // up to 767px width

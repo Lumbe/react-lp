@@ -18,6 +18,11 @@ class AskForm extends React.Component {
         phone: '',
         email: '',
         message: ''
+      },
+      errors: {
+        email: 'Введите email-адрес.',
+        phone: 'Введите правильный номер телефона.',
+        message: 'Введите ваше сообщение.'
       }
     }
   }
@@ -34,7 +39,15 @@ class AskForm extends React.Component {
     console.log('submit form data from state: ', this.state.form);
     ContactFormApi.create(this.state.form).then(
       (response) => {
-        console.log('response: ', response.data)
+        console.log('response: ', response.data);
+        if (response.data.errors.length) {
+          console.log('errors: ', response.data.errors);
+          return this.setState({errors: response.data.errors})
+        }
+        if (response.data.sent) {
+          this.props.toggleFormSubmission();
+          console.log('Сообщение отправлено')
+        }
       },
       (error) => {
         console.log('error: ', error.data)
@@ -90,6 +103,9 @@ class AskForm extends React.Component {
               onChange={this.updateFormState.bind(this)}
             />
           </InputGroup>
+          {this.state.errors.phone &&
+            <p className="form-error">{this.state.errors.phone}</p>
+          }
         </FormGroup>
         <FormGroup>
           <InputGroup>
@@ -106,6 +122,9 @@ class AskForm extends React.Component {
               onChange={this.updateFormState.bind(this)}
             />
           </InputGroup>
+          {this.state.errors.email &&
+          <p className="form-error">{this.state.errors.email}</p>
+          }
         </FormGroup>
         <FormGroup>
           <InputGroup>
@@ -122,6 +141,9 @@ class AskForm extends React.Component {
               onChange={this.updateFormState.bind(this)}
             />
           </InputGroup>
+          {this.state.errors.message &&
+            <p className="form-error">{this.state.errors.message}</p>
+          }
         </FormGroup>
         <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Отправить</Button>
       </form>
