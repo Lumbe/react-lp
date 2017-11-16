@@ -50,7 +50,7 @@ class AskForm extends React.Component {
         }
       },
       (error) => {
-        console.log('error: ', error.data)
+        console.log('error: ', error)
       }
     )
   }
