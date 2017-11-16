@@ -20,9 +20,9 @@ class AskForm extends React.Component {
         message: ''
       },
       errors: {
-        email: 'Введите email-адрес.',
-        phone: 'Введите правильный номер телефона.',
-        message: 'Введите ваше сообщение.'
+        email: null,
+        phone: null,
+        message: null
       }
     }
   }
