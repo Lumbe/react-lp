@@ -8,7 +8,7 @@ import DefaultModal from '../../common/defaultModal'
 import AskForm from '../../common/forms/askForm'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-import FontAwesome from 'react-fontawesome'
+import SuccessMessage from '../../common/forms/successMessage'
 
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 
@@ -48,7 +48,11 @@ class ThirteenthPage extends React.Component {
 
   closeModal() {
     this.setState({showModal: false});
-    setTimeout(() => {this.setState({submitForm: false})}, 1000);
+    if (this.state.submitForm) {
+      setTimeout(() => {
+        this.setState({submitForm: false})
+      }, 1000);
+    }
   }
 
   render() {
@@ -197,12 +201,8 @@ class ThirteenthPage extends React.Component {
                 title="Задайте вопрос"
               >
                 {this.state.submitForm ?
-                  <div className="text-center success-msg-block">
-                    <FontAwesome name="check-circle" size="4x" style={{ color: '#58b749' }}/>
-                    <br/>
-                    <p className="success-msg">Спасибо за обращение, Ваше сообщение отправлено.</p>
-                    <Button bsStyle="success" bsSize="large" onClick={this.closeModal.bind(this)}>OK</Button>
-                  </div>
+
+                  <SuccessMessage closeModal={this.closeModal.bind(this)}/>
                 :
                   <AskForm toggleFormSubmission={this.toggleFormSubmission.bind(this)}/>
                 }

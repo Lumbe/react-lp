@@ -3,6 +3,7 @@ import {FormGroup, Row, Col, InputGroup, FormControl, Button} from 'react-bootst
 import FontAwesome from 'react-fontawesome'
 import CallbackForm from "../common/forms/callbackForm";
 import DefaultModal from "../common/defaultModal";
+import SuccessMessage from '../common/forms/successMessage'
 
 class LightFrom extends React.Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class LightFrom extends React.Component {
         email: '',
         projectTitle: '',
         projectArea: ''
-      }
+      },
+      submitForm: false
     }
   }
 
@@ -34,8 +36,17 @@ class LightFrom extends React.Component {
     this.setState({showModal: true});
   }
 
+  toggleFormSubmission() {
+    this.setState({submitForm: !this.state.submitForm})
+  }
+
   closeModal() {
-    this.setState({showModal: false})
+    this.setState({showModal: false});
+    if (this.state.submitForm) {
+      setTimeout(() => {
+        this.setState({submitForm: false})
+      }, 1000);
+    }
   }
 
   updateFormState(event) {
@@ -142,7 +153,12 @@ class LightFrom extends React.Component {
           onHide={this.closeModal.bind(this)}
           title="Получить консультацию"
         >
-          <CallbackForm/>
+          {this.state.submitForm ?
+
+            <SuccessMessage closeModal={this.closeModal.bind(this)}/>
+            :
+            <CallbackForm toggleFormSubmission={this.toggleFormSubmission.bind(this)}/>
+          }
         </DefaultModal>
       </div>
     )

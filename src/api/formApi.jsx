@@ -10,15 +10,9 @@ class FormApi {
   static path(path = ''){
     return this.apiPath() + this.resourceName() + path;
   }
-  // static getAll(params = null){
-  //   return axios.get(this.path(), {params: params})
-  // }
   static create(data){
     return axios.post(this.path(), data)
   }
-  // static getOne(id){
-  //   return axios.get(this.path('/' + id))
-  // }
 
 }
 

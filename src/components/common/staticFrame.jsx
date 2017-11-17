@@ -3,23 +3,33 @@ import './staticFrame.css'
 import {Button} from 'react-bootstrap'
 import DefaultModal from './defaultModal'
 import CallbackForm from './forms/callbackForm'
+import SuccessMessage from './forms/successMessage'
 
 class StaticFrame extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      showModal: false
+      showModal: false,
+      submitForm: false
     };
   }
-
 
   openModal() {
     this.setState({showModal: true});
   }
 
+  toggleFormSubmission() {
+    this.setState({submitForm: !this.state.submitForm})
+  }
+
   closeModal() {
-    this.setState({showModal: false})
+    this.setState({showModal: false});
+    if (this.state.submitForm) {
+      setTimeout(() => {
+        this.setState({submitForm: false})
+      }, 1000);
+    }
   }
   render() {
     return (
@@ -53,7 +63,12 @@ class StaticFrame extends React.Component {
           onHide={this.closeModal.bind(this)}
           title="Получить консультацию"
         >
-          <CallbackForm/>
+          {this.state.submitForm ?
+
+            <SuccessMessage closeModal={this.closeModal.bind(this)}/>
+            :
+            <CallbackForm toggleFormSubmission={this.toggleFormSubmission.bind(this)}/>
+          }
         </DefaultModal>
       </div>
     )

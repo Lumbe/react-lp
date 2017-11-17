@@ -2,6 +2,7 @@ import React from 'react'
 import {FormGroup, InputGroup, FormControl, Button} from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import './callbackForm.css'
+import CallbackFormApi from '../../../api/callbackFormApi'
 
 class CallbackForm extends React.Component {
   constructor(props) {
@@ -13,8 +14,16 @@ class CallbackForm extends React.Component {
     return {
       form: {
         phone: '',
+        url: ''
+      },
+      errors: {
+        phone: null
       }
     }
+  }
+
+  componentDidMount() {
+    this.setState({form: {url: window.location.href}})
   }
 
   updateFormState(event) {
@@ -26,7 +35,22 @@ class CallbackForm extends React.Component {
 
   submitForm(event) {
     (event).preventDefault();
-    console.log('submit form data from state: ', this.state.form)
+    CallbackFormApi.create(this.state.form).then(
+      (response) => {
+        if (response.data.errors) {
+          return this.setState({errors: response.data.errors})
+        }
+        if (response.data.sent) {
+          this.setState({animateIn: false});
+          setTimeout(() => {
+            this.props.toggleFormSubmission()
+          }, 800);
+        }
+      },
+      (error) => {
+        console.log('error: ', error)
+      }
+    )
   }
 
   handleFocus(e) {

@@ -3,6 +3,8 @@ import {FormGroup, InputGroup, FormControl, Button} from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import './askForm.css'
 import ContactFormApi from '../../../api/contactFormApi'
+import {TransitionGroup} from 'react-transition-group'
+import FadeTransition from '../fade'
 
 class AskForm extends React.Component {
   constructor(props) {
@@ -17,14 +19,20 @@ class AskForm extends React.Component {
         name: '',
         phone: '',
         email: '',
-        message: ''
+        message: '',
+        url: ''
       },
       errors: {
         email: null,
         phone: null,
         message: null
-      }
+      },
+      animateIn: true
     }
+  }
+
+  componentDidMount() {
+    this.setState({form: {url: window.location.href}})
   }
 
   updateFormState(event) {
@@ -36,17 +44,16 @@ class AskForm extends React.Component {
 
   submitForm(event) {
     (event).preventDefault();
-    console.log('submit form data from state: ', this.state.form);
     ContactFormApi.create(this.state.form).then(
       (response) => {
-        console.log('response: ', response);
         if (response.data.errors) {
-          console.log('response data: ', response.data);
           return this.setState({errors: response.data.errors})
         }
         if (response.data.sent) {
-          this.props.toggleFormSubmission();
-          console.log('Сообщение отправлено')
+          this.setState({animateIn: false});
+          setTimeout(() => {
+            this.props.toggleFormSubmission()
+          }, 800);
         }
       },
       (error) => {
@@ -71,82 +78,86 @@ class AskForm extends React.Component {
 
   render() {
     return (
-      <form className="ask-form form-light">
-        <FormGroup>
-          <InputGroup>
-            <InputGroup.Addon className="input-icon">
-              <FontAwesome name="user" fixedWidth/>
-            </InputGroup.Addon>
-            <FormControl
-              name="name"
-              type="text"
-              className="input-textfield"
-              placeholder="Ваше имя"
-              onFocus={this.handleFocus.bind(this)}
-              onBlur={this.handleBlur.bind(this)}
-              onChange={this.updateFormState.bind(this)}
-            />
-          </InputGroup>
-        </FormGroup>
-        <FormGroup>
-          <InputGroup>
-            <InputGroup.Addon className="input-icon">
-              <FontAwesome name="phone" fixedWidth/>
-            </InputGroup.Addon>
-            <FormControl
-              name="phone"
-              type="tel"
-              className="input-textfield"
-              placeholder="Ваш телефон"
-              onFocus={this.handleFocus.bind(this)}
-              onBlur={this.handleBlur.bind(this)}
-              onChange={this.updateFormState.bind(this)}
-            />
-          </InputGroup>
-          {this.state.errors.phone &&
-            <p className="form-error">{this.state.errors.phone}</p>
-          }
-        </FormGroup>
-        <FormGroup>
-          <InputGroup>
-            <InputGroup.Addon className="input-icon">
-              <FontAwesome name="envelope" fixedWidth/>
-            </InputGroup.Addon>
-            <FormControl
-              name="email"
-              type="email"
-              className="input-textfield"
-              placeholder="Ваш e-mail"
-              onFocus={this.handleFocus.bind(this)}
-              onBlur={this.handleBlur.bind(this)}
-              onChange={this.updateFormState.bind(this)}
-            />
-          </InputGroup>
-          {this.state.errors.email &&
-          <p className="form-error">{this.state.errors.email}</p>
-          }
-        </FormGroup>
-        <FormGroup>
-          <InputGroup>
-            <InputGroup.Addon className="input-icon">
-              <FontAwesome name="commenting-o" fixedWidth/>
-            </InputGroup.Addon>
-            <FormControl
-              name="message"
-              componentClass="textarea"
-              className="input-textfield"
-              placeholder="Доп. информация"
-              onFocus={this.handleFocus.bind(this)}
-              onBlur={this.handleBlur.bind(this)}
-              onChange={this.updateFormState.bind(this)}
-            />
-          </InputGroup>
-          {this.state.errors.message &&
-            <p className="form-error">{this.state.errors.message}</p>
-          }
-        </FormGroup>
-        <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Отправить</Button>
-      </form>
+      <TransitionGroup>
+        <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
+          <form className="ask-form form-light">
+            <FormGroup>
+              <InputGroup>
+                <InputGroup.Addon className="input-icon">
+                  <FontAwesome name="user" fixedWidth/>
+                </InputGroup.Addon>
+                <FormControl
+                  name="name"
+                  type="text"
+                  className="input-textfield"
+                  placeholder="Ваше имя"
+                  onFocus={this.handleFocus.bind(this)}
+                  onBlur={this.handleBlur.bind(this)}
+                  onChange={this.updateFormState.bind(this)}
+                />
+              </InputGroup>
+            </FormGroup>
+            <FormGroup>
+              <InputGroup>
+                <InputGroup.Addon className="input-icon">
+                  <FontAwesome name="phone" fixedWidth/>
+                </InputGroup.Addon>
+                <FormControl
+                  name="phone"
+                  type="tel"
+                  className="input-textfield"
+                  placeholder="Ваш телефон"
+                  onFocus={this.handleFocus.bind(this)}
+                  onBlur={this.handleBlur.bind(this)}
+                  onChange={this.updateFormState.bind(this)}
+                />
+              </InputGroup>
+              {this.state.errors.phone &&
+                <p className="form-error">{this.state.errors.phone}</p>
+              }
+            </FormGroup>
+            <FormGroup>
+              <InputGroup>
+                <InputGroup.Addon className="input-icon">
+                  <FontAwesome name="envelope" fixedWidth/>
+                </InputGroup.Addon>
+                <FormControl
+                  name="email"
+                  type="email"
+                  className="input-textfield"
+                  placeholder="Ваш e-mail"
+                  onFocus={this.handleFocus.bind(this)}
+                  onBlur={this.handleBlur.bind(this)}
+                  onChange={this.updateFormState.bind(this)}
+                />
+              </InputGroup>
+              {this.state.errors.email &&
+              <p className="form-error">{this.state.errors.email}</p>
+              }
+            </FormGroup>
+            <FormGroup>
+              <InputGroup>
+                <InputGroup.Addon className="input-icon">
+                  <FontAwesome name="commenting-o" fixedWidth/>
+                </InputGroup.Addon>
+                <FormControl
+                  name="message"
+                  componentClass="textarea"
+                  className="input-textfield"
+                  placeholder="Доп. информация"
+                  onFocus={this.handleFocus.bind(this)}
+                  onBlur={this.handleBlur.bind(this)}
+                  onChange={this.updateFormState.bind(this)}
+                />
+              </InputGroup>
+              {this.state.errors.message &&
+                <p className="form-error">{this.state.errors.message}</p>
+              }
+            </FormGroup>
+            <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Отправить</Button>
+          </form>
+        </FadeTransition>
+      </TransitionGroup>
     )
   }
 }

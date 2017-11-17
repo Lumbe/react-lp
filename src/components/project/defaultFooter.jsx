@@ -3,6 +3,7 @@ import {Grid, Row, Col, Button} from 'react-bootstrap'
 import './defaultFooter.css'
 import DefaultModal from "../common/defaultModal";
 import CallbackForm from "../common/forms/callbackForm";
+import SuccessMessage from '../common/forms/successMessage'
 
 export default class DefaultFooter extends React.Component {
   constructor(props) {
@@ -12,7 +13,8 @@ export default class DefaultFooter extends React.Component {
 
   defaultProps() {
     return {
-      showModal: false
+      showModal: false,
+      submitForm: false
     }
   }
 
@@ -20,8 +22,17 @@ export default class DefaultFooter extends React.Component {
     this.setState({showModal: true});
   }
 
+  toggleFormSubmission() {
+    this.setState({submitForm: !this.state.submitForm})
+  }
+
   closeModal() {
-    this.setState({showModal: false})
+    this.setState({showModal: false});
+    if (this.state.submitForm) {
+      setTimeout(() => {
+        this.setState({submitForm: false})
+      }, 1000);
+    }
   }
 
   render() {
@@ -63,7 +74,12 @@ export default class DefaultFooter extends React.Component {
           onHide={this.closeModal.bind(this)}
           title="Получить консультацию"
         >
-          <CallbackForm/>
+          {this.state.submitForm ?
+
+            <SuccessMessage closeModal={this.closeModal.bind(this)}/>
+            :
+            <CallbackForm toggleFormSubmission={this.toggleFormSubmission.bind(this)}/>
+          }
         </DefaultModal>
       </footer>
     )
