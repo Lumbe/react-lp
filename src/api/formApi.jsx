@@ -1,9 +1,8 @@
 import axios from 'axios';
-axios.defaults.baseURL = 'https://servus.vn.ua';
 
 class FormApi {
   static apiPath(){
-    return 'rest/';
+    return 'https://servus.vn.ua/rest/';
   }
   static resourceName(){
     return '';

@@ -40,9 +40,9 @@ class AskForm extends React.Component {
     ContactFormApi.create(this.state.form).then(
       (response) => {
         console.log('response: ', response);
-        if (response.errors) {
-          console.log('errors: ', response.errors);
-          return this.setState({errors: response.errors})
+        if (response.data.errors) {
+          console.log('response data: ', response.data);
+          return this.setState({errors: response.data.errors})
         }
         if (response.data.sent) {
           this.props.toggleFormSubmission();
