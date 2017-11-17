@@ -85,6 +85,9 @@ class CallbackForm extends React.Component {
               onChange={this.updateFormState.bind(this)}
             />
           </InputGroup>
+          {this.state.errors.phone &&
+          <p className="form-error">{this.state.errors.phone}</p>
+          }
         </FormGroup>
         <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Узнать стоимость</Button>
       </form>
