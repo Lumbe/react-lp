@@ -28,6 +28,12 @@
 
 // form
 
+// field form error
+.tenth-section .form-error {
+  color: #FD4D5A;
+  text-align: left;
+}
+
 .tenth-section .form-wrapper [class*='col-'] {
   padding-left: 0;
   padding-right: 0;
@@ -37,7 +43,7 @@
   margin:30px auto;
   background-color: rgba(0, 0, 0, 0.302);
   box-shadow: 0 15px 80px 0 rgba(108, 117, 131, 0.2);
-  padding: 0 50px;
+  padding: 0 50px 40px;
   text-align: center;
 }
 .tenth-section .form-wrapper .form-badge {
@@ -141,10 +147,6 @@
   color: #d2d7e0;
 }
 
-.tenth-section .btn.btn-green {
-  margin-bottom:40px;
-}
-
 .tenth-section .btn.btn-green:before {
   width: 102%;
   left: -1%;
@@ -176,7 +178,7 @@
   .tenth-section .form-wrapper {
     width: 90%;
     margin-top:0;
-    padding: 0 30px;
+    padding: 0 30px 15px;
   }
   .tenth-section .form-wrapper h4 {
     margin-top:0;
@@ -195,9 +197,6 @@
   .tenth-section span.input-icon.input-group-addon {
     padding: 7px 10px 7px 15px;
   }
-  .tenth-section .btn.btn-green {
-    margin-bottom:15px;
-  }
 }
 // width 1200px to 1439px
 @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
@@ -212,7 +211,7 @@
   .tenth-section .form-wrapper {
     width: 90%;
     margin-top:0;
-    padding: 0 30px;
+    padding: 0 30px 15px;
   }
   .tenth-section .form-wrapper h4 {
     margin-top:10px;
@@ -230,9 +229,6 @@
   }
   .tenth-section span.input-icon.input-group-addon {
     padding: 7px 10px 7px 15px;
-  }
-  .tenth-section .btn.btn-green {
-    margin-bottom:15px;
   }
 }
 // width 1440px and over

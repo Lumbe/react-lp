@@ -7,8 +7,9 @@ import FontAwesome from 'react-fontawesome'
 import {Link} from "react-router-dom";
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount"
+import SuccessMessage from '../../common/forms/successMessage'
+import GetPriceFormApi from '../../../api/getPriceFormApi'
 
 class TenthPage extends React.Component {
   constructor(props) {
@@ -21,12 +22,20 @@ class TenthPage extends React.Component {
       pageId: 10,
       colorScheme: "dark",
       form: {
-        floor: '',
-        square: '',
+        floors: '',
+        area: '',
         phone: '',
-        email: ''
+        email: '',
+        url: ''
       },
-      animateIn: true
+      errors: {
+        floors: null,
+        area: null,
+        phone: null,
+        email: null,
+      },
+      animateIn: true,
+      submitForm: false
     }
   }
 
@@ -39,7 +48,21 @@ class TenthPage extends React.Component {
 
   submitForm(event) {
     (event).preventDefault();
-    console.log('submit form data from state: ', this.state.form)
+    GetPriceFormApi.create(this.state.form).then(
+      (response) => {
+        if (response.data.errors) {
+          return this.setState({errors: response.data.errors})
+        }
+        if (response.data.sent) {
+          setTimeout(() => {
+            this.toggleFormSubmission()
+          }, 800);
+        }
+      },
+      (error) => {
+        console.log('error: ', error)
+      }
+    )
   }
 
   handleFocus(e) {
@@ -52,6 +75,10 @@ class TenthPage extends React.Component {
     return sibling.style.borderColor = '#ebebeb';
   }
 
+  componentDidMount() {
+    this.setState({form: {url: window.location.href}})
+  }
+
   componentWillMount() {
     setBackgroundImage(backgroundImage);
     setDarkColorScheme();
@@ -61,6 +88,18 @@ class TenthPage extends React.Component {
     this.setState({animateIn: false});
     removeBackgroundImage();
     removeDarkColorScheme();
+  }
+
+  toggleFormSubmission() {
+    this.setState({submitForm: !this.state.submitForm})
+  }
+
+  finishFormSubmission() {
+    if (this.state.submitForm) {
+      setTimeout(() => {
+        this.setState({submitForm: false})
+      }, 1000);
+    }
   }
 
   render() {
@@ -103,71 +142,80 @@ class TenthPage extends React.Component {
                   <div className="form-wrapper">
                     <div className="form-badge">Бесплатно</div>
                     <h4 className="text-center">Узнать предварительную стоимость строительства <span className="hidden-medium">энергоэффективного</span> дома</h4>
-                    <form className="form-dark">
+                    {this.state.submitForm ?
+                      <SuccessMessage closeModal={this.finishFormSubmission.bind(this)}/>
+                      :
+                      <form className="form-dark">
                       <FormGroup>
                         <Row>
                           <p className="text-left p-line">Этажность</p>
                           <Col md={6} sm={12} xs={12}>
                             <Radio
-                              name="floor"
+                              name="floors"
                               value="1 этаж"
                               inline
                               hidden
-                              className={this.state.form.floor === '1 этаж' ? 'btn-radio checked' : 'btn-radio'}
+                              className={this.state.form.floors === '1 этаж' ? 'btn-radio checked' : 'btn-radio'}
                               onClick={this.updateFormState.bind(this)}>
                               1 этаж
                             </Radio>
                           </Col>
                           <Col md={6} sm={12} xs={12}>
                             <Radio
-                              name="floor"
+                              name="floors"
                               value="2 этажа"
                               inline
                               hidden
-                              className={this.state.form.floor === '2 этажа' ? 'btn-radio checked' : 'btn-radio'}
+                              className={this.state.form.floors === '2 этажа' ? 'btn-radio checked' : 'btn-radio'}
                               onClick={this.updateFormState.bind(this)}>
                               2 этажа
                             </Radio>
                           </Col>
                         </Row>
+                        {this.state.errors.floors &&
+                        <p className="form-error">{this.state.errors.floors}</p>
+                        }
                       </FormGroup>
                       <FormGroup>
                         <Row>
                           <p className="text-left p-line">Площадь</p>
                           <Col md={4} sm={12} xs={12}>
                             <Radio
-                              name="square"
+                              name="area"
                               value="< 100кв.м."
                               inline
                               hidden
-                              className={this.state.form.square === '< 100кв.м.' ? 'btn-radio checked' : 'btn-radio'}
+                              className={this.state.form.area === '< 100кв.м.' ? 'btn-radio checked' : 'btn-radio'}
                               onClick={this.updateFormState.bind(this)}>
                               {'< 100кв.м.'}
                             </Radio>
                           </Col>
                           <Col md={4} sm={12} xs={12}>
                             <Radio
-                              name="square"
+                              name="area"
                               value="100-150кв.м."
                               inline
                               hidden
-                              className={this.state.form.square === '100-150кв.м.' ? 'btn-radio checked' : 'btn-radio'}
+                              className={this.state.form.area === '100-150кв.м.' ? 'btn-radio checked' : 'btn-radio'}
                               onClick={this.updateFormState.bind(this)}>
                               100-150кв.м.
                             </Radio>
                           </Col>
                           <Col md={4} sm={12} xs={12}>
                             <Radio
-                              name="square"
+                              name="area"
                               value="> 150кв.м."
                               inline
                               hidden
-                              className={this.state.form.square === '> 150кв.м.' ? 'btn-radio checked' : 'btn-radio'}
+                              className={this.state.form.area === '> 150кв.м.' ? 'btn-radio checked' : 'btn-radio'}
                               onClick={this.updateFormState.bind(this)}>
                               > 150кв.м.
                             </Radio>
                           </Col>
                         </Row>
+                        {this.state.errors.area &&
+                        <p className="form-error">{this.state.errors.area}</p>
+                        }
                       </FormGroup>
                       <FormGroup>
                         <InputGroup>
@@ -184,6 +232,9 @@ class TenthPage extends React.Component {
                             onChange={this.updateFormState.bind(this)}
                           />
                         </InputGroup>
+                        {this.state.errors.phone &&
+                        <p className="form-error">{this.state.errors.phone}</p>
+                        }
                       </FormGroup>
                       <FormGroup>
                         <InputGroup>
@@ -200,9 +251,13 @@ class TenthPage extends React.Component {
                             onChange={this.updateFormState.bind(this)}
                           />
                         </InputGroup>
+                        {this.state.errors.email &&
+                        <p className="form-error">{this.state.errors.email}</p>
+                        }
                       </FormGroup>
-                      <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Узнать стоимость</Button>
-                    </form>
+                      <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Узнать
+                        стоимость</Button>
+                    </form>}
                   </div>
                 </Col>
               </Row>
