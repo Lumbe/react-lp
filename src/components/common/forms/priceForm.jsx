@@ -15,14 +15,14 @@ class PriceForm extends React.Component {
   defaultProps() {
     return {
       form: {
-        floor: '',
+        floors: '',
         area: '',
         phone: '',
         email: '',
         url: '',
       },
       errors: {
-        floor: null,
+        floors: null,
         area: null,
         email: null,
         phone: null,
@@ -86,29 +86,29 @@ class PriceForm extends React.Component {
                 <p className="text-left p-line">Этажность</p>
                 <Col md={6} sm={12} xs={12}>
                   <Radio
-                    name="floor"
+                    name="floors"
                     value="1 этаж"
                     inline
                     hidden
-                    className={this.state.form.floor === '1 этаж' ? 'btn-radio checked' : 'btn-radio'}
+                    className={this.state.form.floors === '1 этаж' ? 'btn-radio checked' : 'btn-radio'}
                     onClick={this.updateFormState.bind(this)}>
                     1 этаж
                   </Radio>
                 </Col>
                 <Col md={6} sm={12} xs={12}>
                   <Radio
-                    name="floor"
+                    name="floors"
                     value="2 этажа"
                     inline
                     hidden
-                    className={this.state.form.floor === '2 этажа' ? 'btn-radio checked' : 'btn-radio'}
+                    className={this.state.form.floors === '2 этажа' ? 'btn-radio checked' : 'btn-radio'}
                     onClick={this.updateFormState.bind(this)}>
                     2 этажа
                   </Radio>
                 </Col>
               </Row>
-              {this.state.errors.floor &&
-              <p className="form-error">{this.state.errors.floor}</p>
+              {this.state.errors.floors &&
+              <p className="form-error">{this.state.errors.floors}</p>
               }
             </FormGroup>
             <FormGroup>
