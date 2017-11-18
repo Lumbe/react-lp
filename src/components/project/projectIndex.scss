@@ -166,7 +166,11 @@
 
 // form
 
-
+// field form error
+.project-index .form-error {
+  color: #FD4D5A;
+  text-align: left;
+}
 
 .project-index .form-wrapper [class*='col-'] {
   padding-left: 0;
