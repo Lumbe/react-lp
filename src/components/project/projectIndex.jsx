@@ -46,7 +46,7 @@ class ProjectIndex extends React.Component {
 
   submitForm(event) {
     (event).preventDefault();
-    ContactFormApi.create(this.state.form).then(
+    ContactFormApi.create(this.state.ctaForm).then(
       (response) => {
         if (response.data.errors) {
           return this.setState({errors: response.data.errors})
