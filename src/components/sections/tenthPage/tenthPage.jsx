@@ -95,6 +95,7 @@ class TenthPage extends React.Component {
   }
 
   finishFormSubmission() {
+    this.setState({form: {}, errors: {}});
     if (this.state.submitForm) {
       setTimeout(() => {
         this.setState({submitForm: false})

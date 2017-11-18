@@ -166,6 +166,8 @@
 
 // form
 
+
+
 .project-index .form-wrapper [class*='col-'] {
   padding-left: 0;
   padding-right: 0;
@@ -175,7 +177,7 @@
   margin:30px auto;
   background-color: rgba(0, 0, 0, 0.302);
   box-shadow: 0 15px 80px 0 rgba(108, 117, 131, 0.2);
-  padding: 0 50px;
+  padding: 0 50px 20px;
   text-align: center;
 }
 .project-index .form-wrapper .form-badge {

@@ -9,6 +9,8 @@ import DefaultFooter from "./defaultFooter";
 import Page from '../layout/page'
 import {Link} from 'react-router-dom'
 import ScrollToTopOnMount from "../common/scrollToTopOnMount";
+import SuccessMessage from '../common/forms/successMessage'
+import ContactFormApi from '../../api/contactFormApi'
 
 class ProjectIndex extends React.Component {
   constructor(props) {
@@ -20,11 +22,18 @@ class ProjectIndex extends React.Component {
     return {
       animateIn: true,
       ctaForm: {
-        firstName: '',
+        name: '',
         phone: '',
         email: '',
-        comment: ''
-      }
+        message: '',
+        url: ''
+      },
+      errors: {
+        email: null,
+        phone: null,
+        message: null,
+      },
+      submitForm: false
     }
   }
 
@@ -37,7 +46,22 @@ class ProjectIndex extends React.Component {
 
   submitForm(event) {
     (event).preventDefault();
-    console.log('submit form data from state: ', this.state.ctaForm)
+    ContactFormApi.create(this.state.form).then(
+      (response) => {
+        if (response.data.errors) {
+          return this.setState({errors: response.data.errors})
+        }
+        if (response.data.sent) {
+          this.setState({animateIn: false});
+          setTimeout(() => {
+            this.props.toggleFormSubmission()
+          }, 800);
+        }
+      },
+      (error) => {
+        console.log('error: ', error)
+      }
+    )
   }
 
   handleFocus(e) {
@@ -58,9 +82,26 @@ class ProjectIndex extends React.Component {
     setBackgroundImage(backgroundImage, 'no-repeat', 'inherit');
   }
 
+  componentDidMount() {
+    this.setState({ctaForm: {url: window.location.href}})
+  }
+
   componentWillUnmount() {
     this.setState({animateIn: false});
     removeBackgroundImage();
+  }
+
+  toggleFormSubmission() {
+    this.setState({submitForm: !this.state.submitForm})
+  }
+
+  finishFormSubmission() {
+    this.setState({ctaForm: {}, errors: {}});
+    if (this.state.submitForm) {
+      setTimeout(() => {
+        this.setState({submitForm: false})
+      }, 1000);
+    }
   }
 
   render() {
@@ -197,14 +238,17 @@ class ProjectIndex extends React.Component {
                     <div className="form-wrapper">
                       <div className="form-badge">Бесплатно</div>
                       <h4 className="text-center">Получить консультацию по индивидуальному проектированию</h4>
-                      <form className="price-form">
+                      {this.state.submitForm ?
+                        <SuccessMessage closeModal={this.finishFormSubmission.bind(this)}/>
+                        :
+                        <form className="price-form">
                         <FormGroup>
                           <InputGroup>
                             <InputGroup.Addon className="input-icon">
                               <FontAwesome name="user" fixedWidth/>
                             </InputGroup.Addon>
                             <FormControl
-                              name="firstName"
+                              name="name"
                               type="text"
                               className="input-textfield"
                               placeholder="Ваше имя"
@@ -229,29 +273,35 @@ class ProjectIndex extends React.Component {
                               onChange={this.updateFormState.bind(this)}
                             />
                           </InputGroup>
+                          {this.state.errors.phone &&
+                          <p className="form-error">{this.state.errors.phone}</p>
+                          }
                         </FormGroup><FormGroup>
-                          <InputGroup>
-                            <InputGroup.Addon className="input-icon">
-                              <FontAwesome name="envelope" fixedWidth/>
-                            </InputGroup.Addon>
-                            <FormControl
-                              name="email"
-                              type="email"
-                              className="input-textfield"
-                              placeholder="Ваш e-mail"
-                              onFocus={this.handleFocus.bind(this)}
-                              onBlur={this.handleBlur.bind(this)}
-                              onChange={this.updateFormState.bind(this)}
-                            />
-                          </InputGroup>
-                        </FormGroup>
+                        <InputGroup>
+                          <InputGroup.Addon className="input-icon">
+                            <FontAwesome name="envelope" fixedWidth/>
+                          </InputGroup.Addon>
+                          <FormControl
+                            name="email"
+                            type="email"
+                            className="input-textfield"
+                            placeholder="Ваш e-mail"
+                            onFocus={this.handleFocus.bind(this)}
+                            onBlur={this.handleBlur.bind(this)}
+                            onChange={this.updateFormState.bind(this)}
+                          />
+                        </InputGroup>
+                          {this.state.errors.email &&
+                          <p className="form-error">{this.state.errors.email}</p>
+                          }
+                      </FormGroup>
                         <FormGroup>
                           <InputGroup>
                             <InputGroup.Addon className="input-icon">
                               <FontAwesome name="commenting-o" fixedWidth/>
                             </InputGroup.Addon>
                             <FormControl
-                              name="comment"
+                              name="message"
                               componentClass="textarea"
                               className="input-textfield"
                               placeholder="Каким бы Вы хотели видеть ваш дом?"
@@ -260,9 +310,13 @@ class ProjectIndex extends React.Component {
                               onChange={this.updateFormState.bind(this)}
                             />
                           </InputGroup>
+                          {this.state.errors.message &&
+                          <p className="form-error">{this.state.errors.message}</p>
+                          }
                         </FormGroup>
-                        <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Отправить</Button>
-                      </form>
+                        <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green"
+                                block>Отправить</Button>
+                      </form>}
                     </div>
                   </Col>
                 </Row></Grid>
