@@ -8,6 +8,7 @@ import YouTube from 'react-youtube'
 import FontAwesome from 'react-fontawesome'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
+import SuccessMessage from '../../common/forms/successMessage'
 
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import DefaultModal from "../../common/defaultModal";
@@ -26,7 +27,8 @@ class SeventhPage extends React.Component {
       videoId: null,
       showPriceModal: false,
       description: null,
-      animateIn: true
+      animateIn: true,
+      submitForm: false
     }
   }
 
@@ -38,7 +40,12 @@ class SeventhPage extends React.Component {
   }
 
   close() {
-    this.setState({showModal: false, showPriceModal: false})
+    this.setState({showModal: false, showPriceModal: false});
+    if (this.state.submitForm) {
+      setTimeout(() => {
+        this.setState({submitForm: false})
+      }, 1000);
+    }
 
   }
 
@@ -50,6 +57,10 @@ class SeventhPage extends React.Component {
   componentWillUnmount() {
     this.setState({animateIn: false});
     removeBackgroundImage();
+  }
+
+  toggleFormSubmission() {
+    this.setState({submitForm: !this.state.submitForm})
   }
 
   render() {
@@ -124,7 +135,12 @@ class SeventhPage extends React.Component {
                 onHide={this.close.bind(this)}
                 title="Узнать стоимость строительства дома Сервус"
               >
-                <PriceForm/>
+                {this.state.submitForm ?
+
+                  <SuccessMessage closeModal={this.close.bind(this)}/>
+                  :
+                  <PriceForm toggleFormSubmission={this.toggleFormSubmission.bind(this)}/>
+                }
               </DefaultModal>
             </div>
           </Grid>

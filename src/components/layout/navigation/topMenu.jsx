@@ -5,6 +5,7 @@ import {IndexLinkContainer, LinkContainer} from "react-router-bootstrap";
 import DefaultModal from '../../common/defaultModal'
 import PriceForm from '../../common/forms/priceForm'
 import logoImage from './logo.png'
+import SuccessMessage from '../../common/forms/successMessage'
 
 class TopMenu extends React.Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class TopMenu extends React.Component {
     this.state = {
       isOpen: false,
       inverse: false,
-      showModal: false
+      showModal: false,
+      submitForm: false
     };
   }
 
@@ -29,9 +31,17 @@ class TopMenu extends React.Component {
   }
 
   closeModal() {
-    this.setState({showModal: false})
+    this.setState({showModal: false});
+    if (this.state.submitForm) {
+      setTimeout(() => {
+        this.setState({submitForm: false})
+      }, 1000);
+    }
   }
 
+  toggleFormSubmission() {
+    this.setState({submitForm: !this.state.submitForm})
+  }
 
   render() {
     return (
@@ -78,7 +88,11 @@ class TopMenu extends React.Component {
             onHide={this.closeModal.bind(this)}
             title="Узнать стоимость строительства дома Сервус"
           >
-            <PriceForm/>
+            {this.state.submitForm ?
+              <SuccessMessage closeModal={this.closeModal.bind(this)}/>
+              :
+              <PriceForm toggleFormSubmission={this.toggleFormSubmission.bind(this)}/>
+            }
           </DefaultModal>
         </Navbar>
     )

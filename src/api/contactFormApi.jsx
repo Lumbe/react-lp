@@ -1,4 +1,4 @@
-import FormApi from './formApi';
+import FormApi from './baseFormApi';
 
 class ContactFormApi extends FormApi {
   static resourceName() {

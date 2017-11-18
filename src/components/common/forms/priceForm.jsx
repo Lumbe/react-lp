@@ -2,6 +2,9 @@ import React from 'react'
 import {FormGroup, Row, Col, InputGroup, FormControl, Button, Radio} from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import './priceForm.css'
+import GetPriceFormApi from '../../../api/getPriceFormApi'
+import {TransitionGroup} from 'react-transition-group'
+import FadeTransition from '../fade'
 
 class PriceForm extends React.Component {
   constructor(props) {
@@ -13,12 +16,23 @@ class PriceForm extends React.Component {
     return {
       form: {
         floor: '',
-        square: '',
+        area: '',
         phone: '',
-        email: ''
-        // comment: ''
-      }
+        email: '',
+        url: '',
+      },
+      errors: {
+        floor: null,
+        area: null,
+        email: null,
+        phone: null,
+      },
+      animateIn: true
     }
+  }
+
+  componentDidMount() {
+    this.setState({form: {url: window.location.href}})
   }
 
   updateFormState(event) {
@@ -30,7 +44,22 @@ class PriceForm extends React.Component {
 
   submitForm(event) {
     (event).preventDefault();
-    console.log('submit form data from state: ', this.state.form)
+    GetPriceFormApi.create(this.state.form).then(
+      (response) => {
+        if (response.data.errors) {
+          return this.setState({errors: response.data.errors})
+        }
+        if (response.data.sent) {
+          this.setState({animateIn: false});
+          setTimeout(() => {
+            this.props.toggleFormSubmission()
+          }, 800);
+        }
+      },
+      (error) => {
+        console.log('error: ', error)
+      }
+    )
   }
 
   handleFocus(e) {
@@ -49,106 +78,122 @@ class PriceForm extends React.Component {
 
   render() {
     return (
-      <form className="price-form form-light">
-        <FormGroup>
-          <Row>
-            <p className="text-left p-line">Этажность</p>
-            <Col md={6} sm={12} xs={12}>
-              <Radio
-                name="floor"
-                value="1 этаж"
-                inline
-                hidden
-                className={this.state.form.floor === '1 этаж' ? 'btn-radio checked' : 'btn-radio'}
-                onClick={this.updateFormState.bind(this)}>
-                1 этаж
-              </Radio>
-            </Col>
-            <Col md={6} sm={12} xs={12}>
-              <Radio
-                name="floor"
-                value="2 этажа"
-                inline
-                hidden
-                className={this.state.form.floor === '2 этажа' ? 'btn-radio checked' : 'btn-radio'}
-                onClick={this.updateFormState.bind(this)}>
-                2 этажа
-              </Radio>
-            </Col>
-          </Row>
-        </FormGroup>
-        <FormGroup>
-          <Row>
-            <p className="text-left p-line">Площадь</p>
-            <Col md={4} sm={12} xs={12}>
-              <Radio
-                name="square"
-                value="< 100кв.м."
-                inline
-                hidden
-                className={this.state.form.square === '< 100кв.м.' ? 'btn-radio checked' : 'btn-radio'}
-                onClick={this.updateFormState.bind(this)}>
-                {'< 100кв.м.'}
-              </Radio>
-            </Col>
-            <Col md={4} sm={12} xs={12}>
-              <Radio
-                name="square"
-                value="100-150кв.м."
-                inline
-                hidden
-                className={this.state.form.square === '100-150кв.м.' ? 'btn-radio checked' : 'btn-radio'}
-                onClick={this.updateFormState.bind(this)}>
-                100-150кв.м.
-              </Radio>
-            </Col>
-            <Col md={4} sm={12} xs={12}>
-              <Radio
-                name="square"
-                value="> 150кв.м."
-                inline
-                hidden
-                className={this.state.form.square === '> 150кв.м.' ? 'btn-radio checked' : 'btn-radio'}
-                onClick={this.updateFormState.bind(this)}>
-                > 150кв.м.
-              </Radio>
-            </Col>
-          </Row>
-        </FormGroup>
-        <FormGroup>
-          <InputGroup>
-            <InputGroup.Addon className="input-icon">
-              <FontAwesome name="phone" fixedWidth/>
-            </InputGroup.Addon>
-            <FormControl
-              name="phone"
-              type="tel"
-              className="input-textfield"
-              placeholder="Ваш телефон"
-              onFocus={this.handleFocus.bind(this)}
-              onBlur={this.handleBlur.bind(this)}
-              onChange={this.updateFormState.bind(this)}
-            />
-          </InputGroup>
-        </FormGroup>
-        <FormGroup>
-          <InputGroup>
-            <InputGroup.Addon className="input-icon">
-              <FontAwesome name="envelope" fixedWidth/>
-            </InputGroup.Addon>
-            <FormControl
-              name="email"
-              type="email"
-              className="input-textfield"
-              placeholder="Ваш e-mail"
-              onFocus={this.handleFocus.bind(this)}
-              onBlur={this.handleBlur.bind(this)}
-              onChange={this.updateFormState.bind(this)}
-            />
-          </InputGroup>
-        </FormGroup>
-        <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Узнать стоимость</Button>
-      </form>
+      <TransitionGroup>
+        <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
+          <form className="price-form form-light">
+            <FormGroup>
+              <Row>
+                <p className="text-left p-line">Этажность</p>
+                <Col md={6} sm={12} xs={12}>
+                  <Radio
+                    name="floor"
+                    value="1 этаж"
+                    inline
+                    hidden
+                    className={this.state.form.floor === '1 этаж' ? 'btn-radio checked' : 'btn-radio'}
+                    onClick={this.updateFormState.bind(this)}>
+                    1 этаж
+                  </Radio>
+                </Col>
+                <Col md={6} sm={12} xs={12}>
+                  <Radio
+                    name="floor"
+                    value="2 этажа"
+                    inline
+                    hidden
+                    className={this.state.form.floor === '2 этажа' ? 'btn-radio checked' : 'btn-radio'}
+                    onClick={this.updateFormState.bind(this)}>
+                    2 этажа
+                  </Radio>
+                </Col>
+              </Row>
+              {this.state.errors.floor &&
+              <p className="form-error">{this.state.errors.floor}</p>
+              }
+            </FormGroup>
+            <FormGroup>
+              <Row>
+                <p className="text-left p-line">Площадь</p>
+                <Col md={4} sm={12} xs={12}>
+                  <Radio
+                    name="area"
+                    value="< 100кв.м."
+                    inline
+                    hidden
+                    className={this.state.form.area === '< 100кв.м.' ? 'btn-radio checked' : 'btn-radio'}
+                    onClick={this.updateFormState.bind(this)}>
+                    {'< 100кв.м.'}
+                  </Radio>
+                </Col>
+                <Col md={4} sm={12} xs={12}>
+                  <Radio
+                    name="area"
+                    value="100-150кв.м."
+                    inline
+                    hidden
+                    className={this.state.form.area === '100-150кв.м.' ? 'btn-radio checked' : 'btn-radio'}
+                    onClick={this.updateFormState.bind(this)}>
+                    100-150кв.м.
+                  </Radio>
+                </Col>
+                <Col md={4} sm={12} xs={12}>
+                  <Radio
+                    name="area"
+                    value="> 150кв.м."
+                    inline
+                    hidden
+                    className={this.state.form.area === '> 150кв.м.' ? 'btn-radio checked' : 'btn-radio'}
+                    onClick={this.updateFormState.bind(this)}>
+                    > 150кв.м.
+                  </Radio>
+                </Col>
+              </Row>
+              {this.state.errors.area &&
+              <p className="form-error">{this.state.errors.area}</p>
+              }
+            </FormGroup>
+            <FormGroup>
+              <InputGroup>
+                <InputGroup.Addon className="input-icon">
+                  <FontAwesome name="phone" fixedWidth/>
+                </InputGroup.Addon>
+                <FormControl
+                  name="phone"
+                  type="tel"
+                  className="input-textfield"
+                  placeholder="Ваш телефон"
+                  onFocus={this.handleFocus.bind(this)}
+                  onBlur={this.handleBlur.bind(this)}
+                  onChange={this.updateFormState.bind(this)}
+                />
+              </InputGroup>
+              {this.state.errors.phone &&
+              <p className="form-error">{this.state.errors.phone}</p>
+              }
+            </FormGroup>
+            <FormGroup>
+              <InputGroup>
+                <InputGroup.Addon className="input-icon">
+                  <FontAwesome name="envelope" fixedWidth/>
+                </InputGroup.Addon>
+                <FormControl
+                  name="email"
+                  type="email"
+                  className="input-textfield"
+                  placeholder="Ваш e-mail"
+                  onFocus={this.handleFocus.bind(this)}
+                  onBlur={this.handleBlur.bind(this)}
+                  onChange={this.updateFormState.bind(this)}
+                />
+              </InputGroup>
+              {this.state.errors.email &&
+              <p className="form-error">{this.state.errors.email}</p>
+              }
+            </FormGroup>
+            <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Узнать стоимость</Button>
+          </form>
+        </FadeTransition>
+      </TransitionGroup>
     )
   }
 }
