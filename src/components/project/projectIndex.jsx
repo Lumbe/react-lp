@@ -46,22 +46,26 @@ class ProjectIndex extends React.Component {
 
   submitForm(event) {
     (event).preventDefault();
-    ContactFormApi.create(this.state.ctaForm).then(
-      (response) => {
-        if (response.data.errors) {
-          return this.setState({errors: response.data.errors})
-        }
-        if (response.data.sent) {
-          this.setState({animateIn: false});
-          setTimeout(() => {
-            this.toggleFormSubmission()
-          }, 800);
-        }
-      },
-      (error) => {
-        console.log('error: ', error)
-      }
-    )
+    this.setState({animateIn: false});
+    setTimeout(() => {
+      this.toggleFormSubmission()
+    }, 800);
+    // ContactFormApi.create(this.state.ctaForm).then(
+    //   (response) => {
+    //     if (response.data.errors) {
+    //       return this.setState({errors: response.data.errors})
+    //     }
+    //     if (response.data.sent) {
+    //       this.setState({animateIn: false});
+    //       setTimeout(() => {
+    //         this.toggleFormSubmission()
+    //       }, 800);
+    //     }
+    //   },
+    //   (error) => {
+    //     console.log('error: ', error)
+    //   }
+    // )
   }
 
   handleFocus(e) {
