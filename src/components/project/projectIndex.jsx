@@ -54,7 +54,7 @@ class ProjectIndex extends React.Component {
         if (response.data.sent) {
           this.setState({animateIn: false});
           setTimeout(() => {
-            this.finishFormSubmission()
+            this.toggleFormSubmission()
           }, 800);
         }
       },
