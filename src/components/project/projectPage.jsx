@@ -16,6 +16,7 @@ import ScrollToTopOnMount from "../common/scrollToTopOnMount";
 import ProjectApi from '../../api/projectApi'
 import FontAwesome from'react-fontawesome'
 import IconTooltip from '../common/iconTooltip'
+import SuccessMessage from '../common/forms/successMessage'
 
 class ProjectPage extends React.Component {
   constructor(props) {
@@ -27,7 +28,8 @@ class ProjectPage extends React.Component {
     return {
       animateIn: true,
       slug: this.props.match.params.slug,
-      project: {}
+      project: {},
+      submitForm: false
     }
   }
   componentDidMount() {
@@ -42,6 +44,18 @@ class ProjectPage extends React.Component {
 
   componentWillUnmount() {
     this.setState({animateIn: false});
+  }
+
+  toggleFormSubmission() {
+    this.setState({submitForm: !this.state.submitForm})
+  }
+
+  finishFormSubmission() {
+    if (this.state.submitForm) {
+      setTimeout(() => {
+        this.setState({submitForm: false})
+      }, 1000);
+    }
   }
 
   render() {
@@ -72,11 +86,16 @@ class ProjectPage extends React.Component {
               <h1>Проект "{project.title}"</h1>
               <Row>
                 <Col md={3} mdPush={9}>
-                  <LightForm
-                    title={formTitle}
-                    projectTitle={project.title}
-                    projectArea={project.area}
-                  />
+                  {this.state.submitForm ?
+                    <SuccessMessage closeModal={this.finishFormSubmission.bind(this)}/>
+                    :
+                    <LightForm
+                      title={formTitle}
+                      projectTitle={project.title}
+                      projectArea={project.area}
+                      toggleFormSubmission={this.toggleFormSubmission.bind(this)}
+                    />
+                  }
                 </Col>
                 <Col md={9} mdPull={3}>
                   <Row>

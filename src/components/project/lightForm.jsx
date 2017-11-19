@@ -4,6 +4,9 @@ import FontAwesome from 'react-fontawesome'
 import CallbackForm from "../common/forms/callbackForm";
 import DefaultModal from "../common/defaultModal";
 import SuccessMessage from '../common/forms/successMessage'
+import ProjectPriceFormApi from '../../api/projectPriceFormApi'
+import {TransitionGroup} from 'react-transition-group'
+import FadeTransition from '../common/fade'
 
 class LightFrom extends React.Component {
   constructor(props) {
@@ -16,19 +19,32 @@ class LightFrom extends React.Component {
       showModal: false,
       title: 'Форма',
       form: {
-        firstName: '',
+        name: '',
         phone: '',
         email: '',
         projectTitle: '',
-        projectArea: ''
+        projectArea: '',
+        url: ''
       },
+      errors: {
+        email: null,
+        phone: null
+      },
+      animateIn: true,
       submitForm: false
     }
   }
 
+  componentDidMount() {
+    this.setState({form: {url: window.location.href}})
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.projectTitle && nextProps.projectArea) {
-      this.setState({form: {projectTitle: nextProps.projectTitle, projectArea: nextProps.projectArea}});
+      let form = this.state.form;
+      form['projectTitle'] = nextProps.projectTitle;
+      form['projectArea'] = nextProps.projectArea;
+      this.setState({form: form});
     }
   }
 
@@ -58,7 +74,22 @@ class LightFrom extends React.Component {
 
   submitForm(event) {
     (event).preventDefault();
-    console.log('submit form data from state: ', this.state.form)
+    ProjectPriceFormApi.create(this.state.form).then(
+      (response) => {
+        if (response.data.errors) {
+          return this.setState({errors: response.data.errors})
+        }
+        if (response.data.sent) {
+          this.setState({animateIn: false});
+          setTimeout(() => {
+            this.props.toggleFormSubmission()
+          }, 800);
+        }
+      },
+      (error) => {
+        console.log('error: ', error)
+      }
+    )
   }
 
   handleFocus(e) {
@@ -77,90 +108,94 @@ class LightFrom extends React.Component {
 
   render() {
     return (
-      <div className="light-form-wrapper">
-        <div className="form-badge">Бесплатно</div>
-        <h4 className="text-center title">
-          {this.props.title || this.state.title}
-        </h4>
-        <form className="form-light">
-          <FormGroup>
-            <Row>
-              <Col md={12}>
-                <InputGroup>
-                  <InputGroup.Addon className="input-icon">
-                    <FontAwesome name="user" fixedWidth/>
-                  </InputGroup.Addon>
-                  <FormControl
-                    name="firstName"
-                    type="text"
-                    className="input-textfield"
-                    placeholder="Ваше имя"
-                    onFocus={this.handleFocus.bind(this)}
-                    onBlur={this.handleBlur.bind(this)}
-                    onChange={this.updateFormState.bind(this)}
-                  />
-                </InputGroup>
-              </Col>
-            </Row>
-          </FormGroup>
-          <FormGroup>
-            <Row>
-              <Col md={12}>
-                <InputGroup>
-                  <InputGroup.Addon className="input-icon">
-                    <FontAwesome name="phone" fixedWidth/>
-                  </InputGroup.Addon>
-                  <FormControl
-                    name="phone"
-                    type="tel"
-                    className="input-textfield"
-                    placeholder="Ваш телефон"
-                    onFocus={this.handleFocus.bind(this)}
-                    onBlur={this.handleBlur.bind(this)}
-                    onChange={this.updateFormState.bind(this)}
-                  />
-                </InputGroup>
-              </Col>
-            </Row>
-          </FormGroup>
-          <FormGroup>
-            <Row>
-              <Col md={12}>
-                <InputGroup>
-                  <InputGroup.Addon className="input-icon">
-                    <FontAwesome name="envelope" fixedWidth/>
-                  </InputGroup.Addon>
-                  <FormControl
-                    name="email"
-                    type="email"
-                    className="input-textfield"
-                    placeholder="Ваш e-mail"
-                    onFocus={this.handleFocus.bind(this)}
-                    onBlur={this.handleBlur.bind(this)}
-                    onChange={this.updateFormState.bind(this)}
-                  />
-                </InputGroup>
-              </Col>
-            </Row>
-          </FormGroup>
-          <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Отправить</Button>
-        </form>
-        или звоните
-        <div className="phone-number"><h4><span>+38 (096)</span> 888 50 50</h4></div>
-        <Button bsStyle="grey" onClick={this.openModal.bind(this)}>Обратный звонок</Button>
-        <DefaultModal
-          show={this.state.showModal}
-          onHide={this.closeModal.bind(this)}
-          title="Получить консультацию"
-        >
-          {this.state.submitForm ?
+      <TransitionGroup>
+        <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
+          <div className="light-form-wrapper">
+            <div className="form-badge">Бесплатно</div>
+            <h4 className="text-center title">
+              {this.props.title || this.state.title}
+            </h4>
+            <form className="form-light">
+              <FormGroup>
+                <Row>
+                  <Col md={12}>
+                    <InputGroup>
+                      <InputGroup.Addon className="input-icon">
+                        <FontAwesome name="user" fixedWidth/>
+                      </InputGroup.Addon>
+                      <FormControl
+                        name="name"
+                        type="text"
+                        className="input-textfield"
+                        placeholder="Ваше имя"
+                        onFocus={this.handleFocus.bind(this)}
+                        onBlur={this.handleBlur.bind(this)}
+                        onChange={this.updateFormState.bind(this)}
+                      />
+                    </InputGroup>
+                  </Col>
+                </Row>
+              </FormGroup>
+              <FormGroup>
+                <Row>
+                  <Col md={12}>
+                    <InputGroup>
+                      <InputGroup.Addon className="input-icon">
+                        <FontAwesome name="phone" fixedWidth/>
+                      </InputGroup.Addon>
+                      <FormControl
+                        name="phone"
+                        type="tel"
+                        className="input-textfield"
+                        placeholder="Ваш телефон"
+                        onFocus={this.handleFocus.bind(this)}
+                        onBlur={this.handleBlur.bind(this)}
+                        onChange={this.updateFormState.bind(this)}
+                      />
+                    </InputGroup>
+                  </Col>
+                </Row>
+              </FormGroup>
+              <FormGroup>
+                <Row>
+                  <Col md={12}>
+                    <InputGroup>
+                      <InputGroup.Addon className="input-icon">
+                        <FontAwesome name="envelope" fixedWidth/>
+                      </InputGroup.Addon>
+                      <FormControl
+                        name="email"
+                        type="email"
+                        className="input-textfield"
+                        placeholder="Ваш e-mail"
+                        onFocus={this.handleFocus.bind(this)}
+                        onBlur={this.handleBlur.bind(this)}
+                        onChange={this.updateFormState.bind(this)}
+                      />
+                    </InputGroup>
+                  </Col>
+                </Row>
+              </FormGroup>
+              <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Отправить</Button>
+            </form>
+            или звоните
+            <div className="phone-number"><h4><span>+38 (096)</span> 888 50 50</h4></div>
+            <Button bsStyle="grey" onClick={this.openModal.bind(this)}>Обратный звонок</Button>
+            <DefaultModal
+              show={this.state.showModal}
+              onHide={this.closeModal.bind(this)}
+              title="Получить консультацию"
+            >
+              {this.state.submitForm ?
 
-            <SuccessMessage closeModal={this.closeModal.bind(this)}/>
-            :
-            <CallbackForm toggleFormSubmission={this.toggleFormSubmission.bind(this)}/>
-          }
-        </DefaultModal>
-      </div>
+                <SuccessMessage closeModal={this.closeModal.bind(this)}/>
+                :
+                <CallbackForm toggleFormSubmission={this.toggleFormSubmission.bind(this)}/>
+              }
+            </DefaultModal>
+          </div>
+        </FadeTransition>
+      </TransitionGroup>
     )
   }
 }
