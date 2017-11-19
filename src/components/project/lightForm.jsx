@@ -153,8 +153,12 @@ class LightFrom extends React.Component {
                         onChange={this.updateFormState.bind(this)}
                       />
                     </InputGroup>
+
                   </Col>
                 </Row>
+                {this.state.errors.phone &&
+                <p className="form-error">{this.state.errors.phone}</p>
+                }
               </FormGroup>
               <FormGroup>
                 <Row>
@@ -175,6 +179,9 @@ class LightFrom extends React.Component {
                     </InputGroup>
                   </Col>
                 </Row>
+                {this.state.errors.email &&
+                <p className="form-error">{this.state.errors.email}</p>
+                }
               </FormGroup>
               <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Отправить</Button>
             </form>
