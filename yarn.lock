@@ -5796,6 +5796,12 @@ react-fontawesome@^1.6.1:
   dependencies:
     prop-types "^15.5.6"
 
+react-ga@^2.3.5:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.3.5.tgz#7c3d0c530b2bbe64ceb1faa79be340685aa84a9a"
+  dependencies:
+    object-assign "^4.1.1"
+
 react-google-maps@^9.0.1:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/react-google-maps/-/react-google-maps-9.0.1.tgz#01790c98b0922e8066eb4c89f5fdc217e7be6601"
