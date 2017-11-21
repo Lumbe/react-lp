@@ -78,32 +78,32 @@ class SecondPage extends React.Component {
               </Row>
               <Row className="advantages">
                 <Col md={2} xs={12}>
-                  <div className="adv-block">
-                    <span className="advantages-number">12</span> <span className="adv-text">лет</span>
+                  <div className="advantages-block">
+                    <span className="advantages-number">12</span> <span className="advantages-text">лет</span>
                   </div>
                   <p>на рынке энергосберегающего жилья</p>
                 </Col>
                 <Col md={2} xs={12}>
-                  <div className="adv-block">
-                    <span className="adv-number">1248</span>
+                  <div className="advantages-block">
+                    <span className="advantages-number">1248</span>
                   </div>
                   <p>энергоэффективных зданий построено в Украине и ЕС</p>
                 </Col>
                 <Col md={2} xs={12}>
-                  <div className="adv-block">
-                    <span className="adv-number">150</span> <span className="adv-text">тыс</span>
+                  <div className="advantages-block">
+                    <span className="advantages-number">150</span> <span className="advantages-text">тыс</span>
                   </div>
                   <p>кв.м. недвижимости введено в эксплуатацию</p>
                 </Col>
                 <Col md={2} xs={12}>
-                  <div className="adv-block">
-                    <span className="adv-number">10</span> <span className="adv-text">лет</span>
+                  <div className="advantages-block">
+                    <span className="advantages-number">10</span> <span className="advantages-text">лет</span>
                   </div>
                   <p>гарантийного обслуживания</p>
                 </Col>
                 <Col md={2} xs={12}>
-                  <div className="adv-block">
-                    <span className="adv-number">300</span>
+                  <div className="advantages-block">
+                    <span className="advantages-number">300</span>
                   </div>
                   <p>работников компании трудятся для вас</p>
                 </Col>
