@@ -79,7 +79,7 @@ class SecondPage extends React.Component {
               <Row className="advantages">
                 <Col md={2} xs={12}>
                   <div className="adv-block">
-                    <span className="adv-number">12</span> <span className="adv-text">лет</span>
+                    <span className="advantages-number">12</span> <span className="adv-text">лет</span>
                   </div>
                   <p>на рынке энергосберегающего жилья</p>
                 </Col>

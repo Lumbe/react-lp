@@ -21,7 +21,7 @@
   font-weight: 700;
 }
 
-.adv-block:after {
+.advantages-block:after {
   content: '';
   display: block;
   height: 2px;
@@ -29,13 +29,13 @@
   width: 15%;
 }
 
-.second-section .advantages .adv-number {
+.second-section .advantages .advantages-number {
   color: #4ba03e;
   font-size: 50px;
   font-weight:900;
 }
 
-.second-section .advantages .adv-text {
+.second-section .advantages .advantages-text {
   color: #a0e396;
   font-size: 27px;
 }
@@ -50,7 +50,7 @@
   .second-section h4 {
     font-size:20px;
   }
-  .second-section .advantages .adv-block {
+  .second-section .advantages .advantages-block {
     margin-left:30%;
   }
 
@@ -68,7 +68,7 @@
     font-size:20px;
   }
 
-  .second-section .advantages .adv-text {
+  .second-section .advantages .advantages-text {
     font-size:20px;
   }
   .second-section .advantages p {
