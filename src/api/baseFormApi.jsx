@@ -13,6 +13,9 @@ class FormApi {
   static create(data){
     return axios.post(this.path(), data)
   }
+  static signedurl(data){
+    return axios.post(this.path() + 'signedurl', data)
+  }
 
 }
 

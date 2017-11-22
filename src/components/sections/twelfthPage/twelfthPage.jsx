@@ -7,6 +7,8 @@ import FontAwesome from 'react-fontawesome'
 import FileReaderInput from 'react-file-reader-input'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
+import Dropzone from 'react-dropzone'
+import axios from 'axios'
 
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 
@@ -58,13 +60,38 @@ class TwelfthPage extends React.Component {
     }
   }
 
-  handleChange = (e, results) => {
-    // results.forEach(result => {
-    //   const [e, file] = result;
-    //   this.props.dispatch(uploadFile(e.target.result));
-    //   console.log(`Successfully uploaded ${file.name}!`);
-    //   this.setState({fileLabel: file.name});
-    // });
+  // handleChange = (e, results) => {
+  //   results.forEach(result => {
+  //     const [e, file] = result;
+  //     this.props.dispatch(uploadFile(e.target.result));
+  //     console.log(`Successfully uploaded ${file.name}!`);
+  //     this.setState({fileLabel: file.name});
+  //   });
+  // }
+
+  onDrop(files) {
+    var file = files[0];
+    axios.post('https://servus.vn.ua/rest/signedurl', {
+      filename: file.name,
+      filetype: file.type
+    })
+    .then(function (result) {
+      var signedUrl = result.data.signedUrl;
+      console.log('result: ', result);
+      var options = {
+        headers: {
+          'Content-Type': file.type
+        }
+      };
+
+      return axios.put(signedUrl, file, options);
+      })
+      .then(function (result) {
+        console.log(result);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
   }
 
   componentWillMount() {
@@ -156,11 +183,8 @@ class TwelfthPage extends React.Component {
                             </InputGroup>
                           </Col>
                           <Col md={6} sm={12} xs={12}>
-                            <FileReaderInput
-                              as="binary"
-                              id="my-file-input"
-                              onChange={this.handleChange}
-                            >
+                            {/*use empty style tag to reset default Dropzone styles*/}
+                            <Dropzone onDrop={this.onDrop.bind(this)} style={{}}>
                               <InputGroup>
                                 <ControlLabel className="form-control file-upload">
                                   <span className="label-text">
@@ -171,7 +195,7 @@ class TwelfthPage extends React.Component {
                                   <FontAwesome name="plus-circle" fixedWidth/>
                                 </InputGroup.Addon>
                               </InputGroup>
-                            </FileReaderInput>
+                            </Dropzone>
                           </Col>
                         </Row>
                       </FormGroup>
