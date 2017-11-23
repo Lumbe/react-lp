@@ -120,8 +120,6 @@ class TwelfthPage extends React.Component {
         signedUrl: response.data.signedUrl,
         form: form
       });
-      console.log('signed url: ', this.state.signedUrl);
-      console.log('url: ', this.state.url);
       },
       (error) => {
       console.log('sign file error', error);
