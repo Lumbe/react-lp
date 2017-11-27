@@ -14,7 +14,7 @@ import Slider from 'react-slick'
 import './slick-theme-reviews.css'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-
+import ReactGA from 'react-ga'
 
 class EleventhPage extends React.Component {
   constructor(props) {
@@ -32,8 +32,12 @@ class EleventhPage extends React.Component {
   }
 
   openModal(modalId) {
-    console.log('open modal');
-    this.setState({showModal: true, modalId: modalId})
+    this.setState({showModal: true, modalId: modalId});
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.modalview(`/reviews/watch?v=${modalId}`);
+    } else {
+      console.log(`ga tracking: modal with ID: ${modalId} opened!`)
+    }
   }
 
   close() {

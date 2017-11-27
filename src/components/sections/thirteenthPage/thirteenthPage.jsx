@@ -9,8 +9,8 @@ import AskForm from '../../common/forms/askForm'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import SuccessMessage from '../../common/forms/successMessage'
-
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
+import ReactGA from 'react-ga'
 
 class ThirteenthPage extends React.Component {
   constructor(props) {
@@ -44,6 +44,11 @@ class ThirteenthPage extends React.Component {
 
   openModal() {
     this.setState({showModal: true});
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.modalview("/contacts/ask-us-modalForm");
+    } else {
+      console.log(`ga tracking: modal ask us opened!`)
+    }
   }
 
   closeModal() {

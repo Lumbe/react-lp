@@ -8,8 +8,8 @@ import YouTube from 'react-youtube'
 import FontAwesome from 'react-fontawesome'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
+import ReactGA from 'react-ga'
 
 class SecondPage extends React.Component {
   constructor(props) {
@@ -27,7 +27,12 @@ class SecondPage extends React.Component {
   }
 
   open() {
-    this.setState({showModal: true})
+    this.setState({showModal: true});
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.modalview("/about/watch?v=SDfBkztAchs");
+    } else {
+      console.log(`ga tracking: modal opened!`)
+    }
   }
 
   close() {

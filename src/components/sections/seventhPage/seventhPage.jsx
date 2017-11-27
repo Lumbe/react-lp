@@ -9,10 +9,10 @@ import FontAwesome from 'react-fontawesome'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import SuccessMessage from '../../common/forms/successMessage'
-
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import DefaultModal from "../../common/defaultModal";
 import PriceForm from "../../common/forms/priceForm";
+import ReactGA from 'react-ga'
 
 class SeventhPage extends React.Component {
   constructor(props) {
@@ -34,9 +34,20 @@ class SeventhPage extends React.Component {
 
   openModal(videoId, desc) {
     this.setState({showModal: true, videoId: videoId, description: desc})
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.set({youtubeId: videoId});
+      ReactGA.modalview("/rapid-building");
+    } else {
+      console.log(`ga tracking: modal with ID: ${videoId} opened!`)
+    }
   }
   openPriceModal() {
-    this.setState({showPriceModal: true})
+    this.setState({showPriceModal: true});
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.modalview("/rapid-building/findout-house-price");
+    } else {
+      console.log(`ga tracking: modal findout-house-price opened!`)
+    }
   }
 
   close() {

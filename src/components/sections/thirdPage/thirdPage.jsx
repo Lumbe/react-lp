@@ -9,9 +9,9 @@ import YouTube from 'react-youtube'
 import FontAwesome from 'react-fontawesome'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import {Link} from 'react-router-dom'
+import ReactGA from 'react-ga'
 
 class ThirdPage extends React.Component {
   constructor(props) {
@@ -30,7 +30,13 @@ class ThirdPage extends React.Component {
   }
 
   openModal(modalId, desc) {
-    this.setState({showModal: true, modalId: modalId, description: desc})
+    this.setState({showModal: true, modalId: modalId, description: desc});
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.set({youtubeId: modalId});
+      ReactGA.modalview("/commercial-buildings");
+    } else {
+      console.log(`ga tracking: modal with ID: ${modalId} opened!`)
+    }
   }
 
   close() {

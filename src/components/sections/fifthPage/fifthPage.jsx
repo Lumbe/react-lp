@@ -10,6 +10,7 @@ import Page from '../../layout/page'
 import FontAwesome from 'react-fontawesome'
 import YouTube from 'react-youtube'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
+import ReactGA from 'react-ga'
 
 class FifthPage extends React.Component {
   constructor(props) {
@@ -36,12 +37,25 @@ class FifthPage extends React.Component {
   }
 
   open() {
-    this.setState({showModal: true})
+    this.setState({showModal: true});
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.modalview("/building-technology/mitek-farm-youtubeVideo");
+    } else {
+      console.log(`ga tracking: modal opened!`)
+    }
   }
 
   close() {
     this.setState({showModal: false})
 
+  }
+
+  trackTab(name) {
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.modalview(`/building-technology/${name}`);
+    } else {
+      console.log(`ga tracking: click ${name}!`)
+    }
   }
 
   render() {
@@ -78,16 +92,16 @@ class FifthPage extends React.Component {
                   <Tab.Container id="build-tech" defaultActiveKey="first">
                     <Row className="clearfix">
                       <Col md={2}>
-                        <Nav  stacked>
-                          <NavItem eventKey="first">
+                        <Nav stacked>
+                          <NavItem eventKey="first" onClick={this.trackTab.bind(this, 'sip-tab')}>
                             Технология<br/>
                             <b>SIP</b>
                           </NavItem>
-                          <NavItem eventKey="second">
+                          <NavItem eventKey="second" onClick={this.trackTab.bind(this, 'mitek-tab')}>
                             Технология<br/>
                             <b>Mitek</b>
                           </NavItem>
-                          <NavItem eventKey="third">
+                          <NavItem eventKey="third" onClick={this.trackTab.bind(this, 'certificates-tab')}>
                             Сертификаты<br/>
                             <b>качества</b>
                           </NavItem>
