@@ -31,9 +31,9 @@ class TopMenu extends React.Component {
     this.setState({showModal: true});
     if (process.env.NODE_ENV === 'production') {
       ReactGA.set({page: window.location.pathname});
-      ReactGA.modalview("/header/заказать-расчет");
+      ReactGA.modalview("/header/получить-смету");
     } else {
-      console.log(`ga tracking: заказать расчет modal opened!`)
+      console.log(`ga tracking: получить смету modal opened!`)
     }
   }
 
