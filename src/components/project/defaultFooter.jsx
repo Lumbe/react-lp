@@ -4,6 +4,7 @@ import './defaultFooter.css'
 import DefaultModal from "../common/defaultModal";
 import CallbackForm from "../common/forms/callbackForm";
 import SuccessMessage from '../common/forms/successMessage'
+import ReactGA from 'react-ga'
 
 export default class DefaultFooter extends React.Component {
   constructor(props) {
@@ -20,6 +21,11 @@ export default class DefaultFooter extends React.Component {
 
   openModal() {
     this.setState({showModal: true});
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.modalview("/footer/callback-btn");
+    } else {
+      console.log(`ga tracking: footer callback modal opened!`)
+    }
   }
 
   toggleFormSubmission() {

@@ -7,6 +7,7 @@ import SuccessMessage from '../common/forms/successMessage'
 import ProjectPriceFormApi from '../../api/projectPriceFormApi'
 import {TransitionGroup} from 'react-transition-group'
 import FadeTransition from '../common/fade'
+import ReactGA from 'react-ga'
 
 class LightFrom extends React.Component {
   constructor(props) {
@@ -50,6 +51,11 @@ class LightFrom extends React.Component {
 
   openModal() {
     this.setState({showModal: true});
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.modalview("/projects/:slug/projectPriceForm-callback");
+    } else {
+      console.log(`ga tracking: projectPriceForm-callback modal opened!`)
+    }
   }
 
   toggleFormSubmission() {
