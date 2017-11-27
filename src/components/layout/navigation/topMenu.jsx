@@ -6,6 +6,7 @@ import DefaultModal from '../../common/defaultModal'
 import PriceForm from '../../common/forms/priceForm'
 import logoImage from './logo.png'
 import SuccessMessage from '../../common/forms/successMessage'
+import ReactGA from 'react-ga'
 
 class TopMenu extends React.Component {
   constructor(props) {
@@ -28,6 +29,12 @@ class TopMenu extends React.Component {
 
   openModal() {
     this.setState({showModal: true});
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.set({page: window.location.pathname});
+      ReactGA.modalview("/header/заказать-расчет");
+    } else {
+      console.log(`ga tracking: заказать расчет modal opened!`)
+    }
   }
 
   closeModal() {
@@ -79,14 +86,14 @@ class TopMenu extends React.Component {
                 className="btn-header"
                 onClick={this.openModal.bind(this)}
               >
-                Заказать просчет
+                Получить смету
               </Button>
             </ButtonToolbar>
           </Navbar.Collapse>
           <DefaultModal
             show={this.state.showModal}
             onHide={this.closeModal.bind(this)}
-            title="Узнать стоимость строительства дома Сервус"
+            title="Предварительная стоимость строительства дома Сервус"
           >
             {this.state.submitForm ?
               <SuccessMessage closeModal={this.closeModal.bind(this)}/>

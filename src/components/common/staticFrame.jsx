@@ -4,6 +4,7 @@ import {Button} from 'react-bootstrap'
 import DefaultModal from './defaultModal'
 import CallbackForm from './forms/callbackForm'
 import SuccessMessage from './forms/successMessage'
+import ReactGA from 'react-ga'
 
 class StaticFrame extends React.Component {
   constructor(props) {
@@ -17,6 +18,11 @@ class StaticFrame extends React.Component {
 
   openModal() {
     this.setState({showModal: true});
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.modalview("/landing-footer-callback-btn");
+    } else {
+      console.log(`ga tracking: landing-footer-callback-btn modal opened!`)
+    }
   }
 
   toggleFormSubmission() {
