@@ -3,6 +3,7 @@ import {FormGroup, InputGroup, FormControl, Button} from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import './callbackForm.css'
 import CallbackFormApi from '../../../api/callbackFormApi'
+import ReactGA from 'react-ga'
 
 class CallbackForm extends React.Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class CallbackForm extends React.Component {
           return this.setState({errors: response.data.errors})
         }
         if (response.data.sent) {
+          ReactGA.event({category: 'Callback', action: "Submitted Form 'Получить консультацию'"});
           this.setState({animateIn: false});
           setTimeout(() => {
             this.props.toggleFormSubmission()

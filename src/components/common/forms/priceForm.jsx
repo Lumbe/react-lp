@@ -5,6 +5,7 @@ import './priceForm.css'
 import GetPriceFormApi from '../../../api/getPriceFormApi'
 import {TransitionGroup} from 'react-transition-group'
 import FadeTransition from '../fade'
+import ReactGA from 'react-ga'
 
 class PriceForm extends React.Component {
   constructor(props) {
@@ -50,6 +51,7 @@ class PriceForm extends React.Component {
           return this.setState({errors: response.data.errors})
         }
         if (response.data.sent) {
+          ReactGA.event({category: 'Price', action: "Submitted Form 'Предварительная стоимость дома Сервус'"});
           this.setState({animateIn: false});
           setTimeout(() => {
             this.props.toggleFormSubmission()

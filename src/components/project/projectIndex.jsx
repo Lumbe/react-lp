@@ -11,6 +11,7 @@ import {Link} from 'react-router-dom'
 import ScrollToTopOnMount from "../common/scrollToTopOnMount";
 import SuccessMessage from '../common/forms/successMessage'
 import ContactFormApi from '../../api/contactFormApi'
+import ReactGA from 'react-ga'
 
 class ProjectIndex extends React.Component {
   constructor(props) {
@@ -52,6 +53,7 @@ class ProjectIndex extends React.Component {
           return this.setState({errors: response.data.errors})
         }
         if (response.data.sent) {
+          ReactGA.event({category: 'Catalogue', action: "Submitted Form 'Консультация по индивидуальному проектированию'", label: 'Projects Catalogue Page'});
           this.setState({animateIn: false});
           setTimeout(() => {
             this.toggleFormSubmission()

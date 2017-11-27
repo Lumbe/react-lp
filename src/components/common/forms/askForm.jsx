@@ -5,6 +5,7 @@ import './askForm.css'
 import ContactFormApi from '../../../api/contactFormApi'
 import {TransitionGroup} from 'react-transition-group'
 import FadeTransition from '../fade'
+import ReactGA from 'react-ga'
 
 class AskForm extends React.Component {
   constructor(props) {
@@ -50,6 +51,7 @@ class AskForm extends React.Component {
           return this.setState({errors: response.data.errors})
         }
         if (response.data.sent) {
+          ReactGA.event({category: 'Questions', action: "Submitted Form 'Задайте вопрос'", label: 'Contacts Page'});
           this.setState({animateIn: false});
           setTimeout(() => {
             this.props.toggleFormSubmission()

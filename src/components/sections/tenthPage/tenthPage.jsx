@@ -10,6 +10,7 @@ import Page from '../../layout/page'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount"
 import SuccessMessage from '../../common/forms/successMessage'
 import GetPriceFormApi from '../../../api/getPriceFormApi'
+import ReactGA from 'react-ga'
 
 class TenthPage extends React.Component {
   constructor(props) {
@@ -54,6 +55,7 @@ class TenthPage extends React.Component {
           return this.setState({errors: response.data.errors})
         }
         if (response.data.sent) {
+          ReactGA.event({category: 'Price', action: "Submitted Form 'Предварительная стоимость строительства'", label: 'Price Page'});
           setTimeout(() => {
             this.toggleFormSubmission()
           }, 800);

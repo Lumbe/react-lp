@@ -12,6 +12,7 @@ import SuccessMessage from '../../common/forms/successMessage'
 import {TransitionGroup} from 'react-transition-group'
 import FadeTransition from '../../common/fade'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
+import ReactGA from 'react-ga'
 
 class TwelfthPage extends React.Component {
   constructor(props) {
@@ -59,6 +60,7 @@ class TwelfthPage extends React.Component {
           return this.setState({errors: response.data.errors})
         }
         if (response.data.sent) {
+          ReactGA.event({category: 'OwnProject', action: "Submitted Form 'Присылайте свой проект'", label: 'Own Project Page'});
           this.setState({animateInForm: false});
           setTimeout(() => {
             this.toggleFormSubmission()
