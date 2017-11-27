@@ -44,15 +44,25 @@ class StaticFrame extends React.Component {
         <div className="bottom-left-frame"/>
         <div className="bottom-right-frame"/>
         <div className="social-media">
-          <a href="https://www.facebook.com/servuspodillya" rel="noopener noreferrer" target="_blank" className="facebook social-item">
+          <ReactGA.OutboundLink
+            eventLabel="facebook"
+            to="https://www.facebook.com/servuspodillya"
+            target="_blank"
+            className="facebook social-item"
+          >
             <i className="fa fa-facebook fa-lg"/>
-          </a>
+          </ReactGA.OutboundLink>
           <a className="instagram social-item">
             <i className="fa fa-instagram fa-lg"/>
           </a>
-          <a href="https://www.youtube.com/channel/UCCOcPBZcf7h8Mz0bYR3lg5Q" rel="noopener noreferrer" target="_blank" className="youtube social-item">
+          <ReactGA.OutboundLink
+            eventLabel="youtube"
+            to="https://www.youtube.com/channel/UCCOcPBZcf7h8Mz0bYR3lg5Q"
+            target="_blank"
+            className="youtube social-item"
+          >
             <i className="fa fa-youtube-play fa-lg"/>
-          </a>
+          </ReactGA.OutboundLink>
         </div>
         <div className="phone-number">
           <h4><span>+38 (096)</span> 888 50 50</h4>
