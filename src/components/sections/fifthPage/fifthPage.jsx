@@ -1,20 +1,28 @@
 import React from 'react'
 import './fifthPage.css'
-import {Grid, Row, Col, Image, Tab, Nav, NavItem} from 'react-bootstrap'
+import {Grid, Row, Col, Image, Tab, Nav, NavItem, Modal} from 'react-bootstrap'
 import sipImage from './sip.jpg'
-import mitekImage from './mitek.jpg'
-import neoporImage from './neopor.jpg'
+import mitekImage from './mitek-460.jpg'
 import OwlCarousel from 'react-owl-carousel'
 import './owl.theme.certificates.css'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-
+import FontAwesome from 'react-fontawesome'
+import YouTube from 'react-youtube'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 
 class FifthPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {animateIn: true, pageId: 5};
+    this.state = this.defaultProps();
+  }
+
+  defaultProps() {
+    return {
+      animateIn: true,
+      pageId: 5,
+      showModal: false
+    }
   }
 
   componentWillUnmount() {
@@ -26,6 +34,16 @@ class FifthPage extends React.Component {
     r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
     return images;
   }
+
+  open() {
+    this.setState({showModal: true})
+  }
+
+  close() {
+    this.setState({showModal: false})
+
+  }
+
   render() {
     const certificates = this.importImages(require.context('./certificates', false, /\.(png|jpe?g|svg)$/));
     let certificateUrls = [];
@@ -34,6 +52,12 @@ class FifthPage extends React.Component {
         certificateUrls.push(certificates[src])
       }
     }
+    const opts = {
+      width: '100%',
+      playerVars: {
+        autoplay: 1
+      }
+    };
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
@@ -64,10 +88,6 @@ class FifthPage extends React.Component {
                             <b>Mitek</b>
                           </NavItem>
                           <NavItem eventKey="third">
-                            SIP-панели<br/>
-                            <b>с Neopor</b>
-                          </NavItem>
-                          <NavItem eventKey="fourth">
                             Сертификаты<br/>
                             <b>качества</b>
                           </NavItem>
@@ -78,8 +98,15 @@ class FifthPage extends React.Component {
                           <Tab.Pane eventKey="first">
                             <Row>
                               <Col md={6}>
-                                <p>Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности играет важную роль в формировании позиций, занимаемых участниками в отношении поставленных задач. Практический опыт показывает, что повышение уровня гражданского сознания обеспечивает актуальность существующих финансовых и административных условий. Дорогие друзья, постоянный количественный рост и сфера нашей активности играет важную роль в формировании ключевых компонентов планируемого обновления.</p>
-                                <p>Не следует, однако, забывать о том, что постоянное информационно-техническое обеспечение нашей деятельности позволяет выполнить...</p>
+                                <p className="tech-description">При строительстве дома мы используем деревянный каркас и СИП панель
+                                  (или сэндвич-панель) в качестве ограждающей конструкции. Для каркаса используется
+                                  просушенный, пропитанный и обработанный защитными материалами брус, для перекрытий
+                                  – двутавровые балки. СИП-панель производится на заводе «Сервус» и состоит из
+                                  вспененного пенополистирола (производства Польши), размещенного между двумя ОСБ
+                                  плитами Egger (производста Австрии) и проклеенного полиуретановым клеем с давлением
+                                  более 15 тонн.  Такая технология строительства позволяет добиться впечатляющих
+                                  показателей энергосбережения, прочности и скорости строительства. Высокие показатели
+                                  энергосбережения позволяют использовать альтернативные источники энергии для отопления</p>
                               </Col>
                               <Col md={6} className="text-center">
                                 <div className="img-cover">
@@ -92,30 +119,28 @@ class FifthPage extends React.Component {
                           <Tab.Pane eventKey="second">
                             <Row>
                               <Col md={6}>
-                                <p>Задача организации, в особенности же курс на социально-ориентированный национальный проект играет важную роль в формировании форм воздействия. Соображения высшего порядка, а также начало повседневной работы по формированию позиции способствует подготовке и реализации дальнейших направлений развитая системы массового участия. Не следует, однако, забывать о том, что повышение уровня гражданского сознания требует определения и уточнения дальнейших направлений развитая системы массового участия?</p>
-                                <p>Задача организации, в особенности же курс на социально-ориентированный национальный проект играет...</p>
+                                <p className="tech-description">Технология MiTek – это американская система проектирования и сборки конструкций крыши
+                                  с использованием запатентованного еще в 1950-х годах зубчатого крепежа фирмы MiTek.
+                                  Состоит из комплексного инженерного решения, включающего программное обеспечение для
+                                  подробного проектирования (с учетом ветров, влажности, объема осадков и температур в
+                                  разные сезоны года), точный раскрой элементов на промышленных станках, а так же
+                                  использование зубчатых пластин и фурнитуры Mitek для сборки стропильных ферм в
+                                  заводских условиях
+                                  Использование этой технологии позволяет нам добиться высокой точности и скорости
+                                  сборки крыши – экономия времени может достигать 2-3 раза по сравнению с крышами,
+                                  которые подгоняются по месту
+                                </p>
                               </Col>
-                              <Col md={6}>
-                                <div className="img-cover">
+                              <Col md={6} className="text-center">
+                                <div className="yt-cover" onClick={this.open.bind(this)}>
                                   <div className="cover-frame"/>
                                   <Image src={mitekImage} responsive/>
+                                  <FontAwesome className="play-icon" name="play-circle" size="4x"/>
                                 </div>
                               </Col>
                             </Row>
-                          </Tab.Pane><Tab.Pane eventKey="third">
-                            <Row>
-                              <Col md={6}>
-                                <p>Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции обеспечивает широкому кругу специалистов участие в формировании дальнейших направлений развитая системы массового участия? Практический опыт показывает, что постоянное информационно-техническое обеспечение нашей деятельности способствует подготовке и реализации существующих финансовых и административных условий. Задача организации, в особенности же социально-экономическое развитие позволяет оценить значение системы обучения кадров, соответствующей насущным потребностям?</p>
-                                <p>Практический опыт показывает, что выбранный нами инновационный путь напрямую зависит от...</p>
-                              </Col>
-                              <Col md={6}>
-                                <div className="img-cover">
-                                  <div className="cover-frame"/>
-                                  <Image src={neoporImage} responsive/>
-                                </div>
-                              </Col>
-                            </Row>
-                          </Tab.Pane><Tab.Pane eventKey="fourth">
+                          </Tab.Pane>
+                          <Tab.Pane eventKey="third">
                             <Row>
                               <Col md={12}>
                                 <OwlCarousel
@@ -158,6 +183,12 @@ class FifthPage extends React.Component {
                   </Tab.Container>
                 </Col>
               </Row>
+              <Modal dialogClassName="yt-modal" keyboard={this.onHide} show={this.state.showModal} onHide={this.close.bind(this)}>
+                <YouTube
+                  videoId="zUBFAyCaLXU"
+                  opts={opts}
+                />
+              </Modal>
           </div>
           </Grid>
         <div onClick={this.props.nextPage.bind(this)} className="next-page"><i className="fa fa-angle-down fa-2x"/></div></Page>
