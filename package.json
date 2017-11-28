@@ -44,7 +44,10 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "eslint": "^3.19.0"
+    "eslint": "^3.19.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "react-router-sitemap": "^1.1.2"
   },
   "eslintConfig": {
     "plugins": [
