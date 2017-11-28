@@ -50,7 +50,6 @@ class Routes extends React.Component {
           <ProjectLayout exact path="/projects" inverse={true} component={AsyncProjects}/>
           <LandingLayout exact path="/typography" inverse={false} component={AsyncTypography}/>
           <LandingLayout inverse={false} component={AsyncNotFound}/>
-          <Route exact path="/sitemap.xml"  />
         </Switch>
       </TransitionGroup>
     )
