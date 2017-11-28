@@ -11,6 +11,7 @@ import ScrollToTopOnMount from "../../common/scrollToTopOnMount"
 import SuccessMessage from '../../common/forms/successMessage'
 import GetPriceFormApi from '../../../api/getPriceFormApi'
 import ReactGA from 'react-ga'
+import gaException from '../../common/analytics/gaException'
 
 class TenthPage extends React.Component {
   constructor(props) {
@@ -52,6 +53,7 @@ class TenthPage extends React.Component {
     GetPriceFormApi.create(this.state.form).then(
       (response) => {
         if (response.data.errors) {
+          gaException(response.data.errors);
           return this.setState({errors: response.data.errors})
         }
         if (response.data.sent) {

@@ -4,6 +4,7 @@ import FontAwesome from 'react-fontawesome'
 import './callbackForm.css'
 import CallbackFormApi from '../../../api/callbackFormApi'
 import ReactGA from 'react-ga'
+import gaException from '../../common/analytics/gaException'
 
 class CallbackForm extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class CallbackForm extends React.Component {
     CallbackFormApi.create(this.state.form).then(
       (response) => {
         if (response.data.errors) {
+          gaException(response.data.errors);
           return this.setState({errors: response.data.errors})
         }
         if (response.data.sent) {

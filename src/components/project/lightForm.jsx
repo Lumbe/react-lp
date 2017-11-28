@@ -8,6 +8,7 @@ import ProjectPriceFormApi from '../../api/projectPriceFormApi'
 import {TransitionGroup} from 'react-transition-group'
 import FadeTransition from '../common/fade'
 import ReactGA from 'react-ga'
+import gaException from '../common/analytics/gaException'
 
 class LightFrom extends React.Component {
   constructor(props) {
@@ -83,6 +84,7 @@ class LightFrom extends React.Component {
     ProjectPriceFormApi.create(this.state.form).then(
       (response) => {
         if (response.data.errors) {
+          gaException(response.data.errors);
           return this.setState({errors: response.data.errors})
         }
         if (response.data.sent) {

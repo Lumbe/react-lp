@@ -12,6 +12,7 @@ import ScrollToTopOnMount from "../common/scrollToTopOnMount";
 import SuccessMessage from '../common/forms/successMessage'
 import ContactFormApi from '../../api/contactFormApi'
 import ReactGA from 'react-ga'
+import gaException from '../common/analytics/gaException'
 
 class ProjectIndex extends React.Component {
   constructor(props) {
@@ -50,10 +51,11 @@ class ProjectIndex extends React.Component {
     ContactFormApi.create(this.state.ctaForm).then(
       (response) => {
         if (response.data.errors) {
+          gaException(response.data.errors);
           return this.setState({errors: response.data.errors})
         }
         if (response.data.sent) {
-          ReactGA.event({category: 'Catalogue', action: "Submitted Form 'Консультация по индивидуальному проектированию'", label: 'Projects Catalogue Page'});
+          ReactGA.event({category: 'Catalogue', action: "Submitted Form 'Консультация по индивидуальному проектированию'"});
           this.setState({animateIn: false});
           setTimeout(() => {
             this.toggleFormSubmission()

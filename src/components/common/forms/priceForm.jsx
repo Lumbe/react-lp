@@ -6,6 +6,7 @@ import GetPriceFormApi from '../../../api/getPriceFormApi'
 import {TransitionGroup} from 'react-transition-group'
 import FadeTransition from '../fade'
 import ReactGA from 'react-ga'
+import gaException from '../../common/analytics/gaException'
 
 class PriceForm extends React.Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class PriceForm extends React.Component {
     GetPriceFormApi.create(this.state.form).then(
       (response) => {
         if (response.data.errors) {
+          gaException(response.data.errors);
           return this.setState({errors: response.data.errors})
         }
         if (response.data.sent) {

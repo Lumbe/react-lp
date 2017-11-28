@@ -13,6 +13,7 @@ import {TransitionGroup} from 'react-transition-group'
 import FadeTransition from '../../common/fade'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import ReactGA from 'react-ga'
+import gaException from '../../common/analytics/gaException'
 
 class TwelfthPage extends React.Component {
   constructor(props) {
@@ -57,6 +58,7 @@ class TwelfthPage extends React.Component {
     OwnProjectFormApi.create(this.state.form).then(
       (response) => {
         if (response.data.errors) {
+          gaException(response.data.errors);
           return this.setState({errors: response.data.errors})
         }
         if (response.data.sent) {
