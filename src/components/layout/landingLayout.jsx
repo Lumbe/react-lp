@@ -5,6 +5,7 @@ import {setWindowHeight,resetWindowHeight} from "../common/main";
 import StaticFrame from "../common/staticFrame";
 import VerticalMenu from "./navigation/verticalMenu";
 import _ from 'lodash'
+import Helmet from 'react-helmet'
 
 class LandingLayout extends React.Component {
   constructor(props) {
@@ -74,6 +75,10 @@ class LandingLayout extends React.Component {
     return (
       <Route {...rest} render={matchProps => (
         <div id="landing-section">
+          <Helmet
+            defaultTitle="Строительство домов и коттеджей под ключ - Сервус Винница"
+            titleTemplate="%s - cтроительная компания Сервус Винница"
+          />
           <Header inverse={this.props.inverse}/>
           <StaticFrame/>
           <VerticalMenu/>

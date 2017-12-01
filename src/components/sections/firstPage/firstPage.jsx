@@ -6,9 +6,9 @@ import {Grid, Nav, NavItem, Col} from 'react-bootstrap'
 import {LinkContainer} from "react-router-bootstrap";
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import {Link} from 'react-router-dom'
+import Helmet from 'react-helmet'
 
 class FirstPage extends React.Component {
   constructor(props) {
@@ -40,6 +40,9 @@ class FirstPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
+          <Helmet>
+            <title>Строительство энергосберегающих домов и коттеджей под ключ</title>
+          </Helmet>
           <Grid>
             <Col md={12}>
               <div className="text-center heading-block">
