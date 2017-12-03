@@ -5,7 +5,6 @@ import './projectIndex.css'
 import {Grid, Row, Col, Image, Clearfix, Button, FormGroup, FormControl, InputGroup, Pagination} from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import IconTooltip from '../common/iconTooltip'
-import DefaultFooter from "./defaultFooter";
 import Page from '../layout/page'
 import {Link} from 'react-router-dom'
 import ScrollToTopOnMount from "../common/scrollToTopOnMount";
@@ -326,7 +325,6 @@ class ProjectIndex extends React.Component {
                 </Row></Grid>
               </Grid>
             </Row>
-            <DefaultFooter/>
           </div>
         </Page>
     )

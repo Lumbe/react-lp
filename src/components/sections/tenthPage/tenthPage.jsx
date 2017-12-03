@@ -2,7 +2,7 @@ import React from 'react'
 import {setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDarkColorScheme} from "../../common/main";
 import backgroundImage from './bg-screen10.jpg'
 import './tenthPage.css'
-import {Grid, Row, Col, Button, FormGroup, Radio, InputGroup, FormControl} from 'react-bootstrap'
+import {Tooltip, OverlayTrigger, Table, Tabs, Tab, Grid, Row, Col, Button, FormGroup, Radio, InputGroup, FormControl} from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import {Link} from "react-router-dom";
 import FadeTransition from '../../common/fade'
@@ -108,6 +108,10 @@ class TenthPage extends React.Component {
   }
 
   render() {
+    const standartTooltip = <Tooltip id="standart-tooltip">Толщина стены - 160мм<br/>Толщина OSB - 10мм<br/>Высота стены - 2,8м</Tooltip>;
+    const premiumTooltip = <Tooltip id="premium-tooltip">Толщина стены - 164мм<br/>Толщина OSB - 12мм<br/>Высота стены - 2,8м</Tooltip>;
+    const premiumPlusTooltip = <Tooltip id="premium-plus-tooltip">Толщина стены - 164мм<br/>Толщина OSB - 12мм<br/>Высота стены - 3,1м</Tooltip>;
+    const deluxTooltip = <Tooltip id="delux-tooltip">Использование материала Neopor<br/>Толщина стены - 164мм<br/>Толщина OSB - 12мм<br/>Высота стены - 2,8м</Tooltip>;
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
@@ -116,32 +120,127 @@ class TenthPage extends React.Component {
             <div className="tenth-section">
               <Row>
                 <Col md={6} sm={12} xs={12}>
-                  <h1><span className="text-highlight">Цены</span> на строительство домов</h1>
+                  <h1><span className="text-highlight">Цены</span> на строительство</h1>
                   <span className="line"/>
                   <p>
-                    Стоимость строительства дома по технологии Сервус зависит от нескольких параметров, таких как площадь, комплектация, этажность,
-                    наличие мансарды, гаража, подвала и др. Так же стоимость зависит от комплектации дома (комплектация "Под внутренние работы", комплектация "Под ключ")
+                    Узнать предварительную стоимость строительства дома Сервус можно заполнив форму. В таблице ниже приведена
+                    только стоимость домокомплекта (без монтажа)
                   </p>
-                    <ul>
-                      <li>
-                        <Link className="simple-link" to="own-project">
-                          Если у Вас уже есть проект дома
-                        </Link>
-                        &nbsp;- присылайте его нам для расчета стоимости строительства
-                      </li>
-                      <li>
-                        <span className="text-bold">Если еще нету проекта</span> - то заполните форму или выберите проект из нашего каталога
-                      </li>
-                    </ul>
-                  <p>
-                    Уже представляете каким должен быть ваш дом? Выберите проект из нашего каталога и оставьте заявку на расчет (это бесплатно)
-                  </p>
-                  <Link to="/projects">
-                    <Button bsStyle="link" className="lp-link">
-                      Проекты домов и коттеджей&nbsp;&nbsp;
-                      <FontAwesome name="angle-right"/>
-                    </Button>
-                  </Link>
+                  <p className="action">С 1 декабря до 31 декабря 2017г. действует акция "Новогодние подарки от Сервус" <Link to="new-year-action">Узнать подробности</Link></p>
+                  {/*<ul className="unordered-list">*/}
+                      {/*<li>*/}
+                        {/*<Link className="simple-link" to="own-project">*/}
+                          {/*Если у Вас уже есть проект дома*/}
+                        {/*</Link>*/}
+                        {/*&nbsp;- присылайте его нам для расчета стоимости строительства*/}
+                      {/*</li>*/}
+                      {/*<li>*/}
+                        {/*<span className="text-bold">Если еще нету проекта</span> - то заполните форму или выберите проект из нашего каталога*/}
+                      {/*</li>*/}
+                    {/*</ul>*/}
+                  {/*<p>*/}
+                    {/*Уже представляете каким должен быть ваш дом? Выберите проект из нашего каталога и оставьте заявку на расчет (это бесплатно)*/}
+                  {/*</p>*/}
+                  {/*<Link to="/projects">*/}
+                    {/*<Button bsStyle="link" className="lp-link">*/}
+                      {/*Проекты домов и коттеджей&nbsp;&nbsp;*/}
+                      {/*<FontAwesome name="angle-right"/>*/}
+                    {/*</Button>*/}
+                  {/*</Link>*/}
+                  <Tabs defaultActiveKey={1}>
+                    <Tab eventKey={1} title="Одноэтажные дома">
+                      <Table className="pricing" responsive>
+                        <thead>
+                        <tr>
+                          <th>Комплектация</th>
+                          <th>
+                            <OverlayTrigger placement="bottom" overlay={standartTooltip}>
+                              <span>Стандарт</span>
+                            </OverlayTrigger>
+                          </th>
+                          <th>
+                            <OverlayTrigger placement="bottom" overlay={premiumTooltip}>
+                              <span>Премиум</span>
+                            </OverlayTrigger>
+                          </th>
+                          <th>
+                            <OverlayTrigger placement="bottom" overlay={premiumPlusTooltip}>
+                              <span>Премиум ПЛЮС</span>
+                            </OverlayTrigger>
+                          </th>
+                          <th>
+                            <OverlayTrigger placement="bottom" overlay={deluxTooltip}>
+                              <span>ДеЛюкс</span>
+                            </OverlayTrigger>
+                          </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>до 50кв.м.</td>
+                          <td colSpan={4} className="text-center">рассчитывается индивидуально</td>
+                        </tr>
+                        <tr>
+                          <td>50-300кв.м.</td>
+                          <td>107 у.е.</td>
+                          <td>110 у.е.</td>
+                          <td>115 у.е.</td>
+                          <td><div className="old-price">120у.е.</div>115 у.е.</td>
+                        </tr>
+                        <tr>
+                          <td>от 300кв.м.</td>
+                          <td colSpan={4} className="text-center">рассчитывается индивидуально</td>
+                        </tr>
+                        </tbody>
+                      </Table>
+                    </Tab>
+                    <Tab eventKey={2} title="Двухэтажные дома">
+                      <Table className="pricing" responsive>
+                        <thead>
+                        <tr>
+                          <th>Комплектация</th>
+                          <th>
+                            <OverlayTrigger placement="bottom" overlay={standartTooltip}>
+                              <span>Стандарт</span>
+                            </OverlayTrigger>
+                          </th>
+                          <th>
+                            <OverlayTrigger placement="bottom" overlay={premiumTooltip}>
+                              <span>Премиум</span>
+                            </OverlayTrigger>
+                          </th>
+                          <th>
+                            <OverlayTrigger placement="bottom" overlay={premiumPlusTooltip}>
+                              <span>Премиум ПЛЮС</span>
+                            </OverlayTrigger>
+                          </th>
+                          <th>
+                            <OverlayTrigger placement="bottom" overlay={deluxTooltip}>
+                              <span>ДеЛюкс</span>
+                            </OverlayTrigger>
+                          </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>до 50кв.м.</td>
+                          <td colSpan={4} className="text-center">рассчитывается индивидуально</td>
+                        </tr>
+                        <tr>
+                          <td>50-300кв.м.</td>
+                          <td>117 у.е.</td>
+                          <td>120 у.е.</td>
+                          <td>125 у.е.</td>
+                          <td><div className="old-price">130у.е.</div>125 у.е.</td>
+                        </tr>
+                        <tr>
+                          <td>от 300кв.м.</td>
+                          <td colSpan={4} className="text-center">рассчитывается индивидуально</td>
+                        </tr>
+                        </tbody>
+                      </Table>
+                    </Tab>
+                  </Tabs>
                 </Col>
                 <Col md={6} sm={12} xs={12}>
                   <div className="form-wrapper">

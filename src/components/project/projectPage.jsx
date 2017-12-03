@@ -1,7 +1,6 @@
 import React from 'react'
 import './projectPage.css'
 import {Grid, Row, Col, Image, Clearfix, Tabs, Tab, Media} from 'react-bootstrap'
-import DefaultFooter from "./defaultFooter"
 import ImageGallery from 'react-image-gallery'
 import "./imageGalleryTheme.css"
 import mansardIcon from './images/mansard-icon.png'
@@ -218,7 +217,6 @@ class ProjectPage extends React.Component {
                 {/*</Col>*/}
               </Row>
             </Grid>
-            <DefaultFooter/>
           </div>
         </Page>
       </FadeTransition>

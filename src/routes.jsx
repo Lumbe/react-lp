@@ -23,6 +23,7 @@ const AsyncTwelfthPage = MyLoadable({ loader: () => import('./components/section
 const AsyncThirteenthPage = MyLoadable({ loader: () => import('./components/sections/thirteenthPage/thirteenthPage') });
 const AsyncProjects = MyLoadable({ loader: () => import('./components/project/projects') });
 const AsyncProjectPage = MyLoadable({ loader: () => import('./components/project/projectPage') });
+const AsyncNewYearAction = MyLoadable({ loader: () => import('./components/pages/newYearAction') });
 
 const AsyncTypography = MyLoadable({ loader: () => import('./components/common/typography') });
 const AsyncNotFound = MyLoadable({ loader: () => import('./components/error/notFound') });
@@ -49,6 +50,8 @@ class Routes extends React.Component {
           <ProjectLayout exact path="/projects/:slug" inverse={false} component={AsyncProjectPage}/>
           <ProjectLayout exact path="/projects" inverse={true} component={AsyncProjects}/>
           <LandingLayout exact path="/typography" inverse={false} component={AsyncTypography}/>
+          <ProjectLayout exact path="/new-year-action" inverse={false} component={AsyncNewYearAction}/>
+
           <LandingLayout inverse={false} component={AsyncNotFound}/>
         </Switch>
       </TransitionGroup>

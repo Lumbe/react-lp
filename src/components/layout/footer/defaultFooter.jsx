@@ -1,9 +1,9 @@
 import React from 'react'
 import {Grid, Row, Col, Button} from 'react-bootstrap'
 import './defaultFooter.css'
-import DefaultModal from "../common/defaultModal";
-import CallbackForm from "../common/forms/callbackForm";
-import SuccessMessage from '../common/forms/successMessage'
+import DefaultModal from "../../common/defaultModal";
+import CallbackForm from "../../common/forms/callbackForm";
+import SuccessMessage from '../../common/forms/successMessage'
 import ReactGA from 'react-ga'
 
 export default class DefaultFooter extends React.Component {

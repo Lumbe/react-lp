@@ -2,6 +2,7 @@ import React from 'react'
 import {Route} from 'react-router-dom'
 import Header from './header/header'
 import Helmet from 'react-helmet'
+import DefaultFooter from './footer/defaultFooter'
 
 class ProjectLayout extends React.Component {
   componentWillMount() {
@@ -22,6 +23,7 @@ class ProjectLayout extends React.Component {
         />
         <Header inverse={this.props.inverse}/>
         <Component {...matchProps} />
+        <DefaultFooter/>
       </div>
     )} />
   }

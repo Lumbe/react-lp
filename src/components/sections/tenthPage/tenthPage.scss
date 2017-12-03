@@ -1,5 +1,42 @@
 @import '../../../css/mediaQueriesVars.scss';
 
+.tenth-section p.action {
+  font-size: 18px;
+  color: #ffff00;
+}
+
+.tenth-section .pricing th {
+  color: #58b749;
+}
+
+.tenth-section .pricing th span:hover{
+  cursor: default;
+}
+
+.tenth-section .pricing .old-price {
+  text-decoration: line-through;
+}
+
+.tenth-section table.pricing th,
+.tenth-section table.pricing td {
+  vertical-align: middle;
+}
+
+.tenth-section .nav-tabs li > a {
+  color: #fff;
+  border: none;
+  border-top: 3px solid transparent;
+}
+
+.tenth-section .nav-tabs li.active > a,
+.tenth-section .nav-tabs li > a:hover {
+  color: #fff;
+  border: none;
+  border-top: 3px solid #58b749;
+  border-radius: 0;
+  background: transparent;
+}
+
 .tenth-section .simple-link,
 .tenth-section .simple-link:hover {
   text-decoration: underline;
@@ -10,15 +47,15 @@
   font-weight:900;
 }
 
-.tenth-section ul {
+.tenth-section ul.unordered-list {
   padding-left: 15px;
 }
 
-.tenth-section ul {
+.tenth-section ul.unordered-list {
   list-style: none;
 }
 
-.tenth-section ul li::before {
+.tenth-section ul.unordered-list li::before {
   content: "•";
   color: #58b749;
   display: inline-block;
