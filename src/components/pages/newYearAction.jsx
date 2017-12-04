@@ -5,11 +5,12 @@ import FadeTransition from '../common/fade'
 import ScrollToTopOnMount from '../common/scrollToTopOnMount'
 import Page from '../layout/page'
 import './newYearAction.css'
-import {removeBackgroundImage} from '../common/main'
+import {removeBackgroundImage, removeDarkColorScheme} from '../common/main'
 
 class NewYearAction extends React.Component {
   componentDidMount() {
     removeBackgroundImage();
+    removeDarkColorScheme();
   }
 
   render() {
