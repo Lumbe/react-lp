@@ -185,7 +185,7 @@ class TenthPage extends React.Component {
                           <td>107 у.е.</td>
                           <td>110 у.е.</td>
                           <td>115 у.е.</td>
-                          <td><div className="old-price">120у.е.</div>115 у.е.</td>
+                          <td><div className="old-price">115у.е.</div>110 у.е.</td>
                         </tr>
                         <tr>
                           <td>от 300кв.м.</td>
@@ -231,7 +231,7 @@ class TenthPage extends React.Component {
                           <td>117 у.е.</td>
                           <td>120 у.е.</td>
                           <td>125 у.е.</td>
-                          <td><div className="old-price">130у.е.</div>125 у.е.</td>
+                          <td><div className="old-price">125у.е.</div>120 у.е.</td>
                         </tr>
                         <tr>
                           <td>от 300кв.м.</td>
