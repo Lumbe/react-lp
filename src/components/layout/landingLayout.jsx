@@ -6,6 +6,7 @@ import StaticFrame from "../common/staticFrame";
 import VerticalMenu from "./navigation/verticalMenu";
 import _ from 'lodash'
 import Helmet from 'react-helmet'
+import {removeBackgroundImage} from '../common/main'
 
 class LandingLayout extends React.Component {
   constructor(props) {
@@ -54,6 +55,7 @@ class LandingLayout extends React.Component {
   componentWillUnmount() {
     document.body.classList.remove('landing-section');
     resetWindowHeight();
+    removeBackgroundImage();
     window.onresize = null;
     window.onwheel = null;
   }
