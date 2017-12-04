@@ -5,8 +5,13 @@ import FadeTransition from '../common/fade'
 import ScrollToTopOnMount from '../common/scrollToTopOnMount'
 import Page from '../layout/page'
 import './newYearAction.css'
+import {removeBackgroundImage} from '../common/main'
 
 class NewYearAction extends React.Component {
+  componentDidMount() {
+    removeBackgroundImage();
+  }
+
   render() {
     return (
       <div>
@@ -54,3 +59,4 @@ class NewYearAction extends React.Component {
 }
 
 export default NewYearAction
+
