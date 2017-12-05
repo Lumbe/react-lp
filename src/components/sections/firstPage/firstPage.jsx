@@ -9,6 +9,7 @@ import Page from '../../layout/page'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import {Link} from 'react-router-dom'
 import Helmet from 'react-helmet'
+import FontAwesome from 'react-fontawesome'
 
 class FirstPage extends React.Component {
   constructor(props) {
@@ -60,8 +61,12 @@ class FirstPage extends React.Component {
                   <LinkContainer className="btn-simple" to="/price">
                     <NavItem eventKey={0.1}>Стоимость</NavItem>
                   </LinkContainer>
-                  <LinkContainer to="/about" className="btn-details">
-                    <NavItem eventKey={0.2}>Подробнее</NavItem>
+                  <LinkContainer to="/new-year-action" className="btn-details">
+                    <NavItem eventKey={0.2}>
+                      <FontAwesome name="gift" className="gift-icon" size="lg"/>
+                      <b> Новогодние подарки</b>
+                      <FontAwesome name="tree" className="tree-icon" size="lg"/>
+                    </NavItem>
                   </LinkContainer>
                   <LinkContainer className="btn-simple" to="/house-projects">
                     <NavItem eventKey={0.3}>Проекты домов</NavItem>
