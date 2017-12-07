@@ -7,5 +7,4 @@ export function gaInit() {
 
 export function fbInit() {
   ReactPixel.init('1591041674557231');
-  ReactPixel.pageView();
 }
