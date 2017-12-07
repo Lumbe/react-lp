@@ -3,10 +3,10 @@ import {BrowserRouter} from 'react-router-dom'
 import 'font-awesome/css/font-awesome.css';
 import './css/main.css'
 import Routes from './routes'
-import ReactGA from 'react-ga';
-ReactGA.initialize('UA-109956063-1');
+import {gaInit, fbInit} from './components/common/analytics/analytics'
 
-// (() => import('./css/main.css'))();
+gaInit();
+fbInit();
 
 class App extends Component {
   render() {
