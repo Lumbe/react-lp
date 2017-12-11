@@ -16,6 +16,7 @@ import ProjectApi from '../../api/projectApi'
 import FontAwesome from'react-fontawesome'
 import IconTooltip from '../common/iconTooltip'
 import SuccessMessage from '../common/forms/successMessage'
+import {resetWindowHeight, removeBackgroundImage, removeDarkColorScheme} from "../common/main";
 
 class ProjectPage extends React.Component {
   constructor(props) {
@@ -38,7 +39,11 @@ class ProjectPage extends React.Component {
       },
       (error) => {
         console.log('error: ', error)
-      })
+      });
+    // react-snap workaround
+    resetWindowHeight();
+    removeBackgroundImage();
+    removeDarkColorScheme();
   }
 
   componentWillUnmount() {
