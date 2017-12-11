@@ -12,6 +12,7 @@ import SuccessMessage from '../common/forms/successMessage'
 import ContactFormApi from '../../api/contactFormApi'
 import ReactGA from 'react-ga'
 import gaException from '../common/analytics/gaException'
+import Filter from './filter/filter'
 
 class ProjectIndex extends React.Component {
   constructor(props) {
@@ -121,12 +122,12 @@ class ProjectIndex extends React.Component {
                   <h1 className="title">Проекты домов и коттеджей</h1>
                   <p className="text-center description">Типовые проекты частных домов от компании Сервус</p>
                   <Row className="item-list">
-                    {/*<Col md={3} mdPush={9}>*/}
-                      {/*Filter*/}
-                    {/*</Col>*/}
-                    <Col md={12} > {/* change to md={9} mdPull={3}*/}
+                    <Col md={3} mdPush={9}>
+                      <Filter/>
+                    </Col>
+                    <Col md={9} mdPull={3} > {/* change to md={9} mdPull={3}*/}
                       {projects.map((project, index) => {
-                        return <Col md={4} sm={4} xs={12} key={index}>
+                        return <Col md={6} sm={6} xs={12} key={index}>
                           <div className="project-item">
                             <Link to={"/projects/" + project.slug}>
                               <Image src={project.model.medium} responsive/>
