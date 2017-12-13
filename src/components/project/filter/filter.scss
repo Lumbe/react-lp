@@ -1,0 +1,55 @@
+#filter-projects h3 {
+  font-size:25px;
+  font-weight:700;
+}
+
+#filter-projects hr.green:before {
+  content: '';
+  position: absolute;
+  width: 17.5%;
+  height: 2px;
+  background-color: #58b749;
+}
+
+#filter-projects input.form-control {
+  padding: 20px;
+  border-radius: 25px;
+}
+
+#filter-projects select.form-control:not([size]):not([multiple]) {
+  height: auto!important;
+}
+
+#filter-projects select.form-control {
+  padding: 9px 20px;
+  border-radius: 25px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+#filter-projects input.form-control:focus,
+#filter-projects select.form-control:focus {
+  border-color: #52ad44;
+  box-shadow: none;
+}
+
+#filter-projects .category-select {
+  position: relative;
+}
+
+#filter-projects .dropdown-icon {
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  background-color: #ecebeb;
+  border: 1px solid #dedede;
+  border-radius: 50%;
+  padding: 4px 8px;
+  color: #58b749;
+  pointer-events: none;
+}
+
+#filter-projects .range-slider {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

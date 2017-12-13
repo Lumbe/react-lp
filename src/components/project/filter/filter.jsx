@@ -1,8 +1,10 @@
 import React from 'react'
 import './filter.css'
-import {Row, Col, FormGroup, FormControl, ControlLabel, Checkbox, Radio, Button} from 'react-bootstrap'
+import {Row, Col, FormGroup, FormControl, InputGroup, ControlLabel, Checkbox, Radio, Button} from 'react-bootstrap'
 import {Range} from './areaRangeSlider'
-import 'rc-slider/assets/index.css';
+// import 'rc-slider/assets/index.css';
+import './slider.css'
+import FontAwesome from 'react-fontawesome'
 
 class Filter extends React.Component {
   constructor(props) {
@@ -76,7 +78,8 @@ class Filter extends React.Component {
       <div>
         <Row>
           <Col md={12}>
-            <form id="filter-projects"><h4>Расширенный поиск</h4>
+            <form className="form-light" id="filter-projects"><h3><span className="text-highlight">Расширенный поиск</span></h3>
+            <hr className="green"/>
             <FormGroup controlId="search">
               <ControlLabel>Поиск по названию</ControlLabel>
               <FormControl
@@ -87,16 +90,20 @@ class Filter extends React.Component {
               />
             </FormGroup>
             <hr/>
-            <FormGroup controlId="categorySelect">
+            <FormGroup className="category-select" controlId="categorySelect">
               <FormControl
                 name="category"
                 componentClass="select"
                 placeholder="Выбор категории"
                 onChange={this.updateFilterState.bind(this)}
               >
+                <option hidden>Выбор категории</option>
                 <option value="Дома">Дома</option>
                 <option value="Дачи">Дачи</option>
               </FormControl>
+              <div className="dropdown-icon">
+                <FontAwesome name="angle-down" size="lg"/>
+              </div>
             </FormGroup>
             <hr/>
             <FormGroup controlId="areaInput">
@@ -121,11 +128,12 @@ class Filter extends React.Component {
                   />
                 </Col>
               </Row>
-              <div>
+              <div className="range-slider">
                 <Range
                   min={0}
                   max={400}
                   step={5}
+                  marks={{20: "|", 100: "|", 200: "|", 300: "|", 377: "|"}}
                   allowCross={false}
                   value={this.state.areaRange}
                   onChange={this.onSliderChange.bind(this)}
