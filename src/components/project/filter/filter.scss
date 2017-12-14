@@ -53,3 +53,99 @@
   margin-top: 10px;
   margin-bottom: 20px;
 }
+
+// checkboxes
+
+#filter-projects .checkbox-green input[type="checkbox"] {
+  display: none;
+}
+
+#filter-projects .checkbox-green label,
+#filter-projects .checkbox-green.checkbox-inline {
+  padding-left: 0;
+}
+
+#filter-projects .checkbox-green .cr {
+  position: relative;
+  display: inline-block;
+  border: 1px solid rgb(222, 222, 222);
+  background-color: #fff;
+  border-radius: 3px;
+  width: 24px;
+  height: 24px;
+  float: left;
+  margin-right: .5em;
+  transition: all .15s ease;
+}
+
+#filter-projects .checkbox-green:hover .cr{
+  border: 1px solid rgb(142, 222, 130);
+  background-color: rgb(255, 255, 255);
+}
+
+#filter-projects .checkbox-green .cr .fa {
+  position: absolute;
+  font-size: 17px;
+  line-height: 0;
+  top: 50%;
+  left: 3px;
+  color: #459638;
+}
+
+#filter-projects .checkbox-green input[type="checkbox"] + .cr .fa {
+  transform: scale(3) rotateZ(-20deg);
+  opacity: 0;
+  transition: all .3s ease-in;
+}
+
+#filter-projects .checkbox-green input[type="checkbox"]:checked + .cr .fa {
+  transform: scale(1) rotateZ(0deg);
+  opacity: 1;
+}
+#filter-projects .checkbox-green input[type="checkbox"]:disabled + .cr{
+  opacity: .5;
+}
+
+// radios
+
+#filter-projects .radio-green input[type="radio"] {
+  display: none;
+}
+
+#filter-projects .radio-green.radio-inline {
+  padding-left: 0;
+}
+
+#filter-projects .radio-green .number {
+  padding: 7px 14px;
+  background-color: #f7f7f7;
+  border: 1px solid #dedede;
+  border-radius: 50%;
+  transition: border-color .2s ease-in-out;
+}
+
+#filter-projects .radio-green:hover .number {
+  border-color: #52ad44;
+  transition: background 0.5s ease-in-out;
+}
+
+#filter-projects .radio-green input[type="radio"]:checked + .number {
+  background-image: -moz-linear-gradient( -90deg, rgb(89,186,74) 0%, rgb(69,150,56) 100%);
+  background-image: -webkit-linear-gradient( -90deg, rgb(89,186,74) 0%, rgb(69,150,56) 100%);
+  background-image: -ms-linear-gradient( -90deg, rgb(89,186,74) 0%, rgb(69,150,56) 100%);
+  color: #fff;
+}
+
+#filter-projects .checkbox-green .svg-icon {
+  position: relative;
+}
+
+#filter-projects .checkbox-green .svg-icon svg {
+  position: relative;
+  bottom: -0.125em;
+}
+
+#filter-projects .checkbox-green .svg-icon.double svg {
+  bottom: -0.250em;
+}
+

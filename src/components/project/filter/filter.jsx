@@ -1,8 +1,7 @@
 import React from 'react'
 import './filter.css'
-import {Row, Col, FormGroup, FormControl, InputGroup, ControlLabel, Checkbox, Radio, Button} from 'react-bootstrap'
+import {Row, Col, FormGroup, FormControl, ControlLabel, Checkbox, Radio, Button} from 'react-bootstrap'
 import {Range} from './areaRangeSlider'
-// import 'rc-slider/assets/index.css';
 import './slider.css'
 import FontAwesome from 'react-fontawesome'
 
@@ -148,16 +147,24 @@ class Filter extends React.Component {
               <Checkbox
                 name="1floor"
                 inline
+                className="checkbox-green"
                 onClick={this.updateFilterState.bind(this)}
               >
+                <span className="cr">
+                  <FontAwesome name="check"/>
+                </span>
                 1 этаж
               </Checkbox>
               {' '}
               <Checkbox
                 name="2floor"
                 inline
+                className="checkbox-green"
                 onChange={this.updateFilterState.bind(this)}
               >
+                <span className="cr">
+                  <FontAwesome name="check"/>
+                </span>
                 2 этажа
               </Checkbox>
             </FormGroup>
@@ -169,45 +176,50 @@ class Filter extends React.Component {
                 name="rooms"
                 inline
                 value="1"
+                className="radio-green"
                 onChange={this.updateFilterState.bind(this)}
               >
-                1
+                <div className="number">1</div>
               </Radio>
               {' '}
               <Radio
                 name="rooms"
                 inline
                 value="2"
+                className="radio-green"
                 onChange={this.updateFilterState.bind(this)}
               >
-                2
+                <div className="number">2</div>
               </Radio>
               {' '}
               <Radio
                 name="rooms"
                 inline
                 value="3"
+                className="radio-green"
                 onChange={this.updateFilterState.bind(this)}
               >
-                3
+                <div className="number">3</div>
               </Radio>
               {' '}
               <Radio
                 name="rooms"
                 inline
                 value="4"
+                className="radio-green"
                 onChange={this.updateFilterState.bind(this)}
               >
-                4
+                <div className="number">4</div>
               </Radio>
               {' '}
               <Radio
                 name="rooms"
                 inline
                 value="5"
+                className="radio-green"
                 onChange={this.updateFilterState.bind(this)}
               >
-                5
+                <div className="number">5</div>
               </Radio>
             </FormGroup>
             <hr/>
@@ -215,20 +227,50 @@ class Filter extends React.Component {
               <ControlLabel>Дополнительно</ControlLabel>
               <Checkbox
                 name="mansard"
+                className="checkbox-green"
                 onChange={this.updateFilterState.bind(this)}
               >
+                <span className="cr">
+                  <FontAwesome name="check"/>
+                </span>
+                <span className="svg-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="27" height="13" viewBox="0 0 27 13">
+                    <image id="Vector_Smart_Object1112_copy_7" width="27" height="13" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAANCAQAAADyUt1YAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfhChMNHjDjkB53AAABiklEQVQoz5XSMUiVcRQF8N9nL4oaHkUSRGAOUlRQlAk2iElqGC6Plj8NEeRg8JJaojBcVMhIgjJaohzqTzhGgziEhBgPIt7Q4IvACgcbwowoil5NfX2JS+dO95wL53LuTWQQ67yy0Wr4Yk94+7et+UccNaNeg3duqk+rwbzEaHYwl/Fq121vmI/nrNMfllO+aINWM7E9TP3hklRcq+xxuBhrVZwP91O+VsUFT/Xqti/8WLlkUd4ghswZJ7bFOjBszndvPJFXXOEWt3qtNzyIB5QcDqW43ZxCmIyNnmsT/bRgzG0NYTHrNqLsIa4bDyVcMxsmY+KWe7osa7ZLTtlIJpLY7KSD4RcmPCK2OGE/TtmpzzPHw0IccFXBdLwTZkmINUpK4WwawhovTIe+mFcxqMvXUCDmvDRlvSZNoZrDGTt0ZI7SY5sBDFj03jGnYyuYcEWLRlt8yMVNhvWHj6nXZkMuhaW4W9FRBZ/cyPzKodAESRzTqUM1lS47olPVXVU9Vse3JC7J+198/g08lXwx7QsD7QAAAABJRU5ErkJggg=="/>
+                  </svg>
+                </span>
+                {' '}
                 с мансардой
               </Checkbox>
               <Checkbox
                 name="terrace"
+                className="checkbox-green"
                 onChange={this.updateFilterState.bind(this)}
               >
+                <span className="cr">
+                  <FontAwesome name="check"/>
+                </span>
+                <span className="svg-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="27" height="20" viewBox="0 0 18 20">
+                    <image id="Vector_Smart_Object113_copy_6" width="18" height="20" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAUCAQAAAAqnqXBAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfhChMNHzoaXsYoAAABPklEQVQoz42QMUjDYBCFv79WRIfiYIduIk52FQcR0VHoEBQrPy4KKgV1C4JId3FwKAUVB+t04CS42E1HcasgShfFyRohBIII0TokSpMG6S3/z7v37t49RahklEP6WdfVVjTRQkhJiRs+qHEpZ5KJIck8DyyyyqSeJccYj7IpXX5PAcgQZWY4xdRWIOmjiEmNgr4FJd2YFHmmoK8j/kY4YpwDdpRckANcPNpLkQJelEwwHGqsMMBuCHlvE0tFrqJYgg6qnfTFdxRKyhYn+q0F2ScVWp9mGWmK8d8qMaSZDL57rMUwqnoBICBxzH1MBHeBJ//RderBzCk8XYkYB7ZlCYBPNn5PkDRlegDI+BG42Nh45Mn+ibPk8bCxcf1JJX0OMshcxLapn0AMpjtKPIlDAwAHFwt4pRewcHEAaOD8ADrQXzJPx6rSAAAAAElFTkSuQmCC"/>
+                  </svg>
+                </span>
+                {' '}
                 с террасой
               </Checkbox>
               <Checkbox
                 name="garage"
+                className="checkbox-green"
                 onChange={this.updateFilterState.bind(this)}
               >
+                <span className="cr">
+                  <FontAwesome name="check"/>
+                </span>
+                <span className="svg-icon double">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="27" height="17" viewBox="0 0 19 17">
+                    <image id="Vector_Smart_Object12_copy_5" width="19" height="17" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAARCAQAAACVkV9MAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfhChMNIDisjo04AAABI0lEQVQoz4WRv0vDUBSFv0iGQgddRHQoweDkIroodNBBEMRBnB6dBC0FV0dx8McmtFBHEUHlLA6CFMTNajcdOmtQ+gdYO4SiSxyatDZCPNN9934c7rnPAgA5HLFEmt/yuWXbvAPYYeuKGR7x+jCXNcaZ7r41qkCX/JHOFWgMYACAOeC+O1xXQ74uNEgVyPawWaAWQllOSVEnR5laaIENyrDANyMaBmATOKROmVXO+GJeGdOwtM8O/+nAUhuPk0RoA9cmxZMpJVGaYjK8m1xWqJiXvvEEy9wYr5cU8hQpxGwKFMl3yugX9qjwHMN2uY56IWZ8qvGdjM9DVFtq0uYuMekiaUs5jhlKxFpsRalKCuTEDuEoUHiqKOkrLZoxlw8+eeuUPzLmU0L7e36yAAAAAElFTkSuQmCC"/>
+                  </svg>
+                </span>
+                {' '}
                 с гаражом
               </Checkbox>
             </FormGroup>
