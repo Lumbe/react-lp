@@ -15,6 +15,14 @@ body.bg-dark {
   color: #d2d7e0;
 }
 
+#nprogress .bar {
+  background: #a5ef9a !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #4ba03e, 0 0 5px #a5ef9a !important;
+}
+
 .landing-section {
   position: relative;
 }

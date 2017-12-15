@@ -336,6 +336,12 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
+axios-progress-bar@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/axios-progress-bar/-/axios-progress-bar-1.0.1.tgz#4098ae53fee893be65b0a4ae90bfcb46bf0b9ca1"
+  dependencies:
+    nprogress "0.2.0"
+
 axios@^0.17.0:
   version "0.17.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.17.0.tgz#7da747916db803f761651d6091d708789b953c6a"
@@ -4940,6 +4946,10 @@ npm-run-path@^2.0.0:
     console-control-strings "~1.1.0"
     gauge "~2.7.3"
     set-blocking "~2.0.0"
+
+nprogress@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/nprogress/-/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
 
 nth-check@~1.0.1:
   version "1.0.1"

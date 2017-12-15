@@ -40,7 +40,7 @@ class Filter extends React.Component {
         }
       }
     }
-    this.setState({filter: filter}, () => {console.log('to do: get filtered collection from api')});
+    this.setState({filter: filter}, () => {console.log('to do: get filtered collection from api. Request is:', this.state.filter)});
   }
 
   onMinAreaChange(e) {
@@ -97,8 +97,14 @@ class Filter extends React.Component {
                 onChange={this.updateFilterState.bind(this)}
               >
                 <option hidden>Выбор категории</option>
-                <option value="Дома">Дома</option>
-                <option value="Дачи">Дачи</option>
+                <option value="Жилые дома">Жилые дома</option>
+                <option value="Дачные дома">Дачные дома</option>
+                <option value="Бани и сауны">Бани и сауны</option>
+                <option value="Дома на две семьи">Дома на две семьи</option>
+                <option value="Отели и гостиницы">Отели и гостиницы</option>
+                <option value="Офис-центры">Офис-центры</option>
+                <option value="Рестораны">Рестораны</option>
+                <option value="Таунхаусы">Таунхаусы</option>
               </FormControl>
               <div className="dropdown-icon">
                 <FontAwesome name="angle-down" size="lg"/>
