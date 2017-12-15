@@ -35,7 +35,8 @@ class ProjectIndex extends React.Component {
         phone: null,
         message: null,
       },
-      submitForm: false
+      submitForm: false,
+      filter: {}
     }
   }
 
@@ -78,8 +79,16 @@ class ProjectIndex extends React.Component {
     return sibling.style.borderColor = '#ebebeb';
   }
 
+  loadFilteredProjects(params) {
+    this.setState({filter: params}, () => {
+      this.props.load(Object.assign(params, {page: 1}))
+    })
+  }
+
   loadPage(event) {
-    this.props.load({page: event});
+    this.props.load(Object.assign(this.state.filter, {page: event}));
+    // console.log('props', this.props);
+    // console.log('state', this.state);
   }
 
   componentWillMount() {
@@ -123,7 +132,7 @@ class ProjectIndex extends React.Component {
                   <p className="text-center description">Типовые проекты частных домов от компании Сервус</p>
                   <Row className="item-list">
                     <Col md={3} mdPush={9}>
-                      <Filter/>
+                      <Filter loadProjects={this.loadFilteredProjects.bind(this)}/>
                     </Col>
                     <Col md={9} mdPull={3} > {/* change to md={9} mdPull={3}*/}
                       {projects.map((project, index) => {

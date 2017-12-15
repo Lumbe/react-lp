@@ -40,7 +40,11 @@ class Filter extends React.Component {
         }
       }
     }
-    this.setState({filter: filter}, () => {console.log('to do: get filtered collection from api. Request is:', this.state.filter)});
+    this.setState({filter: filter}, () => {
+      console.log('to do: get filtered collection from api. Request is:', this.state.filter)
+      this.props.loadProjects(this.state.filter)
+
+    });
   }
 
   onMinAreaChange(e) {
@@ -68,7 +72,9 @@ class Filter extends React.Component {
     //reset uncontrolled inputs
     document.getElementById('filter-projects').reset();
     // reset controlled inputs
-    this.setState({filter: {}, minArea: 18, maxArea: 370, areaRange: [18, 370]});
+    this.setState({filter: {}, minArea: 18, maxArea: 370, areaRange: [18, 370]}, () => {
+    this.props.loadProjects({});
+    });
     console.log('to do: get unfiltered collection from api')
   }
 
