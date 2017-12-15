@@ -150,29 +150,29 @@ class Filter extends React.Component {
             <FormGroup>
               <ControlLabel>Этажность</ControlLabel>
               <br/>
-              <Checkbox
-                name="1floor"
-                inline
-                className="checkbox-green"
-                onClick={this.updateFilterState.bind(this)}
-              >
-                <span className="cr">
-                  <FontAwesome name="check"/>
-                </span>
-                1 этаж
-              </Checkbox>
+              <Row className="floors-radios">
+                <Col md={6}>
+                  <Radio
+                    name="floors"
+                    value={1}
+                    className="floor-radio-btn"
+                    onClick={this.updateFilterState.bind(this)}
+                  >
+                    <div className="floor-text">1 этаж</div>
+                  </Radio>
+                </Col>
               {' '}
-              <Checkbox
-                name="2floor"
-                inline
-                className="checkbox-green"
-                onChange={this.updateFilterState.bind(this)}
-              >
-                <span className="cr">
-                  <FontAwesome name="check"/>
-                </span>
-                2 этажа
-              </Checkbox>
+                <Col md={6}>
+                  <Radio
+                    name="floors"
+                    value={2}
+                    className="floor-radio-btn"
+                    onChange={this.updateFilterState.bind(this)}
+                  >
+                    <div className="floor-text">2 этажа</div>
+                  </Radio>
+                </Col>
+              </Row>
             </FormGroup>
             <hr/>
             <FormGroup>

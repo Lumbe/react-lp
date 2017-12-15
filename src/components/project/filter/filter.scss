@@ -106,7 +106,42 @@
   opacity: .5;
 }
 
-// radios
+// floors radios
+
+#filter-projects .floors-radios .col-md-6 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#filter-projects .floor-radio-btn input[type="radio"] {
+  display: none;
+}
+
+#filter-projects .floor-radio-btn label {
+  padding-left: 0;
+}
+
+#filter-projects .floor-radio-btn .floor-text {
+  padding: 10px 35px;
+  background-color: #f7f7f7;
+  border: 1px solid #dedede;
+  border-radius: 30px;
+  transition: border-color .2s ease-in-out;
+}
+
+#filter-projects .floor-radio-btn:hover .floor-text {
+  border-color: #52ad44;
+  transition: background 0.5s ease-in-out;
+}
+
+#filter-projects .floor-radio-btn input[type="radio"]:checked + .floor-text {
+  background-image: -moz-linear-gradient( -90deg, rgb(89,186,74) 0%, rgb(69,150,56) 100%);
+  background-image: -webkit-linear-gradient( -90deg, rgb(89,186,74) 0%, rgb(69,150,56) 100%);
+  background-image: -ms-linear-gradient( -90deg, rgb(89,186,74) 0%, rgb(69,150,56) 100%);
+  color: #fff;
+}
+
+// rooms radios
 
 #filter-projects .radio-green input[type="radio"] {
   display: none;
@@ -135,6 +170,8 @@
   background-image: -ms-linear-gradient( -90deg, rgb(89,186,74) 0%, rgb(69,150,56) 100%);
   color: #fff;
 }
+
+// checkboxes
 
 #filter-projects .checkbox-green .svg-icon {
   position: relative;
