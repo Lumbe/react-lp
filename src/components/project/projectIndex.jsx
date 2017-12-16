@@ -81,11 +81,13 @@ class ProjectIndex extends React.Component {
 
   loadFilteredProjects(params) {
     this.setState({filter: params}, () => {
+      document.getElementById('projects-list').scrollIntoView({block: "start", behavior: "smooth"});
       this.props.load(Object.assign(params, {page: 1}))
     })
   }
 
   loadPage(event) {
+    document.getElementById('projects-list').scrollIntoView({block: "start", behavior: "smooth"});
     this.props.load(Object.assign(this.state.filter, {page: event}));
     // console.log('props', this.props);
     // console.log('state', this.state);
@@ -134,7 +136,7 @@ class ProjectIndex extends React.Component {
                     <Col md={3} mdPush={9}>
                       <Filter loadProjects={this.loadFilteredProjects.bind(this)}/>
                     </Col>
-                    <Col md={9} mdPull={3} > {/* change to md={9} mdPull={3}*/}
+                    <Col md={9} mdPull={3} id="projects-list"> {/* change to md={9} mdPull={3}*/}
                       {projects.map((project, index) => {
                         return <Col md={6} sm={6} xs={12} key={index}>
                           <div className="project-item">
@@ -222,17 +224,18 @@ class ProjectIndex extends React.Component {
                         </Col>
                       })}
                       <Clearfix/>
-                      <div className="text-center">
+                      {(projects.length > 0) && <div className="text-center">
                         <Pagination
-                        prev
-                        next
-                        ellipsis
-                        boundaryLinks
-                        maxButtons={3}
-                        items={meta.total_pages}
-                        activePage={meta.current_page}
-                        onSelect={this.loadPage.bind(this)} />
-                      </div>
+                          prev
+                          next
+                          ellipsis
+                          boundaryLinks
+                          maxButtons={3}
+                          items={meta.total_pages}
+                          activePage={meta.current_page}
+                          onSelect={this.loadPage.bind(this)}/>
+                      </div>}
+                      {(projects.length === 0) && <div>Проекты не найдены, измените параметры поиска</div>}
                     </Col>
                   </Row>
                 </div>
