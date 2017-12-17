@@ -16,12 +16,6 @@ class Filter extends React.Component {
     }
   }
 
-  handleKeyPress(event) {
-    if(event.key === 'Enter'){
-      this.updateFilterState(event)
-    }
-  }
-
   updateFilterState(event, isSlider=false) {
     const filter = this.state.filter;
     if (isSlider) {
@@ -66,6 +60,24 @@ class Filter extends React.Component {
     });
   }
 
+  handleFocus(e) {
+    let elem = e.target;
+    let value = elem.value;
+    elem.onblur = (e) => {
+      if (e.target.value === value) {
+        elem.onkeypress = null;
+        return
+      }
+      this.updateFilterState(e);
+    };
+    elem.onkeypress = (e) => {
+      if(e.key === 'Enter'){
+        this.updateFilterState(e);
+        elem.onblur = null;
+      }
+    }
+  }
+
   resetFilter() {
     //reset uncontrolled inputs
     document.getElementById('filter-projects').reset();
@@ -88,7 +100,7 @@ class Filter extends React.Component {
                 name="search"
                 type="text"
                 placeholder="Название проекта"
-                onKeyPress={this.handleKeyPress.bind(this)}
+                onFocus={this.handleFocus.bind(this)}
               />
             </FormGroup>
             <hr/>
@@ -123,7 +135,8 @@ class Filter extends React.Component {
                     type="number"
                     value={this.state.minArea}
                     onChange={this.onMinAreaChange.bind(this)}
-                    onBlur={this.updateFilterState.bind(this)}
+                    onFocus={this.handleFocus.bind(this)}
+                    // onBlur={this.updateFilterState.bind(this)}
                   />
                 </Col>
                 <Col md={6}>
@@ -132,7 +145,7 @@ class Filter extends React.Component {
                     type="number"
                     value={this.state.maxArea}
                     onChange={this.onMaxAreaChange.bind(this)}
-                    onBlur={this.updateFilterState.bind(this)}
+                    onFocus={this.handleFocus.bind(this)}
                   />
                 </Col>
               </Row>
@@ -178,60 +191,60 @@ class Filter extends React.Component {
               </Row>
             </FormGroup>
             <hr/>
-            <FormGroup>
-              <ControlLabel>Количество комнат</ControlLabel>
-              <br/>
-              <Radio
-                name="rooms"
-                inline
-                value="1"
-                className="radio-green"
-                onChange={this.updateFilterState.bind(this)}
-              >
-                <div className="number">1</div>
-              </Radio>
-              {' '}
-              <Radio
-                name="rooms"
-                inline
-                value="2"
-                className="radio-green"
-                onChange={this.updateFilterState.bind(this)}
-              >
-                <div className="number">2</div>
-              </Radio>
-              {' '}
-              <Radio
-                name="rooms"
-                inline
-                value="3"
-                className="radio-green"
-                onChange={this.updateFilterState.bind(this)}
-              >
-                <div className="number">3</div>
-              </Radio>
-              {' '}
-              <Radio
-                name="rooms"
-                inline
-                value="4"
-                className="radio-green"
-                onChange={this.updateFilterState.bind(this)}
-              >
-                <div className="number">4</div>
-              </Radio>
-              {' '}
-              <Radio
-                name="rooms"
-                inline
-                value="5"
-                className="radio-green"
-                onChange={this.updateFilterState.bind(this)}
-              >
-                <div className="number">5</div>
-              </Radio>
-            </FormGroup>
-            <hr/>
+            {/*<FormGroup>*/}
+              {/*<ControlLabel>Количество комнат</ControlLabel>*/}
+              {/*<br/>*/}
+              {/*<Radio*/}
+                {/*name="rooms"*/}
+                {/*inline*/}
+                {/*value="1"*/}
+                {/*className="radio-green"*/}
+                {/*onChange={this.updateFilterState.bind(this)}*/}
+              {/*>*/}
+                {/*<div className="number">1</div>*/}
+              {/*</Radio>*/}
+              {/*{' '}*/}
+              {/*<Radio*/}
+                {/*name="rooms"*/}
+                {/*inline*/}
+                {/*value="2"*/}
+                {/*className="radio-green"*/}
+                {/*onChange={this.updateFilterState.bind(this)}*/}
+              {/*>*/}
+                {/*<div className="number">2</div>*/}
+              {/*</Radio>*/}
+              {/*{' '}*/}
+              {/*<Radio*/}
+                {/*name="rooms"*/}
+                {/*inline*/}
+                {/*value="3"*/}
+                {/*className="radio-green"*/}
+                {/*onChange={this.updateFilterState.bind(this)}*/}
+              {/*>*/}
+                {/*<div className="number">3</div>*/}
+              {/*</Radio>*/}
+              {/*{' '}*/}
+              {/*<Radio*/}
+                {/*name="rooms"*/}
+                {/*inline*/}
+                {/*value="4"*/}
+                {/*className="radio-green"*/}
+                {/*onChange={this.updateFilterState.bind(this)}*/}
+              {/*>*/}
+                {/*<div className="number">4</div>*/}
+              {/*</Radio>*/}
+              {/*{' '}*/}
+              {/*<Radio*/}
+                {/*name="rooms"*/}
+                {/*inline*/}
+                {/*value="5"*/}
+                {/*className="radio-green"*/}
+                {/*onChange={this.updateFilterState.bind(this)}*/}
+              {/*>*/}
+                {/*<div className="number">5</div>*/}
+              {/*</Radio>*/}
+            {/*</FormGroup>*/}
+            {/*<hr/>*/}
             <FormGroup>
               <ControlLabel>Дополнительно</ControlLabel>
               <Checkbox
