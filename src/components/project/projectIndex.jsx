@@ -12,6 +12,7 @@ import SuccessMessage from '../common/forms/successMessage'
 import ContactFormApi from '../../api/contactFormApi'
 import ReactGA from 'react-ga'
 import gaException from '../common/analytics/gaException'
+import Filter from './filter/filter'
 
 class ProjectIndex extends React.Component {
   constructor(props) {
@@ -34,7 +35,8 @@ class ProjectIndex extends React.Component {
         phone: null,
         message: null,
       },
-      submitForm: false
+      submitForm: false,
+      filter: {}
     }
   }
 
@@ -77,8 +79,18 @@ class ProjectIndex extends React.Component {
     return sibling.style.borderColor = '#ebebeb';
   }
 
+  loadFilteredProjects(params) {
+    this.setState({filter: params}, () => {
+      document.getElementById('projects-list').scrollIntoView({block: "start", behavior: "smooth"});
+      this.props.load(Object.assign(params, {page: 1}))
+    })
+  }
+
   loadPage(event) {
-    this.props.load({page: event});
+    document.getElementById('projects-list').scrollIntoView({block: "start", behavior: "smooth"});
+    this.props.load(Object.assign(this.state.filter, {page: event}));
+    // console.log('props', this.props);
+    // console.log('state', this.state);
   }
 
   componentWillMount() {
@@ -121,12 +133,12 @@ class ProjectIndex extends React.Component {
                   <h1 className="title">Проекты домов и коттеджей</h1>
                   <p className="text-center description">Типовые проекты частных домов от компании Сервус</p>
                   <Row className="item-list">
-                    {/*<Col md={3} mdPush={9}>*/}
-                      {/*Filter*/}
-                    {/*</Col>*/}
-                    <Col md={12} > {/* change to md={9} mdPull={3}*/}
+                    <Col md={3} mdPush={9}>
+                      <Filter loadProjects={this.loadFilteredProjects.bind(this)}/>
+                    </Col>
+                    <Col md={9} mdPull={3} id="projects-list"> {/* change to md={9} mdPull={3}*/}
                       {projects.map((project, index) => {
-                        return <Col md={4} sm={4} xs={12} key={index}>
+                        return <Col md={6} sm={6} xs={12} key={index}>
                           <div className="project-item">
                             <Link to={"/projects/" + project.slug}>
                               <Image src={project.model.medium} responsive/>
@@ -212,17 +224,18 @@ class ProjectIndex extends React.Component {
                         </Col>
                       })}
                       <Clearfix/>
-                      <div className="text-center">
+                      {(projects.length > 0) && <div className="text-center">
                         <Pagination
-                        prev
-                        next
-                        ellipsis
-                        boundaryLinks
-                        maxButtons={3}
-                        items={meta.total_pages}
-                        activePage={meta.current_page}
-                        onSelect={this.loadPage.bind(this)} />
-                      </div>
+                          prev
+                          next
+                          ellipsis
+                          boundaryLinks
+                          maxButtons={3}
+                          items={meta.total_pages}
+                          activePage={meta.current_page}
+                          onSelect={this.loadPage.bind(this)}/>
+                      </div>}
+                      {(projects.length === 0) && <div>Проекты не найдены, измените параметры поиска</div>}
                     </Col>
                   </Row>
                 </div>

@@ -1,6 +1,8 @@
 import axios from 'axios';
 import pluralize from 'pluralize';
+import { loadProgressBar } from 'axios-progress-bar'
 axios.defaults.baseURL = 'https://api.servus.vn.ua';
+loadProgressBar({ showSpinner: false });
 
 class BaseApi {
   static apiPath(){
