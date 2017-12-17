@@ -13,6 +13,7 @@ import ContactFormApi from '../../api/contactFormApi'
 import ReactGA from 'react-ga'
 import gaException from '../common/analytics/gaException'
 import Filter from './filter/filter'
+import {removeDarkColorScheme} from "../common/main";
 
 class ProjectIndex extends React.Component {
   constructor(props) {
@@ -98,7 +99,8 @@ class ProjectIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ctaForm: {url: window.location.href}})
+    this.setState({ctaForm: {url: window.location.href}});
+    removeDarkColorScheme(); // to do: do not cache this with react-snap?
   }
 
   componentWillUnmount() {
