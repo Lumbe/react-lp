@@ -12,6 +12,7 @@ import SuccessMessage from '../../common/forms/successMessage'
 import GetPriceFormApi from '../../../api/getPriceFormApi'
 import ReactGA from 'react-ga'
 import gaException from '../../common/analytics/gaException'
+import InputMask from 'react-input-mask'
 
 class TenthPage extends React.Component {
   constructor(props) {
@@ -326,14 +327,15 @@ class TenthPage extends React.Component {
                           <InputGroup.Addon className="input-icon">
                             <FontAwesome name="phone" fixedWidth/>
                           </InputGroup.Addon>
-                          <FormControl
+                          <InputMask
                             name="phone"
                             type="tel"
-                            className="input-textfield"
+                            className="input-textfield form-control"
                             placeholder="Ваш телефон"
                             onFocus={this.handleFocus.bind(this)}
                             onBlur={this.handleBlur.bind(this)}
                             onChange={this.updateFormState.bind(this)}
+                            mask="+38 (099) 999-99-99"
                           />
                         </InputGroup>
                         {this.state.errors.phone &&

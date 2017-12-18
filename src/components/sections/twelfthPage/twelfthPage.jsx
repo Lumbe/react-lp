@@ -14,6 +14,7 @@ import FadeTransition from '../../common/fade'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import ReactGA from 'react-ga'
 import gaException from '../../common/analytics/gaException'
+import InputMask from 'react-input-mask'
 
 class TwelfthPage extends React.Component {
   constructor(props) {
@@ -208,14 +209,15 @@ class TwelfthPage extends React.Component {
                                     <InputGroup.Addon className="input-icon">
                                       <FontAwesome name="phone" fixedWidth/>
                                     </InputGroup.Addon>
-                                    <FormControl
+                                    <InputMask
                                       name="phone"
                                       type="tel"
-                                      className="input-textfield"
+                                      className="input-textfield form-control"
                                       placeholder="Ваш телефон"
                                       onFocus={this.handleFocus.bind(this)}
                                       onBlur={this.handleBlur.bind(this)}
                                       onChange={this.updateFormState.bind(this)}
+                                      mask="+38 (099) 999-99-99"
                                     />
                                   </InputGroup>
                                   {this.state.errors.phone &&
