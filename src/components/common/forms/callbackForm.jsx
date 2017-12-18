@@ -21,7 +21,8 @@ class CallbackForm extends React.Component {
       },
       errors: {
         phone: null
-      }
+      },
+      sending: false
     }
   }
 
@@ -38,21 +39,23 @@ class CallbackForm extends React.Component {
 
   submitForm(event) {
     (event).preventDefault();
+    this.setState({sending: true});
     CallbackFormApi.create(this.state.form).then(
       (response) => {
         if (response.data.errors) {
           gaException(response.data.errors);
-          return this.setState({errors: response.data.errors})
+          return this.setState({errors: response.data.errors, sending: false})
         }
         if (response.data.sent) {
           ReactGA.event({category: 'Callback', action: "Submitted Form 'Получить консультацию'"});
-          this.setState({animateIn: false});
+          this.setState({animateIn: false, sending: false});
           setTimeout(() => {
             this.props.toggleFormSubmission()
           }, 800);
         }
       },
       (error) => {
+        this.setState({sending: false});
         console.log('error: ', error)
       }
     )
@@ -89,13 +92,26 @@ class CallbackForm extends React.Component {
               onBlur={this.handleBlur.bind(this)}
               onChange={this.updateFormState.bind(this)}
               mask="+38 (099) 999-99-99"
+              disabled={this.state.sending}
             />
           </InputGroup>
           {this.state.errors.phone &&
           <p className="form-error">{this.state.errors.phone}</p>
           }
         </FormGroup>
-        <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Отправить</Button>
+        <Button
+          onClick={this.submitForm.bind(this)}
+          bsSize="large"
+          bsStyle="green"
+          block
+          disabled={this.state.sending}
+        >
+          {this.state.sending ?
+            <span>Отправляем <FontAwesome name="spinner" spin/></span>
+            :
+            'Отправить'
+          }
+        </Button>
       </form>
     )
   }

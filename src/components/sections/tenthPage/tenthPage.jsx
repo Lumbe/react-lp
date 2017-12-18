@@ -38,7 +38,8 @@ class TenthPage extends React.Component {
         email: null,
       },
       animateIn: true,
-      submitForm: false
+      submitForm: false,
+      sending: false
     }
   }
 
@@ -51,20 +52,23 @@ class TenthPage extends React.Component {
 
   submitForm(event) {
     (event).preventDefault();
+    this.setState({sending: true});
     GetPriceFormApi.create(this.state.form).then(
       (response) => {
         if (response.data.errors) {
           gaException(response.data.errors);
-          return this.setState({errors: response.data.errors})
+          return this.setState({errors: response.data.errors, sending: false})
         }
         if (response.data.sent) {
           ReactGA.event({category: 'Price', action: "Submitted Form 'Предварительная стоимость строительства'", label: 'Price Page'});
+          this.setState({sending: false});
           setTimeout(() => {
             this.toggleFormSubmission()
           }, 800);
         }
       },
       (error) => {
+        this.setState({sending: false});
         console.log('error: ', error)
       }
     )
@@ -100,7 +104,7 @@ class TenthPage extends React.Component {
   }
 
   finishFormSubmission() {
-    this.setState({form: {}, errors: {}});
+    this.setState({form: {}, errors: {}, sending: false});
     if (this.state.submitForm) {
       setTimeout(() => {
         this.setState({submitForm: false})
@@ -251,7 +255,7 @@ class TenthPage extends React.Component {
                       <SuccessMessage closeModal={this.finishFormSubmission.bind(this)}/>
                       :
                       <form className="form-dark">
-                      <FormGroup>
+                      <fieldset disabled={this.state.sending}><FormGroup>
                         <Row>
                           <p className="text-left p-line">Этажность</p>
                           <Col md={6} sm={12} xs={12}>
@@ -360,9 +364,20 @@ class TenthPage extends React.Component {
                         {this.state.errors.email &&
                         <p className="form-error">{this.state.errors.email}</p>
                         }
-                      </FormGroup>
-                      <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Узнать
-                        стоимость</Button>
+                      </FormGroup></fieldset>
+                      <Button
+                        onClick={this.submitForm.bind(this)}
+                        bsSize="large"
+                        bsStyle="green"
+                        block
+                        disabled={this.state.sending}
+                      >
+                        {this.state.sending ?
+                          <span>Отправляем <FontAwesome name="spinner" spin/></span>
+                          :
+                          'Узнать стоимость'
+                        }
+                      </Button>
                     </form>}
                   </div>
                 </Col>

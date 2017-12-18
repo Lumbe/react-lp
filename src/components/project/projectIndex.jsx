@@ -38,7 +38,8 @@ class ProjectIndex extends React.Component {
         message: null,
       },
       submitForm: false,
-      filter: {}
+      filter: {},
+      sending: false
     }
   }
 
@@ -51,11 +52,12 @@ class ProjectIndex extends React.Component {
 
   submitForm(event) {
     (event).preventDefault();
+    this.setState({sending: true});
     ContactFormApi.create(this.state.ctaForm).then(
       (response) => {
         if (response.data.errors) {
           gaException(response.data.errors);
-          return this.setState({errors: response.data.errors})
+          return this.setState({errors: response.data.errors, sending: false})
         }
         if (response.data.sent) {
           ReactGA.event({category: 'Catalogue', action: "Submitted Form 'Консультация по индивидуальному проектированию'"});
@@ -66,7 +68,8 @@ class ProjectIndex extends React.Component {
         }
       },
       (error) => {
-        console.log('error: ', error)
+        this.setState({sending: false});
+        console.log('error: ', error);
       }
     )
   }
@@ -91,8 +94,6 @@ class ProjectIndex extends React.Component {
   loadPage(event) {
     document.getElementById('projects-list').scrollIntoView({block: "start", behavior: "smooth"});
     this.props.load(Object.assign(this.state.filter, {page: event}));
-    // console.log('props', this.props);
-    // console.log('state', this.state);
   }
 
   componentWillMount() {
@@ -110,7 +111,7 @@ class ProjectIndex extends React.Component {
   }
 
   toggleFormSubmission() {
-    this.setState({submitForm: !this.state.submitForm})
+    this.setState({submitForm: !this.state.submitForm, sending: false})
   }
 
   finishFormSubmission() {
@@ -261,81 +262,94 @@ class ProjectIndex extends React.Component {
                         <SuccessMessage closeModal={this.finishFormSubmission.bind(this)}/>
                         :
                         <form className="price-form">
-                        <FormGroup>
-                          <InputGroup>
-                            <InputGroup.Addon className="input-icon">
-                              <FontAwesome name="user" fixedWidth/>
-                            </InputGroup.Addon>
-                            <FormControl
-                              name="name"
-                              type="text"
-                              className="input-textfield"
-                              placeholder="Ваше имя"
-                              onFocus={this.handleFocus.bind(this)}
-                              onBlur={this.handleBlur.bind(this)}
-                              onChange={this.updateFormState.bind(this)}
-                            />
-                          </InputGroup>
-                        </FormGroup>
-                        <FormGroup>
-                          <InputGroup>
-                            <InputGroup.Addon className="input-icon">
-                              <FontAwesome name="phone" fixedWidth/>
-                            </InputGroup.Addon>
-                            <InputMask
-                              name="phone"
-                              type="phone"
-                              className="input-textfield form-control"
-                              placeholder="Ваш телефон"
-                              onFocus={this.handleFocus.bind(this)}
-                              onBlur={this.handleBlur.bind(this)}
-                              onChange={this.updateFormState.bind(this)}
-                              mask="+38 (099) 999-99-99"
-                            />
-                          </InputGroup>
-                          {this.state.errors.phone &&
-                          <p className="form-error">{this.state.errors.phone}</p>
+                          <fieldset disabled={this.state.sending}>
+                            <FormGroup>
+                              <InputGroup>
+                                <InputGroup.Addon className="input-icon">
+                                  <FontAwesome name="user" fixedWidth/>
+                                </InputGroup.Addon>
+                                <FormControl
+                                  name="name"
+                                  type="text"
+                                  className="input-textfield"
+                                  placeholder="Ваше имя"
+                                  onFocus={this.handleFocus.bind(this)}
+                                  onBlur={this.handleBlur.bind(this)}
+                                  onChange={this.updateFormState.bind(this)}
+                                />
+                              </InputGroup>
+                            </FormGroup>
+                            <FormGroup>
+                              <InputGroup>
+                                <InputGroup.Addon className="input-icon">
+                                  <FontAwesome name="phone" fixedWidth/>
+                                </InputGroup.Addon>
+                                <InputMask
+                                  name="phone"
+                                  type="phone"
+                                  className="input-textfield form-control"
+                                  placeholder="Ваш телефон"
+                                  onFocus={this.handleFocus.bind(this)}
+                                  onBlur={this.handleBlur.bind(this)}
+                                  onChange={this.updateFormState.bind(this)}
+                                  mask="+38 (099) 999-99-99"
+                                />
+                              </InputGroup>
+                              {this.state.errors.phone &&
+                              <p className="form-error">{this.state.errors.phone}</p>
+                              }
+                            </FormGroup><FormGroup>
+                            <InputGroup>
+                              <InputGroup.Addon className="input-icon">
+                                <FontAwesome name="envelope" fixedWidth/>
+                              </InputGroup.Addon>
+                              <FormControl
+                                name="email"
+                                type="email"
+                                className="input-textfield"
+                                placeholder="Ваш e-mail"
+                                onFocus={this.handleFocus.bind(this)}
+                                onBlur={this.handleBlur.bind(this)}
+                                onChange={this.updateFormState.bind(this)}
+                              />
+                            </InputGroup>
+                              {this.state.errors.email &&
+                              <p className="form-error">{this.state.errors.email}</p>
+                              }
+                          </FormGroup>
+                            <FormGroup>
+                              <InputGroup>
+                                <InputGroup.Addon className="input-icon">
+                                  <FontAwesome name="commenting-o" fixedWidth/>
+                                </InputGroup.Addon>
+                                <FormControl
+                                  name="message"
+                                  componentClass="textarea"
+                                  className="input-textfield"
+                                  placeholder="Каким бы Вы хотели видеть ваш дом?"
+                                  onFocus={this.handleFocus.bind(this)}
+                                  onBlur={this.handleBlur.bind(this)}
+                                  onChange={this.updateFormState.bind(this)}
+                                />
+                              </InputGroup>
+                              {this.state.errors.message &&
+                              <p className="form-error">{this.state.errors.message}</p>
+                              }
+                            </FormGroup>
+                          </fieldset>
+                        <Button
+                          onClick={this.submitForm.bind(this)}
+                          bsSize="large"
+                          bsStyle="green"
+                          block
+                          disabled={this.state.sending}
+                        >
+                          {this.state.sending ?
+                            <span>Отправляем <FontAwesome name="spinner" spin/></span>
+                            :
+                            'Отправить'
                           }
-                        </FormGroup><FormGroup>
-                        <InputGroup>
-                          <InputGroup.Addon className="input-icon">
-                            <FontAwesome name="envelope" fixedWidth/>
-                          </InputGroup.Addon>
-                          <FormControl
-                            name="email"
-                            type="email"
-                            className="input-textfield"
-                            placeholder="Ваш e-mail"
-                            onFocus={this.handleFocus.bind(this)}
-                            onBlur={this.handleBlur.bind(this)}
-                            onChange={this.updateFormState.bind(this)}
-                          />
-                        </InputGroup>
-                          {this.state.errors.email &&
-                          <p className="form-error">{this.state.errors.email}</p>
-                          }
-                      </FormGroup>
-                        <FormGroup>
-                          <InputGroup>
-                            <InputGroup.Addon className="input-icon">
-                              <FontAwesome name="commenting-o" fixedWidth/>
-                            </InputGroup.Addon>
-                            <FormControl
-                              name="message"
-                              componentClass="textarea"
-                              className="input-textfield"
-                              placeholder="Каким бы Вы хотели видеть ваш дом?"
-                              onFocus={this.handleFocus.bind(this)}
-                              onBlur={this.handleBlur.bind(this)}
-                              onChange={this.updateFormState.bind(this)}
-                            />
-                          </InputGroup>
-                          {this.state.errors.message &&
-                          <p className="form-error">{this.state.errors.message}</p>
-                          }
-                        </FormGroup>
-                        <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green"
-                                block>Отправить</Button>
+                        </Button>
                       </form>}
                     </div>
                   </Col>
