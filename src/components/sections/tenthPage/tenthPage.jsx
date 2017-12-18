@@ -61,7 +61,6 @@ class TenthPage extends React.Component {
         }
         if (response.data.sent) {
           ReactGA.event({category: 'Price', action: "Submitted Form 'Предварительная стоимость строительства'", label: 'Price Page'});
-          this.setState({sending: false});
           setTimeout(() => {
             this.toggleFormSubmission()
           }, 800);
@@ -100,7 +99,7 @@ class TenthPage extends React.Component {
   }
 
   toggleFormSubmission() {
-    this.setState({submitForm: !this.state.submitForm})
+    this.setState({submitForm: !this.state.submitForm, sending: false})
   }
 
   finishFormSubmission() {

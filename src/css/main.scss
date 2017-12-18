@@ -41,6 +41,11 @@ p.p-highlight {
   padding-left: 10px;
 }
 
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+  background-color: transparent;
+  opacity: 0.6;
+}
+
 .form-light input:-webkit-autofill,
 .form-light input:-webkit-autofill:hover,
 .form-light input:-webkit-autofill:focus,
