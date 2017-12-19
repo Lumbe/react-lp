@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter} from 'react-router-dom'
+import './components/common/customBootstrapStyles'
 import 'font-awesome/css/font-awesome.css';
 import './css/main.css'
 import Routes from './routes'

@@ -2,7 +2,7 @@ import React from 'react'
 import {setBackgroundImage, removeBackgroundImage} from "../common/main";
 import backgroundImage from './catalog-header.jpg'
 import './projectIndex.css'
-import {Grid, Row, Col, Image, Clearfix, Button, FormGroup, FormControl, InputGroup, Pagination} from 'react-bootstrap'
+import {Grid, Row, Col, Image, Clearfix, Button, FormGroup, FormControl, InputGroup, Pagination, Fade} from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import IconTooltip from '../common/iconTooltip'
 import Page from '../layout/page'
@@ -140,95 +140,104 @@ class ProjectIndex extends React.Component {
                     <Col md={3} mdPush={9}>
                       <Filter loadProjects={this.loadFilteredProjects.bind(this)}/>
                     </Col>
-                    <Col md={9} mdPull={3} id="projects-list"> {/* change to md={9} mdPull={3}*/}
-                      {projects.map((project, index) => {
-                        return <Col md={6} sm={6} xs={12} key={index}>
-                          <div className="project-item">
-                            <Link to={"/projects/" + project.slug}>
-                              <Image src={project.model.medium} responsive/>
-                            </Link>
-                            <div className="project-options">
-                              <Col md={4} xs={4}>
-                                <div className={project.mansard ? "option-item" : 'option-item inactive'}>
-                                  {!project.mansard && <IconTooltip
-                                    id="info-tooltip"
-                                    tooltip="В этот проект можно добавить мансарду"
-                                  >
-                                    <div className="info">
-                                      <FontAwesome name="info"/>
+                    <Col md={9} mdPull={3} id="projects-list">
+                      {this.props.isFetching ?
+                        <div className="text-center">
+                          <FontAwesome name="spinner" size="2x" spin style={{marginTop: "30px"}}/>
+                        </div>
+                        : null}
+                      {
+                          projects.map((project, index) => {
+                          return <Fade in={!this.props.isFetching} transitionAppear={true} key={index}>
+                            <Col md={6} sm={6} xs={12}>
+                              <div className="project-item">
+                                <Link to={"/projects/" + project.slug}>
+                                  <Image src={project.model.medium} responsive/>
+                                </Link>
+                                <div className="project-options">
+                                  <Col md={4} xs={4}>
+                                    <div className={project.mansard ? "option-item" : 'option-item inactive'}>
+                                      {!project.mansard && <IconTooltip
+                                        id="info-tooltip"
+                                        tooltip="В этот проект можно добавить мансарду"
+                                      >
+                                        <div className="info">
+                                          <FontAwesome name="info"/>
+                                        </div>
+                                      </IconTooltip>}
+                                      <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="27" height="20" viewBox="0 0 27 20">
+                                        {project.mansard ?
+                                          <image width="27" height="20" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAANCAMAAABvheXhAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABOFBMVEUAAAAqdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4AAACjJ8ixAAAAZnRSTlMAH/StuSAk4ZLf9UX6Jm7oDm3pNQXWiRXvYGFy5Q2ayAFCm1v9PhfyMvw2HEc04sdcocO/nae8iNcbOS9qE/srNzsCzJYD0JEPt64E045m7BJo6hDSUEB+yhYR7So/8JXcItu9uxjKJPoKAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB+EKEwslHOl34R4AAAD1SURBVBjTY2AAA0amNARgYmRABswsrGzsHKwgwMbJxYwsxc3Dy8DHLwBmCwoJ83AjpERExRjEJSTBbHEJKVYxURG4nLSMLIOcvAKDItAiJXllFVUZaZiUmroyg4amFoM2lw6DrqaqjJ6+gboaVM7QSIHB2ISBwdSMQUFeydzCUkLSyBAiZaVpzcBgY8ugamfPICnhAHQIn5CjphVIysnZBazE1c2dwUNI0NOLgcHbx9fF2Qko5ucfAJYLDApm8A0JTZMMCwsLt7OKiGRgiPIPBEsFRPsxxNjFusdBAB9ILD4hERwcckmJrMkprEgglSEuDRdQBwAXFy7PQewj+QAAAABJRU5ErkJggg=="/>
+                                          :
+                                          <image width="27" height="20" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAANCAQAAADyUt1YAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfhCw0KEio6rreYAAABcUlEQVQoz5WST0iTARjGf59OCARH5RD6AvVghB4CsckIZgU68di1DgopIWzdhfAyAw2FSI8iXrp07hCdOoQwiPCQoBCU8YMWxWQixhyjgzC/1Tr4vKf3z/M+Dy9vQAR284l2muGIgfDrWdrS0FzhPb30sc8LeuvRxxcCVmgOR614Dcz53Y5IPWvRm1YcbUZqc8dFMGHJyUg9Yckpe1x0x7Z/TWaJkwcW2GUTvGs3AE/ZpcJnXhMn+7dWl2Xvg4NWTYJXPTIDDlk1re675QPLdjWqLbHNS2CZzbAAPGMrfGPAKhtMUCbFdWJssxTVSln1BoCzXgbTnjgATlpy+PQY5ix6y6opgABsoUAhnK0vaeUD78LHxtkjzwTH4T0wxkfecoEkybAWAx7Sw1hEfJorzAPzFPnGOFPeBuAVT0gzRCc/8KI/fRQxfMlfzoD9njjicw8aInc6FbhGhjFqdd4cd8hQY50a0//5jN+BB8Q5Lw7/ACMlrpx4+Y0iAAAAAElFTkSuQmCC"/>
+                                        }
+                                      </svg>
+                                      <br/>
+                                      {project.mansard ? 'с мансардой' : 'без мансарды'}
                                     </div>
-                                  </IconTooltip>}
-                                  <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="27" height="20" viewBox="0 0 27 20">
-                                    {project.mansard ?
-                                      <image width="27" height="20" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAANCAMAAABvheXhAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABOFBMVEUAAAAqdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4AAACjJ8ixAAAAZnRSTlMAH/StuSAk4ZLf9UX6Jm7oDm3pNQXWiRXvYGFy5Q2ayAFCm1v9PhfyMvw2HEc04sdcocO/nae8iNcbOS9qE/srNzsCzJYD0JEPt64E045m7BJo6hDSUEB+yhYR7So/8JXcItu9uxjKJPoKAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB+EKEwslHOl34R4AAAD1SURBVBjTY2AAA0amNARgYmRABswsrGzsHKwgwMbJxYwsxc3Dy8DHLwBmCwoJ83AjpERExRjEJSTBbHEJKVYxURG4nLSMLIOcvAKDItAiJXllFVUZaZiUmroyg4amFoM2lw6DrqaqjJ6+gboaVM7QSIHB2ISBwdSMQUFeydzCUkLSyBAiZaVpzcBgY8ugamfPICnhAHQIn5CjphVIysnZBazE1c2dwUNI0NOLgcHbx9fF2Qko5ucfAJYLDApm8A0JTZMMCwsLt7OKiGRgiPIPBEsFRPsxxNjFusdBAB9ILD4hERwcckmJrMkprEgglSEuDRdQBwAXFy7PQewj+QAAAABJRU5ErkJggg=="/>
-                                      :
-                                      <image width="27" height="20" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAANCAQAAADyUt1YAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfhCw0KEio6rreYAAABcUlEQVQoz5WST0iTARjGf59OCARH5RD6AvVghB4CsckIZgU68di1DgopIWzdhfAyAw2FSI8iXrp07hCdOoQwiPCQoBCU8YMWxWQixhyjgzC/1Tr4vKf3z/M+Dy9vQAR284l2muGIgfDrWdrS0FzhPb30sc8LeuvRxxcCVmgOR614Dcz53Y5IPWvRm1YcbUZqc8dFMGHJyUg9Yckpe1x0x7Z/TWaJkwcW2GUTvGs3AE/ZpcJnXhMn+7dWl2Xvg4NWTYJXPTIDDlk1re675QPLdjWqLbHNS2CZzbAAPGMrfGPAKhtMUCbFdWJssxTVSln1BoCzXgbTnjgATlpy+PQY5ix6y6opgABsoUAhnK0vaeUD78LHxtkjzwTH4T0wxkfecoEkybAWAx7Sw1hEfJorzAPzFPnGOFPeBuAVT0gzRCc/8KI/fRQxfMlfzoD9njjicw8aInc6FbhGhjFqdd4cd8hQY50a0//5jN+BB8Q5Lw7/ACMlrpx4+Y0iAAAAAElFTkSuQmCC"/>
-                                    }
-                                  </svg>
-                                  <br/>
-                                  {project.mansard ? 'с мансардой' : 'без мансарды'}
-                                </div>
-                              </Col>
-                              <Col md={4} xs={4}>
-                                <div className={project.terrace ? "option-item" : 'option-item inactive'}>
-                                  {!project.terrace && <IconTooltip
-                                    id="info-tooltip"
-                                    tooltip="В этот проект можно добавить террасу"
-                                  >
-                                    <div className="info">
-                                      <FontAwesome name="info"/>
+                                  </Col>
+                                  <Col md={4} xs={4}>
+                                    <div className={project.terrace ? "option-item" : 'option-item inactive'}>
+                                      {!project.terrace && <IconTooltip
+                                        id="info-tooltip"
+                                        tooltip="В этот проект можно добавить террасу"
+                                      >
+                                        <div className="info">
+                                          <FontAwesome name="info"/>
+                                        </div>
+                                      </IconTooltip>}
+                                      <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="18" height="20" viewBox="0 0 18 20">
+                                        {project.terrace ?
+                                          <image width="18" height="20" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAUCAMAAAC3SZ14AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA2FBMVEUAAAAqdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4AAABDV7s9AAAARnRSTlMANMzcRw6S/cOuqhlV5u1iAUvg8m0DIragFAqH+801BXn21z8qlA+z9PDx4jxgxNhNwJ2+dhUrOVCKqSUzybCsQCA6EiyJN7uMOgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfhChMLJg4x48OVAAAAtElEQVQY023O1w6CQBAF0LGCvevauyJ2AUVUuvP/nySbpYjxvszNyW5mAFgSyVQavpPJcnwO84VIiqVypQq1eqPZYtDuIOnS0usPhiNvjifT2Tx4vuC55QrWiMImjIi4hd2e5XD0yylcQc7wmz90kcIqK2xeb2wqMqAaf60ipXt0hObTIzri6VNsI6WXruuaQknRvPrySCLEQJOSiQYhEvtoBWQFG39JtAEcwYW3Bq7gANjiByl9I9+uMk7qAAAAAElFTkSuQmCC"/>
+                                          :
+                                          <image width="18" height="20" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAUCAQAAAAqnqXBAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfhCw0KEym6vNdjAAABMklEQVQoz42QMUsDQRSEv4sR0SI2SRGuEbHyWi0EQa0stAiIsRURK+0kkF+gWIZ0NqmtBEG0E6wEbRS0iEVARjAmcBycIl6MxZ0hmwuSaXZndnZ29oEBzehWz1o21USXIaUSN3xyz4VOlCUOretVTW3JAq2oJk97Guo2TOpcbVWU7ihjOtC37jQb0mEV9aEnLcSyp3Wtlsoat3TGKuAT9OlgkQJeLM0zZRxsk+bQUJrxD1R01aslGABxU4ufeHxBGYM7mjN4RgXUVu6/p5RTOxltj9jp47i0NwAiE8c89hnBQ7hEJrtKNcpcJLArZmASKGoTgC927fe/upQZASAbjsDHxSUgj9O57JAnwMXFD5NK9ilogrWe2vt2DZRjaaCJJ/GoA+Dh0wDeGAUa+HgA1PF+AQGAe7llGeNDAAAAAElFTkSuQmCC"/>
+                                        }
+                                      </svg>
+                                      <br/>
+                                      {project.terrace ? 'с террасой' : 'без террасы'}
                                     </div>
-                                  </IconTooltip>}
-                                  <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="18" height="20" viewBox="0 0 18 20">
-                                    {project.terrace ?
-                                      <image width="18" height="20" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAUCAMAAAC3SZ14AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA2FBMVEUAAAAqdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4AAABDV7s9AAAARnRSTlMANMzcRw6S/cOuqhlV5u1iAUvg8m0DIragFAqH+801BXn21z8qlA+z9PDx4jxgxNhNwJ2+dhUrOVCKqSUzybCsQCA6EiyJN7uMOgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfhChMLJg4x48OVAAAAtElEQVQY023O1w6CQBAF0LGCvevauyJ2AUVUuvP/nySbpYjxvszNyW5mAFgSyVQavpPJcnwO84VIiqVypQq1eqPZYtDuIOnS0usPhiNvjifT2Tx4vuC55QrWiMImjIi4hd2e5XD0yylcQc7wmz90kcIqK2xeb2wqMqAaf60ipXt0hObTIzri6VNsI6WXruuaQknRvPrySCLEQJOSiQYhEvtoBWQFG39JtAEcwYW3Bq7gANjiByl9I9+uMk7qAAAAAElFTkSuQmCC"/>
-                                      :
-                                      <image width="18" height="20" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAUCAQAAAAqnqXBAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfhCw0KEym6vNdjAAABMklEQVQoz42QMUsDQRSEv4sR0SI2SRGuEbHyWi0EQa0stAiIsRURK+0kkF+gWIZ0NqmtBEG0E6wEbRS0iEVARjAmcBycIl6MxZ0hmwuSaXZndnZ29oEBzehWz1o21USXIaUSN3xyz4VOlCUOretVTW3JAq2oJk97Guo2TOpcbVWU7ihjOtC37jQb0mEV9aEnLcSyp3Wtlsoat3TGKuAT9OlgkQJeLM0zZRxsk+bQUJrxD1R01aslGABxU4ufeHxBGYM7mjN4RgXUVu6/p5RTOxltj9jp47i0NwAiE8c89hnBQ7hEJrtKNcpcJLArZmASKGoTgC927fe/upQZASAbjsDHxSUgj9O57JAnwMXFD5NK9ilogrWe2vt2DZRjaaCJJ/GoA+Dh0wDeGAUa+HgA1PF+AQGAe7llGeNDAAAAAElFTkSuQmCC"/>
-                                    }
-                                  </svg>
-                                  <br/>
-                                  {project.terrace ? 'с террасой' : 'без террасы'}
-                                </div>
-                              </Col>
-                              <Col md={4} xs={4}>
-                                <div className={project.garage ? "option-item" : 'option-item inactive'}>
-                                  {!project.garage && <IconTooltip
-                                    id="info-tooltip"
-                                    tooltip="В этот проект можно добавить гараж"
-                                  >
-                                    <div className="info">
-                                      <FontAwesome name="info"/>
+                                  </Col>
+                                  <Col md={4} xs={4}>
+                                    <div className={project.garage ? "option-item" : 'option-item inactive'}>
+                                      {!project.garage && <IconTooltip
+                                        id="info-tooltip"
+                                        tooltip="В этот проект можно добавить гараж"
+                                      >
+                                        <div className="info">
+                                          <FontAwesome name="info"/>
+                                        </div>
+                                      </IconTooltip>}
+                                      <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="19" height="20" viewBox="0 0 19 20">
+                                        {project.garage ?
+                                          <image width="19" height="20" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAARCAMAAAAIRmf1AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAt1BMVEUAAAAqdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4AAACbAq7tAAAAO3RSTlMAIKz0zMOgzhmloxpSZmHi9aQPZVaKKzzqxqIqjx7L+UJAb9Pz+M+D99RwIyWJjQs+PQrv5uXwW5BsDq0QaqIAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAAB3RJTUUH4QoTCyY1gOgqsQAAAKVJREFUGNNlkMcSglAMRQPIU+xiLyhgoYOKAnr//7+kPBbgWaScyWQyISISRAkVkihQRQcyq5DRrVQPCtX0MSjzEKMijSfTmTrHonRLrPK4xmaL3R6HQmnHk24YhgLTOF/0600jstDGIttxmzg2gVEThsJ5rs973/W4CxByFyLgLrpH3EWPJ3d/++IXa/JOKI1b5yVpMZ2h/pCAjFefROXVNzbz+ANpIBx9D5r/mQAAAABJRU5ErkJggg=="/>
+                                          :
+                                          <image width="19" height="20" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAARCAQAAACVkV9MAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfhCw0KFASwIh3RAAABGUlEQVQoz4WRr0sDYRzGPzcWhAUtInowDo/9A1oUFjQIVjEuCToGlgWjGPzRhA1mFDlQm8EiiM25RcO6Qxk81blwDC2v4e6me4XzSc/7/X54+D68DgDI45R1cvxWyD177htANh7dsEiL7hjms8k8C6O3ZmV0zR/pUkZzABkAloHH0XJLPYW60iRNoPiDLQHtGCpywQQdSjRoxxFkQXlW+WJG0wDsACd0aLBBwCcryrs9R0fs85+OHQ3pcp4KbeMjoyA9SoFMJra+qipY64Kq8iMfY5SpUbFiKtQoRzb5hUPueLawA26TWYy5IU37JjfkKfGO+gx5SO2wRs5RiTOmUrEBu0mruow8q6kno/p40xcG9K2Udz54jew3dIldcdY1y5YAAAAASUVORK5CYII="/>
+                                        }
+                                      </svg>
+                                      <br/>
+                                      {project.garage ? 'с гаражом' : 'без гаража'}
                                     </div>
-                                  </IconTooltip>}
-                                  <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="19" height="20" viewBox="0 0 19 20">
-                                    {project.garage ?
-                                      <image width="19" height="20" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAARCAMAAAAIRmf1AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAt1BMVEUAAAAqdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4qdh4AAACbAq7tAAAAO3RSTlMAIKz0zMOgzhmloxpSZmHi9aQPZVaKKzzqxqIqjx7L+UJAb9Pz+M+D99RwIyWJjQs+PQrv5uXwW5BsDq0QaqIAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAAB3RJTUUH4QoTCyY1gOgqsQAAAKVJREFUGNNlkMcSglAMRQPIU+xiLyhgoYOKAnr//7+kPBbgWaScyWQyISISRAkVkihQRQcyq5DRrVQPCtX0MSjzEKMijSfTmTrHonRLrPK4xmaL3R6HQmnHk24YhgLTOF/0600jstDGIttxmzg2gVEThsJ5rs973/W4CxByFyLgLrpH3EWPJ3d/++IXa/JOKI1b5yVpMZ2h/pCAjFefROXVNzbz+ANpIBx9D5r/mQAAAABJRU5ErkJggg=="/>
-                                      :
-                                      <image width="19" height="20" xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAARCAQAAACVkV9MAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfhCw0KFASwIh3RAAABGUlEQVQoz4WRr0sDYRzGPzcWhAUtInowDo/9A1oUFjQIVjEuCToGlgWjGPzRhA1mFDlQm8EiiM25RcO6Qxk81blwDC2v4e6me4XzSc/7/X54+D68DgDI45R1cvxWyD177htANh7dsEiL7hjms8k8C6O3ZmV0zR/pUkZzABkAloHH0XJLPYW60iRNoPiDLQHtGCpywQQdSjRoxxFkQXlW+WJG0wDsACd0aLBBwCcryrs9R0fs85+OHQ3pcp4KbeMjoyA9SoFMJra+qipY64Kq8iMfY5SpUbFiKtQoRzb5hUPueLawA26TWYy5IU37JjfkKfGO+gx5SO2wRs5RiTOmUrEBu0mruow8q6kno/p40xcG9K2Udz54jew3dIldcdY1y5YAAAAASUVORK5CYII="/>
-                                    }
-                                  </svg>
-                                  <br/>
-                                  {project.garage ? 'с гаражом' : 'без гаража'}
+                                  </Col>
+                                  <Clearfix/>
                                 </div>
-                              </Col>
-                              <Clearfix/>
-                            </div>
-                            <h3>Проект "{project.title}"</h3>
-                            <div className="item-footer">
-                              <Col md={6}  className="area-wrapper">
-                                <div className="area"><span className="text-highlight">{project.area} <span className="units">кв.м.</span></span></div>
-                                <small className="area-description">площадь объекта</small>
-                              </Col>
-                              <Col md={6} className="btn-wrapper">
-                                <Link to={"/projects/" + project.slug}><Button bsStyle="grey">Подробнее</Button></Link>
-                              </Col>
-                              <Clearfix/>
-                            </div>
-                          </div>
-                        </Col>
-                      })}
+                                <h3>Проект "{project.title}"</h3>
+                                <div className="item-footer">
+                                  <Col md={6}  className="area-wrapper">
+                                    <div className="area"><span className="text-highlight">{project.area} <span className="units">кв.м.</span></span></div>
+                                    <small className="area-description">площадь объекта</small>
+                                  </Col>
+                                  <Col md={6} className="btn-wrapper">
+                                    <Link to={"/projects/" + project.slug}><Button bsStyle="grey">Подробнее</Button></Link>
+                                  </Col>
+                                  <Clearfix/>
+                                </div>
+                              </div>
+                            </Col>
+                        </Fade>
+                        })
+                      }
                       <Clearfix/>
-                      {(projects.length > 0) && <div className="text-center">
+                      {(projects.length > 0 && !this.props.isFetching) && <div className="text-center">
                         <Pagination
                           prev
                           next
@@ -239,7 +248,7 @@ class ProjectIndex extends React.Component {
                           activePage={meta.current_page}
                           onSelect={this.loadPage.bind(this)}/>
                       </div>}
-                      {(projects.length === 0) && <div>Проекты не найдены, измените параметры поиска</div>}
+                      {(projects.length === 0 && !this.props.isFetching) && <div>Проекты не найдены, измените параметры поиска</div>}
                     </Col>
                   </Row>
                 </div>

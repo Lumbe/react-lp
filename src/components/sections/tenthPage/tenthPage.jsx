@@ -151,7 +151,7 @@ class TenthPage extends React.Component {
                       {/*<FontAwesome name="angle-right"/>*/}
                     {/*</Button>*/}
                   {/*</Link>*/}
-                  <Tabs defaultActiveKey={1}>
+                  <Tabs defaultActiveKey={1} id="price-tabs">
                     <Tab eventKey={1} title="Одноэтажные дома">
                       <Table className="pricing" responsive>
                         <thead>

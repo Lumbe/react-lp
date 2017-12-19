@@ -71,8 +71,8 @@ class FirstPage extends React.Component {
                   <LinkContainer className="btn-simple" to="/house-projects">
                     <NavItem eventKey={0.3}>Проекты домов</NavItem>
                   </LinkContainer>
-                  <Link to="/own-project" className="own-project">Уже есть проект дома?</Link>
                 </Nav>
+                <Link to="/own-project" className="own-project">Уже есть проект дома?</Link>
               </div>
             </Col>
           </Grid>

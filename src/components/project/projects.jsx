@@ -13,16 +13,19 @@ class Projects extends React.Component {
     return {
       animateIn: true,
       projects: [],
-      meta: {}
+      meta: {},
+      isFetching: false
     }
   }
 
   loadProjects(params) {
+    this.setState({isFetching: true});
     ProjectApi.getAll(params).then(
       (response) => {
-        this.setState({projects: response.data.projects, meta: response.data.meta})
+        this.setState({projects: response.data.projects, meta: response.data.meta, isFetching: false})
       },
       (error) => {
+        this.setState({isFetching: false});
         console.log('error: ', error)
       }
     )
@@ -31,21 +34,11 @@ class Projects extends React.Component {
   componentWillMount() {
     this.loadProjects()
   }
-  //   ProjectApi.getAll().then(
-  //     (response) => {
-  //       this.setState({projects: response.data.projects, meta: response.data.meta})
-  //     },
-  //     (error) => {
-  //       console.log('error: ', error)
-  //     }
-  //   )
-  // }
-
 
   render() {
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
-        <ProjectIndex meta={this.state.meta} projects={this.state.projects} load={this.loadProjects.bind(this)}/>
+        <ProjectIndex isFetching={this.state.isFetching} meta={this.state.meta} projects={this.state.projects} load={this.loadProjects.bind(this)}/>
       </FadeTransition>
     )
   }

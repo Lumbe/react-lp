@@ -46,7 +46,7 @@ class EighthPage extends React.Component {
     </Button>;
     var projects = [];
     for (var i = 0; i<5;i++) {
-      projects.push(<ProjectDescription header={header} footer={footer} projectImage={projectImage}/>);
+      projects.push(<ProjectDescription key={i} header={header} footer={footer} projectImage={projectImage}/>);
     }
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">

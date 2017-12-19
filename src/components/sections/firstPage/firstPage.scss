@@ -212,6 +212,10 @@
   .heading-buttons .nav-justified > li {
     padding: 3% 4%;
   }
+
+  .heading-buttons a.own-project {
+    margin-right: 4%;
+  }
 }
 
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
@@ -236,6 +240,7 @@
     width: 85%;
     margin: 15% auto 0;
   }
+
 }
 
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
