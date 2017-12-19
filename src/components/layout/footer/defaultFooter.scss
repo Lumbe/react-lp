@@ -4,11 +4,15 @@
 
 // up to 767px width
 @media (max-width: $screen-xs-max) {
-
+  footer.default-footer .callback-button {
+    right: 0;
+  }
 }
 // width 768px to 991px
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-
+  footer.default-footer .callback-button {
+    right: 0;
+  }
 }
 
 // width 992px to 1199px

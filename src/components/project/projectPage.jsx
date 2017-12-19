@@ -78,7 +78,7 @@ class ProjectPage extends React.Component {
         imagesUrls.push({original: photo.original, thumbnail: photo.thumb})
       })
     }
-    const formTitle = <span><span className="text-highlight">Рассчитать стоимость</span> строительства
+    const formTitle = <span><span className="text-highlight">Узнайте стоимость</span> строительства
       дома по проекту "{project.title}" {project.area}кв.м.</span>;
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
@@ -89,19 +89,7 @@ class ProjectPage extends React.Component {
               <div className="menu-divider"/>
               <h1>Проект "{project.title}"</h1>
               <Row>
-                <Col md={3} mdPush={9}>
-                  {this.state.submitForm ?
-                    <SuccessMessage closeModal={this.finishFormSubmission.bind(this)}/>
-                    :
-                    <LightForm
-                      title={formTitle}
-                      projectTitle={project.title}
-                      projectArea={project.area}
-                      toggleFormSubmission={this.toggleFormSubmission.bind(this)}
-                    />
-                  }
-                </Col>
-                <Col md={9} mdPull={3}>
+                <Col md={9}>
                   <Row>
                     <Col md={12}>
                       <div className="card">
@@ -216,6 +204,18 @@ class ProjectPage extends React.Component {
                       </Media.Body></Col>
                     </Media>
                   </div>
+                </Col>
+                <Col md={3}>
+                  {this.state.submitForm ?
+                    <SuccessMessage closeModal={this.finishFormSubmission.bind(this)}/>
+                    :
+                    <LightForm
+                      title={formTitle}
+                      projectTitle={project.title}
+                      projectArea={project.area}
+                      toggleFormSubmission={this.toggleFormSubmission.bind(this)}
+                    />
+                  }
                 </Col>
                 {/*<Col md={12}>*/}
                   {/*similar projects similar projectssimilar projectssimilar projectssimilar projectssimilar projectssimilar projectssimilar projectssimilar projectssimilar projects*/}
