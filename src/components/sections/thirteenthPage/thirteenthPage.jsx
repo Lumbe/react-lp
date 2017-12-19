@@ -206,7 +206,6 @@ class ThirteenthPage extends React.Component {
                 title="Задайте вопрос"
               >
                 {this.state.submitForm ?
-
                   <SuccessMessage closeModal={this.closeModal.bind(this)}/>
                 :
                   <AskForm toggleFormSubmission={this.toggleFormSubmission.bind(this)}/>

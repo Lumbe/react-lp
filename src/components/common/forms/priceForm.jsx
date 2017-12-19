@@ -30,7 +30,8 @@ class PriceForm extends React.Component {
         email: null,
         phone: null,
       },
-      animateIn: true
+      animateIn: true,
+      sending: false
     }
   }
 
@@ -47,24 +48,31 @@ class PriceForm extends React.Component {
 
   submitForm(event) {
     (event).preventDefault();
+    this.setState({sending: true});
     GetPriceFormApi.create(this.state.form).then(
       (response) => {
         if (response.data.errors) {
           gaException(response.data.errors);
-          return this.setState({errors: response.data.errors})
+          return this.setState({errors: response.data.errors, sending: false})
         }
         if (response.data.sent) {
           ReactGA.event({category: 'Price', action: "Submitted Form 'Предварительная стоимость дома Сервус'"});
           this.setState({animateIn: false});
           setTimeout(() => {
-            this.props.toggleFormSubmission()
+            this.finishFormSubmission()
           }, 800);
         }
       },
       (error) => {
-        console.log('error: ', error)
+        this.setState({sending: false});
+        console.log('error: ', error);
       }
     )
+  }
+
+  finishFormSubmission() {
+    this.setState({sending: false});
+    this.props.toggleFormSubmission();
   }
 
   handleFocus(e) {
@@ -86,7 +94,7 @@ class PriceForm extends React.Component {
       <TransitionGroup>
         <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
           <form className="price-form form-light">
-            <FormGroup>
+            <fieldset disabled={this.state.sending}><FormGroup>
               <Row>
                 <p className="text-left p-line">Этажность</p>
                 <Col md={6} sm={12} xs={12}>
@@ -195,8 +203,20 @@ class PriceForm extends React.Component {
               {this.state.errors.email &&
               <p className="form-error">{this.state.errors.email}</p>
               }
-            </FormGroup>
-            <Button onClick={this.submitForm.bind(this)} bsSize="large" bsStyle="green" block>Узнать стоимость</Button>
+            </FormGroup></fieldset>
+            <Button
+              onClick={this.submitForm.bind(this)}
+              bsSize="large"
+              bsStyle="green"
+              block
+              disabled={this.state.sending}
+            >
+              {this.state.sending ?
+                <span>Отправляем <FontAwesome name="spinner" spin/></span>
+                :
+                'Узнать стоимость'
+              }
+            </Button>
           </form>
         </FadeTransition>
       </TransitionGroup>
