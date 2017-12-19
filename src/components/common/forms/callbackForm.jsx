@@ -48,9 +48,9 @@ class CallbackForm extends React.Component {
         }
         if (response.data.sent) {
           ReactGA.event({category: 'Callback', action: "Submitted Form 'Получить консультацию'"});
-          this.setState({animateIn: false, sending: false});
+          this.setState({animateIn: false});
           setTimeout(() => {
-            this.props.toggleFormSubmission()
+            this.finishFormSubmission()
           }, 800);
         }
       },
@@ -59,6 +59,11 @@ class CallbackForm extends React.Component {
         console.log('error: ', error)
       }
     )
+  }
+
+  finishFormSubmission() {
+    this.setState({sending: false});
+    this.props.toggleFormSubmission();
   }
 
   handleFocus(e) {
