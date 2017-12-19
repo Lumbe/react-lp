@@ -129,17 +129,16 @@ class Filter extends React.Component {
             <FormGroup controlId="areaInput">
               <ControlLabel>Общая площадь</ControlLabel>
               <Row>
-                <Col md={6}>
+                <Col md={6} sm={6} xs={6}>
                   <FormControl
                     name="minArea"
                     type="number"
                     value={this.state.minArea}
                     onChange={this.onMinAreaChange.bind(this)}
                     onFocus={this.handleFocus.bind(this)}
-                    // onBlur={this.updateFilterState.bind(this)}
                   />
                 </Col>
-                <Col md={6}>
+                <Col md={6} sm={6} xs={6}>
                   <FormControl
                     name="maxArea"
                     type="number"
@@ -167,7 +166,7 @@ class Filter extends React.Component {
               <ControlLabel>Этажность</ControlLabel>
               <br/>
               <Row className="floors-radios">
-                <Col md={6}>
+                <Col md={6} sm={6} xs={6}>
                   <Radio
                     name="floors"
                     value={1}
@@ -178,7 +177,7 @@ class Filter extends React.Component {
                   </Radio>
                 </Col>
               {' '}
-                <Col md={6}>
+                <Col md={6} sm={6} xs={6}>
                   <Radio
                     name="floors"
                     value={2}
@@ -296,7 +295,8 @@ class Filter extends React.Component {
                 с гаражом
               </Checkbox>
             </FormGroup>
-            <Button bsStyle="green" onClick={this.resetFilter.bind(this)}>Сбросить все фильтры</Button></form>
+            <br/>
+            <Button bsStyle="green" block onClick={this.resetFilter.bind(this)}>Сбросить все фильтры</Button></form>
           </Col>
         </Row>
       </div>

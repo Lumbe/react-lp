@@ -118,11 +118,12 @@
 }
 
 #filter-projects .floor-radio-btn label {
-  padding-left: 0;
+  display: block;
 }
 
 #filter-projects .floor-radio-btn .floor-text {
-  padding: 10px 35px;
+  padding: 10px 0;
+  text-align: center;
   background-color: #f7f7f7;
   border: 1px solid #dedede;
   border-radius: 30px;

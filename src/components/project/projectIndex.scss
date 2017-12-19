@@ -306,6 +306,10 @@
     text-align: center;
     margin-bottom:10px;
   }
+
+  .project-index .item-list {
+    margin-top: 50px;
+  }
 }
 // width 768px to 991px
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
@@ -325,6 +329,10 @@
   .project-index .project-item .btn-wrapper {
     text-align: center;
     margin-bottom:10px;
+  }
+
+  .project-index .item-list {
+    margin-top: 100px;
   }
 }
 
