@@ -34,7 +34,7 @@ class Routes extends React.Component {
     return (
       <TransitionGroup>
         <Switch>
-	  <ProjectLayout exact path="/new-year-action" inverse={false} component={AsyncNewYearAction}/>
+          <ProjectLayout exact path="/new-year-action" inverse={false} component={AsyncNewYearAction}/>
           <LandingLayout exact path="/" inverse={true} component={AsyncFirstPage}/>
           <LandingLayout exact path="/about" inverse={false} component={AsyncSecondPage}/>
           <LandingLayout exact path="/commercial-buildings" inverse={false} component={AsyncThirdPage}/>
