@@ -60,7 +60,7 @@ class ProjectIndex extends React.Component {
           return this.setState({errors: response.data.errors, sending: false})
         }
         if (response.data.sent) {
-          ReactGA.event({category: 'Catalogue', action: "Submitted Form 'Консультация по индивидуальному проектированию'"});
+          ReactGA.event({category: 'Catalogue', action: "submitFormConsultation"});
           this.setState({animateIn: false});
           setTimeout(() => {
             this.toggleFormSubmission()

@@ -56,7 +56,7 @@ class AskForm extends React.Component {
           return this.setState({errors: response.data.errors, sending: false})
         }
         if (response.data.sent) {
-          ReactGA.event({category: 'Questions', action: "Submitted Form 'Задайте вопрос'", label: 'Contacts Page'});
+          ReactGA.event({category: 'Questions', action: "submitForm", label: 'Contacts Page'});
           this.setState({animateIn: false});
           setTimeout(() => {
             this.finishFormSubmission()
