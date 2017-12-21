@@ -39,8 +39,8 @@
 
 .eighth-section .project-item .project-description{
   position: absolute;
-  width: 65%;
-  bottom: 0;
+  width: 75%;
+  bottom: 10%;
   left: 0;
 }
 
@@ -78,24 +78,39 @@
 .eighth-section .project-description .panel-default > .panel-body {
   color: #fff;
   background-color: #6FC75F;
-  margin-bottom: -16px;
-  padding: 5px 30px 15px;
+  margin-bottom: -26px;
+  padding: 5px 0 15px;
 }
 
-.eighth-section .project-description .project-details {
-  position: relative;
-  z-index: 1;
-  margin-left: 15px;
-  margin-right: 15px;
+//.eighth-section .project-description .project-details {
+//  position: relative;
+//  z-index: 1;
+//  margin-left: 15px;
+//  margin-right: 15px;
+//}
+
+//.eighth-section .project-description [class*='col-'] {
+//  padding: 8px 2px 8px 5px;
+//  border-bottom: 1px solid #fff;
+//}
+//
+//.eighth-section .project-description [class*='col-'].icon-caption {
+//  padding: 8px 2px 12px 5px;
+//}
+
+.eighth-section ul.details-list {
+  list-style-type: none;
+  column-count: 2;
+  column-gap: 0;
+  line-height: 1.9;
+  -webkit-padding-start: 15px;
+  -moz-padding-start: 15px;
 }
 
-.eighth-section .project-description [class*='col-'] {
-  padding: 8px 2px 8px 5px;
+.eighth-section ul.details-list li {
+  break-inside: avoid-column;
   border-bottom: 1px solid #fff;
-}
-
-.eighth-section .project-description [class*='col-'].icon-caption {
-  padding: 8px 2px 12px 5px;
+  padding: 5px 0;
 }
 
 
@@ -121,7 +136,7 @@
     margin-top: 10%;
   }
   .eighth-section h1 {
-    font-size: 28px;
+    font-size: 26px;
   }
   .eighth-section .project-item {
     padding-bottom: 355px;
@@ -136,6 +151,12 @@
   }
   .eighth-section .project-description [class*='col-'].icon-caption {
     padding: 8px 2px 12px 15px;
+  }
+  .eighth-section .project-item .project-description {
+    bottom: 1.5%;
+  }
+  .eighth-section ul.details-list {
+    column-count: 1;
   }
 }
 // width 768px to 991px
@@ -183,6 +204,12 @@
   }
   .eighth-section .project-description [class*='col-'].icon-caption {
     padding: 8px 2px 12px 15px;
+  }
+  .eighth-section .project-description .panel-default > .panel-body {
+    display: none;
+  }
+  .eighth-section ul.details-list {
+    column-count: 1;
   }
 }
 // width 1200px to 1439px

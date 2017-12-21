@@ -2,13 +2,11 @@ import React from 'react'
 import {setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDarkColorScheme} from "../../common/main";
 import backgroundImage from './bg-screen8.jpg'
 import './eighthPage.css'
-import './owl.theme.projects.css'
 import {Grid, Row, Col, Button} from 'react-bootstrap'
-import projectImage from './tallin.jpg'
-import OwlCarousel from 'react-owl-carousel'
-import ProjectDescription from './projectDescription'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
+import ProjectApi from '../../../api/projectApi'
+import ProjectsSlider from './projectsSlider'
 
 import {Link} from 'react-router-dom'
 
@@ -22,13 +20,26 @@ class EighthPage extends React.Component {
     return {
       pageId: 8,
       colorScheme: "dark",
-      animateIn: true
+      animateIn: true,
+      projects: []
     }
   }
 
   componentWillMount() {
     setBackgroundImage(backgroundImage);
     setDarkColorScheme();
+  }
+
+  componentDidMount() {
+    ProjectApi.getPopular().then(
+      (response) => {
+        this.setState({projects: response.data.projects})
+      },
+      (error) => {
+        // this.setState({isFetching: false});
+        console.log('error: ', error)
+      }
+    )
   }
 
   componentWillUnmount() {
@@ -38,16 +49,6 @@ class EighthPage extends React.Component {
   }
 
   render() {
-    const iconLeft = "<span class='fa fa-angle-left fa-2x'/>";
-    const iconRight = "<span class='fa fa-angle-right fa-2x'/>";
-    const header = <h3>Проект "Таллинн"</h3>;
-    const footer = <Button bsStyle="link" className="btn-yellow">
-      Узнать стоимость строительства
-    </Button>;
-    var projects = [];
-    for (var i = 0; i<5;i++) {
-      projects.push(<ProjectDescription key={i} header={header} footer={footer} projectImage={projectImage}/>);
-    }
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
@@ -71,18 +72,7 @@ class EighthPage extends React.Component {
                 <Col md={7}>
                   <div className="popular-projects">
                     <div className="projects-label">Популярные проекты</div>
-                    <OwlCarousel
-                      className="owl-theme-projects"
-                      items={1}
-                      margin={20}
-                      loop nav={true}
-                      navText={[iconLeft, iconRight]}
-                      autoplay={true}
-                      autoplayHoverPause={true}
-                      smartSpeed={600}
-                    >
-                      {projects}
-                    </OwlCarousel>
+                    <ProjectsSlider projects={this.state.projects}/>
                   </div>
                 </Col>
               </Row>
