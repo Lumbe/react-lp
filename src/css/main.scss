@@ -23,6 +23,22 @@ body.bg-dark {
   box-shadow: 0 0 10px #4ba03e, 0 0 5px #a5ef9a !important;
 }
 
+.svg-icon {
+  display: inline-flex;
+  align-self: center;
+  position: relative;
+  height: 20px;
+  width: 20px;
+}
+.svg-icon svg {
+  height:20px;
+  width:20px;
+}
+.svg-icon.svg-baseline svg {
+  bottom: -0.125em;
+  position: absolute;
+}
+
 .landing-section {
   position: relative;
 }
