@@ -65,7 +65,7 @@ class TwelfthPage extends React.Component {
           return this.setState({errors: response.data.errors, sending: false})
         }
         if (response.data.sent) {
-          ReactGA.event({category: 'OwnProject', action: "submitForm", label: 'Own Project Page'});
+          ReactGA.event({category: 'OwnProject', action: "submitForm", label: 'Own Project Page', value: 1});
           this.setState({animateInForm: false});
           setTimeout(() => {
             this.toggleFormSubmission()

@@ -91,7 +91,7 @@ class LightFrom extends React.Component {
           return this.setState({errors: response.data.errors, sending: false})
         }
         if (response.data.sent) {
-          ReactGA.event({category: 'HouseProjectPrice', action: "submitForm", label: 'Projects Catalogue'});
+          ReactGA.event({category: 'HouseProjectPrice', action: "submitForm", label: 'Projects Catalogue', value: 1});
           this.setState({animateIn: false});
           setTimeout(() => {
             this.finishFormSubmission()

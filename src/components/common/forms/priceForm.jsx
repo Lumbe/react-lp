@@ -56,7 +56,7 @@ class PriceForm extends React.Component {
           return this.setState({errors: response.data.errors, sending: false})
         }
         if (response.data.sent) {
-          ReactGA.event({category: 'Price', action: "submitFormModal"});
+          ReactGA.event({category: 'Price', action: "submitFormModal", value: 1});
           this.setState({animateIn: false});
           setTimeout(() => {
             this.finishFormSubmission()

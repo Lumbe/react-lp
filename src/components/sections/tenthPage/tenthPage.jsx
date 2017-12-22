@@ -60,7 +60,7 @@ class TenthPage extends React.Component {
           return this.setState({errors: response.data.errors, sending: false})
         }
         if (response.data.sent) {
-          ReactGA.event({category: 'Price', action: "submitForm", label: 'Price Page'});
+          ReactGA.event({category: 'Price', action: "submitForm", label: 'Price Page', value: 1});
           setTimeout(() => {
             this.toggleFormSubmission()
           }, 800);
