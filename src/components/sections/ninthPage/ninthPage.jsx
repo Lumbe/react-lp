@@ -5,8 +5,8 @@ import {Grid, Row, Col} from 'react-bootstrap'
 import backgroundImage from './bg-screen9.jpg'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
+import Helmet from 'react-helmet'
 
 class NinthPage extends React.Component {
   constructor(props) {
@@ -29,6 +29,10 @@ class NinthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
+          <Helmet>
+            <title>Преимущества каркасных домов из СИП-панелей</title>
+            <meta name="description" content="Каркасные дома из СИП-панелей ✭&nbsp;Быстровозводимые ✭&nbsp;Энергосберегающие ✭&nbsp;Сейсмостойкие ✭ Экологичные ✭ Огнеупорные ✭ Можно строить в любой сезон" />
+          </Helmet>
           <Grid>
             <div className="ninth-section vertical-align">
               <h1 className="text-center">Почему стоит выбрать<span className="text-highlight"> <span className="hidden-semimedium hidden-medium"><br/>энергосберегающие</span> дома Сервус</span></h1>

@@ -79,8 +79,22 @@ class LandingLayout extends React.Component {
         <div id="landing-section">
           <Helmet
             defaultTitle="Строительство домов и коттеджей под ключ - Сервус Винница"
-            titleTemplate="%s - cтроительная компания Сервус Винница"
-          />
+            titleTemplate="%s | Сервус Винница"
+          >
+            <script type="application/ld+json">{`
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Organization",
+                    "url": "https://servus.vn.ua",
+                    "name": "Сервус Винница",
+                    "contactPoint": {
+                      "@type": "ContactPoint",
+                      "telephone": "+38(096)888-50-50",
+                      "contactType": "Customer service"
+                    }
+                }
+            `}</script>
+          </Helmet>
           <Header inverse={this.props.inverse}/>
           <StaticFrame/>
           <VerticalMenu/>

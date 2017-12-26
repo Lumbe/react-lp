@@ -15,6 +15,7 @@ import './slick-theme-reviews.css'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import ReactGA from 'react-ga'
+import Helmet from 'react-helmet'
 
 class EleventhPage extends React.Component {
   constructor(props) {
@@ -84,10 +85,14 @@ class EleventhPage extends React.Component {
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
+          <Helmet>
+            <title>Каркасные дома - отзывы владельцев</title>
+            <meta name="description" content="Видео-отзывы о ✺ энергосберегающих каркасных домах из СИП-панелей от владельцев" />
+          </Helmet>
           <Grid>
             <div className="eleventh-section">
-              <h1 className="text-center"><span className="text-highlight"> Отзывы</span> о домах из СИП-панелей</h1>
-              <p className="section-description text-center">Душа моя озарена неземной радостью...</p>
+              <h1 className="text-center"><span className="text-highlight"> Каркасные дома</span> отзывы владельцев</h1>
+              <p className="section-description text-center">Отзывы наших клиентов</p>
               <div className="client-reviews">
                 <Slider {...sliderOpts}>
                   <div className="review-item">

@@ -15,6 +15,7 @@ import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import ReactGA from 'react-ga'
 import gaException from '../../common/analytics/gaException'
 import InputMask from 'react-input-mask'
+import Helmet from 'react-helmet'
 
 class TwelfthPage extends React.Component {
   constructor(props) {
@@ -166,6 +167,10 @@ class TwelfthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
+          <Helmet>
+            <title>Расчет стоимости строительсва дома по проекту</title>
+            <meta name="description" content="Присылайте ваш проект ⟰дома для расчета стоимости строительства по ✹&nbsp;энергосберегающей технологии Сервус" />
+          </Helmet>
           <Grid>
             <div className="twelfth-section">
               <Row>

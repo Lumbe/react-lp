@@ -7,8 +7,8 @@ import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import ProjectApi from '../../../api/projectApi'
 import ProjectsSlider from './projectsSlider'
-
 import {Link} from 'react-router-dom'
+import Helmet from 'react-helmet'
 
 class EighthPage extends React.Component {
   constructor(props) {
@@ -52,6 +52,10 @@ class EighthPage extends React.Component {
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
+          <Helmet>
+            <title>Проекты энергосберегающих домов и коттеджей</title>
+            <meta name="description" content="При строительстве дома первым делом нужно выбрать ⟰проект. Большой выбор оригинальных проектов от наших архитекторов Ꙭ смотрите в каталоге " />
+          </Helmet>
           <Grid>
             <div className="eighth-section">
               <Row className="table-row">

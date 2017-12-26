@@ -10,6 +10,7 @@ import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import ReactGA from 'react-ga'
+import Helmet from 'react-helmet'
 
 class SecondPage extends React.Component {
   constructor(props) {
@@ -61,6 +62,13 @@ class SecondPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
+          <Helmet>
+            <title>О компании</title>
+            <meta
+              name="description"
+              content='Официальное представительство компании Сервус в Виннице и Винницкой области. Строим дома и коттеджи под ключ за 3 месяца'
+            />
+          </Helmet>
           <Grid>
             <div className="second-section">
               <Row>

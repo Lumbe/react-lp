@@ -9,6 +9,7 @@ import {Grid, Row, Col, Image} from 'react-bootstrap'
 import OwlCarousel from 'react-owl-carousel'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
+import Helmet from 'react-helmet'
 
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 
@@ -44,6 +45,10 @@ class FourthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
+          <Helmet>
+            <title>Каркасные дома из СИП-панелей в Виннице по Европейским стандартам</title>
+            <meta name="description" content="Единые стандарты строительства каркасного дома для Винницы и Европейских городов ⚘Соблюдены строгие требования ЕС к энергосберегающим свойствам домов ❂" />
+          </Helmet>
           <Grid>
             <div className="fourth-section"><Row>
               <Col md={6} className="euro-description">

@@ -13,6 +13,7 @@ import GetPriceFormApi from '../../../api/getPriceFormApi'
 import ReactGA from 'react-ga'
 import gaException from '../../common/analytics/gaException'
 import InputMask from 'react-input-mask'
+import Helmet from 'react-helmet'
 
 class TenthPage extends React.Component {
   constructor(props) {
@@ -120,6 +121,10 @@ class TenthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
+          <Helmet>
+            <title>Каркасный дом - цена строительства</title>
+            <meta name="description" content="Стоимость строительства ⟰каркасного дома, включая работы по обустройству фундамента + монтаж каркаса дома специалистами компании Сервус ✪" />
+          </Helmet>
           <Grid>
             <div className="tenth-section">
               <Row>

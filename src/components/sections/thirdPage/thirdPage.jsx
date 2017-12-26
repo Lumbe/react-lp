@@ -12,6 +12,7 @@ import Page from '../../layout/page'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import {Link} from 'react-router-dom'
 import ReactGA from 'react-ga'
+import Helmet from 'react-helmet'
 
 class ThirdPage extends React.Component {
   constructor(props) {
@@ -69,6 +70,13 @@ class ThirdPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
+          <Helmet>
+            <title>Проектирование и строительство коммерческих объектов в Виннице</title>
+            <meta
+              name="description"
+              content='Спроектировано и построено ❶ Ферма ❷ Развлекательный комплекс с гостиницей ❸ Общеобразовательная школа и детский сад ►Видео с объектов'
+            />
+          </Helmet>
           <Grid>
             <div className="third-section">
               <Row>

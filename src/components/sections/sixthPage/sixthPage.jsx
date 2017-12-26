@@ -5,8 +5,8 @@ import './sixthPage.css'
 import {Grid, Row, Col} from 'react-bootstrap'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
-
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
+import Helmet from 'react-helmet'
 
 class SixthPage extends React.Component {
   constructor(props) {
@@ -38,6 +38,10 @@ class SixthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
+          <Helmet>
+            <title>Этапы строительства каркасного дома</title>
+            <meta name="description" content="Этапы строительства ⟰ каркасного дома в Виннице с компанией Сервус - от ✍&nbsp;подписания  договора  до заселения в дом ✔" />
+          </Helmet>
           <Grid>
             <div className="sixth-section">
               <Row className="section-header">

@@ -11,6 +11,7 @@ import Page from '../../layout/page'
 import SuccessMessage from '../../common/forms/successMessage'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import ReactGA from 'react-ga'
+import Helmet from 'react-helmet'
 
 class ThirteenthPage extends React.Component {
   constructor(props) {
@@ -65,6 +66,10 @@ class ThirteenthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
+          <Helmet>
+            <title>Сервус Винница - строительство каркасных домов в Виннице и области</title>
+            <meta name="description" content="Офис Сервус Винница находится по адресу Хмельницкое Шоссе, 23 ☎&nbsp;тел.&nbsp;+38&nbsp;(096)&nbsp;888-50-50" />
+          </Helmet>
           <Grid>
             <div className="thirteenth-section">
               <h1 className="text-center">Сервус<span className="text-highlight"> Винница</span></h1>

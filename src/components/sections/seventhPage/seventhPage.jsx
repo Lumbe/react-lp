@@ -13,6 +13,7 @@ import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import DefaultModal from "../../common/defaultModal";
 import PriceForm from "../../common/forms/priceForm";
 import ReactGA from 'react-ga'
+import Helmet from 'react-helmet'
 
 class SeventhPage extends React.Component {
   constructor(props) {
@@ -91,6 +92,10 @@ class SeventhPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
+          <Helmet>
+            <title>Дом под ключ за 3 месяца</title>
+            <meta name="description" lang="en" content="Строительство дома под ключ в кратчайшие сроки возможно благодаря адаптированной технологии Сервус ►Видео строительства дома " />
+          </Helmet>
           <Grid>
             <div className="seventh-section">
               <Row className="vertical-align">

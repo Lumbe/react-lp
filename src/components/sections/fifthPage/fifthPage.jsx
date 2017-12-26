@@ -11,6 +11,7 @@ import FontAwesome from 'react-fontawesome'
 import YouTube from 'react-youtube'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount";
 import ReactGA from 'react-ga'
+import Helmet from 'react-helmet'
 
 class FifthPage extends React.Component {
   constructor(props) {
@@ -76,6 +77,10 @@ class FifthPage extends React.Component {
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
+          <Helmet>
+            <title>Канадская технология строительства каркасных домов в Виннице</title>
+            <meta name="description" lang="en" content="Для строительства каркасного энергосберегающего дома используется адаптированная канадская технология, основные составляющие - ❶ Обработанный брус ❷ СИП-панель ❸ Крыши Mitek™" />
+          </Helmet>
           <Grid>
             <div className="fifth-section">
               <Row>

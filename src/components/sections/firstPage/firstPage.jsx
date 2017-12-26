@@ -42,7 +42,11 @@ class FirstPage extends React.Component {
         <Page>
           <ScrollToTopOnMount/>
           <Helmet>
-            <title>Строительство энергосберегающих домов и коттеджей под ключ</title>
+            <title>Каркасные дома и коттеджи под ключ в Виннице</title>
+            <meta
+              name="description"
+              content='Строим каркасные дома под ключ за 3 месяца в Виннице и Винницкой области. Более 1300 построенных домов, гарантия от производителя - 10 лет'
+            />
           </Helmet>
           <Grid>
             <Col md={12}>
