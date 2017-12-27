@@ -17,6 +17,7 @@ import FontAwesome from'react-fontawesome'
 import IconTooltip from '../common/iconTooltip'
 import SuccessMessage from '../common/forms/successMessage'
 import {resetWindowHeight, removeBackgroundImage, removeDarkColorScheme} from "../common/main";
+import Helmet from 'react-helmet'
 
 class ProjectPage extends React.Component {
   constructor(props) {
@@ -28,7 +29,9 @@ class ProjectPage extends React.Component {
     return {
       animateIn: true,
       slug: this.props.match.params.slug,
-      project: {},
+      project: {
+        title: ''
+      },
       submitForm: false
     }
   }
@@ -80,10 +83,17 @@ class ProjectPage extends React.Component {
     }
     const formTitle = <span><span className="text-highlight">Узнайте стоимость</span> строительства
       дома по проекту "{project.title}" {project.area}кв.м.</span>;
+    const metaTitle = this.state.project.title && `${this.state.project.title} ★ проект каркасного дома`;
+    const metaDescription = `⟰&nbsp;Площадь&nbsp;${project.area}кв.м. ✚&nbsp;Стоимость строительства ✍&nbsp;${project.description}`;
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={1000} classNames="fade">
         <Page>
           <ScrollToTopOnMount/>
+          <Helmet
+          >
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+          </Helmet>
           <div className="project-page">
             <Grid>
               <div className="menu-divider"/>

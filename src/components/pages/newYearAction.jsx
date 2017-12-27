@@ -6,6 +6,7 @@ import ScrollToTopOnMount from '../common/scrollToTopOnMount'
 import Page from '../layout/page'
 import './newYearAction.css'
 import {removeBackgroundImage, removeDarkColorScheme} from '../common/main'
+import Helmet from 'react-helmet'
 
 class NewYearAction extends React.Component {
   componentDidMount() {
@@ -16,6 +17,10 @@ class NewYearAction extends React.Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>Новогодние подарки от Сервус</title>
+          <meta name="description" content="Акция от компании Сервус Винница к Новому Году 2018 - действует до 31 декабря 2017 года"/>
+        </Helmet>
         <FadeTransition shouldShow={true} timeout={1000} classNames="fade">
           <Page>
             <Grid>

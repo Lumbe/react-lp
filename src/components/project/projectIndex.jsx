@@ -15,6 +15,7 @@ import gaException from '../common/analytics/gaException'
 import Filter from './filter/filter'
 import {removeDarkColorScheme} from "../common/main";
 import InputMask from 'react-input-mask'
+import Helmet from 'react-helmet'
 
 class ProjectIndex extends React.Component {
   constructor(props) {
@@ -129,6 +130,10 @@ class ProjectIndex extends React.Component {
     return (
         <Page>
           <ScrollToTopOnMount/>
+          <Helmet>
+            <title>⟰ Проекты каркасных домов и коттеджей</title>
+            <meta name="description" content="Большой выбор практичных проектов каркасных ⟰ домов в Виннице ★&nbsp;3D&nbsp;визуализация и этажные планы ★&nbsp;Множество архитектурных стилей, включая хай-тек ★&nbsp;Расчет стоимости строительства проекта" />
+          </Helmet>
           <div className="project-index">
             <Grid>
               <Row>

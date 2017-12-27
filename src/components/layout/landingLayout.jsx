@@ -78,8 +78,8 @@ class LandingLayout extends React.Component {
       <Route {...rest} render={matchProps => (
         <div id="landing-section">
           <Helmet
-            defaultTitle="Строительство домов и коттеджей под ключ - Сервус Винница"
-            titleTemplate="%s | Сервус Винница"
+            defaultTitle="Строительство домов и коттеджей под ключ"
+            titleTemplate="%s - Сервус Винница"
           >
             <script type="application/ld+json">{`
                 {

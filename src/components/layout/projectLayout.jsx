@@ -18,8 +18,7 @@ class ProjectLayout extends React.Component {
     return <Route {...rest} render={matchProps => (
       <div>
         <Helmet
-          defaultTitle="Строительство домов и коттеджей под ключ - Сервус Винница"
-          titleTemplate="%s - cтроительная компания Сервус Винница"
+          titleTemplate="%s - Сервус Винница"
         />
         <Header inverse={this.props.inverse}/>
         <Component {...matchProps} />
