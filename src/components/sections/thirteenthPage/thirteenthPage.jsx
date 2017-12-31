@@ -79,6 +79,7 @@ class ThirteenthPage extends React.Component {
                 домов в Украине и Европе, большой выбор типовых проектов. Индивидуальное проектирование
                 энергоэффективного дома.
               </p>
+              <p style={{color: '#dd3333'}}>1, 2 и 8 января - выходные дни</p>
               <Row>
                 <Col md={4} mdPush={8} sm={12} xs={12}>
                   <h2 className="text-center hidden-medium"><span className="text-highlight">Контакты</span></h2>
