@@ -135,7 +135,6 @@ class TenthPage extends React.Component {
                     Узнать предварительную стоимость строительства дома Сервус можно заполнив форму. В таблице ниже приведена
                     только стоимость домокомплекта (без монтажа)
                   </p>
-                  <p className="action">С 1 декабря до 31 декабря 2017г. действует акция "Новогодние подарки от Сервус" <Link to="new-year-action">Узнать подробности</Link></p>
                   {/*<ul className="unordered-list">*/}
                       {/*<li>*/}
                         {/*<Link className="simple-link" to="own-project">*/}
@@ -194,7 +193,7 @@ class TenthPage extends React.Component {
                           <td>107 у.е.</td>
                           <td>110 у.е.</td>
                           <td>115 у.е.</td>
-                          <td><div className="old-price">115у.е.</div>110 у.е.</td>
+                          <td>115у.е.</td>
                         </tr>
                         <tr>
                           <td>от 300кв.м.</td>
@@ -240,7 +239,7 @@ class TenthPage extends React.Component {
                           <td>117 у.е.</td>
                           <td>120 у.е.</td>
                           <td>125 у.е.</td>
-                          <td><div className="old-price">125у.е.</div>120 у.е.</td>
+                          <td>125у.е.</td>
                         </tr>
                         <tr>
                           <td>от 300кв.м.</td>

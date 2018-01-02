@@ -86,7 +86,7 @@ class LandingLayout extends React.Component {
                 "@context": "http://schema.org",
                 "@type": "Organization",
                 "url": "https://servus.vn.ua",
-                "logo": "https://servus.vn.ua/logo.jpg"
+                "logo": "https://servus.vn.ua/logo.jpg",
                 "name": "Сервус Винница",
                 "contactPoint": {
                   "@type": "ContactPoint",
