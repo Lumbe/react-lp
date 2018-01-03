@@ -44,8 +44,26 @@ class FirstPage extends React.Component {
             <title>Каркасные дома и коттеджи под ключ в Виннице</title>
             <meta
               name="description"
-              content='Строим каркасные дома под ключ за 3 месяца в Виннице и Винницкой области. Более 1300 построенных домов, гарантия от производителя - 10 лет'
+              content='Строим каркасные дома под ключ за ❸ месяца в Виннице и Винницкой области ✔&nbsp;Более 1300⬆ построенных домов ✔&nbsp;Гарантия от производителя - 10 лет ✔&nbsp;Разработка проекта - бесплатно!'
             />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "url": "https://servus.vn.ua",
+                "logo": "https://servus.vn.ua/logo.jpg",
+                "name": "Сервус Винница",
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+38(096)888-50-50",
+                  "contactType": "Customer service"
+                },
+                "sameAs": [
+                  "https://www.facebook.com/servuspodillya",
+                  "https://www.youtube.com/channel/UCCOcPBZcf7h8Mz0bYR3lg5Q"
+                ]
+              }
+            `}</script>
           </Helmet>
           <Grid>
             <Col md={12}>

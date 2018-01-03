@@ -41,6 +41,28 @@ class SixthPage extends React.Component {
           <Helmet>
             <title>Этапы строительства каркасного дома</title>
             <meta name="description" content="Этапы строительства ⟰ каркасного дома в Виннице с компанией Сервус - от ✍&nbsp;подписания  договора  до заселения в дом ✔" />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://servus.vn.ua",
+                    "name": "Сервус Винница",
+                    "image": "https://servus.vn.ua/logo.jpg"
+                  }
+                },{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://servus.vn.ua/build-stages",
+                    "name": "Этапы выполняемых работ"
+                  }
+                }]
+              }
+            `}</script>
           </Helmet>
           <Grid>
             <div className="sixth-section">

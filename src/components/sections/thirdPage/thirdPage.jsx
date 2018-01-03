@@ -76,6 +76,28 @@ class ThirdPage extends React.Component {
               name="description"
               content='Спроектировано и построено ❶ Ферма ❷ Развлекательный комплекс с гостиницей ❸ Общеобразовательная школа и детский сад ►Видео с объектов'
             />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://servus.vn.ua",
+                    "name": "Сервус Винница",
+                    "image": "https://servus.vn.ua/logo.jpg"
+                  }
+                },{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://servus.vn.ua/commercial-buildings",
+                    "name": "Проектируем и строим большие объекты"
+                  }
+                }]
+              }
+            `}</script>
           </Helmet>
           <Grid>
             <div className="third-section">

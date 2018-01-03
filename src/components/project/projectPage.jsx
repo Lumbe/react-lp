@@ -93,6 +93,35 @@ class ProjectPage extends React.Component {
           >
             <title>{metaTitle}</title>
             <meta name="description" content={metaDescription} />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://servus.vn.ua",
+                    "name": "Сервус Винница",
+                    "image": "https://servus.vn.ua/logo.jpg"
+                  }
+                },{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://servus.vn.ua/projects",
+                    "name": "Проекты домов и коттеджей"
+                  }
+                },{
+                  "@type": "ListItem",
+                  "position": 3,
+                  "item": {
+                    "@id": "https://servus.vn.ua/${project.slug}",
+                    "name": "Проект ${project.title}"
+                  }
+                }]
+              }
+            `}</script>
           </Helmet>
           <div className="project-page">
             <Grid>

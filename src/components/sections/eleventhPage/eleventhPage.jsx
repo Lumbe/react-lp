@@ -88,6 +88,28 @@ class EleventhPage extends React.Component {
           <Helmet>
             <title>Каркасные дома - отзывы владельцев</title>
             <meta name="description" content="Видео-отзывы о ✺ энергосберегающих каркасных домах из СИП-панелей от владельцев" />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://servus.vn.ua",
+                    "name": "Сервус Винница",
+                    "image": "https://servus.vn.ua/logo.jpg"
+                  }
+                },{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://servus.vn.ua/reviews",
+                    "name": "Отзывы"
+                  }
+                }]
+              }
+            `}</script>
           </Helmet>
           <Grid>
             <div className="eleventh-section">

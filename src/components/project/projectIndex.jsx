@@ -133,6 +133,28 @@ class ProjectIndex extends React.Component {
           <Helmet>
             <title>⟰ Проекты каркасных домов и коттеджей</title>
             <meta name="description" content="Большой выбор практичных проектов каркасных ⟰ домов в Виннице ★&nbsp;3D&nbsp;визуализация и этажные планы ★&nbsp;Множество архитектурных стилей, включая хай-тек ★&nbsp;Расчет стоимости строительства проекта" />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://servus.vn.ua",
+                    "name": "Сервус Винница",
+                    "image": "https://servus.vn.ua/logo.jpg"
+                  }
+                },{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://servus.vn.ua/projects",
+                    "name": "Проекты домов и коттеджей"
+                  }
+                }]
+              }
+            `}</script>
           </Helmet>
           <div className="project-index">
             <Grid>

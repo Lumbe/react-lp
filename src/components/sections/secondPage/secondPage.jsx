@@ -68,6 +68,28 @@ class SecondPage extends React.Component {
               name="description"
               content='Официальное представительство компании Сервус в Виннице и Винницкой области. Строим дома и коттеджи под ключ за 3 месяца'
             />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://servus.vn.ua",
+                    "name": "Сервус Винница",
+                    "image": "https://servus.vn.ua/logo.jpg"
+                  }
+                },{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://servus.vn.ua/about",
+                    "name": "О компании"
+                  }
+                }]
+              }
+            `}</script>
           </Helmet>
           <Grid>
             <div className="second-section">

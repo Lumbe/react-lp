@@ -48,6 +48,28 @@ class FourthPage extends React.Component {
           <Helmet>
             <title>Каркасные дома из СИП-панелей в Виннице по Европейским стандартам</title>
             <meta name="description" content="Единые стандарты строительства каркасного дома для Винницы и Европейских городов ⚘Соблюдены строгие требования ЕС к энергосберегающим свойствам домов ❂" />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://servus.vn.ua",
+                    "name": "Сервус Винница",
+                    "image": "https://servus.vn.ua/logo.jpg"
+                  }
+                },{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://servus.vn.ua/eu-certificates",
+                    "name": "Европейские стандарты качества"
+                  }
+                }]
+              }
+            `}</script>
           </Helmet>
           <Grid>
             <div className="fourth-section"><Row>

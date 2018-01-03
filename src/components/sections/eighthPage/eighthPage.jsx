@@ -55,6 +55,28 @@ class EighthPage extends React.Component {
           <Helmet>
             <title>Проекты энергосберегающих домов и коттеджей</title>
             <meta name="description" content="При строительстве дома первым делом нужно выбрать ⟰проект. Большой выбор оригинальных проектов от наших архитекторов Ꙭ смотрите в каталоге " />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://servus.vn.ua",
+                    "name": "Сервус Винница",
+                    "image": "https://servus.vn.ua/logo.jpg"
+                  }
+                },{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://servus.vn.ua/house-projects",
+                    "name": "Проекты домов и коттеджей"
+                  }
+                }]
+              }
+            `}</script>
           </Helmet>
           <Grid>
             <div className="eighth-section">

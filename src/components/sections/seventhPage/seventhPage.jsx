@@ -95,6 +95,28 @@ class SeventhPage extends React.Component {
           <Helmet>
             <title>Дом под ключ за 3 месяца</title>
             <meta name="description" lang="en" content="Строительство дома под ключ в кратчайшие сроки возможно благодаря адаптированной технологии Сервус ►Видео строительства дома " />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://servus.vn.ua",
+                    "name": "Сервус Винница",
+                    "image": "https://servus.vn.ua/logo.jpg"
+                  }
+                },{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://servus.vn.ua/rapid-building",
+                    "name": "Дом под ключ за 3 месяца"
+                  }
+                }]
+              }
+            `}</script>
           </Helmet>
           <Grid>
             <div className="seventh-section">

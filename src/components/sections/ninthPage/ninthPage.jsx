@@ -32,6 +32,28 @@ class NinthPage extends React.Component {
           <Helmet>
             <title>Преимущества каркасных домов из СИП-панелей</title>
             <meta name="description" content="Каркасные дома из СИП-панелей ✭&nbsp;Быстровозводимые ✭&nbsp;Энергосберегающие ✭&nbsp;Сейсмостойкие ✭ Экологичные ✭ Огнеупорные ✭ Можно строить в любой сезон" />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://servus.vn.ua",
+                    "name": "Сервус Винница",
+                    "image": "https://servus.vn.ua/logo.jpg"
+                  }
+                },{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://servus.vn.ua/advantages",
+                    "name": "Почему стоит выбрать дом"
+                  }
+                }]
+              }
+            `}</script>
           </Helmet>
           <Grid>
             <div className="ninth-section vertical-align">

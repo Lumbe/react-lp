@@ -81,24 +81,6 @@ class LandingLayout extends React.Component {
             defaultTitle="Строительство домов и коттеджей под ключ"
             titleTemplate="%s - Сервус Винница"
           >
-            <script type="application/ld+json">{`
-              {
-                "@context": "http://schema.org",
-                "@type": "Organization",
-                "url": "https://servus.vn.ua",
-                "logo": "https://servus.vn.ua/logo.jpg",
-                "name": "Сервус Винница",
-                "contactPoint": {
-                  "@type": "ContactPoint",
-                  "telephone": "+38(096)888-50-50",
-                  "contactType": "Customer service"
-                },
-                "sameAs": [
-                  "https://www.facebook.com/servuspodillya",
-                  "https://www.youtube.com/channel/UCCOcPBZcf7h8Mz0bYR3lg5Q"
-                ]
-              }
-            `}</script>
           </Helmet>
           <Header inverse={this.props.inverse}/>
           <StaticFrame/>

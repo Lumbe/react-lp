@@ -124,6 +124,28 @@ class TenthPage extends React.Component {
           <Helmet>
             <title>Каркасный дом - цена строительства</title>
             <meta name="description" content="Стоимость строительства ⟰каркасного дома, включая работы по обустройству фундамента + монтаж каркаса дома специалистами компании Сервус ✪" />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://servus.vn.ua",
+                    "name": "Сервус Винница",
+                    "image": "https://servus.vn.ua/logo.jpg"
+                  }
+                },{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://servus.vn.ua/price",
+                    "name": "Цены на строительство"
+                  }
+                }]
+              }
+            `}</script>
           </Helmet>
           <Grid>
             <div className="tenth-section">

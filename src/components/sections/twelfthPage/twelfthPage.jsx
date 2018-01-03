@@ -170,6 +170,28 @@ class TwelfthPage extends React.Component {
           <Helmet>
             <title>Расчет стоимости строительсва дома по проекту</title>
             <meta name="description" content="Присылайте ваш проект ⟰дома для расчета стоимости строительства по ✹&nbsp;энергосберегающей технологии Сервус" />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://servus.vn.ua",
+                    "name": "Сервус Винница",
+                    "image": "https://servus.vn.ua/logo.jpg"
+                  }
+                },{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://servus.vn.ua/own-project",
+                    "name": "Свой проект"
+                  }
+                }]
+              }
+            `}</script>
           </Helmet>
           <Grid>
             <div className="twelfth-section">

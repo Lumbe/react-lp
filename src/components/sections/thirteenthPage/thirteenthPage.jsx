@@ -69,6 +69,25 @@ class ThirteenthPage extends React.Component {
           <Helmet>
             <title>Сервус Винница - строительство каркасных домов в Виннице и области</title>
             <meta name="description" content="Офис Сервус Винница находится по адресу Хмельницкое Шоссе, 23 ☎&nbsp;тел.&nbsp;+38&nbsp;(096)&nbsp;888-50-50" />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "url": "https://servus.vn.ua",
+                "logo": "https://servus.vn.ua/logo.jpg",
+                "name": "Сервус Винница",
+                "email": "office@servus.vn.ua",
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+38(096)888-50-50",
+                  "contactType": "Customer service"
+                },
+                "sameAs": [
+                  "https://www.facebook.com/servuspodillya",
+                  "https://www.youtube.com/channel/UCCOcPBZcf7h8Mz0bYR3lg5Q"
+                ]
+              }
+            `}</script>
           </Helmet>
           <Grid>
             <div className="thirteenth-section">

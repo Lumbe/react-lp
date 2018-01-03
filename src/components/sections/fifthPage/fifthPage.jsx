@@ -80,6 +80,28 @@ class FifthPage extends React.Component {
           <Helmet>
             <title>Канадская технология строительства каркасных домов в Виннице</title>
             <meta name="description" lang="en" content="Для строительства каркасного энергосберегающего дома используется адаптированная канадская технология, основные составляющие - ❶ Обработанный брус ❷ СИП-панель ❸ Крыши Mitek™" />
+            <script type="application/ld+json">{`
+              {
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://servus.vn.ua",
+                    "name": "Сервус Винница",
+                    "image": "https://servus.vn.ua/logo.jpg"
+                  }
+                },{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://servus.vn.ua/building-technology",
+                    "name": "Технологии строительства"
+                  }
+                }]
+              }
+            `}</script>
           </Helmet>
           <Grid>
             <div className="fifth-section">
