@@ -81,6 +81,7 @@ class LandingLayout extends React.Component {
             defaultTitle="Строительство домов и коттеджей под ключ"
             titleTemplate="%s - Сервус Винница"
           >
+            <meta name="theme-color" content="#58b749" />
           </Helmet>
           <Header inverse={this.props.inverse}/>
           <StaticFrame/>

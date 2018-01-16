@@ -47,6 +47,7 @@ class StaticFrame extends React.Component {
           <ReactGA.OutboundLink
             eventLabel="facebook"
             to="https://www.facebook.com/servuspodillya"
+            rel="noopener"
             target="_blank"
             className="facebook social-item"
           >
@@ -59,6 +60,7 @@ class StaticFrame extends React.Component {
             eventLabel="youtube"
             to="https://www.youtube.com/channel/UCCOcPBZcf7h8Mz0bYR3lg5Q"
             target="_blank"
+            rel="noopener"
             className="youtube social-item"
           >
             <i className="fa fa-youtube-play fa-lg"/>

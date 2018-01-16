@@ -19,7 +19,9 @@ class ProjectLayout extends React.Component {
       <div>
         <Helmet
           titleTemplate="%s - Сервус Винница"
-        />
+        >
+          <meta name="theme-color" content="#58b749" />
+        </Helmet>
         <Header inverse={this.props.inverse}/>
         <Component {...matchProps} />
         <DefaultFooter/>
