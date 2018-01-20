@@ -41,6 +41,7 @@ class BaseApi {
     } else if (error.response && error.response.data.errors) {
       throw error
     } else {
+      console.log('unhandled error', error);
       throw error
     }
   }
