@@ -1,6 +1,6 @@
 import React from 'react'
 import './eleventhPage.css'
-import {setBackgroundImage, removeBackgroundImage} from "../../common/main";
+import {setBackgroundImage, removeBackgroundImage, removeDarkColorScheme} from "../../common/main";
 import {Grid, Image, Modal, Button} from 'react-bootstrap'
 import backgroundImage from './bg-screen11.jpg'
 import YouTube from 'react-youtube'
@@ -48,6 +48,7 @@ class EleventhPage extends React.Component {
 
   componentWillMount() {
     setBackgroundImage(backgroundImage);
+    removeDarkColorScheme();
   }
 
 
