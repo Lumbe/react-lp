@@ -34,14 +34,16 @@
     "react-transition-group": "^2.2.1",
     "react-youtube": "^7.4.0",
     "recompose": "^0.26.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "react-snap": "^1.10.0"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
-    "build": "npm run build-css && react-scripts build && react-snap",
+    "generate-sw": "sw-precache --root=build --config scripts/sw-precache-config.js && uglifyjs build/service-worker.js -o build/service-worker.js",
+    "build": "npm run build-css && react-scripts build && react-snap && yarn run generate-sw",
     "test": "react-scripts test --env=jsdom",
     "predeploy": "yarn build",
     "deploy": "aws s3 sync build/ s3://$S3_BUCKET",
@@ -52,8 +54,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "eslint": "^3.19.0",
-    "react-router-sitemap": "^1.1.2",
-    "react-snap": "^1.10.0"
+    "react-router-sitemap": "^1.1.2"
   },
   "eslintConfig": {
     "plugins": [
