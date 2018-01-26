@@ -48,7 +48,6 @@ class EleventhPage extends React.Component {
 
   componentWillMount() {
     setBackgroundImage(backgroundImage);
-    removeDarkColorScheme();
   }
 
 

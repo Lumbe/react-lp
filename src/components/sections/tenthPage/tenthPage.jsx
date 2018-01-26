@@ -4,7 +4,6 @@ import backgroundImage from './bg-screen10.jpg'
 import './tenthPage.css'
 import {Tooltip, OverlayTrigger, Table, Tabs, Tab, Grid, Row, Col, Button, FormGroup, Radio, InputGroup, FormControl} from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
-import {Link} from "react-router-dom";
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
 import ScrollToTopOnMount from "../../common/scrollToTopOnMount"
