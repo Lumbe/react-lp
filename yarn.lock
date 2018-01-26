@@ -6138,9 +6138,9 @@ react-slick@^0.15.4:
     object-assign "^4.1.0"
     slick-carousel "^1.6.0"
 
-react-snap@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/react-snap/-/react-snap-1.1.1.tgz#8957beb872d3da24422a7942221bd66ddd349bd8"
+react-snap@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/react-snap/-/react-snap-1.10.0.tgz#d842574e2dc7b55f5bece7b615404dcf72a72d45"
   dependencies:
     clean-css "^4.1.9"
     express "^4.16.1"
@@ -6151,7 +6151,7 @@ react-snap@^1.1.1:
     mkdirp "^0.5.1"
     puppeteer "^0.11.0"
     serve-static "^1.13.1"
-    sourcemapped-stacktrace-node "^2.0.4"
+    sourcemapped-stacktrace-node "^2.1.6"
 
 react-swipeable@^4.0.0:
   version "4.1.0"
@@ -6856,9 +6856,9 @@ source-map@~0.2.0:
   dependencies:
     amdefine ">=0.0.4"
 
-sourcemapped-stacktrace-node@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/sourcemapped-stacktrace-node/-/sourcemapped-stacktrace-node-2.0.4.tgz#63377c3459823b52662850638750ac8cb107ed5d"
+sourcemapped-stacktrace-node@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/sourcemapped-stacktrace-node/-/sourcemapped-stacktrace-node-2.1.6.tgz#7c8d8270d815c213e52f94225b58bf27baaaeb3c"
   dependencies:
     es6-promise "^4.1.1"
     isomorphic-fetch "^2.2.1"
