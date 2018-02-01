@@ -2,7 +2,7 @@ import React from 'react'
 import {setBackgroundImage, removeBackgroundImage, setDarkColorScheme, removeDarkColorScheme} from "../../common/main";
 import backgroundImage from './bg-screen10.jpg'
 import './tenthPage.css'
-import {Tooltip, OverlayTrigger, Table, Tabs, Tab, Grid, Row, Col, Button, FormGroup, Radio, InputGroup, FormControl} from 'react-bootstrap'
+import {Tooltip, OverlayTrigger, Table, Grid, Row, Col, Button, FormGroup, Radio, InputGroup, FormControl, Modal} from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import FadeTransition from '../../common/fade'
 import Page from '../../layout/page'
@@ -24,6 +24,7 @@ class TenthPage extends React.Component {
     return {
       pageId: 10,
       colorScheme: "dark",
+      showModal: false,
       form: {
         floors: '',
         area: '',
@@ -111,11 +112,19 @@ class TenthPage extends React.Component {
     }
   }
 
+  openModal() {
+    this.setState({showModal: true});
+   }
+
+  closeModal() {
+    this.setState({showModal: false});
+  }
+
   render() {
-    const standartTooltip = <Tooltip id="standart-tooltip">Толщина стены - 160мм<br/>Толщина OSB - 10мм<br/>Высота стены - 2,8м</Tooltip>;
-    const premiumTooltip = <Tooltip id="premium-tooltip">Толщина стены - 164мм<br/>Толщина OSB - 12мм<br/>Высота стены - 2,8м</Tooltip>;
-    const premiumPlusTooltip = <Tooltip id="premium-plus-tooltip">Толщина стены - 164мм<br/>Толщина OSB - 12мм<br/>Высота стены - 3,1м</Tooltip>;
-    const deluxTooltip = <Tooltip id="delux-tooltip">Использование материала Neopor<br/>Толщина стены - 164мм<br/>Толщина OSB - 12мм<br/>Высота стены - 2,8м</Tooltip>;
+    const economTooltip = <Tooltip id="standart-tooltip"><FontAwesome name="star"/> Толщина стены - 160мм<br/><FontAwesome name="star"/> Толщина OSB - 10мм<br/><FontAwesome name="star"/> Высота стены - 2,5м</Tooltip>;
+    const standartTooltip = <Tooltip id="premium-tooltip"><FontAwesome name="star"/> Толщина стены - 164мм<br/><FontAwesome name="star"/> Толщина OSB - 12мм<br/><FontAwesome name="star"/> Высота стены - 2,8м</Tooltip>;
+    const standartServusTooltip = <Tooltip id="premium-plus-tooltip"><FontAwesome name="star"/> Графитовый пенополистирол<br/><FontAwesome name="star"/> Толщина стены - 164мм<br/><FontAwesome name="star"/> Толщина OSB - 12мм<br/><FontAwesome name="star"/> Высота стены - 3,1м</Tooltip>;
+    const euroServusTooltip = <Tooltip id="delux-tooltip"><FontAwesome name="star"/> Графитовый пенополистирол<br/><FontAwesome name="star"/> Толщина стены - 170мм<br/><FontAwesome name="star"/> Толщина OSB - 15мм<br/><FontAwesome name="star"/> Высота стены - 2,8м</Tooltip>;
     return (
       <FadeTransition shouldShow={this.state.animateIn} timeout={650} classNames="fade">
         <Page>
@@ -176,100 +185,74 @@ class TenthPage extends React.Component {
                       {/*<FontAwesome name="angle-right"/>*/}
                     {/*</Button>*/}
                   {/*</Link>*/}
-                  <Tabs defaultActiveKey={1} id="price-tabs">
-                    <Tab eventKey={1} title="Одноэтажные дома">
-                      <Table className="pricing" responsive>
-                        <thead>
-                        <tr>
-                          <th>Комплектация</th>
-                          <th>
-                            <OverlayTrigger placement="bottom" overlay={standartTooltip}>
-                              <span>Стандарт</span>
-                            </OverlayTrigger>
-                          </th>
-                          <th>
-                            <OverlayTrigger placement="bottom" overlay={premiumTooltip}>
-                              <span>Премиум</span>
-                            </OverlayTrigger>
-                          </th>
-                          <th>
-                            <OverlayTrigger placement="bottom" overlay={premiumPlusTooltip}>
-                              <span>Премиум ПЛЮС</span>
-                            </OverlayTrigger>
-                          </th>
-                          <th>
-                            <OverlayTrigger placement="bottom" overlay={deluxTooltip}>
-                              <span>ДеЛюкс</span>
-                            </OverlayTrigger>
-                          </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                          <td>до 50кв.м.</td>
-                          <td colSpan={4} className="text-center">рассчитывается индивидуально</td>
-                        </tr>
-                        <tr>
-                          <td>50-300кв.м.</td>
-                          <td>107 у.е.</td>
-                          <td>110 у.е.</td>
-                          <td>115 у.е.</td>
-                          <td>115у.е.</td>
-                        </tr>
-                        <tr>
-                          <td>от 300кв.м.</td>
-                          <td colSpan={4} className="text-center">рассчитывается индивидуально</td>
-                        </tr>
-                        </tbody>
-                      </Table>
-                    </Tab>
-                    <Tab eventKey={2} title="Двухэтажные дома">
-                      <Table className="pricing" responsive>
-                        <thead>
-                        <tr>
-                          <th>Комплектация</th>
-                          <th>
-                            <OverlayTrigger placement="bottom" overlay={standartTooltip}>
-                              <span>Стандарт</span>
-                            </OverlayTrigger>
-                          </th>
-                          <th>
-                            <OverlayTrigger placement="bottom" overlay={premiumTooltip}>
-                              <span>Премиум</span>
-                            </OverlayTrigger>
-                          </th>
-                          <th>
-                            <OverlayTrigger placement="bottom" overlay={premiumPlusTooltip}>
-                              <span>Премиум ПЛЮС</span>
-                            </OverlayTrigger>
-                          </th>
-                          <th>
-                            <OverlayTrigger placement="bottom" overlay={deluxTooltip}>
-                              <span>ДеЛюкс</span>
-                            </OverlayTrigger>
-                          </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                          <td>до 50кв.м.</td>
-                          <td colSpan={4} className="text-center">рассчитывается индивидуально</td>
-                        </tr>
-                        <tr>
-                          <td>50-300кв.м.</td>
-                          <td>117 у.е.</td>
-                          <td>120 у.е.</td>
-                          <td>125 у.е.</td>
-                          <td>125у.е.</td>
-                        </tr>
-                        <tr>
-                          <td>от 300кв.м.</td>
-                          <td colSpan={4} className="text-center">рассчитывается индивидуально</td>
-                        </tr>
-                        </tbody>
-                      </Table>
-                    </Tab>
-                  </Tabs>
+                  <Table className="pricing" responsive>
+                    <thead>
+                    <tr>
+                      <th>Комплектация</th>
+                      <th>
+                        <OverlayTrigger placement="top" overlay={economTooltip}>
+                          <span>Эконом</span>
+                        </OverlayTrigger>
+                      </th>
+                      <th>
+                        <OverlayTrigger placement="top" overlay={standartTooltip}>
+                          <span>Стандарт</span>
+                        </OverlayTrigger>
+                      </th>
+                      <th>
+                        <OverlayTrigger placement="top" overlay={standartServusTooltip}>
+                          <span>Стандарт Сервус</span>
+                        </OverlayTrigger>
+                      </th>
+                      <th>
+                        <OverlayTrigger placement="top" overlay={euroServusTooltip}>
+                          <span>Евро Сервус</span>
+                        </OverlayTrigger>
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Одноэтажные дома</td>
+                        <td>95 у.е.</td>
+                        <td>125 у.е.</td>
+                        <td>130 у.е.</td>
+                        <td>165.е.</td>
+                      </tr>
+                      <tr>
+                        <td>Двухэтажные дома</td>
+                        <td>105 у.е.</td>
+                        <td>135 у.е.</td>
+                        <td>140 у.е.</td>
+                        <td>175 у.е.</td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                  
+                  <Button bsStyle="link" className="dashed-link" onClick={this.openModal.bind(this)}>Характеристики комплектаций</Button>
+                  <Modal
+                    dialogClassName="default-modal"
+                    show={this.state.showModal}
+                    onHide={this.closeModal.bind(this)}>
+                    <Modal.Header>
+                      <a onClick={this.closeModal.bind(this)} className="close-button"><FontAwesome name="times"/></a>
+                      <Modal.Title>Характеристики комплектаций Сервус</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <ul>
+                        <li><b>ЭКОНОМ</b> — доступное жилье, подходит для дачных домиков</li>
+                        <li><b>СТАНДАРТ</b> — стандарт строительства домов из СИП-панелей</li>
+                        <li><b>СТАНДАРТ СЕРВУС</b>  — домокомплект на основе утеплителя из графитового пенополистирола с улучшенными энергосберегающими характеристиками. <b>Высота потолка увеличена до 3,1м</b></li>
+                        <li><b>ЕВРО СЕРВУС</b> — домокомплект на основе утеплителя из графитового пенополистирола с улучшенными энергосберегающими характеристиками. <b>Толщина стеновой панели увеличена до 170мм</b></li>
+                      </ul>
+                      <b>Доп.информация</b>
+                      <ul>
+                        <li>Стоимость монтажных работ составляет 800грн/м.кв.</li>
+                        <li>Стоимость  двухэтажных домов площадью меньше 90м.кв. увеличивается на 10%</li>
+                        <li>Дома площадью больше 300м.кв. рассчитываются индивидуально.</li>
+                      </ul>
+                    </Modal.Body>
+                  </Modal>
                 </Col>
                 <Col md={6} sm={12} xs={12}>
                   <div className="form-wrapper">
