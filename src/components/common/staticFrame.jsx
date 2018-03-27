@@ -46,16 +46,22 @@ class StaticFrame extends React.Component {
         <div className="social-media">
           <ReactGA.OutboundLink
             eventLabel="facebook"
-            to="https://www.facebook.com/servuspodillya"
+            to="https://www.facebook.com/servus.vinnitsa"
             rel="noopener"
             target="_blank"
             className="facebook social-item"
           >
             <i className="fa fa-facebook fa-lg"/>
           </ReactGA.OutboundLink>
-          <a className="instagram social-item">
+          <ReactGA.OutboundLink
+            eventLabel="instagram"
+            to="https://www.instagram.com/servus.vinnitsa"
+            rel="noopener"
+            target="_blank"
+           className="instagram social-item"
+           >
             <i className="fa fa-instagram fa-lg"/>
-          </a>
+          </ReactGA.OutboundLink>
           <ReactGA.OutboundLink
             eventLabel="youtube"
             to="https://www.youtube.com/channel/UCCOcPBZcf7h8Mz0bYR3lg5Q"
