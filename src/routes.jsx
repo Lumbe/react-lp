@@ -23,7 +23,8 @@ const AsyncTwelfthPage = MyLoadable({ loader: () => import('./components/section
 const AsyncThirteenthPage = MyLoadable({ loader: () => import('./components/sections/thirteenthPage/thirteenthPage') });
 const AsyncProjects = MyLoadable({ loader: () => import('./components/project/projects') });
 const AsyncProjectPage = MyLoadable({ loader: () => import('./components/project/projectPage') });
-const AsyncNewYearAction = MyLoadable({ loader: () => import('./components/pages/newYearAction') });
+const AsyncNewYearAction = MyLoadable({ loader: () => import('./components/pages/newYearAction/newYearAction') });
+const AsyncHalfHouseAction = MyLoadable({ loader: () => import('./components/pages/halfHouseAction/halfHouseAction') });
 
 const AsyncTypography = MyLoadable({ loader: () => import('./components/common/typography') });
 const AsyncNotFound = MyLoadable({ loader: () => import('./components/error/notFound') });
@@ -35,6 +36,7 @@ class Routes extends React.Component {
       <TransitionGroup>
         <Switch>
           <ProjectLayout exact path="/new-year-action" inverse={false} component={AsyncNewYearAction}/>
+          <ProjectLayout exact path="/60-doma-v-podarok-ot-servus" inverse={false} component={AsyncHalfHouseAction}/>
           <LandingLayout exact path="/about" inverse={false} component={AsyncSecondPage}/>
           <LandingLayout exact path="/commercial-buildings" inverse={false} component={AsyncThirdPage}/>
           <LandingLayout exact path="/eu-certificates" inverse={true} component={AsyncFourthPage}/>

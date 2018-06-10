@@ -1,11 +1,11 @@
 import React from 'react'
 import {Image, Grid, Row, Col} from 'react-bootstrap'
 import actionBanner from './action2.jpg'
-import FadeTransition from '../common/fade'
-import ScrollToTopOnMount from '../common/scrollToTopOnMount'
-import Page from '../layout/page'
+import FadeTransition from '../../common/fade'
+import ScrollToTopOnMount from '../../common/scrollToTopOnMount'
+import Page from '../../layout/page'
 import './newYearAction.css'
-import {removeBackgroundImage, removeDarkColorScheme} from '../common/main'
+import {removeBackgroundImage, removeDarkColorScheme} from '../../common/main'
 import Helmet from 'react-helmet'
 
 class NewYearAction extends React.Component {
