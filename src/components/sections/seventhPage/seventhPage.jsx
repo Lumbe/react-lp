@@ -93,8 +93,8 @@ class SeventhPage extends React.Component {
         <Page>
           <ScrollToTopOnMount/>
           <Helmet>
-            <title>Дом под ключ за 3 месяца</title>
-            <meta name="description" lang="en" content="Строительство дома под ключ в кратчайшие сроки возможно благодаря адаптированной технологии Сервус ►Видео строительства дома " />
+            <title>Дома и коттеджи за 3 месяца</title>
+            <meta name="description" lang="en" content="Строительство дома в кратчайшие сроки возможно благодаря адаптированной технологии Сервус ►Видео строительства дома " />
             <script type="application/ld+json">{`
               {
                 "@context": "http://schema.org",
@@ -112,7 +112,7 @@ class SeventhPage extends React.Component {
                   "position": 2,
                   "item": {
                     "@id": "https://servus.vn.ua/rapid-building",
-                    "name": "Дом под ключ за 3 месяца"
+                    "name": "Строим дома и коттеджи за 3 месяца"
                   }
                 }]
               }
@@ -122,7 +122,7 @@ class SeventhPage extends React.Component {
             <div className="seventh-section">
               <Row className="vertical-align">
                 <Col md={6}>
-                  <h1>Строим дома "под ключ"<br/><span className="text-highlight">за 3 месяца</span></h1>
+                  <h1>Строим дома и коттеджи<br/><span className="text-highlight">за 3 месяца</span></h1>
                   <p className="section-description">По европейским стандартам из экологичных материалов</p>
                   <p className="p-highlight">Комплект материалов для строительства дома изготавливается с высокой точностью на заводе, а монтаж конструкции осуществляется
                     на вашем участке. Это дает возможность построить дом в кратчайшие сроки - заселиться можно уже через 3-4 месяца(зависит от
