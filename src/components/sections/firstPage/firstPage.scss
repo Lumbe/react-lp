@@ -2,6 +2,9 @@
 
 .gift-icon {
   color: #dd3333;
+  float: left;
+  margin-top: 5px;
+  margin-left: 10px;
 }
 
 .tree-icon {
@@ -70,6 +73,7 @@
 
 .heading-buttons .nav-justified > li {
   padding: 0 3%;
+  vertical-align: middle;
 }
 
 .heading-buttons .nav-justified > li > a {

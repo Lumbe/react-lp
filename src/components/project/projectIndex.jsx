@@ -282,115 +282,117 @@ class ProjectIndex extends React.Component {
               </Row>
             </Grid>
             <Row>
-              <Grid fluid className="cta-section">
-                <Grid><Row className="cta-row">
-                  <Col md={6}>
-                    <h2><span className="text-highlight">Не нашли</span> подходящий проект?</h2>
-                    <p className="section-description">
-                      Если ваше представление о доме выходят за рамки готовых проектов мы разработаем индивидуальный проект исходя из ваших предпочтений. Воплотим самые смелые архитектурные идеи вместе!
-                    </p>
-                  </Col>
-                  <Col md={6}>
-                    <div className="form-wrapper">
-                      <div className="form-badge">Бесплатно</div>
-                      <h4 className="text-center">Получить консультацию по индивидуальному проектированию</h4>
-                      {this.state.submitForm ?
-                        <SuccessMessage closeModal={this.finishFormSubmission.bind(this)}/>
-                        :
-                        <form className="price-form">
-                          <fieldset disabled={this.state.sending}>
-                            <FormGroup>
+              <div className="cta-section">
+                <Grid>
+                  <Row className="cta-row">
+                    <Col md={6}>
+                      <h2><span className="text-highlight">Не нашли</span> подходящий проект?</h2>
+                      <p className="section-description">
+                        Если ваше представление о доме выходят за рамки готовых проектов мы разработаем индивидуальный проект исходя из ваших предпочтений. Воплотим самые смелые архитектурные идеи вместе!
+                      </p>
+                    </Col>
+                    <Col md={6}>
+                      <div className="form-wrapper">
+                        <div className="form-badge">Бесплатно</div>
+                        <h4 className="text-center">Получить консультацию по индивидуальному проектированию</h4>
+                        {this.state.submitForm ?
+                          <SuccessMessage closeModal={this.finishFormSubmission.bind(this)}/>
+                          :
+                          <form className="price-form">
+                            <fieldset disabled={this.state.sending}>
+                              <FormGroup>
+                                <InputGroup>
+                                  <InputGroup.Addon className="input-icon">
+                                    <FontAwesome name="user" fixedWidth/>
+                                  </InputGroup.Addon>
+                                  <FormControl
+                                    name="name"
+                                    type="text"
+                                    className="input-textfield"
+                                    placeholder="Ваше имя"
+                                    onFocus={this.handleFocus.bind(this)}
+                                    onBlur={this.handleBlur.bind(this)}
+                                    onChange={this.updateFormState.bind(this)}
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <FormGroup>
+                                <InputGroup>
+                                  <InputGroup.Addon className="input-icon">
+                                    <FontAwesome name="phone" fixedWidth/>
+                                  </InputGroup.Addon>
+                                  <InputMask
+                                    name="phone"
+                                    type="phone"
+                                    className="input-textfield form-control"
+                                    placeholder="Ваш телефон"
+                                    onFocus={this.handleFocus.bind(this)}
+                                    onBlur={this.handleBlur.bind(this)}
+                                    onChange={this.updateFormState.bind(this)}
+                                    mask="+38 (099) 999-99-99"
+                                  />
+                                </InputGroup>
+                                {this.state.errors.phone &&
+                                <p className="form-error">{this.state.errors.phone}</p>
+                                }
+                              </FormGroup><FormGroup>
                               <InputGroup>
                                 <InputGroup.Addon className="input-icon">
-                                  <FontAwesome name="user" fixedWidth/>
+                                  <FontAwesome name="envelope" fixedWidth/>
                                 </InputGroup.Addon>
                                 <FormControl
-                                  name="name"
-                                  type="text"
+                                  name="email"
+                                  type="email"
                                   className="input-textfield"
-                                  placeholder="Ваше имя"
+                                  placeholder="Ваш e-mail"
                                   onFocus={this.handleFocus.bind(this)}
                                   onBlur={this.handleBlur.bind(this)}
                                   onChange={this.updateFormState.bind(this)}
                                 />
                               </InputGroup>
+                                {this.state.errors.email &&
+                                <p className="form-error">{this.state.errors.email}</p>
+                                }
                             </FormGroup>
-                            <FormGroup>
-                              <InputGroup>
-                                <InputGroup.Addon className="input-icon">
-                                  <FontAwesome name="phone" fixedWidth/>
-                                </InputGroup.Addon>
-                                <InputMask
-                                  name="phone"
-                                  type="phone"
-                                  className="input-textfield form-control"
-                                  placeholder="Ваш телефон"
-                                  onFocus={this.handleFocus.bind(this)}
-                                  onBlur={this.handleBlur.bind(this)}
-                                  onChange={this.updateFormState.bind(this)}
-                                  mask="+38 (099) 999-99-99"
-                                />
-                              </InputGroup>
-                              {this.state.errors.phone &&
-                              <p className="form-error">{this.state.errors.phone}</p>
-                              }
-                            </FormGroup><FormGroup>
-                            <InputGroup>
-                              <InputGroup.Addon className="input-icon">
-                                <FontAwesome name="envelope" fixedWidth/>
-                              </InputGroup.Addon>
-                              <FormControl
-                                name="email"
-                                type="email"
-                                className="input-textfield"
-                                placeholder="Ваш e-mail"
-                                onFocus={this.handleFocus.bind(this)}
-                                onBlur={this.handleBlur.bind(this)}
-                                onChange={this.updateFormState.bind(this)}
-                              />
-                            </InputGroup>
-                              {this.state.errors.email &&
-                              <p className="form-error">{this.state.errors.email}</p>
-                              }
-                          </FormGroup>
-                            <FormGroup>
-                              <InputGroup>
-                                <InputGroup.Addon className="input-icon">
-                                  <FontAwesome name="commenting-o" fixedWidth/>
-                                </InputGroup.Addon>
-                                <FormControl
-                                  name="message"
-                                  componentClass="textarea"
-                                  className="input-textfield"
-                                  placeholder="Каким бы Вы хотели видеть ваш дом?"
-                                  onFocus={this.handleFocus.bind(this)}
-                                  onBlur={this.handleBlur.bind(this)}
-                                  onChange={this.updateFormState.bind(this)}
-                                />
-                              </InputGroup>
-                              {this.state.errors.message &&
-                              <p className="form-error">{this.state.errors.message}</p>
-                              }
-                            </FormGroup>
-                          </fieldset>
-                        <Button
-                          onClick={this.submitForm.bind(this)}
-                          bsSize="large"
-                          bsStyle="green"
-                          block
-                          disabled={this.state.sending}
-                        >
-                          {this.state.sending ?
-                            <span>Отправляем <FontAwesome name="spinner" spin/></span>
-                            :
-                            'Отправить'
-                          }
-                        </Button>
-                      </form>}
-                    </div>
-                  </Col>
-                </Row></Grid>
-              </Grid>
+                              <FormGroup>
+                                <InputGroup>
+                                  <InputGroup.Addon className="input-icon">
+                                    <FontAwesome name="commenting-o" fixedWidth/>
+                                  </InputGroup.Addon>
+                                  <FormControl
+                                    name="message"
+                                    componentClass="textarea"
+                                    className="input-textfield"
+                                    placeholder="Каким бы Вы хотели видеть ваш дом?"
+                                    onFocus={this.handleFocus.bind(this)}
+                                    onBlur={this.handleBlur.bind(this)}
+                                    onChange={this.updateFormState.bind(this)}
+                                  />
+                                </InputGroup>
+                                {this.state.errors.message &&
+                                <p className="form-error">{this.state.errors.message}</p>
+                                }
+                              </FormGroup>
+                            </fieldset>
+                          <Button
+                            onClick={this.submitForm.bind(this)}
+                            bsSize="large"
+                            bsStyle="green"
+                            block
+                            disabled={this.state.sending}
+                          >
+                            {this.state.sending ?
+                              <span>Отправляем <FontAwesome name="spinner" spin/></span>
+                              :
+                              'Отправить'
+                            }
+                          </Button>
+                        </form>}
+                      </div>
+                    </Col>
+                  </Row>
+                </Grid>
+              </div>
             </Row>
           </div>
         </Page>

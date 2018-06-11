@@ -8,7 +8,6 @@ import './halfHouseAction.css'
 import {removeBackgroundImage, removeDarkColorScheme} from '../../common/main'
 import Helmet from 'react-helmet'
 import YouTube from 'react-youtube'
-import FontAwesome from 'react-fontawesome'
 import {Link} from 'react-router-dom'
 import Countdown from '../../common/countdown'
 

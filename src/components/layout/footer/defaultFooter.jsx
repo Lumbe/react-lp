@@ -42,6 +42,7 @@ export default class DefaultFooter extends React.Component {
   }
 
   render() {
+    const currentYear = new Date().getFullYear();
     return (
       <footer className="default-footer">
         <Grid className="footer">
@@ -72,7 +73,7 @@ export default class DefaultFooter extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col md={12} className="text-center">Сервус Винница 2017</Col>
+            <Col md={12} className="text-center">Сервус Винница {currentYear}</Col>
           </Row>
         </Grid>
         <DefaultModal
