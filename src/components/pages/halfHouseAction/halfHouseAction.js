@@ -75,8 +75,13 @@ class HalfHouseAction extends React.Component {
                 </Col>
                 <Col md={6} sm={6} xs={12}>
                   <div className="countdown-timer text-center">
-                    <h3>До розыгрыша осталось</h3>
-                    <Countdown date="2018-07-11T00:00:00" />
+                    <h3>Трансляция розыгрыша</h3>
+                    {/*<Countdown date="2018-07-11T00:00:00" />*/}
+                    <div>
+                      Прямая трансляция розыгрыша 60% стоимости дома будет происходить на канале YouTube <b>12 июля в 14:00 по Киевскому времени</b>
+                    </div>
+                    <br/>
+                    <div className="btn-action"><a rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/channel/UC945vgyx3C2pMhBYTE6SIPg"><Button bsStyle="danger" bsSize="large">Перейти на YouTube</Button></a></div>
                   </div>
                 </Col>
               </Grid>
