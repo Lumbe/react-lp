@@ -83,16 +83,15 @@ class FirstPage extends React.Component {
                   <LinkContainer className="btn-simple" to="/price">
                     <NavItem eventKey={0.1}>Стоимость</NavItem>
                   </LinkContainer>
-                  <LinkContainer to="/60-doma-v-podarok-ot-servus" className="btn-details">
-                    <NavItem eventKey={0.2}>
-                      <FontAwesome name="gift" className="gift-icon" size="2x"/>
-                      {/*<FontAwesome name="pagelines" className="tree-icon" size="lg"/>*/}
-                      <b> Возвращаем 60% <br/>стоимости дома</b>
-                    </NavItem>
+                  {/* <LinkContainer to="/60-doma-v-podarok-ot-servus" className="btn-details"> */}
+                    {/* <NavItem eventKey={0.2}> */}
+                      {/* <FontAwesome name="gift" className="gift-icon" size="2x"/> */}
+                      {/* <b> Возвращаем 60% <br/>стоимости дома</b> */}
+                    {/* </NavItem> */}
+                  {/* </LinkContainer> */}
+                  <LinkContainer to="/about" className="btn-details">
+                    <NavItem eventKey={0.2}>Подробнее</NavItem>
                   </LinkContainer>
-                  {/*<LinkContainer to="/about" className="btn-details">*/}
-                    {/*<NavItem eventKey={0.2}>Подробнее</NavItem>*/}
-                  {/*</LinkContainer>*/}
                   <LinkContainer className="btn-simple" to="/house-projects">
                     <NavItem eventKey={0.3}>Проекты домов</NavItem>
                   </LinkContainer>

@@ -81,7 +81,7 @@ class HalfHouseAction extends React.Component {
                       Прямая трансляция розыгрыша 60% стоимости дома будет происходить на канале YouTube <b>12 июля в 14:00 по Киевскому времени</b>
                     </div>
                     <br/>
-                    <div className="btn-action"><a rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/channel/UC945vgyx3C2pMhBYTE6SIPg"><Button bsStyle="danger" bsSize="large">Перейти на YouTube</Button></a></div>
+                    <div className="btn-action"><a rel="noopener noreferrer" target="_blank" href="http://www.youtube.com/channel/UC945vgyx3C2pMhBYTE6SIPg"><Button bsStyle="danger" bsSize="large">Перейти на YouTube</Button></a></div>
                   </div>
                 </Col>
               </Grid>
