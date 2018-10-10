@@ -19,18 +19,19 @@ class LandingLayout extends React.Component {
       landing: true,
       pages: {
         1: '',
-        2: 'about',
-        3: 'commercial-buildings',
-        4: 'eu-certificates',
-        5: 'building-technology',
-        6: 'build-stages',
-        7: 'rapid-building',
-        8: 'house-projects',
-        9: 'advantages',
-        10: 'price',
-        11: 'reviews',
-        12: 'own-project',
-        13: 'contacts'
+        2: 'main',
+        3: 'about',
+        4: 'commercial-buildings',
+        5: 'eu-certificates',
+        6: 'building-technology',
+        7: 'build-stages',
+        8: 'rapid-building',
+        9: 'house-projects',
+        10: 'advantages',
+        11: 'price',
+        12: 'reviews',
+        13: 'own-project',
+        14: 'contacts'
       }
 
     }
@@ -61,7 +62,7 @@ class LandingLayout extends React.Component {
   }
 
   goToPage(pageId) {
-    if (pageId > 0 && pageId < 14) {
+    if (pageId > 0 && pageId < 15) {
       let renderPath = "/" + this.state.pages[pageId];
       this.props.history.push(renderPath);
     }

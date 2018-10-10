@@ -8,6 +8,7 @@ import {TransitionGroup} from 'react-transition-group'
 // const AsyncLandingLayout = MyLoadable({ loader: () => import('./components/layout/landingLayout') });
 // const AsyncProjectLayout = MyLoadable({ loader: () => import('./components/layout/projectLayout') });
 
+const AsyncActionPage = MyLoadable({ loader: () => import('./components/sections/actionPage/actionPage') });
 const AsyncFirstPage = MyLoadable({ loader: () => import('./components/sections/firstPage/firstPage') });
 const AsyncSecondPage = MyLoadable({ loader: () => import('./components/sections/secondPage/secondPage') });
 const AsyncThirdPage = MyLoadable({ loader: () => import('./components/sections/thirdPage/thirdPage') });
@@ -52,7 +53,9 @@ class Routes extends React.Component {
           <ProjectLayout exact path="/projects/:slug" inverse={false} component={AsyncProjectPage}/>
           <ProjectLayout exact path="/projects" inverse={true} component={AsyncProjects}/>
           <LandingLayout exact path="/typography" inverse={false} component={AsyncTypography}/>
-          <LandingLayout exact path="/" inverse={true} component={AsyncFirstPage}/>
+          <LandingLayout exact path="/main" inverse={true} component={AsyncFirstPage}/>
+          {/*<LandingLayout exact path="/" inverse={true} component={AsyncFirstPage}/>*/}
+          <LandingLayout exact path="/" inverse={false} component={AsyncActionPage}/>
 
           <LandingLayout inverse={false} component={AsyncNotFound}/>
         </Switch>
