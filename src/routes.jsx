@@ -53,9 +53,9 @@ class Routes extends React.Component {
           <ProjectLayout exact path="/projects/:slug" inverse={false} component={AsyncProjectPage}/>
           <ProjectLayout exact path="/projects" inverse={true} component={AsyncProjects}/>
           <LandingLayout exact path="/typography" inverse={false} component={AsyncTypography}/>
-          <LandingLayout exact path="/main" inverse={true} component={AsyncFirstPage}/>
-          {/*<LandingLayout exact path="/" inverse={true} component={AsyncFirstPage}/>*/}
-          <LandingLayout exact path="/" inverse={false} component={AsyncActionPage}/>
+          {/*<LandingLayout exact path="/main" inverse={true} component={AsyncFirstPage}/>*/}
+          <LandingLayout exact path="/" inverse={true} component={AsyncFirstPage}/>
+          {/*<LandingLayout exact path="/" inverse={false} component={AsyncActionPage}/>*/}
 
           <LandingLayout inverse={false} component={AsyncNotFound}/>
         </Switch>
