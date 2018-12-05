@@ -94,9 +94,9 @@ class FirstPage extends React.Component {
                   {/*</LinkContainer>*/}
                   <LinkContainer to="/new-year-2019" className="btn-details">
                     <NavItem eventKey={0.2}>
-                      <FontAwesome name="gift" className="gift-icon-1" size="lg"/>
-                      <b>Новогодняя Акция</b>
+                      {/*<FontAwesome name="gift" className="gift-icon-1" size="lg"/>*/}
                       <FontAwesome name="tree" className="tree-icon" size="lg"/>
+                      <b>Новогодняя Акция</b>
                     </NavItem>
                   </LinkContainer>
                   <LinkContainer className="btn-simple" to="/house-projects">
