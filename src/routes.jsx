@@ -26,6 +26,7 @@ const AsyncProjects = MyLoadable({ loader: () => import('./components/project/pr
 const AsyncProjectPage = MyLoadable({ loader: () => import('./components/project/projectPage') });
 const AsyncNewYearAction = MyLoadable({ loader: () => import('./components/pages/newYearAction/newYearAction') });
 const AsyncHalfHouseAction = MyLoadable({ loader: () => import('./components/pages/halfHouseAction/halfHouseAction') });
+const AsyncFullHouseAction = MyLoadable({ loader: () => import('./components/pages/fullHouseAction/fullHouseAction') });
 const AsyncNewYear2019 = MyLoadable({ loader: () => import('./components/pages/newYear2019') });
 
 const AsyncTypography = MyLoadable({ loader: () => import('./components/common/typography') });
@@ -39,6 +40,7 @@ class Routes extends React.Component {
         <Switch>
           <ProjectLayout exact path="/new-year-action" inverse={false} component={AsyncNewYearAction}/>
           <ProjectLayout exact path="/new-year-2019" inverse={false} component={AsyncNewYear2019}/>
+          <ProjectLayout exact path="/dom-v-podarok-ot-servus" inverse={false} component={AsyncFullHouseAction}/>
           <ProjectLayout exact path="/60-doma-v-podarok-ot-servus" inverse={false} component={AsyncHalfHouseAction}/>
           <LandingLayout exact path="/about" inverse={false} component={AsyncSecondPage}/>
           <LandingLayout exact path="/commercial-buildings" inverse={false} component={AsyncThirdPage}/>

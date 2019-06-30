@@ -1,0 +1,98 @@
+.full-house-action {
+  .banner-wrapper {
+    //background-color: #fdbd0e;
+    .action-banner {
+      margin: 0 auto;
+    }
+  }
+  .description-section {
+    background: url("./sayagata-400px.png");
+    text-align: center;
+    .description {
+      padding: 5%;
+      font-size: 22px;
+      line-height: 1.4;
+      .head {
+        text-align: center;
+        font-size: 30px;
+        line-height: 1.4;
+      }
+    }
+  }
+  .youtube-section {
+    text-align: center;
+    padding: 40px 0;
+    .youtube-video-wrapper {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .description {
+      margin-top: 40px;
+      padding: 5% 10%;
+      font-size: 22px;
+      line-height: 1.4;
+      .head {
+        text-align: center;
+        font-size: 30px;
+        line-height: 1.4;
+      }
+    }
+  }
+  .action-rules {
+    margin-bottom: 40px;
+    h2 {
+      margin: 40px 0 50px;
+    }
+    ul.rules-list {
+      list-style: none;
+      padding: 0;
+      li {
+        position: relative;
+        padding-left: 1.3em;
+      }
+      li:before {
+        position: relative;
+        content: "\F05D";
+        font-family: FontAwesome;
+        display: inline-block;
+        margin-left: -1.3em;
+        width: 1.3em;
+        font-size: 2.5em;
+        top: 15px;
+        color: #2ecc71;
+      }
+    }
+  }
+  .countdown-timer {
+    background-color: #2ecc71;
+    border-radius: 10px;
+    color: #fff;
+    margin-top: 20px;
+    padding: 0 10% 20px;
+    h3 {
+      margin: 0 0 20px;
+      padding-top: 20px;
+    }
+  }
+  .cta {
+    margin: 20px 0;
+    padding: 40px 20px 60px;
+    background-color: #fdbd0e;
+    color: #fff;
+    .btn-action {
+      margin-top: 30px;
+    }
+  }
+}
+
+// responsive behavior
+
+@media (max-width: 767px) {
+  .half-house-action {
+    .description-section {
+      .description {
+        font-size: 18px;
+      }
+    }
+  }
+}
