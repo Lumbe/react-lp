@@ -66,7 +66,7 @@ class FullHouseAction extends React.Component {
                 <Col md={6} sm={6} xs={12}>
                   <div className="countdown-timer text-center">
                     <h3>До розыгрыша осталось</h3>
-                    <Countdown date="2019-07-31T00:00:00" />
+                    <Countdown date="2019-07-31T15:00:00" />
                     {/*<div>*/}
                       {/*Прямая трансляция розыгрыша 60% стоимости дома будет происходить на канале YouTube <b>12 июля в 14:00 по Киевскому времени</b>*/}
                     {/*</div>*/}

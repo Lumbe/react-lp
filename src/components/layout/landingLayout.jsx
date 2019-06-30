@@ -62,7 +62,7 @@ class LandingLayout extends React.Component {
   }
 
   goToPage(pageId) {
-    if (pageId > 0 && pageId < 15) {
+    if (pageId > 0 && pageId < 14) {
       let renderPath = "/" + this.state.pages[pageId];
       this.props.history.push(renderPath);
     }
