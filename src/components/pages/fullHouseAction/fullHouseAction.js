@@ -1,6 +1,6 @@
 import React from 'react'
 import {Image, Grid, Row, Col, Button} from 'react-bootstrap'
-import actionBanner from './MAIN.jpg'
+import actionBanner from './MAIN-custom-new-3.jpg'
 import FadeTransition from '../../common/fade'
 import ScrollToTopOnMount from '../../common/scrollToTopOnMount'
 import Page from '../../layout/page'
